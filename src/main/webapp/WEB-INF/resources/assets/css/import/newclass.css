@@ -1,0 +1,23 @@
+.lop-day {
+    padding-bottom: 50px;
+    font-size: 12px;
+}
+table td {
+    border: 1px solid #D1D1D1;
+    padding: 4px 5px;
+    vertical-align: middle;
+    font-size: 12px;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+table {
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+.row0 td{
+	background-color: #c2e4a9;
+}

@@ -13,8 +13,10 @@
     <link href="<c:url value="resources/assets/css/import/header.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />" rel="stylesheet" type="text/css"/>
     <link href="<c:url value="resources/assets/css/import/footer.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/assets/css/import/newclass.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/import/sidebar.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/import/style.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/assets/css/import/wage.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/import/home.css"/>" rel="stylesheet">
     <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>" type="text/javascript"></script>
     <script src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>" type="text/javascript"></script>
@@ -32,10 +34,10 @@
         <div id="menu-top">
             <div class="ddsmoothmenu" id="smoothmenu1">
                 <ul>
-                    <li><a href="#" class="active">Trang chủ</a></li>
+                    <li><a href="/TrungTamGiaSu/trang-chu" class="active">Trang chủ</a></li>
                     <li style="z-index: 100;"><a href="#">Giới thiệu</a></li>
-                    <li style="z-index: 100;"><a href="#" class="">Lớp mới</a></li>
-                    <li style="z-index: 100;"><a href="#">Bảng lương</a>
+                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/lop-moi" class="">Lớp mới</a></li>
+                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/bang-luong">Bảng lương</a>
                     </li>
                     <li style="z-index: 100;" class="nav-giasu nav-item dropdown">
                         <a href="#">Gia sư<img class="downarrowclass"></a>
