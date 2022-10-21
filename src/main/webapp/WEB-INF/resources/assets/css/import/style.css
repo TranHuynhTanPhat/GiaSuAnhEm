@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+:root {
+    --1e3145: #1e3145;
+    --colorWhite: #ffffff;
+}
+
+
+body {
+    margin: 0px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    line-height: normal;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: linear-gradient(var(--1e3145), rgb(124, 124, 241), var(--1e3145));
+    color: #000000;
+    font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+#wrapper {
+    width: 1000px;
+    text-align: left;
+    margin: 0px auto;
+    padding: 0px 10px;
+    background: #FFFFFF;
+}
+
+.space-text-widget{
+    height: 30px;
+}
