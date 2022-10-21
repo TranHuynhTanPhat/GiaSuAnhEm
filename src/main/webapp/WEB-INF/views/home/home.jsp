@@ -5,7 +5,7 @@
 	<div id="page-main">
 	    <div class="title">
 	        <span class="icon-graduation"></span>
-	        <span class="menu-ngang">Trung tâm gia sư Anh Em</span>
+	        <span class="menu-ngang">Trung tâm gia sư Anh Em</span>	
 	    </div>
 	
 	    <div class="banner-video-container">

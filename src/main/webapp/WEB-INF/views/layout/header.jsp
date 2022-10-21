@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./resources/assets/css/bootstrap/bootstrap.min.css">
-    <title>TRUNG TÂM GIA SƯ</title>
+    <title>GIA SƯ ANH EM</title>
     <script type="module" src="/resources/assets/js/main.js"></script>
     <link href="<c:url value="resources/assets/css/import/header.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />" rel="stylesheet" type="text/css"/>
