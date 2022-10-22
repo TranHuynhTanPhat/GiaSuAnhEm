@@ -1,0 +1,12 @@
+.tin-tuc-item {
+    border-bottom: 1px dotted #e7e7e7;
+    float: left;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    padding-bottom: 14px;
+}
+.tin-tuc-item h2 {
+    font-size: 17px;
+}
+
+	

@@ -18,6 +18,7 @@
     <link href="<c:url value="resources/assets/css/import/style.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/import/wage.css"/>" rel="stylesheet">
     <link href="<c:url value="resources/assets/css/import/home.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/assets/css/import/tutor.css"/>" rel="stylesheet">
     <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>" type="text/javascript"></script>
     <script src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>" type="text/javascript"></script>
     <script src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>" type="text/javascript"></script>
@@ -40,7 +41,7 @@
                     <li style="z-index: 100;"><a href="/TrungTamGiaSu/bang-luong">Bảng lương</a>
                     </li>
                     <li style="z-index: 100;" class="nav-giasu nav-item dropdown">
-                        <a href="#">Gia sư<img class="downarrowclass"></a>
+                        <a href="/TrungTamGiaSu/gia-su">Gia sư<img class="downarrowclass"></a>
                         <ul class="nav-menu dropdown-menu fade-up">
                             <li><a href="#" class="dropdown-item">Đăng ký làm gia sư</a></li>
                             <li><a href="#" class="dropdown-item">Quy trình nhận lớp</a></li>

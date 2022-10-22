@@ -4,3 +4,21 @@ th {
 table.table.table-bordered {
     padding-top: 20px;
 }
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+td {
+    padding: 3px!important;
+}
+
+h1 {
+    font-family: Tahoma;
+    font-size: 1em;
+    color: #2b5783;
+    text-transform: uppercase;
+    font-weight: bold;
+}

@@ -40,68 +40,278 @@
 		    <tr>
 		      <th scope="row">1BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
 		      <td>1</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 500</li>
+		      		<li>GV: 1000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 600</li>
+		      		<li>GV: 1000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 600</li>
+		      		<li>GV: 1100</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 700</li>
+		      		<li>GV: 1200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 800</li>
+		      		<li>GV: 1200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 800</li>
+		      		<li>GV: 1200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1000</li>
+		      		<li>GV: 1600</li>
+		      	</ul>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th scope="row">2BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
 		      <td>1</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1000</li>
+		      		<li>GV: 2000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1200</li>
+		      		<li>GV: 2000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1000</li>
+		      		<li>GV: 2000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1400</li>
+		      		<li>GV: 2500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1500</li>
+		      		<li>GV: 2500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1600</li>
+		      		<li>GV: 2600</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1600</li>
+		      		<li>GV: 2800</li>
+		      	</ul>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th scope="row">3BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
 		      <td>1</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1500</li>
+		      		<li>GV: 2700</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1600</li>
+		      		<li>GV: 2800</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 1800</li>
+		      		<li>GV: 2800</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2000</li>
+		      		<li>GV: 3200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2000</li>
+		      		<li>GV: 3200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2200</li>
+		      		<li>GV: 3500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2600</li>
+		      		<li>GV: 3800</li>
+		      	</ul>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th scope="row">4BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
 		      <td>1</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2000</li>
+		      		<li>GV: 3600</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2000</li>
+		      		<li>GV: 3800</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2200</li>
+		      		<li>GV: 3800</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2800</li>
+		      		<li>GV: 4200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2800</li>
+		      		<li>GV: 4000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3000</li>
+		      		<li>GV: 4500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3500</li>
+		      		<li>GV: 5000</li>
+		      	</ul>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th scope="row">5BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
 		      <td>1</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2500</li>
+		      		<li>GV: 4500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2600</li>
+		      		<li>GV: 4800</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 2800</li>
+		      		<li>GV: 4800</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3500</li>
+		      		<li>GV: 5000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3500</li>
+		      		<li>GV: 5000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3800</li>
+		      		<li>GV: 5500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 4200</li>
+		      		<li>GV: 6000</li>
+		      	</ul>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th scope="row">6BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
 		      <td>1</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
-		      <td>@mdo</td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3200</li>
+		      		<li>GV: 5000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3500</li>
+		      		<li>GV: 5200</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 3500</li>
+		      		<li>GV: 5000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 4000</li>
+		      		<li>GV: 5500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 5000</li>
+		      		<li>GV: 6000</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 4500</li>
+		      		<li>GV: 6500</li>
+		      	</ul>
+		      </td>
+		      <td>
+		      	<ul>
+		      		<li>SV: 5000</li>
+		      		<li>GV: 7000</li>
+		      	</ul>
+		      </td>
 		    </tr>
 		  </tbody>
 		</table>

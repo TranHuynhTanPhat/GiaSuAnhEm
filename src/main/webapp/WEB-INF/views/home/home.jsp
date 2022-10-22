@@ -27,7 +27,7 @@
 	    <div class="space-text-widge"></div>
 	    <h2>
 	        <font color="#0000FF">
-	            + Nhận <a href="/" title="gia sư nhân văn">dạy kèm</a>tại nhà từ lớp lá tới lớp 12 - luyện thi Đại học, các
+	            + Nhận <a href="/" title="gia sư nhân văn">dạy kèm </a>tại nhà từ lớp lá tới lớp 12 - luyện thi Đại học, các
 	            lớp đàn, vẽ, ngoại ngữ, tin học...
 	        </font>
 	    </h2>
@@ -79,7 +79,7 @@
 	    <h3 style="font-size: 18px">+ Tư vấn , hỗ trợ giáo dục</h3>
 	    <h3 style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">+ Dạy kèm tại nhà</h3>
 	    <h3 style="font-size: 18px">+ Tư vấn du học</h3>
-	    <h3 style="font-size: 18px">+ Cung cấp<a href="https://giasunhanvan.com" title="gia sư nhân văn"><strong>giáo
+	    <h3 style="font-size: 18px">+ Cung cấp <a href="https://giasunhanvan.com" title="gia sư nhân văn"><strong>giáo
 	                viên giỏi</strong></a> , uy tín từ các quận huyện trong thành phố</h3>
 	    <h3 style="font-size: 18px">+ Nhận<strong>dạy</strong>thử 3 buổi đầu tiên</h3>
 	    <h2><strong>Xem <a href="gia-su-cap-1.html">danh sách các lớp cấp 1 cần gia sư</a> </strong></h2>
