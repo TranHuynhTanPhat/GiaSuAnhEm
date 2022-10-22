@@ -49,8 +49,8 @@
                         </ul>
                     </li>
                     <li style="z-index: 100;"><a href="/TrungTamGiaSu/tuyen-dung">Tuyển dụng</a></li>
-                    <li style="z-index: 100;"><a href="#">Mức phí gia sư</a></li>
-                    <li style="background:none"><a href="#">Liên hệ</a></li>
+                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/muc-phi-gia-su">Mức phí gia sư</a></li>
+                    <li style="background:none"><a href="/TrungTamGiaSu/lien-he">Liên hệ</a></li>
                 </ul>
             </div>
         </div>

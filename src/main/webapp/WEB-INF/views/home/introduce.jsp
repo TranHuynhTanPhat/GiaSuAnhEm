@@ -6,7 +6,7 @@
 	<div id="page-main">
 		<div class="title">
 			<span class="icon-graduation"></span> <span class="menu-ngang">GIỚI
-				THIỆU</span>
+				THIỆU GIA SƯ ANH EM</span>
 		</div>
 
 		<div class="content-temp" style="width: 100%;">
@@ -88,7 +88,7 @@
 				style="margin: 0.5em 0px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: normal; line-height: 40px; color: #cc0000; text-rendering: optimizelegibility; font-size: 18px">
 				+ Cung cấp<span
 					style="text-decoration: none; outline: medium none"><strong
-					style="font-weight: bold">giáo viên giỏi</strong></span>, uy tín từ
+					style="font-weight: bold"> giáo viên giỏi</strong></span>, uy tín từ
 				các quận huyện trong thành phố
 			</h3>
 			<p>
@@ -101,30 +101,7 @@
 			</p>
 			<br>
 			
-			<div class="clearb"></div>
-			<div class="mxh clearfix">
-				<div style="float: left; margin-left: 20px;">
-					<iframe
-						src="//www.facebook.com/plugins/like.php?href=http://giasunhanvan.com/gioi-thieu-gia-su-nhan-van.html&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21"
-						scrolling="no" frameborder="0"
-						style="border: none; overflow: hidden; width: 80px; height: 21px;"
-						allowtransparency="true"></iframe>
-					<div id="___plusone_0"
-						style="position: absolute; width: 450px; left: -10000px;">
-						<iframe ng-non-bindable="" frameborder="0" hspace="0"
-							marginheight="0" marginwidth="0" scrolling="no"
-							style="position: absolute; top: -10000px; width: 450px; margin: 0px; border-style: none"
-							tabindex="0" vspace="0" width="100%" id="I0_1666422439374"
-							name="I0_1666422439374"
-							src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=https%3A%2F%2Fgiasunhanvan.com&amp;url=http%3A%2F%2Fgiasunhanvan.com%2Fgioi-thieu-gia-su-nhan-van.html&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.z9QjrzsHcOc.O%2Fd%3D1%2Frs%3DAHpOoo8359JQqZQ0dzCVJ5Ui3CZcERHEWA%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1666422439374&amp;_gfid=I0_1666422439374&amp;parent=https%3A%2F%2Fgiasunhanvan.com&amp;pfname=&amp;rpctoken=94085038"
-							data-gapiattached="true"></iframe>
-					</div>
-					<g:plusone size="medium"
-						href="http://giasunhanvan.com/gioi-thieu-gia-su-nhan-van.html"
-						data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
-
-				</div>
-			</div>
+			
 
 			<hr>
 			<p>
@@ -152,7 +129,6 @@
 			<p>
 				<strong>NGÕ 22 TÔN THẤT TÙNG ĐỐNG ĐA HÀ NỘI </strong>
 			</p>
-			<p>&nbsp;</p>
 			<p>
 				<font size="3">Điện Thoại : 028 3539 1819 <br>Di Động :
 					0987 927 505 - 0907 750 044- 0919 138 768 - 0972 383848<br>

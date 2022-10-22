@@ -1,12 +1,12 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<div id="wrapper">
+<div id="wrapper" >
 	<%@include file="/WEB-INF/views/layout/header.jsp"%>
 	<div id="page-main">
 		<div class="title">
 			<span class="icon-graduation"></span> <span class="menu-ngang">TUYỂN
-				DỤNG</span>
+				DỤNG GIA SƯ ANH EM</span>
 		</div>
 		<div class="content-temp" style="width: 100%;">
 			<h1 class="title" itemprop="name">Gia sư Anh Em Tuyển dụng</h1>
@@ -14,11 +14,11 @@
 				<span style="background-color: #3366ff;"><br></span>
 			</p>
 			<p>
-				<strong>TRUNG TÂM GIA SƯ ANH EM tuyển 10 nhân viên <span class="highlight">trực
-					điện thoại</span></strong>
+				<strong>TRUNG TÂM GIA SƯ ANH EM tuyển 10 nhân viên <span
+					class="highlight">trực điện thoại</span></strong>
 			</p>
 			<p>
-				<strong>Làm việc tại : 109&nbsp; ĐƯỜNG TÂN LẬP 2 P, HIỆP
+				<strong>Làm việc tại : 109 ĐƯỜNG TÂN LẬP 2 P, HIỆP
 					PHÚ THÀNH PHỐ THỦ ĐỨC HCM</strong>
 			</p>
 			<p>
@@ -33,47 +33,38 @@
 			<p>
 				<strong>Liên hệ : 0972383848 lương thỏa thuận</strong>
 			</p>
-			<br>
-			<p>
-				<strong><br></strong>
-			</p>
 			<p>
 				<span style="color: #ff0000;"> Trung tâm gia sư anh em cần
 					tuyển giáo viên và sinh viên dạy kèm tại nhà khắp thành phố HCM</span>
 			</p>
-			<br>
 			<p>Giáo viên các bộ môn Toán, Lý, Hóa, Sinh, anh văn, văn ...</p>
 			<p>Giáo viên ngoại ngữ, tin học, đàn, vẽ</p>
 			<p>Sinh viên có kỹ năng sư phạm, khả năng truyền đạt tốt</p>
 			<p>
-				VP1: ĐIỆN BIÊN PHỦ F22 BÌNH THẠNH<br>VP 2: 109 TÂN
-				LẬP 2 F HIỆP PHÚ QUẬN 9<br>VP3: 294 HÒA HƯNG F12 QUẬN 10<br>ĐT:
+				VP1: ĐIỆN BIÊN PHỦ F22 BÌNH THẠNH<br>VP 2: 109 TÂN LẬP 2 F HIỆP
+				PHÚ QUẬN 9<br>VP3: 294 HÒA HƯNG F12 QUẬN 10<br>ĐT:
 				028.35.39.18.19 -- 0972.38.38.48
 			</p>
 			<p>
 				<a title="gia sư anh em" href="/TrungTamGiaSu/trang-chu">www.giasuanhem.com</a>
 			</p>
-			<br>
 			<h2>
 				<span style="color: #ff0000;"><span
 					style="text-decoration: underline;"><strong> CẦN
 							HỢP TÁC CÙNG NHỮNG TRUNG TÂM GIA SƯ KHÁC</strong></span></span>
 			</h2>
-			<br>
 			<h3>Hiện nay trung tâm gia sư and em đang có nhu cầu hợp tác
 				cùng những trung tâm gia sư khác, nếu những trung tâm gia sư nào có
 				những lớp ở xa văn phòng hoặc lớp cần giao gấp, lớp khó khi hợp tác
-				cùng trung tâm gia sư anh em, chúng tôi sẽ gởi 50% hoa hồng trên
-				mỗi lớp tương đương 20% phí ( phí được đưa trực tiếp hoặc chuyển
-				khoản sau 10 ngày đưa lớp) . Trung tâm gia sư nào có nhu cầu Liên
-				hệ: 0972383848 Bà Nguyễn Minh Chiến</h3>
-			<p>&nbsp;</p>
+				cùng trung tâm gia sư anh em, chúng tôi sẽ gởi 50% hoa hồng trên mỗi
+				lớp tương đương 20% phí ( phí được đưa trực tiếp hoặc chuyển khoản
+				sau 10 ngày đưa lớp) . Trung tâm gia sư nào có nhu cầu Liên hệ:
+				0972383848 Bà Nguyễn Minh Chiến</h3>
 			<p>
 				<span style="color: #ff0000;"> <span
 					style="font-size: medium;">TUYỂN NHÂN VIÊN PHÁT TỜ RƠI</span></span><strong><span
 					style="font-size: small;"> </span></strong>
 			</p>
-			<p>&nbsp;</p>
 			<p>
 				<span style="font-size: x-small;"> </span><span
 					style="font-size: medium;"><span style="font-size: x-small;">THÔNG
@@ -98,18 +89,17 @@
 			</p>
 			<p>
 				<span style="font-size: small;"><strong> Thời gian
-						làm việc từ ngày 15/8/2014 đến 15/10/2014, liên hệ vp: điện
-						biên phủ p,22 quận bình thạnh, khi đến vp mang theo thẻ sv, cmnd
-						pho to.</strong></span>
+						làm việc từ ngày 15/8/2014 đến 15/10/2014, liên hệ vp: điện biên
+						phủ p,22 quận bình thạnh, khi đến vp mang theo thẻ sv, cmnd pho
+						to.</strong></span>
 			</p>
 			<p>
 				<strong><span style="font-size: small;"> <span
-						style="font-size: medium;">Trung tâm gia sư anh em tuyển
-							15 nhân viên phát tờ rơi khắp các quận( từ ngày 1/8/2014 đến
+						style="font-size: medium;">Trung tâm gia sư anh em tuyển 15
+							nhân viên phát tờ rơi khắp các quận( từ ngày 1/8/2014 đến
 							30/8/2014), liên hệ: 0987927505 để nhận tờ rơi, lương trả theo
 							giời.</span></span></strong>
 			</p>
-			<br>
 			<p>
 				<strong> <span style="color: #ff0000;"> <span
 						style="font-size: small;"> TUYỂN NHÂN VIÊN</span></span></strong>
@@ -119,8 +109,8 @@
 			</p>
 			<p>
 				<span style="color: #ff0000;"><strong>TRUNG TÂM GIA
-						SƯ ANH EM , CÔNG TY TNHH MỘT THÀNH VIÊN TUYỂN 10 NHÂN VIÊN TRỰC ĐIỆN
-						THOẠI, LÀM VIỆC TẠI 109 TÂN LẬP 2 P, HIỆP PHÚ QUẬN 9</strong></span>
+						SƯ ANH EM , CÔNG TY TNHH MỘT THÀNH VIÊN TUYỂN 10 NHÂN VIÊN TRỰC
+						ĐIỆN THOẠI, LÀM VIỆC TẠI 109 TÂN LẬP 2 P, HIỆP PHÚ QUẬN 9</strong></span>
 			</p>
 			<p>
 				<span style="color: #ff0000;"><strong>THỜI GIAN LÀM
@@ -141,25 +131,20 @@
 			</p>
 			<p>
 				<span style="color: #ff0000;"><strong>LƯƠNG THỎA
-						THUẬN, NỘP HỒ SƠ TẠI: 109 TÂN LẬP 2 P, HIỆP PHÚ QUẬN 9, HỒ
-						SƠ GỒM (ĐƠN XIN VIỆC, SƠ YẾU LÝ LỊCH, CHỨNG MINH NHÂN DÂN) PHO TO
-				</strong></span>
+						THUẬN, NỘP HỒ SƠ TẠI: 109 TÂN LẬP 2 P, HIỆP PHÚ QUẬN 9, HỒ SƠ GỒM
+						(ĐƠN XIN VIỆC, SƠ YẾU LÝ LỊCH, CHỨNG MINH NHÂN DÂN) PHO TO </strong></span>
 			</p>
 			<p>
 				<span style="color: #ff0000;"><strong>ĐT: 0972383848
 				</strong></span>
 			</p>
-			<br>
-			<br>
-			<br>
 			<p>
 				<strong>TUYỂN NHÂN VIÊN PHÁT TỜ RƠI</strong><br> TRUNG TÂM GIA
 				SƯ ANH EM TUYỂN NHÂN VIÊN PHÁT TỜ RƠI KHẮP THÀNH PHỐ HCM,THỜI GIAN
 				TỪ 20/02/2014 ĐẾN 20/03/2014, THỜI GIAN LÀM VIỆC SÁNG TỪ 8H SÁNG ĐẾN
-				11H, CHIỀU 15H ĐẾN 17H, LƯƠNG THỎA THUẬN<br>
-				<br>LIÊN HỆ:<br> ĐIỆN BIÊN PHỦ P,22 QUẬN BÌNH THẠNH<br>109
-				TÂN LẬP 2 P, HIỆP PHÚ QUẬN 9<br>ĐT: 028 35391819,
-				0972383848
+				11H, CHIỀU 15H ĐẾN 17H, LƯƠNG THỎA THUẬN<br> <br>LIÊN HỆ:<br>
+				ĐIỆN BIÊN PHỦ P,22 QUẬN BÌNH THẠNH<br>109 TÂN LẬP 2 P, HIỆP PHÚ
+				QUẬN 9<br>ĐT: 028 35391819, 0972383848
 			</p>
 			<p>
 				<strong>TUYỂN GIA SƯ</strong><br> TUYỂN NHIỀU GV,SV DẠY KÈM TẠI
@@ -167,11 +152,9 @@
 				CÓ LỚP MỚI MỖI NGÀY,ĐẶC BIỆT CÓ LỚP LƯƠNG CAO DÀNH CHO GIÁO VIÊN <br>VP1:&nbsp;
 				ĐIỆN BIÊN PHỦ F22 BÌNH THẠNH<br>VP 2: 109 TÂN LẬP 2 F HIỆP PHÚ
 				QUẬN 9<br>VP3: 294 HÒA HƯNG F12 QUẬN 10<br>ĐT:
-				028.35.39.18.19 -- 0972.38.38.48<br>
-				<br>
-				<br>
-				<br>
-				<strong>TUYỂN NHÂN VIÊN </strong><br>CÔNG TY TNHH MỘT THÀNH VIÊN,TUYỂN NV TRỰC ĐIỆN THOẠI,LÀM VIỆC TẠI CÔNG TY. THỜI GIAN LÀM
+				028.35.39.18.19 -- 0972.38.38.48<br> <br> <br> <br>
+				<strong>TUYỂN NHÂN VIÊN </strong><br>CÔNG TY TNHH MỘT THÀNH
+				VIÊN,TUYỂN NV TRỰC ĐIỆN THOẠI,LÀM VIỆC TẠI CÔNG TY. THỜI GIAN LÀM
 				VIỆC LINH ĐỘNG, CHỌN CA CỐ ĐỊNH HOẶC XOAY CA. NỘP HỒ SƠ TẠI VP: 109
 				ĐƯỜNG TÂN LẬP 2 P. HIỆP PHÚ QUẬN 9<br> <br>LÀM VIỆC TẠI
 				109 TÂN LẬP 2&nbsp; F HIỆP PHÚ QUẬN 9<br>CA SÁNG : 8H30 ĐẾN
@@ -203,8 +186,6 @@
 
 				</div>
 			</div>
-
-			<hr>
 			<p>
 				<font size="3"><font color="#FF0000"><strong>Trung
 							tâm gia sư anh em</strong></font></font>
@@ -230,11 +211,9 @@
 			<p>
 				<strong>NGÕ 22 TÔN THẤT TÙNG ĐỐNG ĐA HÀ NỘI </strong>
 			</p>
-			<p>&nbsp;</p>
 			<p>
 				<font size="3">Điện Thoại : 028 3539 1819 <br>Di Động :
-					0987 927 505 - 0907 750 044- 0919 138 768 - 0972 383848<br>
-				<br></font>
+					0987 927 505 - 0907 750 044- 0919 138 768 - 0972 383848<br> <br></font>
 			</p>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%"
 				height="76" align="center">
@@ -285,6 +264,7 @@
 		</div>
 
 	</div>
+
 	<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
 	<%@include file="/WEB-INF/views/layout/footer.jsp"%>
 </div>

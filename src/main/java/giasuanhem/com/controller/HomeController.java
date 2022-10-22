@@ -29,4 +29,14 @@ public class HomeController {
 	   ModelAndView mav = new ModelAndView("home/recruit");
 	      return mav;
    }
+   @RequestMapping(value="muc-phi-gia-su", method=RequestMethod.GET)
+   public ModelAndView feeTutorPage() {
+	   ModelAndView mav = new ModelAndView("home/feeTutor");
+	      return mav;
+   }
+   @RequestMapping(value="/lien-he", method=RequestMethod.GET)
+   public ModelAndView contactPage() {
+	   ModelAndView mav = new ModelAndView("home/contact");
+	      return mav;
+   }
 }
