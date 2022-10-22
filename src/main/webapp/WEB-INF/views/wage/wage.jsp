@@ -24,9 +24,9 @@
 	    
 	    <table class="table table-bordered">
 		  <thead>
-		    <tr>
+		    <tr style="text-align: center; vertical-align: middle;">
 		      <th scope="col"></th>
-		      <th scope="col">SỐ HS</th>
+		      <th scope="col" >SỐ HS</th>
 		      <th scope="col">LỚP LÁ  ĐẾN LỚP 4 MÔN: T-TV-AV KIỂMTRA BÁO BÀI THEO TKB</th>
 		      <th scope="col">LỚP 5 ĐẾN LỚP 6 MÔN: T-L-TV-AV KIỂM TRA BÁO BÀI THEO TKB</th>
 		      <th scope="col">LỚP 7 ĐẾN LỚP 8 MÔN: TLH(1 GIA SƯ) MÔN: V-AV(1 GIA SƯ) KIỂM TRA BÁO BÀI</th>
@@ -39,7 +39,7 @@
 		  <tbody>
 		    <tr>
 		      <th scope="row">1BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td>1</td>
+		      <td style="text-align: center; vertical-align: middle;">1</td>
 		      <td>
 		      	<ul>
 		      		<li>SV: 500</li>
@@ -85,7 +85,7 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">2BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td>1</td>
+		      <td style="text-align: center; vertical-align: middle;">1</td>
 		      <td>
 		      	<ul>
 		      		<li>SV: 1000</li>
@@ -131,7 +131,7 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">3BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td>1</td>
+		      <td style="text-align: center; vertical-align: middle;">1</td>
 		      <td>
 		      	<ul>
 		      		<li>SV: 1500</li>
@@ -177,7 +177,7 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">4BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td>1</td>
+		      <td style="text-align: center; vertical-align: middle;">1</td>
 		      <td>
 		      	<ul>
 		      		<li>SV: 2000</li>
@@ -223,7 +223,7 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">5BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td>1</td>
+		      <td style="text-align: center; vertical-align: middle;">1</td>
 		      <td>
 		      	<ul>
 		      		<li>SV: 2500</li>

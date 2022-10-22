@@ -19,4 +19,14 @@ public class HomeController {
       ModelAndView mav = new ModelAndView("springmvc");
       return mav;
    }
+   @RequestMapping(value="/gioi-thieu", method=RequestMethod.GET)
+   public ModelAndView instructionPage() {
+	   ModelAndView mav = new ModelAndView("home/introduce");
+	      return mav;
+   }
+   @RequestMapping(value="/tuyen-dung", method=RequestMethod.GET)
+   public ModelAndView recruitPage() {
+	   ModelAndView mav = new ModelAndView("home/recruit");
+	      return mav;
+   }
 }

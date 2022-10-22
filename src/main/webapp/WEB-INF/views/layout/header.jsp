@@ -35,9 +35,9 @@
         <div id="menu-top">
             <div class="ddsmoothmenu" id="smoothmenu1">
                 <ul>
-                    <li><a href="/TrungTamGiaSu/trang-chu" class="active">Trang chủ</a></li>
-                    <li style="z-index: 100;"><a href="#">Giới thiệu</a></li>
-                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/lop-moi" class="">Lớp mới</a></li>
+                    <li><a href="/TrungTamGiaSu/trang-chu" >Trang chủ</a></li>
+                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/gioi-thieu">Giới thiệu</a></li>
+                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/lop-moi" >Lớp mới</a></li>
                     <li style="z-index: 100;"><a href="/TrungTamGiaSu/bang-luong">Bảng lương</a>
                     </li>
                     <li style="z-index: 100;" class="nav-giasu nav-item dropdown">
@@ -48,7 +48,7 @@
                             <li><a href="#" class="dropdown-item">Trung tâm gia sư uy tín</a></li>
                         </ul>
                     </li>
-                    <li style="z-index: 100;"><a href="#">Tuyển dụng</a></li>
+                    <li style="z-index: 100;"><a href="/TrungTamGiaSu/tuyen-dung">Tuyển dụng</a></li>
                     <li style="z-index: 100;"><a href="#">Mức phí gia sư</a></li>
                     <li style="background:none"><a href="#">Liên hệ</a></li>
                 </ul>
