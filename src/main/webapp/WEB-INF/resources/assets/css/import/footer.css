@@ -11,5 +11,5 @@
     padding-top: 10px;
     color: #FFFFFF;
     background: #1e435e;
-    display: table;
+    display: table!important;
 }

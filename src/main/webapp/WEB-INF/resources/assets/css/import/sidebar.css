@@ -1,44 +1,44 @@
 #sidebar {
-    width: 210px;
-    background-color: #fff;
-    display: block;
+	width: 210px;
+	background-color: #fff;
+	display: block;
 }
 
 .danhmuc {
-    background: none 0px 0px repeat scroll rgb(43, 87, 131);
-    border-radius: 5px;
-    margin-top: 5px;
-    padding-left: 22px;
+	background: none 0px 0px repeat scroll rgb(43, 87, 131);
+	border-radius: 5px;
+	margin-top: 5px;
+	padding-left: 22px;
 }
 
 .jsn-moduleicon {
-    color: rgb(255, 255, 255);
-    padding-left: 5px;
-    width: 100%;
-    font-size: 14px;
-    font-weight: bold;
+	color: rgb(255, 255, 255);
+	padding-left: 5px;
+	width: 100%;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 h3.jsn-moduletitle {
-    padding-top: 10px;
+	padding-top: 10px;
 }
 
 .danhmuc li {
-    border-bottom: 1px dotted rgb(239, 239, 239);
-    width: 90%;
-    line-height: 30px;
-    padding-left: 15px;
-    color: #fff;
+	border-bottom: 1px dotted rgb(239, 239, 239);
+	width: 90%;
+	line-height: 30px;
+	padding-left: 15px;
+	color: #fff;
 }
 
 .danhmuc li a {
-    color: rgb(217, 217, 217);
-    line-height: 30px;
-    text-decoration: none;
+	color: rgb(217, 217, 217);
+	line-height: 30px;
+	text-decoration: none;
 }
 
-.danhmuc li a:hover,
-.danhmuc li a:active {
-    text-decoration: none;
-    color: #F00;
+.danhmuc li a:hover, .danhmuc li a:active {
+	text-decoration: none;
+	color: #F00;
 }
+
