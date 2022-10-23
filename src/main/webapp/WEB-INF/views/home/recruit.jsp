@@ -215,6 +215,30 @@
 				<font size="3">Điện Thoại : 028 3539 1819 <br>Di Động :
 					0987 927 505 - 0907 750 044- 0919 138 768 - 0972 383848<br> <br></font>
 			</p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%"
 				height="76" align="center">
 				<tbody>
@@ -252,15 +276,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<br>
-
-			<div id="bg_sp" style="display: none;">
-				<div class="homepage"
-					style="border-bottom: 1px solid #e7e7e7; padding-top: 3px; margin-top: 5px;">Tin
-					khác cùng chủ đề</div>
-				<ul>
-				</ul>
-			</div>
+			
 		</div>
 
 	</div>
