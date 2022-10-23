@@ -2,6 +2,10 @@
 
 <div id="wrapper">
 	<%@include file = "/WEB-INF/views/layout/header.jsp" %>
+	<table>
+		<tr>
+			<td id="td-top"><%@include file="/WEB-INF/views/layout/sidebar.jsp"%></td>
+			<td id="td-top">
 	<div id="page-main">
 	    <div class="title">
 	        <span class="icon-graduation"></span>
@@ -317,7 +321,9 @@
 		</table>
 	    
 	</div>
-	<%@include file = "/WEB-INF/views/layout/sidebar.jsp" %>
+	</td>
+	</tr>
+	</table>
 	<%@include file = "/WEB-INF/views/layout/footer.jsp" %>
 </div>
 

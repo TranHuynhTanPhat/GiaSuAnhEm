@@ -1,11 +1,9 @@
 #page-main {
     float: right;
-    width: 760px;
-    resize: auto;
 }
 
 .banner-video-container {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     height: 253.33px;
     position: relative;
 }
@@ -18,7 +16,7 @@ span.icon-graduation {
 }
 
 span.menu-ngang {
-    background: #2b5783;
+    background: #0c5776;
     color: #fff;
     padding: 5px 10px !important;
     border-radius: 10px;

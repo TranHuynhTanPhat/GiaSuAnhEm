@@ -1,14 +1,17 @@
 #sidebar {
 	width: 210px;
-	background-color: #fff;
+	background-image: linear-gradient(#0c5776,#2d99ae, #bcfefe, #f8dad0);
 	display: block;
 }
 
 .danhmuc {
-	background: none 0px 0px repeat scroll rgb(43, 87, 131);
-	border-radius: 5px;
-	margin-top: 5px;
-	padding-left: 22px;
+	background: none 0px 0px repeat scroll rgb(43 87 131 / 0%);
+    /* border-radius: 5px; */
+    border: solid 5px #fff;
+    /* margin-top: 2px; */
+    /* margin-bottom: 3px; */
+    padding-left: 20px;
+    padding-bottom: 10px;
 }
 
 .jsn-moduleicon {
@@ -25,14 +28,16 @@ h3.jsn-moduletitle {
 
 .danhmuc li {
 	border-bottom: 1px dotted rgb(239, 239, 239);
-	width: 90%;
-	line-height: 30px;
-	padding-left: 15px;
-	color: #fff;
+    width: 90%;
+    line-height: 15px;
+    padding-left: 0;
+    padding-bottom:5px;
+    padding-top:5px;
+    color: #fff;
 }
 
 .danhmuc li a {
-	color: rgb(217, 217, 217);
+	color: #011c44;
 	line-height: 30px;
 	text-decoration: none;
 }

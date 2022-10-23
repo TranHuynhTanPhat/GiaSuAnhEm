@@ -72,10 +72,10 @@
         <li><a href="#" title="Du học">Du học</a></li>
         <li><a href="#" title="Dạy Kèm Đàn ghita">Dạy Kèm Đàn ghita</a></li>
         <li><a href="#" title="Tìm Gia sư lớp lá">Tìm Gia sư lớp lá</a></li>
-        <li><a href="#" title="Nên chọn ngành học nào ?">Nên chọn ngành học nào ?</a></li>
+        <li><a href="#" title="Nên chọn ngành học nào ?">Nên chọn ngành học nào?</a></li>
         <li><a href="#" title="Gia sư sư phạm">Gia sư sư phạm</a></li>
         <li><a href="#" title="Gia sư bách khoa">Gia sư bách khoa</a></li>
         <li><a href="#" title="Giáo viên kinh nghiệm">Giáo viên kinh nghiệm</a></li>
-        <li><a href="#" title="ĐÀN VIOLON">ĐÀN VIOLON</a></li>
+        <li><a href="#" title="ĐÀN VIOLON">Đàn Violon</a></li>
     </ul>
 </div>
