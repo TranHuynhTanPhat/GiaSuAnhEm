@@ -31,6 +31,8 @@
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/tutor.css"/>"
 	rel="stylesheet">
+<link href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
+	rel="stylesheet">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,48 +54,16 @@
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
+<style>
+body {
+	background: white;
+}
+</style>
 </head>
 
 <body>
 
-	<div id="base-header-footer">
-		
-		<div id="menu-top">
-			<div class="ddsmoothmenu" id="smoothmenu1">
-				<ul>
-					<li><a href="/TrungTamGiaSu/trang-chu">Trang chủ</a></li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/gioi-thieu">Giới
-							thiệu</a></li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/lop-moi">Lớp
-							mới</a></li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/bang-luong">Bảng
-							lương</a></li>
-					<li style="z-index: 100;" class="nav-giasu nav-item dropdown">
-						<a href="/TrungTamGiaSu/gia-su">Gia sư<img
-							class="downarrowclass"></a>
-						<ul class="nav-menu dropdown-menu fade-up">
-							<li><a href="#" class="dropdown-item">Đăng ký làm gia sư</a></li>
-							<li><a href="#" class="dropdown-item">Quy trình nhận lớp</a></li>
-							<li><a href="#" class="dropdown-item">Trung tâm gia sư
-									uy tín</a></li>
-						</ul>
-					</li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/tuyen-dung">Tuyển
-							dụng</a></li>
-					<li style="z-index: 100;"><a
-						href="/TrungTamGiaSu/muc-phi-gia-su">Mức phí gia sư</a></li>
-					<li style="background: none"><a href="/TrungTamGiaSu/lien-he">Liên
-							hệ</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-		crossorigin="anonymous"></script>
-	<script src="./resources/assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -3,15 +3,31 @@
 	background-image: linear-gradient(#0c5776,#2d99ae, #bcfefe, #f8dad0);
 	display: block;
 }
-
+#sidebarAdmin{
+	color: #0c5776;
+	width: 210px;
+	display: block;
+	position: fixed;
+}
 .danhmuc {
 	background: none 0px 0px repeat scroll rgb(43 87 131 / 0%);
     /* border-radius: 5px; */
-    border: solid 5px #fff;
     /* margin-top: 2px; */
     /* margin-bottom: 3px; */
     padding-left: 20px;
     padding-bottom: 10px;
+    
+}
+
+.danhmucAdmin {
+    background: none 0px 0px repeat scroll rgb(43 87 131 / 0%);
+    /* border-radius: 5px; */
+    /* border: solid 5px #f8dad0; */
+    /* margin-top: 2px; */
+    /* margin-bottom: 3px; */
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-left: solid 5px #f8dad0;
 }
 
 .jsn-moduleicon {
@@ -21,7 +37,13 @@
 	font-size: 14px;
 	font-weight: bold;
 }
-
+.jsn-moduleiconAdmin {
+	color: #0c5776;
+	padding-left: 5px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+}
 h3.jsn-moduletitle {
 	padding-top: 10px;
 }
@@ -36,7 +58,23 @@ h3.jsn-moduletitle {
     color: #fff;
 }
 
+.danhmucAdmin li {
+	border-bottom: 2px dotted #f8dad0;
+    width: 90%;
+    line-height: 15px;
+    padding-left: 0;
+    padding-bottom:5px;
+    padding-top:5px;
+    color: #fff;
+}
+
 .danhmuc li a {
+	color: #011c44;
+	line-height: 30px;
+	text-decoration: none;
+}
+
+.danhmucAdmin li a {
 	color: #011c44;
 	line-height: 30px;
 	text-decoration: none;
@@ -46,4 +84,7 @@ h3.jsn-moduletitle {
 	text-decoration: none;
 	color: #F00;
 }
-
+.danhmucAdmin li a:hover, .danhmuc li a:active {
+	text-decoration: none;
+	color: #f8dad0;
+}
