@@ -1,37 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="ckeditor" uri="http://ckeditor.com"%>
-        <script type="text/javascript" src="%=request.getContextPath()%>/common/script/ckeditor/ckeditor.js"></script>
-<form:textarea path="body" maxlength="5000" />    
+
 <div id="wrapperAdmin">
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<div id="page-main-Admin">
 
-		<div id="main-content-wp" class="add-cat-page">
-			<div class="wrap clearfix">
-				<div id="content" class="fl-right">
-					<div class="section" id="title-page">
-						<div class="clearfix">
-							<h3 id="index" class="fl-left">Chỉnh sửa trang giới thiệu</h3>
-						</div>
-					</div>
-					<div class="section" id="detail-page">
-						<div class="section-detail">
-							<form method="POST">
-								<label for="desc">Mô tả</label>
-								<textarea name="desc" id="desc" class="ckeditor"></textarea>
+		<script
+			src="https://cdn.ckeditor.com/ckeditor5/35.2.1/decoupled-document/ckeditor.js"></script>
 
-								<button type="submit" name="btn-submit" id="btn-submit">Thêm
-									mới</button>
-							</form>
-						</div>
-					</div>
-				</div>
+		<form>
+			<!-- The toolbar will be rendered in this container. -->
+			<div id="toolbar-container" style="border: 2px solid #0c5776;"></div>
+
+			<!-- This container will become the editable. -->
+			<div id="editor"
+				style="width: 100%; height: 500px; border: 2px solid #0c5776;">
+				<p>This is the initial editor content.</p>
 			</div>
-		</div>
 
+			<script>
+        DecoupledEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+			<div id="fixedButton">
+				<input type="submit" value="Upload">
+			</div>
+		</form>
 	</div>
 	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 </div>

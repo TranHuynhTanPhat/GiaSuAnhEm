@@ -1,0 +1,16 @@
+#fixedButton {
+	float: left;
+	padding-left: 46%;
+	padding-top: 10px;
+}
+
+#fixedButton input {
+	background-color: #f8dad0; /* Green */
+	border: none;
+	color: #0c5776;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
