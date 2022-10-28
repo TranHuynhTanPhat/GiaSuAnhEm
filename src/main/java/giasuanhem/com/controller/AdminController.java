@@ -12,4 +12,9 @@ public class AdminController {
 		ModelAndView mav= new ModelAndView("admin/adminhome");
 		return mav;
 	}
+	@RequestMapping(value="/admin-introduction",method=RequestMethod.GET)
+	public ModelAndView adminIntroduction() {
+		ModelAndView mav= new ModelAndView("admin/adminIntroduction");
+		return mav;
+	}
 }

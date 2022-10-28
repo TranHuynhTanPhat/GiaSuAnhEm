@@ -31,7 +31,11 @@
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/tutor.css"/>"
 	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
+<link
+	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
+	rel="stylesheet">
+<link
+	href="<c:url value="resources/assets/css/import/admin/add_cat.css"/>"
 	rel="stylesheet">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
