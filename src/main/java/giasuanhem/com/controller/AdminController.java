@@ -15,6 +15,7 @@ public class AdminController {
 	@RequestMapping(value="/admin-introduction",method=RequestMethod.GET)
 	public ModelAndView adminIntroduction() {
 		ModelAndView mav= new ModelAndView("admin/adminIntroduction");
+		// Test
 		return mav;
 	}
 }
