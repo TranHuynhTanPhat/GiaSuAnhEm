@@ -24,7 +24,7 @@
         https://www.springframework.org/schema/jdbc https://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
 
 	<context:component-scan
-		base-package="giasuanhem.com.controller" />
+		base-package="com.giasuanhem" />
 
 
 	<mvc:annotation-driven />

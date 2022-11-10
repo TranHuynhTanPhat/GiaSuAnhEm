@@ -1,11 +1,11 @@
-package giasuanhem.com.Entity;
+package com.giasuanhem.entity.Entity;
 
 public class NewClass {
 	private int id;
 	private int sobuoi;
 	private int salary;
 	private int category;
-	private byte status;
+	private int status;
 	private String district;
 	private String address;
 	private String time;
@@ -47,11 +47,11 @@ public class NewClass {
 		this.category = category;
 	}
 
-	public byte getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(byte status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

@@ -1,4 +1,4 @@
-package giasuanhem.com.controller;
+package com.giasuanhem.controller.Client;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

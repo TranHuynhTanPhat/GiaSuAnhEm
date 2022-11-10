@@ -1,4 +1,4 @@
-package giasuanhem.com.Entity;
+package com.giasuanhem.entity.Entity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ public class MapperNewClass implements RowMapper<NewClass> {
 		newClasses.setRequest(rs.getString("request"));
 		newClasses.setSalary(rs.getInt("salary"));
 		newClasses.setSobuoi(rs.getInt("sobuoi"));
-		newClasses.setStatus(rs.getByte("status"));
+		newClasses.setStatus(rs.getInt("status"));
 		newClasses.setTime(rs.getString("time"));
 
 		return newClasses;
