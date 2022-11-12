@@ -32,7 +32,7 @@ public class CommonService {
 		return BASE_URL_API + path;
 	}
 
-	public void getListNewClass() {
+	public List<NewClassModel> getListNewClass() {
 		Map<String, Object> paramsMap = new HashMap<>();
 		paramsMap.put("chien", 1);
 		String jsonResponse = get(takeApiURL(ApiConstant.LIST_NEWCLASS), null);
@@ -44,10 +44,12 @@ public class CommonService {
 			for (NewClassModel item : listNewClassModels) {
 				System.out.print(item.getAddress());
 			}
+			return listNewClassModels;
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
 	}
 
