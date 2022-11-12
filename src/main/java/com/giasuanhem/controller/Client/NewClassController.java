@@ -18,10 +18,7 @@ public class NewClassController{
 	CommonService commnService;
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
-		List<NewClass>  listNewClass = new ArrayList<NewClass>();
-		listNewClass = commnService.getListNewClass();
 		ModelAndView mav = new ModelAndView("newclass/newclass");
-		mav.addObject("listClass", listNewClass);
 		return mav;
 	}
 }
