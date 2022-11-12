@@ -44,7 +44,7 @@
 								</tr>
 								<c:forEach var="item" items="${ listClass }">
 									<tr class="row0">
-										<td>${ item.id }</td>
+										<td>${ item._id }</td>
 										<td>Lớp 6,</td>
 										<td>LẬP TRÌNH,</td>
 										<td>${ item.address }</td>
@@ -52,8 +52,7 @@
 										<td>${ item.sobuoi }</td>
 										<td>${ item.time }</td>
 										<td align="right">${ item.salary }</td>
-										<td>${ item.request }</td>
-
+										<td>${ item.require }</td>
 									</tr>
 								</c:forEach>
 

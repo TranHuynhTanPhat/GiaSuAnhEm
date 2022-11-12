@@ -1,6 +1,7 @@
 package com.giasuanhem.service.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Dynamic;
 import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.service.ApiConstant;
 
 @Service
@@ -33,18 +35,30 @@ public class CommonService {
 	}
 
 	public List<NewClassModel> getListNewClass() {
-		Map<String, Object> paramsMap = new HashMap<>();
-		paramsMap.put("chien", 1);
+
 		String jsonResponse = get(takeApiURL(ApiConstant.LIST_NEWCLASS), null);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<NewClassModel>>() {
 					});
-			for (NewClassModel item : listNewClassModels) {
-				System.out.print(item.getAddress());
-			}
 			return listNewClassModels;
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<PostModel> getListPost(){
+		String jsonResponse = get(takeApiURL(ApiConstant.LIST_POST), null);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<PostModel> listPost = objectMapper.readValue(jsonResponse,
+					new TypeReference<List<PostModel>>() {
+					});
+			return listPost;
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -71,7 +85,7 @@ public class CommonService {
 //
 //		jsonResponse = jsonResponse.substring(begin, end);
 	}
-	
+
 	String post(String apiUrl, Map<Dynamic, Dynamic>... params) {
 		return "";
 	}
