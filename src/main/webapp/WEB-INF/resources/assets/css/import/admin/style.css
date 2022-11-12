@@ -1,0 +1,78 @@
+#fixedButtonAdd {
+	margin: 20px auto;
+	align-items: center;
+	background-color: #1877f2;
+	/* border: none; */
+	/* border-radius: 8px; */
+	/* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
+	/* box-sizing: border-box; */
+	/* margin: 100px auto; */
+	/* padding: 20px 0 28px; */
+	border-radius: 6px;
+	width: 396px;
+	text-align: center;
+}
+
+#fixedButtonDelete {
+	background-color: red;
+	border: none;
+	font-size: 15px;
+	line-height: 30px;
+	padding: 0 16px;
+	width: 150px;
+	text-align: center;
+}
+#fixedButtonSearch {
+	border: none;
+	font-size: 15px;
+	line-height: 30px;
+	margin: 20px auto;
+	align-items: center;
+	width: 150px;
+	text-align: center;
+}
+#fixedButtonSearch button{
+	background-color: #f8dad0;
+}
+#fixedButtonDelete button{
+	background-color: red;
+}
+#page-main-Admin {
+	float: left;
+	padding-left: 20%;
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+
+.boxInput {
+	
+}
+
+.col-3 {
+	width: 25%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	
+}
+
+.form-control {
+	width: 100%;
+	height: 28px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0/ 8%);
+	box-shadow: inset 0 1px 1px rgb(0 0 0/ 8%);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}

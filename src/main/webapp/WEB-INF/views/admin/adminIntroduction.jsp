@@ -32,8 +32,8 @@
                 console.error( error );
             } );
     </script>
-			<div id="fixedButton">
-				<input type="submit" value="Upload">
+			<div id="fixedButtonAdd">
+				<button value="1" name="Upload" type="button">Upload</button>
 			</div>
 		</form>
 	</div>

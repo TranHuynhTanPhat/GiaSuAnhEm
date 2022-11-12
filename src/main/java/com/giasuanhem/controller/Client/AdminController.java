@@ -18,4 +18,19 @@ public class AdminController {
 		// Test
 		return mav;
 	}
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public ModelAndView login(){
+		ModelAndView mav= new ModelAndView("admin/login");
+		return mav;
+	}
+	@RequestMapping(value="/quanlygiasu", method=RequestMethod.GET)
+	public ModelAndView tutorManagement(){
+		ModelAndView mav= new ModelAndView("admin/tutorManagement");
+		return mav;
+	}
+	@RequestMapping(value="/quanlykhoahoc", method=RequestMethod.GET)
+	public ModelAndView courceManagement(){
+		ModelAndView mav= new ModelAndView("admin/courceManagement");
+		return mav;
+	}
 }
