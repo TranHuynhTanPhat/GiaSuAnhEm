@@ -27,6 +27,8 @@
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
 	rel="stylesheet">
+<link href="<c:url value="resources/assets/css/import/admin/style.css"/>"
+	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/wage.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/home.css"/>"
@@ -36,7 +38,8 @@
 <link
 	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
 	rel="stylesheet">
-
+<link href="<c:url value="resources/assets/css/import/admin/login.css"/>"
+	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link

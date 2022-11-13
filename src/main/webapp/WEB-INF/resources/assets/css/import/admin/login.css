@@ -1,0 +1,40 @@
+body {
+	text-align: center;
+}
+
+form {
+	display: inline-block;
+}
+
+#Custome-div {
+	align-items: center;
+	background-color: #fff;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgb(0 0 0/ 10%), 0 8px 16px rgb(0 0 0/ 10%);
+	box-sizing: border-box;
+	margin: 100px auto;
+	padding: 20px 0 28px;
+	width: 396px;
+	text-align: center;
+}
+
+#login {
+	float: left;
+	padding-left: 25%;
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+
+#Textbox {
+	display: inline-block;
+	font-size: 14px;
+	margin: auto;
+	padding: 6px 0;
+	width: 302px;
+	border-radius: 6px;
+}
+
+#Button {
+	padding-top: 6px;
+}

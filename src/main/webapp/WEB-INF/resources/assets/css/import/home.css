@@ -1,13 +1,9 @@
 #main-content-wp{ background: #f7f7f7; padding-top: 25px; padding-bottom: 75px;}
 #page-main {
     float: right;
+    width:100%;
 }
-#page-main-Admin{
-	float: left;
-	padding-left:25%;
-	padding-bottom:5%;
-	padding-top:5%;
-}
+
 
 .banner-video-container {
     background-color: rgb(255, 255, 255);

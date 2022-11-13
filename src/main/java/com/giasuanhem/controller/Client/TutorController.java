@@ -21,4 +21,14 @@ public class TutorController{
 		mav.addObject("listPost", list);
 		return mav;
 	}
+	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
+	public ModelAndView addTutorPage() {
+		ModelAndView mav = new ModelAndView("tutor/addTutor");
+		return mav;
+	}
+	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)
+	public ModelAndView proccessClass() {
+		ModelAndView mav = new ModelAndView("tutor/quyTrinhNhanLop");
+		return mav;
+	}
 }

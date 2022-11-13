@@ -18,7 +18,7 @@
 								style="box-sizing: inherit;"><span
 									style="box-sizing: inherit;"><em
 										style="box-sizing: inherit;"><u
-											style="box-sizing: inherit;">Giới thiệu</u></em></span></span></span></span></span>
+											style="box-sizing: inherit;">Tuyển dụng</u></em></span></span></span></span></span>
 				</div>
 				<!-- The toolbar will be rendered in this container. -->
 				<div id="toolbar-container" style="border: 2px solid #0c5776;"></div>
@@ -46,6 +46,5 @@
 				</div>
 		</form>
 	</div>
-</div>
-<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 </div>

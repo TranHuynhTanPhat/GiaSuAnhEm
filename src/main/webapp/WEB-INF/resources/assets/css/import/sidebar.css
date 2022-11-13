@@ -8,6 +8,7 @@
 	width: 210px;
 	display: block;
 	position: fixed;
+	background-color: white;
 }
 .danhmuc {
 	background: none 0px 0px repeat scroll rgb(43 87 131 / 0%);
