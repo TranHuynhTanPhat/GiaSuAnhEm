@@ -9,17 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.ClassModel;
-<<<<<<< HEAD
 import com.giasuanhem.model.Models.TutorModel;
 
 import java.util.List;
 
 
 
-=======
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
->>>>>>> dang3
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -44,18 +41,11 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView("admin/login");
 		return mav;
 	}
-<<<<<<< HEAD
 	@RequestMapping(value="/quanlygiasu", method=RequestMethod.GET)
 	public ModelAndView tutorManagement(){
 		List<TutorModel> list = commonService.getListTutor();
 		ModelAndView mav= new ModelAndView("admin/tutorManagement");
 		mav.addObject("listTutor",list);
-=======
-
-	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
-	public ModelAndView tutorManagement() {
-		ModelAndView mav = new ModelAndView("admin/tutorManagement");
->>>>>>> dang3
 		return mav;
 	}
 

@@ -20,11 +20,8 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
-<<<<<<< HEAD
 import com.giasuanhem.model.Models.TutorModel;
-=======
 import com.giasuanhem.model.Models.SubjectModel;
->>>>>>> dang3
 import com.giasuanhem.service.ApiConstant;
 
 @Service
