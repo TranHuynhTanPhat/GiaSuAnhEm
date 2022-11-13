@@ -16,6 +16,15 @@ public class NewClassModel {
 	List<String> classes = new ArrayList<String>();
 	List<String> subjects = new ArrayList<String>();
 	private float __v;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String get_id() {
 		return _id;

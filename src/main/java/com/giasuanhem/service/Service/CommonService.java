@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.service.ApiConstant;
@@ -57,17 +58,32 @@ public class CommonService {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity<String> entity = new HttpEntity<>("parameters");
-		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "" + paramsSrt, HttpMethod.GET,
+		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.GET,
 				entity, String.class);
 		String jsonResponse = response.getBody();
 		System.out.print(jsonResponse);
 		return jsonResponse;
 	}
-
+	
 	String post(String apiUrl) {
 		return "";
 	}
 
+	public List<CategoryModel> getListCategory(Map<String, Object> params){
+		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse, 
+					new TypeReference<List<CategoryModel>>() {
+					});
+			return listCategoryModel;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List<NewClassModel> getListNewClass() {
 
 		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);

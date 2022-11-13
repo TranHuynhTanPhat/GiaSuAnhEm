@@ -1,45 +1,19 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="sidebar">
     <ul class="danhmuc">
         <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Lớp cần gia sư</span></h3>
         <li><a href="#" title="Gia sư cấp 1">Gia sư cấp 1</a></li>
-        <li><a href="#" title="Gia sư cấp 2">Gia sư cấp 2</a></li>
-        <li><a href="#" title="Gia sư cấp 3">Gia sư cấp 3</a></li>
-        <li><a href="#" title="Gia sư ngoại ngữ">Gia sư ngoại ngữ</a></li>
-        <li><a href="#" title="Gia sư tin học">Gia sư tin học</a></li>
-        <li><a href="#" title="Gia sư Dạy Đàn">Gia sư Dạy Đàn</a></li>
-        <li><a href="#" title="Lớp gia sư tại Hà Nội">Lớp gia sư tại Hà Nội</a></li>
-        <li><a href="#" title="Gia Sư môn Vẽ">Gia Sư môn Vẽ</a></li>
-        <li><a href="#" title="Gia Sư Tiếng Việt cho người nước ngoài">Gia Sư Tiếng Việt cho người nước ngoài</a></li>
+		<c:forEach var="item" items="${ listCategoryClass }">
+			<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
+		</c:forEach>
     </ul>
     <ul class="danhmuc">
         <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Gia sư theo quận</span></h3>
-        <li><a href="#" title="Gia sư quận 1">Gia sư quận 1</a></li>
-        <li><a href="#" title="Gia sư quận 2">Gia sư quận 2</a></li>
-        <li><a href="#" title="Gia sư quận 3">Gia sư quận 3</a></li>
-        <li><a href="#" title="Gia sư quận 4">Gia sư quận 4</a></li>
-        <li><a href="#" title="Gia sư quận 5">Gia sư quận 5</a></li>
-        <li><a href="#" title="Gia sư quận 6">Gia sư quận 6</a></li>
-        <li><a href="#" title="Gia sư quận 7">Gia sư quận 7</a></li>
-        <li><a href="#" title="Gia sư quận 8">Gia sư quận 8</a></li>
-        <li><a href="#" title="Gia sư quận 9">Gia sư quận 9</a></li>
-        <li><a href="#" title="Gia sư quận 10">Gia sư quận 10</a></li>
-        <li><a href="#" title="Gia sư quận 11">Gia sư quận 11</a></li>
-        <li><a href="#" title="Gia sư quận 12">Gia sư quận 12</a></li>
-        <li><a href="#" title="Gia sư quận Thủ Đức">Gia sư quận Thủ Đức</a></li>
-        <li><a href="#" title="Gia sư quận Bình Thạnh">Gia sư quận Bình Thạnh</a></li>
-        <li><a href="#" title="Gia sư quận Tân Bình">Gia sư quận Tân Bình</a></li>
-        <li><a href="#" title="Gia sư quận Gò Vấp">Gia sư quận Gò Vấp</a></li>
-        <li><a href="#" title="Gia sư quận Phú Nhuận">Gia sư quận Phú Nhuận</a></li>
-        <li><a href="#" title="Gia sư quận Bình Tân">Gia sư quận Bình Tân</a></li>
-        <li><a href="#" title="Gia sư quận Tân Phú">Gia sư quận Tân Phú</a></li>
-        <li><a href="#" title="Gia sư quận Bình Dương">Gia sư quận Bình Dương</a></li>
-        <li><a href="#" title="Gia sư quận Nhà Bè">Gia sư quận Nhà Bè</a></li>
-        <li><a href="#" title="Gia sư quận Hóc Môn">Gia sư quận Hóc Môn</a></li>
-        <li><a href="#" title="Gia sư quận Củ Chi">Gia sư quận Củ Chi</a></li>
-        <li><a href="#" title="Gia sư quận Bình Chánh">Gia sư quận Bình Chánh</a></li>
-
+		<c:forEach var="item" items="${ listCategoryDistrict }">
+			<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
+		</c:forEach>
     </ul>
     <ul class="danhmuc">
         <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Cần biết</span></h3>

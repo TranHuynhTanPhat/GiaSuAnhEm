@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.service.Service.CommonService;
 
@@ -20,10 +21,19 @@ public class HomeController {
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
-		Map<String, Object> params = new HashMap<>();
-		params.put("style", 0);
-		commonService.getWithParams("/category/index", params);
+		Map<String, Object> paramsClass = new HashMap<>();
+		paramsClass.put("style", 0);
+		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
+		commonService.getWithParams("/category/index", paramsClass);
+		
+		Map<String, Object> paramsDistrict = new HashMap<>();
+		paramsDistrict.put("style", 1);
+		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
+		commonService.getWithParams("/category/index", paramsDistrict);
+		
 		ModelAndView mav = new ModelAndView("home/home");
+		mav.addObject("listCategoryClass",listClass);
+		mav.addObject("listCategoryDistrict",listDistrict);
 		return mav;
 	}
 
