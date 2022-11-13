@@ -12,9 +12,9 @@ public class NewClassModel {
 	private int salary;
 	private String require;
 	private int status;
-	List<String> category = new ArrayList<String>();
-	List<String> classes = new ArrayList<String>();
-	List<String> subjects = new ArrayList<String>();
+	List<CategoryModel> categories = new ArrayList<CategoryModel>();
+	List<ClassModel> classes = new ArrayList<ClassModel>();
+	List<SubjectModel> subjects = new ArrayList<SubjectModel>();
 	private float __v;
 	private int id;
 
@@ -90,27 +90,29 @@ public class NewClassModel {
 		this.status = status;
 	}
 
-	public List<String> getCategory() {
-		return category;
+	
+
+	public List<CategoryModel> getCategories() {
+		return categories;
 	}
 
-	public void setCategory(List<String> category) {
-		this.category = category;
+	public void setCategories(List<CategoryModel> categories) {
+		this.categories = categories;
 	}
 
-	public List<String> getClasses() {
+	public List<ClassModel> getClasses() {
 		return classes;
 	}
 
-	public void setClasses(List<String> classes) {
+	public void setClasses(List<ClassModel> classes) {
 		this.classes = classes;
 	}
 
-	public List<String> getSubjects() {
+	public List<SubjectModel> getSubjects() {
 		return subjects;
 	}
 
-	public void setSubjects(List<String> subjects) {
+	public void setSubjects(List<SubjectModel> subjects) {
 		this.subjects = subjects;
 	}
 

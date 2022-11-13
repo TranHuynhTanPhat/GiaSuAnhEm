@@ -42,10 +42,10 @@
 									<td><strong>Lương </strong><br></td>
 									<td><strong>Yêu cầu </strong><br></td>
 								</tr>
-								<c:forEach var="item" items="${ listClass }">
+								<c:forEach var="item" items="${ listNewClass }">
 									<tr class="row0">
-										<td>${ item._id }</td>
-										<td>Lớp 6,</td>
+										<td>${ item.id }</td>
+										<td>${ item.classes[0].name },</td>
 										<td>LẬP TRÌNH,</td>
 										<td>${ item.address }</td>
 										<td>${ item.district }<br></td>

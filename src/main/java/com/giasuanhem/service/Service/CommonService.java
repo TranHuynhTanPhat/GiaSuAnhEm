@@ -50,11 +50,7 @@ public class CommonService {
 	public String getWithParams(String apiUrl, Map<String, Object> params) {
 		String paramsSrt = "";
 		for (String key : params.keySet()) {
-			if (params.get(key) instanceof Integer) {
 				paramsSrt += key + "=" + params.get(key).toString() + "&";
-			} else {
-				paramsSrt += key + "='" + params.get(key).toString() + "'&";
-			}
 		}
 
 		HttpHeaders headers = new HttpHeaders();
@@ -105,6 +101,7 @@ public class CommonService {
 	public List<NewClassModel> getListNewClass() {
 
 		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
+		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,

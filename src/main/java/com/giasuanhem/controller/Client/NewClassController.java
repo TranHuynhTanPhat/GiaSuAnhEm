@@ -20,7 +20,7 @@ public class NewClassController{
 	public ModelAndView newClassPage() {
 		List<NewClassModel> list = commnService.getListNewClass();
 		ModelAndView mav = new ModelAndView("newclass/newclass");
-		mav.addObject("listClass", list);
+		mav.addObject("listNewClass", list);
 		return mav;
 	}
 }
