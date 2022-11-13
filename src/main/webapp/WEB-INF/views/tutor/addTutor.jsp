@@ -10,13 +10,7 @@
 			<td id="td-top">
 				<div style="width: 100%">
 					<div class="panel">
-						<div class="panel-heading">
-							<h1 class="panel-title">
-								<a href="https://www.trungtamdaykem.com/dang-ky-tim-gia-su.html"
-									title="Đăng ký làm gia sư tại trung tâm gia sư Thăng Long"
-									class="breadcrumb">Đăng ký làm gia sư</a>
-							</h1>
-						</div>
+
 						<div class="panel-body" style="padding: 5px 10px">
 							<form action="" method="post" name="info_frm"
 								class="form-horizontal" onsubmit="return check_info();"
@@ -405,21 +399,8 @@
 											value="">
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="col-4 control-label">Ảnh CMND mặt trước:
-										<span style="color: #FF0000">*</span>
-									</label>
-									<div class="col-7">
-										<input name="cmnd_mattruoc" type="file" class="form-control">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-4 control-label">Ảnh CMND mặt sau: <span
-										style="color: #FF0000">*</span></label>
-									<div class="col-7">
-										<input name="cmnd_matsau" type="file" class="form-control">
-									</div>
-								</div>
+
+
 								<div class="form-group">
 									<label class="col-4 control-label">Ảnh thẻ: <span
 										style="color: #FF0000">*</span></label>
@@ -427,14 +408,7 @@
 										<input name="hinhthe" type="file" class="form-control">
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="col-4 control-label">Ảnh bằng cấp hoặc
-										thẻ sinh viên: <span style="color: #FF0000">*</span>
-									</label>
-									<div class="col-7">
-										<input name="hinhbangcap" type="file" class="form-control">
-									</div>
-								</div>
+
 								<div class="form-group">
 									<label class="col-4 control-label">Sinh viên (giáo
 										viên) trường: <span style="color: #FF0000">*</span>
@@ -861,7 +835,7 @@
 									<label class="col-4 control-label"></label>
 									<div class="col-7">
 										<input name="dangky" type="submit" class="input_button"
-											value="&nbsp;Đăng ký&nbsp;">
+											value="Đăng ký">
 									</div>
 								</div>
 							</form>
