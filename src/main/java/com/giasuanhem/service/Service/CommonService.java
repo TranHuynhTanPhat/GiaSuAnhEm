@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,6 +48,24 @@ public class CommonService {
 
 	}
 
+	String postWithParams(String apiUrl, Map<String, Object> params) {
+		String paramsSrt = "";
+		for (String key : params.keySet()) {
+
+			paramsSrt += key + "=" + params.get(key).toString() + "&";
+
+		}
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>("parameters");
+		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
+				entity, String.class);
+		String jsonResponse = response.getBody();
+		System.out.print(jsonResponse);
+		return jsonResponse;
+	}
+
 	public String getWithParams(String apiUrl, Map<String, Object> params) {
 		String paramsSrt = "";
 		for (String key : params.keySet()) {
@@ -64,16 +85,16 @@ public class CommonService {
 		System.out.print(jsonResponse);
 		return jsonResponse;
 	}
-	
+
 	String post(String apiUrl) {
 		return "";
 	}
 
-	public List<CategoryModel> getListCategory(Map<String, Object> params){
+	public List<CategoryModel> getListCategory(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse, 
+			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<CategoryModel>>() {
 					});
 			return listCategoryModel;
@@ -83,7 +104,7 @@ public class CommonService {
 			return null;
 		}
 	}
-	
+
 	public List<NewClassModel> getListNewClass() {
 
 		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
@@ -108,14 +129,29 @@ public class CommonService {
 			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
 			});
 			return listPost;
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
+		
 	}
-	
+	public ModelAndView checkLogin(Map<String, Object> params, HttpSession session) {
+		try {
+			System.out.print(postWithParams(ApiConstant.CHECK_LOGIN, params));
+			ModelAndView mav= new ModelAndView("admin/adminhome");
+			session.setAttribute("userName", params.get("userName"));
+			session.setAttribute("password", params.get("password"));
+			return mav;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ModelAndView mav= new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
 //	private static final String BASE_URL_API = "http://localhost:8000/giasuanhem/v1";
 //	static RestTemplate restTemplate = new RestTemplate();
 //
