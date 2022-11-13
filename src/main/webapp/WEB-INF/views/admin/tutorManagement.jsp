@@ -147,8 +147,10 @@
 						<td width="10%"><br></td>
 					</tr>
 					<c:forEach var="item" items="${ listTutor }">
+						<form id="tutor-form" action="./quanlygiasu" method="post" >
+					
 						<tr>
-							<td width="2%"><input type="checkbox" name="checked" value=${item._id }></td>
+							<td width="2%"><input type="checkbox" name="remove_tutor" value=${item._id }></td>
 							<td><strong>${item._id }</strong><br></td>
 							<td><strong>${item.name }</strong></td>
 							<td><strong>${item.birthYear }</strong><br></td>
@@ -171,7 +173,7 @@
 								<td>
 								<button value="1" name="Update" type="button">Cập nhật</button></td>
 								<td>
-								<button value="1" name="Delete" type="button">Xóa</button></td>
+								<button value="1" name="Delete" type="submit">Xóa</button></td>
 						</tr>						
 					</c:forEach>
 				</tbody>
