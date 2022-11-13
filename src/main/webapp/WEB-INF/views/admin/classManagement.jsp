@@ -13,15 +13,17 @@
 				<tbody>
 					<tr>
 						<td width="2%"><br></td>
-						<td><strong>MS</strong><br></td>
+						<td><strong>ID</strong><br></td>
 						<td><strong>Tên lớp học</strong></td>
 						<td width="10%"><br></td>
 						<td width="10%"><br></td>
 					</tr>
+					<c:forEach var="item" items="${ listClass }">
 					<tr>
 						<td width="2%"><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên lớp học</strong></td>
+							<td><strong>${ item._id }</strong><br></td>
+							<td><strong>${ item.name }</strong></td>
+
 						<td width="10%">
 							<button value="1" name="UpdateTuTor" type="button">Cập
 								nhật</button>
@@ -30,6 +32,7 @@
 							<button value="1" name="DeleteTutor" type="button">Xóa</button>
 						</td>
 					</tr>
+					</c:forEach>
 					<c:forEach var="item" items="${ listClasses}">
 						<tr >
 							<td><input type="checkbox" name="checked" value=1></td>

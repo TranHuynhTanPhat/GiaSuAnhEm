@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.core.type.ClassMetadata;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.CategoryModel;
+import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.service.ApiConstant;
@@ -69,6 +71,22 @@ public class CommonService {
 		return "";
 	}
 
+	public List<ClassModel> getListClass(){
+		String jsonResponse = get(ApiConstant.LIST_CLASS);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<ClassModel> listClassModels = objectMapper.readValue(jsonResponse,
+					new TypeReference<List<ClassModel>>() {
+					});
+			return listClassModels;
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List<CategoryModel> getListCategory(Map<String, Object> params){
 		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -115,6 +133,7 @@ public class CommonService {
 			return null;
 		}
 	}
+
 	
 //	private static final String BASE_URL_API = "http://localhost:8000/giasuanhem/v1";
 //	static RestTemplate restTemplate = new RestTemplate();

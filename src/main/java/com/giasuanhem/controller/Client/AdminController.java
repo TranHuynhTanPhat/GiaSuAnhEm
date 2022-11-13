@@ -1,12 +1,21 @@
 package com.giasuanhem.controller.Client;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import com.giasuanhem.model.Models.ClassModel;
+import java.util.List;
+
+
+
+import com.giasuanhem.service.Service.CommonService;
 
 @Controller
 public class AdminController {
+	@Autowired
+	CommonService commonService;
 	@RequestMapping(value="/admin", method=RequestMethod.GET)
 	public ModelAndView adminPage() {
 		ModelAndView mav= new ModelAndView("admin/adminhome");
@@ -49,7 +58,9 @@ public class AdminController {
 	}
 	@RequestMapping(value="/quanlylophoc", method=RequestMethod.GET)
 	public ModelAndView classManagement(){
+		List<ClassModel> list = commonService.getListClass();
 		ModelAndView mav= new ModelAndView("admin/classManagement");
+		mav.addObject("listClass",list);
 		return mav;
 	}
 	@RequestMapping(value="/quanlymonhoc", method=RequestMethod.GET)
