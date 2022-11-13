@@ -1,6 +1,8 @@
 package com.giasuanhem.controller.Client;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class HomeController {
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
+		Map<String, Object> params = new HashMap<>();
+		params.put("style", 0);
+		commonService.getWithParams("/category/index", params);
 		ModelAndView mav = new ModelAndView("home/home");
 		return mav;
 	}

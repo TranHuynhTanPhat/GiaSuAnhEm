@@ -18,7 +18,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Dynamic;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.service.ApiConstant;
@@ -34,9 +33,44 @@ public class CommonService {
 		return BASE_URL_API + path;
 	}
 
+	String get(String apiUrl) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>("parameters");
+		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl), HttpMethod.GET, entity,
+				String.class);
+		String jsonResponse = response.getBody();
+		return jsonResponse;
+
+	}
+
+	public String getWithParams(String apiUrl, Map<String, Object> params) {
+		String paramsSrt = "";
+		for (String key : params.keySet()) {
+			if (params.get(key) instanceof Integer) {
+				paramsSrt += key + "=" + params.get(key).toString() + "&";
+			} else {
+				paramsSrt += key + "='" + params.get(key).toString() + "'&";
+			}
+		}
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>("parameters");
+		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "" + paramsSrt, HttpMethod.GET,
+				entity, String.class);
+		String jsonResponse = response.getBody();
+		System.out.print(jsonResponse);
+		return jsonResponse;
+	}
+
+	String post(String apiUrl) {
+		return "";
+	}
+
 	public List<NewClassModel> getListNewClass() {
 
-		String jsonResponse = get(takeApiURL(ApiConstant.LIST_NEWCLASS), null);
+		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,
@@ -50,14 +84,13 @@ public class CommonService {
 			return null;
 		}
 	}
-	
-	public List<PostModel> getListPost(){
-		String jsonResponse = get(takeApiURL(ApiConstant.LIST_POST), null);
+
+	public List<PostModel> getListPost() {
+		String jsonResponse = get(ApiConstant.LIST_POST);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			List<PostModel> listPost = objectMapper.readValue(jsonResponse,
-					new TypeReference<List<PostModel>>() {
-					});
+			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
+			});
 			return listPost;
 
 		} catch (IOException e) {
@@ -65,29 +98,6 @@ public class CommonService {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	String get(String apiUrl, Map<Dynamic, Dynamic>... params) {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<>("parameters");
-		if (params == null) {
-			ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, entity, String.class);
-			String jsonResponse = response.getBody();
-			return jsonResponse;
-
-		} else {
-			return restTemplate.patchForObject(apiUrl, params, String.class);
-		}
-
-//		int begin = jsonResponse.indexOf("{");
-//		int end = jsonResponse.lastIndexOf("}") + 1;
-//
-//		jsonResponse = jsonResponse.substring(begin, end);
-	}
-
-	String post(String apiUrl, Map<Dynamic, Dynamic>... params) {
-		return "";
 	}
 
 }
