@@ -26,7 +26,7 @@ import com.giasuanhem.service.ApiConstant;
 @Transactional
 public class CommonService {
 
-	private static final String BASE_URL_API = "http://localhost:8000/giasuanhem/v1";
+	private static final String BASE_URL_API = "https://guarded-ocean-48054.herokuapp.com/giasuanhem/v1";
 	static RestTemplate restTemplate = new RestTemplate();
 
 	String takeApiURL(String path) {
