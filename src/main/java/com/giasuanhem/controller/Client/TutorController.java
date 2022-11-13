@@ -11,4 +11,9 @@ public class TutorController{
 		ModelAndView mav = new ModelAndView("tutor/tutor");
 		return mav;
 	}
+	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
+	public ModelAndView addTutorPage() {
+		ModelAndView mav = new ModelAndView("tutor/addTutor");
+		return mav;
+	}
 }

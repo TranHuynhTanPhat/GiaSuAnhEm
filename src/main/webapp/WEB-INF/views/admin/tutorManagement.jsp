@@ -6,8 +6,9 @@
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<div id="page-main-Admin">
-		<div style="text-align: center;width: 100%; padding: 1px 10px; box-sizing: border-box">
-			<form action="" method="post" name="form1" style="width:100%">
+		<div
+			style="text-align: center; width: 100%; padding: 1px 10px; box-sizing: border-box">
+			<form action="" method="post" name="form1" style="width: 100%">
 				<div style="margin-bottom: 0 !important; boxsizing: boder-box;">
 					<div>
 						<input type="text" name="tu_khoa_tim_kiem" class="form-control"
@@ -112,19 +113,19 @@
 							<option value="0">Quận huyện</option>
 						</select>
 					</div>
-					</div>
-					<div id="fixedButtonSearch">
-						<button value="1" name="Search" type="button">Tìm kiếm</button>
-					</div>
-				
+				</div>
+				<div id="fixedButtonSearch">
+					<button value="1" name="Search" type="button">Tìm kiếm</button>
+				</div>
+
 
 			</form>
 		</div>
 		<div>
-			<table border="1" width="100%">
+			<table border="0" width="100%">
 				<tbody>
 					<tr>
-						<td><br></td>
+						<td width="2%"><br></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Tên gia sư</strong></td>
 						<td><strong>Năm sinh</strong><br></td>
@@ -137,22 +138,38 @@
 						<td><strong>Khu vực</strong><br></td>
 						<td><strong>Lương</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
-						<td><br></td>
-						<td><br></td>
+						<td width="10%"><br></td>
+						<td width="10%"><br></td>
 					</tr>
-					<tr class="row0">
-						<td><input type="checkbox" name="checked" value=1></td>
-						<td><button value="1" name="UpdateTuTor" type="button">Cập
-								nhật</button></td>
-						<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
+					<tr >
+						<td width="2%"><input type="checkbox" name="checked" value=1></td>
+						<td><strong>MS</strong><br></td>
+						<td><strong>Tên gia sư</strong></td>
+						<td><strong>Năm sinh</strong><br></td>
+						<td><strong>Nghề nghiệp</strong><br></td>
+						<td><strong>Trường</strong><br></td>
+						<td><strong>Chuyên ngành</strong></td>
+						<td><strong>Năm tốt nghiệp</strong></td>
+						<td><strong>Lớp dạy</strong><br></td>
+						<td><strong>Các môn</strong><br></td>
+						<td><strong>Khu vực</strong><br></td>
+						<td><strong>Lương</strong><br></td>
+						<td><strong>Thông tin khác</strong><br></td>
+						<td width="10%">
+							<button value="1" name="UpdateTuTor" type="button">Cập
+								nhật</button>
+						</td>
+						<td width="10%">
+							<button value="1" name="DeleteTutor" type="button">Xóa</button>
+						</td>
 					</tr>
 					<c:forEach var="item" items="${ listTutors}">
-						<tr class="row0">
+						<tr >
 							<td><input type="checkbox" name="checked" value=1></td>
 							<td>
-								<button value="1" name="Update" type="button">Cập nhật</button>
-							</td>
-							<td><button style="background-color: red;"value="1" name="Delete" type="button">Xóa</button></td>
+							<button value="1" name="Update" type="button">Cập nhật</button></td>
+							<td>
+							<button value="1" name="Delete" type="button">Xóa</button></td>
 						</tr>
 					</c:forEach>
 

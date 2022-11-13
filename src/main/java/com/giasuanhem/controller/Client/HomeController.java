@@ -14,11 +14,11 @@ import com.giasuanhem.service.Service.CommonService;
 @Controller
 public class HomeController {
 	@Autowired
-	private CommonService commonService;
+//	private CommonService commonService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
-		List<NewClassModel> list = commonService.getListNewClass();
+//		List<NewClassModel> list = commonService.getListNewClass();
 		ModelAndView mav = new ModelAndView("home/home");
 		return mav;
 	}

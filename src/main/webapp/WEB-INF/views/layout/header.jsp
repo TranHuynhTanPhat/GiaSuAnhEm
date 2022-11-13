@@ -76,7 +76,7 @@
 						<a href="/TrungTamGiaSu/gia-su">Gia sư<img
 							class="downarrowclass"></a>
 						<ul class="nav-menu dropdown-menu fade-up">
-							<li><a href="#" class="dropdown-item">Đăng ký làm gia sư</a></li>
+							<li><a href="them-gia-su" class="dropdown-item">Đăng ký làm gia sư</a></li>
 							<li><a href="#" class="dropdown-item">Quy trình nhận lớp</a></li>
 							<li><a href="#" class="dropdown-item">Trung tâm gia sư
 									uy tín</a></li>
