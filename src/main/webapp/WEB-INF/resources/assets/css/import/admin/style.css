@@ -22,6 +22,7 @@
 	width: 150px;
 	text-align: center;
 }
+
 #fixedButtonSearch {
 	border: none;
 	font-size: 15px;
@@ -31,21 +32,22 @@
 	width: 150px;
 	text-align: center;
 }
-#fixedButtonSearch button{
+
+#fixedButtonSearch button {
 	background-color: #f8dad0;
 }
-#fixedButtonDelete button{
+
+#fixedButtonDelete button {
 	background-color: red;
 }
+
 #page-main-Admin {
 	float: left;
 	padding-left: 210px;
 	padding-bottom: 5%;
 	padding-top: 5%;
-	width:100%;
+	width: 100%;
 }
-
-
 
 .col-3 {
 	width: 25%;
@@ -54,7 +56,6 @@
 	min-height: 1px;
 	padding-left: 10px;
 	padding-right: 10px;
-	
 }
 
 .form-control {
@@ -75,12 +76,13 @@
 		.15s;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-button{
+
+button {
 	background-color: #1877f2;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    line-height: 30px;
-    padding: 0 16px;
-    width: 150px;
+	border: none;
+	border-radius: 6px;
+	font-size: 15px;
+	line-height: 30px;
+	padding: 0 16px;
+	width: 150px;
 }

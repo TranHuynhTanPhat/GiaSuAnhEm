@@ -4,7 +4,7 @@
 <div id="wrapperAdmin">
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<div id="Custome-div">
-		<form id="Customer-form">
+		<form id="Customer-form" action="./login" method="post" >
 			<div>
 				<div id="Textbox">
 					<input type="text" name="username" id="username"
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div id="Button">
-				<button value="1" name="login" type="submit">Đăng nhập</button>
+				<button value="login" name="login" type="submit">Đăng nhập</button>
 			</div>
 		</form>
 	</div>
