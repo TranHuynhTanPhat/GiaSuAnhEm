@@ -139,7 +139,7 @@
 					</tr>
 					<c:forEach var="item" items="${listNewClass }">
 						<tr >
-						<td><input type="checkbox" name="checked" value=1></td>
+						<td><input type="checkbox" name="checked" value=${ item.id }></td>
 						<td><strong>${ item.id }</strong><br></td>
 						<td><strong>${ item.classes[0].name },</strong></td>
 						<td><strong>${ item.address }</strong><br></td>

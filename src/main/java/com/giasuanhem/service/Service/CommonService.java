@@ -68,7 +68,6 @@ public class CommonService {
 	
 	public List<TutorModel> getListTutor(){
 		String jsonResponse = get(ApiConstant.LIST_TUTOR);
-		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<TutorModel> listTutorModels = objectMapper.readValue(jsonResponse,

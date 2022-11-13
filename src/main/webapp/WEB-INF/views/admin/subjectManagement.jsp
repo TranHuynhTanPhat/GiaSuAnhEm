@@ -20,7 +20,7 @@
 					</tr>
 					<c:forEach var="item" items="${listSubject }">
 						<tr>
-							<td width="2%"><input type="checkbox" name="checked" value=1></td>
+							<td width="2%"><input type="checkbox" name="checked" value=${ item._id }></td>
 							<td><strong>${ item._id }</strong><br></td>
 							<td><strong>${ item.name }</strong></td>
 							<td width="10%">
