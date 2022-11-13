@@ -1,13 +1,10 @@
 package com.giasuanhem.service.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.core.type.ClassMetadata;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -23,6 +20,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
+import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ApiConstant;
 
 @Service
@@ -50,7 +48,7 @@ public class CommonService {
 	public String getWithParams(String apiUrl, Map<String, Object> params) {
 		String paramsSrt = "";
 		for (String key : params.keySet()) {
-				paramsSrt += key + "=" + params.get(key).toString() + "&";
+			paramsSrt += key + "=" + params.get(key).toString() + "&";
 		}
 
 		HttpHeaders headers = new HttpHeaders();
@@ -62,12 +60,12 @@ public class CommonService {
 		System.out.print(jsonResponse);
 		return jsonResponse;
 	}
-	
+
 	String post(String apiUrl) {
 		return "";
 	}
 
-	public List<ClassModel> getListClass(){
+	public List<ClassModel> getListClass() {
 		String jsonResponse = get(ApiConstant.LIST_CLASS);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
@@ -82,12 +80,12 @@ public class CommonService {
 			return null;
 		}
 	}
-	
-	public List<CategoryModel> getListCategory(Map<String, Object> params){
+
+	public List<CategoryModel> getListCategory(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse, 
+			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<CategoryModel>>() {
 					});
 			return listCategoryModel;
@@ -97,7 +95,7 @@ public class CommonService {
 			return null;
 		}
 	}
-	
+
 	public List<NewClassModel> getListNewClass() {
 
 		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
@@ -123,7 +121,7 @@ public class CommonService {
 			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
 			});
 			return listPost;
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -131,7 +129,22 @@ public class CommonService {
 		}
 	}
 
-	
+	public List<SubjectModel> getListSubject() {
+		String jsonResponse = get(ApiConstant.LIST_SUBJECT);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<SubjectModel> listSubject = objectMapper.readValue(jsonResponse,
+					new TypeReference<List<SubjectModel>>() {
+					});
+			return listSubject;
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 //	private static final String BASE_URL_API = "http://localhost:8000/giasuanhem/v1";
 //	static RestTemplate restTemplate = new RestTemplate();
 //

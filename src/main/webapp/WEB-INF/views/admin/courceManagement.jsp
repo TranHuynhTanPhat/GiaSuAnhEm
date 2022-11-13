@@ -137,20 +137,22 @@
 						<td width="10%"><br></td>
 						<td width="10%"><br></td>
 					</tr>
-					<tr >
+					<c:forEach var="item" items="${listNewClass }">
+						<tr >
 						<td><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Lớp dạy</strong></td>
-						<td><strong>Địa chỉ</strong><br></td>
-						<td><strong>Mức lương</strong><br></td>
-						<td><strong>Số buổi</strong><br></td>
-						<td><strong>Thời gian dạy</strong></td>
-						<td><strong>Yêu cầu</strong></td>
+						<td><strong>${ item.id }</strong><br></td>
+						<td><strong>${ item.classes[0].name },</strong></td>
+						<td><strong>${ item.address }</strong><br></td>
+						<td><strong>${ item.salary }</strong><br></td>
+						<td><strong>${ item.sobuoi }</strong><br></td>
+						<td><strong>${ item.time }</strong></td>
+						<td><strong>${ item.require }</strong></td>
 						<td><strong>Liên hệ</strong><br></td>
 						<td><button value="1" name="UpdateTuTor" type="button">Cập
 								nhật</button></td>
 						<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
 					</tr>
+					</c:forEach>
 					<c:forEach var="item" items="${ listCources}">
 						<tr >
 							<td><input type="checkbox" name="checked" value=1></td>
