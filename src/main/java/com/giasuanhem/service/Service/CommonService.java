@@ -23,6 +23,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
+import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.service.ApiConstant;
 
 @Service
@@ -65,6 +66,23 @@ public class CommonService {
 	
 	String post(String apiUrl) {
 		return "";
+	}
+	
+	public List<TutorModel> getListTutor(){
+		String jsonResponse = get(ApiConstant.LIST_TUTOR);
+		System.out.println(jsonResponse);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<TutorModel> listTutorModels = objectMapper.readValue(jsonResponse,
+					new TypeReference<List<TutorModel>>() {
+					});
+			return listTutorModels;
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public List<ClassModel> getListClass(){

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.giasuanhem.model.Models.ClassModel;
+import com.giasuanhem.model.Models.TutorModel;
+
 import java.util.List;
 
 
@@ -33,7 +35,9 @@ public class AdminController {
 	}
 	@RequestMapping(value="/quanlygiasu", method=RequestMethod.GET)
 	public ModelAndView tutorManagement(){
+		List<TutorModel> list = commonService.getListTutor();
 		ModelAndView mav= new ModelAndView("admin/tutorManagement");
+		mav.addObject("listTutor",list);
 		return mav;
 	}
 	@RequestMapping(value="/quanlykhoahoc", method=RequestMethod.GET)

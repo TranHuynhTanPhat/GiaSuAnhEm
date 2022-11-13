@@ -136,44 +136,30 @@
 						<td><strong>Lớp dạy</strong><br></td>
 						<td><strong>Các môn</strong><br></td>
 						<td><strong>Khu vực</strong><br></td>
-						<td><strong>Lương</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
 						<td width="10%"><br></td>
-						<td width="10%"><br></td>
 					</tr>
-					<tr >
-						<td width="2%"><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên gia sư</strong></td>
-						<td><strong>Năm sinh</strong><br></td>
-						<td><strong>Nghề nghiệp</strong><br></td>
-						<td><strong>Trường</strong><br></td>
-						<td><strong>Chuyên ngành</strong></td>
-						<td><strong>Năm tốt nghiệp</strong></td>
-						<td><strong>Lớp dạy</strong><br></td>
-						<td><strong>Các môn</strong><br></td>
-						<td><strong>Khu vực</strong><br></td>
-						<td><strong>Lương</strong><br></td>
-						<td><strong>Thông tin khác</strong><br></td>
-						<td width="10%">
-							<button value="1" name="UpdateTuTor" type="button">Cập
-								nhật</button>
-						</td>
-						<td width="10%">
-							<button value="1" name="DeleteTutor" type="button">Xóa</button>
-						</td>
-					</tr>
-					<c:forEach var="item" items="${ listTutors}">
-						<tr >
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td>
-							<button value="1" name="Update" type="button">Cập nhật</button></td>
-							<td>
-							<button value="1" name="Delete" type="button">Xóa</button></td>
-						</tr>
+					<c:forEach var="item" items="${ listTutor }">
+						<tr>
+							<td width="2%"><input type="checkbox" name="checked" value=1></td>
+							<td><strong>${item._id }</strong><br></td>
+							<td><strong>${item.name }</strong></td>
+							<td><strong>${item.birthYear }</strong><br></td>
+							<td><strong>${item.isNow }</strong><br></td>
+							<td><strong>${item.school }</strong><br></td>
+							<td><strong>${item.department }</strong></td>
+							<td><strong>${item.graduateYear }</strong></td>
+							<td><strong>Lớp dạy</strong><br></td>
+							<td><strong>Các môn</strong><br></td>
+							<td><strong>Khu vực</strong><br></td>
+							<td><strong>${item.describe }</strong><br></td>
+								<td><input type="checkbox" name="checked" value=1></td>
+								<td>
+								<button value="1" name="Update" type="button">Cập nhật</button></td>
+								<td>
+								<button value="1" name="Delete" type="button">Xóa</button></td>
+						</tr>						
 					</c:forEach>
-
-
 				</tbody>
 			</table>
 			<div id="fixedButtonAdd">
