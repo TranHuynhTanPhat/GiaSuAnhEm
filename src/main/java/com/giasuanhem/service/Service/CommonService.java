@@ -27,7 +27,6 @@ import com.giasuanhem.service.ApiConstant;
 @Transactional
 public class CommonService {
 
-<<<<<<< HEAD
 	private static final String BASE_URL_API = "https://guarded-ocean-48054.herokuapp.com/giasuanhem/v1";
 	static RestTemplate restTemplate = new RestTemplate();
 
@@ -109,14 +108,14 @@ public class CommonService {
 			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
 			});
 			return listPost;
-
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
 	}
-=======
+	
 //	private static final String BASE_URL_API = "http://localhost:8000/giasuanhem/v1";
 //	static RestTemplate restTemplate = new RestTemplate();
 //
@@ -167,6 +166,5 @@ public class CommonService {
 //	String post(String apiUrl, Map<Dynamic, Dynamic>... params) {
 //		return "";
 //	}
->>>>>>> Phat1
 
 }

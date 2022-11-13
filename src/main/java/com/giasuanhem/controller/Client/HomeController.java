@@ -17,11 +17,11 @@ import com.giasuanhem.service.Service.CommonService;
 @Controller
 public class HomeController {
 	@Autowired
-//	private CommonService commonService;
+	private CommonService commonService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
-<<<<<<< HEAD
+
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
 		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
@@ -32,9 +32,8 @@ public class HomeController {
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
 		commonService.getWithParams("/category/index", paramsDistrict);
 		
-=======
-//		List<NewClassModel> list = commonService.getListNewClass();
->>>>>>> Phat1
+
+		List<NewClassModel> list = commonService.getListNewClass();
 		ModelAndView mav = new ModelAndView("home/home");
 		mav.addObject("listCategoryClass",listClass);
 		mav.addObject("listCategoryDistrict",listDistrict);
