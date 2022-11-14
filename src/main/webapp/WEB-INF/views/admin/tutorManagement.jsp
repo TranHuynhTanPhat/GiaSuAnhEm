@@ -174,7 +174,8 @@
 								<button value="1" name="Update" type="button">Cập nhật</button></td>
 								<td>
 								<button value="1" name="Delete" type="submit">Xóa</button></td>
-						</tr>						
+						</tr>		
+						</form>				
 					</c:forEach>
 				</tbody>
 			</table>

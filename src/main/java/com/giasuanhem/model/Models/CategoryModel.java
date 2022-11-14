@@ -4,7 +4,6 @@ public class CategoryModel {
 	 private String _id;
 	 private String name;
 	 private float style;
-	 private float __v;
 
 
 	 // Getter Methods 
@@ -21,15 +20,11 @@ public class CategoryModel {
 	  return style;
 	 }
 
-	 public float get__v() {
-	  return __v;
-	 }
-
 	 // Setter Methods 
 
 	 public void set_id(String _id) {
 	  this._id = _id;
-	 }
+}
 
 	 public void setName(String name) {
 	  this.name = name;
@@ -37,9 +32,5 @@ public class CategoryModel {
 
 	 public void setStyle(float style) {
 	  this.style = style;
-	 }
-
-	 public void set__v(float __v) {
-	  this.__v = __v;
 	 }
 	}

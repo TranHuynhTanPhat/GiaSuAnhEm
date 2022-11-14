@@ -4,124 +4,136 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewClassModel {
-	private String _id;
-	private String address;
-	private String district;
-	private int sobuoi;
-	private String time;
-	private int salary;
-	private String require;
-	private int status;
-	List<CategoryModel> categories = new ArrayList<CategoryModel>();
-	List<ClassModel> classes = new ArrayList<ClassModel>();
-	List<SubjectModel> subjects = new ArrayList<SubjectModel>();
-	private float __v;
-	private int id;
+	 private String _id;
+	 private float id;
+	 private String address;
+	 private String district;
+	 private float sobuoi;
+	 private String time;
+	 private float salary;
+	 private String require;
+	 private float status;
+	 private String created_at;
+	 List < CategoryModel > categories = new ArrayList < CategoryModel > ();
+	 List < ClassModel > classes = new ArrayList < ClassModel > ();
+	 List < SubjectModel > subjects = new ArrayList < SubjectModel > ();
+	 private String contact;
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	 // Getter Methods 
 
-	public String get_id() {
-		return _id;
-	}
+	 public String get_id() {
+	  return _id;
+	 }
 
-	public void set_id(String _id) {
-		this._id = _id;
-	}
+	 public float getId() {
+	  return id;
+	 }
 
-	public String getAddress() {
-		return address;
-	}
+	 public String getAddress() {
+	  return address;
+	 }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	 public String getDistrict() {
+	  return district;
+	 }
 
-	public String getDistrict() {
-		return district;
-	}
+	 public float getSobuoi() {
+	  return sobuoi;
+	 }
 
-	public void setDistrict(String district) {
-		this.district = district;
-	}
+	 public String getTime() {
+	  return time;
+	 }
 
-	public int getSobuoi() {
-		return sobuoi;
-	}
+	 public float getSalary() {
+	  return salary;
+	 }
 
-	public void setSobuoi(int sobuoi) {
-		this.sobuoi = sobuoi;
-	}
+	 public String getRequire() {
+	  return require;
+	 }
 
-	public String getTime() {
-		return time;
-	}
+	 public float getStatus() {
+	  return status;
+	 }
 
-	public void setTime(String time) {
-		this.time = time;
-	}
+	 public String getCreated_at() {
+	  return created_at;
+	 }
 
-	public int getSalary() {
-		return salary;
-	}
+	 public String getContact() {
+	  return contact;
+	 }
 
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
+	 // Setter Methods 
 
-	public String getRequire() {
-		return require;
-	}
+	 public void set_id(String _id) {
+	  this._id = _id;
+	 }
 
-	public void setRequire(String require) {
-		this.require = require;
-	}
+	 public void setId(float id) {
+	  this.id = id;
+	 }
 
-	public int getStatus() {
-		return status;
-	}
+	 public void setAddress(String address) {
+	  this.address = address;
+	 }
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+	 public void setDistrict(String district) {
+	  this.district = district;
+	 }
 
-	
+	 public void setSobuoi(float sobuoi) {
+	  this.sobuoi = sobuoi;
+	 }
 
-	public List<CategoryModel> getCategories() {
-		return categories;
-	}
+	 public void setTime(String time) {
+	  this.time = time;
+	 }
 
-	public void setCategories(List<CategoryModel> categories) {
-		this.categories = categories;
-	}
+	 public void setSalary(float salary) {
+	  this.salary = salary;
+	 }
 
-	public List<ClassModel> getClasses() {
-		return classes;
-	}
+	 public void setRequire(String require) {
+	  this.require = require;
+	 }
 
-	public void setClasses(List<ClassModel> classes) {
-		this.classes = classes;
-	}
+	 public void setStatus(float status) {
+	  this.status = status;
+	 }
 
-	public List<SubjectModel> getSubjects() {
-		return subjects;
-	}
+	 public void setCreated_at(String created_at) {
+	  this.created_at = created_at;
+	 }
 
-	public void setSubjects(List<SubjectModel> subjects) {
-		this.subjects = subjects;
-	}
+	 public void setContact(String contact) {
+	  this.contact = contact;
+	 }
+	 
+	 public List<CategoryModel> getCategories() {
+			return categories;
+		}
 
-	public float get__v() {
-		return __v;
-	}
+		public void setCategories(List<CategoryModel> categories) {
+			this.categories = categories;
+		}
 
-	public void set__v(float __v) {
-		this.__v = __v;
-	}
+		public List<ClassModel> getClasses() {
+			return classes;
+		}
+
+		public void setClasses(List<ClassModel> classes) {
+			this.classes = classes;
+		}
+
+		public List<SubjectModel> getSubjects() {
+			return subjects;
+		}
+
+		public void setSubjects(List<SubjectModel> subjects) {
+			this.subjects = subjects;
+		}
 
 }

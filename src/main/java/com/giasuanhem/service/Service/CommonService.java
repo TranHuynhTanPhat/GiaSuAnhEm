@@ -79,7 +79,6 @@ public class CommonService {
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.GET,
 				entity, String.class);
 		String jsonResponse = response.getBody();
-		System.out.print(jsonResponse);
 		return jsonResponse;
 	}
 
@@ -90,6 +89,15 @@ public class CommonService {
 	public void removeTutor( Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.TUTOR_REMOVE, params);
+			System.out.println(jsonResponse);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeCource( Map<String, Object> params) {
+		try {
+			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
 			System.out.println(jsonResponse);
 		}catch(Exception e) {
 			e.printStackTrace();

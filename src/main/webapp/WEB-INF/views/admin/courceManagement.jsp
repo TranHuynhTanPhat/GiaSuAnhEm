@@ -138,8 +138,9 @@
 						<td width="10%"><br></td>
 					</tr>
 					<c:forEach var="item" items="${listNewClass }">
+					<form>
 						<tr >
-						<td><input type="checkbox" name="checked" value=${ item.id }></td>
+						<td><input type="checkbox" name="remove_cource" value=${ item.id }></td>
 						<td><strong>${ item.id }</strong><br></td>
 						<td><strong>${ item.classes[0].name },</strong></td>
 						<td><strong>${ item.address }</strong><br></td>
@@ -150,20 +151,10 @@
 						<td><strong>Liên hệ</strong><br></td>
 						<td><button value="1" name="UpdateTuTor" type="button">Cập
 								nhật</button></td>
-						<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
+						<td><button value="1" name="DeleteTutor" type="submit">Xóa</button></td>
 					</tr>
+					</form>
 					</c:forEach>
-					<c:forEach var="item" items="${ listCources}">
-						<tr >
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><div id="fixedButtonDelete">
-									<button value="1" name="UpdateTuTor" type="button">Cập
-										nhật</button>
-								</div></td>
-							<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
-						</tr>
-					</c:forEach>
-
 
 				</tbody>
 			</table>

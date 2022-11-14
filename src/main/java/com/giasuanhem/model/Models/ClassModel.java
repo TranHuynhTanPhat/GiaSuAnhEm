@@ -3,7 +3,6 @@ package com.giasuanhem.model.Models;
 public class ClassModel {
 	 private String _id;
 	 private String name;
-	 private float __v;
 
 
 	 // Getter Methods 
@@ -16,10 +15,6 @@ public class ClassModel {
 	  return name;
 	 }
 
-	 public float get__v() {
-	  return __v;
-	 }
-
 	 // Setter Methods 
 
 	 public void set_id(String _id) {
@@ -28,9 +23,5 @@ public class ClassModel {
 
 	 public void setName(String name) {
 	  this.name = name;
-	 }
-
-	 public void set__v(float __v) {
-	  this.__v = __v;
 	 }
 	}

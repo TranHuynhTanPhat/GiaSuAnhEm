@@ -85,6 +85,17 @@ public class AdminController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.POST)
+	public ModelAndView remove_courceManagement(@RequestParam("remove_cource") String id) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("_id", id);
+		commonService.removeCource(params);
+		List<NewClassModel> list = commonService.getListNewClass();
+		ModelAndView mav = new ModelAndView("admin/courceManagement");
+		mav.addObject("listNewClass", list);
+		return mav;
+	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(@RequestParam("username") String username, @RequestParam("password") String password) {
