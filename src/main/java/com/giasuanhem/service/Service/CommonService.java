@@ -2,6 +2,7 @@ package com.giasuanhem.service.Service;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,11 +64,10 @@ public class CommonService {
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
 				entity, String.class);
 		String jsonResponse = response.getBody();
-		System.out.print(jsonResponse);
 		return jsonResponse;
 	}
 
-	 String getWithParams(String apiUrl, Map<String, Object> params) {
+	String getWithParams(String apiUrl, Map<String, Object> params) {
 		String paramsSrt = "";
 		for (String key : params.keySet()) {
 			paramsSrt += key + "=" + params.get(key).toString() + "&";
@@ -85,26 +85,24 @@ public class CommonService {
 	String post(String apiUrl) {
 		return "";
 	}
-	
-	public void removeTutor( Map<String, Object> params) {
+
+	public void removeTutor(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.TUTOR_REMOVE, params);
-			System.out.println(jsonResponse);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void removeCource( Map<String, Object> params) {
+
+	public void removeCource(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
-			System.out.println(jsonResponse);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public List<TutorModel> getListTutor(){
+
+	public List<TutorModel> getListTutor() {
 		String jsonResponse = get(ApiConstant.LIST_TUTOR);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
@@ -120,6 +118,23 @@ public class CommonService {
 		}
 	}
 
+	public List<CategoryModel> getListQuan() {
+		Map<String, Object> params = new HashMap<>();
+		params.put("style", 1);
+		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse,
+					new TypeReference<List<CategoryModel>>() {
+					});
+			return listCategoryModel;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public List<ClassModel> getListClass() {
 		String jsonResponse = get(ApiConstant.LIST_CLASS);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -127,6 +142,7 @@ public class CommonService {
 			List<ClassModel> listClassModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<ClassModel>>() {
 					});
+			
 			return listClassModels;
 
 		} catch (IOException e) {
@@ -154,7 +170,6 @@ public class CommonService {
 	public List<NewClassModel> getListNewClass() {
 
 		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
-		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,
@@ -182,9 +197,8 @@ public class CommonService {
 			e.printStackTrace();
 			return null;
 		}
-		
-	}
 
+	}
 
 	public List<SubjectModel> getListSubject() {
 		String jsonResponse = get(ApiConstant.LIST_SUBJECT);
@@ -201,18 +215,17 @@ public class CommonService {
 			return null;
 		}
 	}
-		
+
 	public ModelAndView checkLogin(Map<String, Object> params, HttpSession session) {
 		try {
-			System.out.print(postWithParams(ApiConstant.CHECK_LOGIN, params));
-			ModelAndView mav= new ModelAndView("admin/adminhome");
+			ModelAndView mav = new ModelAndView("admin/adminhome");
 			session.setAttribute("userName", params.get("userName"));
 			session.setAttribute("password", params.get("password"));
 			return mav;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			ModelAndView mav= new ModelAndView("admin/login");
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
 	}

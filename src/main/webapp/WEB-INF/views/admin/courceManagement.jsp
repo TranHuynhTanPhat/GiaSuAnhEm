@@ -15,63 +15,27 @@
 						<select name="chonlop" id="chonlop" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Lớp</option>
-							<option value="L0L">Lớp lá</option>
-							<option value="L1L">Lớp 1</option>
-							<option value="L2L">Lớp 2</option>
-							<option value="L3L">Lớp 3</option>
-							<option value="L4L">Lớp 4</option>
-							<option value="L5L">Lớp 5</option>
-							<option value="L6L">Lớp 6</option>
-							<option value="L7L">Lớp 7</option>
-							<option value="L8L">Lớp 8</option>
-							<option value="L9L">Lớp 9</option>
-							<option value="L10L">Lớp 10</option>
-							<option value="L11L">Lớp 11</option>
-							<option value="L12L">Lớp 12</option>
-							<option value="L13L">Ôn Đại Học</option>
-							<option value="L14L">Năng khiếu</option>
-							<option value="L15L">Ngoại ngữ</option>
-							<option value="L16L">Lớp khác</option>
-							<option value="L17L">Hệ Đại học</option>
+							<c:forEach var="item" items="${listClass }">
+								<option value="${item._id }">${item.name}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="col-3">
 						<select name="chonmon" id="chonmon" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Môn</option>
-							<option value="M1M">Toán</option>
-							<option value="M2M">Lý</option>
-							<option value="M3M">Hóa</option>
-							<option value="M4M">Văn</option>
-							<option value="M5M">Tiếng Anh</option>
-							<option value="M6M">Sinh</option>
-							<option value="M7M">Báo bài</option>
-							<option value="M8M">Sử</option>
-							<option value="M9M">Tiếng Việt</option>
-							<option value="M10M">Địa</option>
-							<option value="M11M">Vẽ</option>
-							<option value="M12M">Đàn nhạc</option>
-							<option value="M13M">Tin học</option>
-							<option value="M14M">Rèn chữ đẹp</option>
-							<option value="M15M">Tiếng Hoa</option>
-							<option value="M16M">Tiếng Nhật</option>
-							<option value="M17M">Anh văn giao tiếp</option>
-							<option value="M18M">Tiếng Hàn</option>
-							<option value="M19M">Kế toán</option>
-							<option value="M20M">Tiếng Nga</option>
-							<option value="M21M">Tiếng Pháp</option>
-							<option value="M22M">Tiếng Đức</option>
-							<option value="M23M">Tiếng Campuchia</option>
-							<option value="M24M">Tiếng Thái</option>
-							<option value="M25M">Tiếng Ý</option>
-							<option value="M26M">Môn khác</option>
-							<option value="M27M">Luyện thi đại học</option>
+							<c:forEach var="item" items="${listSubject }">
+								<option value="${item._id}">${item.name}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="col-3">
 						<select name="quanhuyen" id="quanhuyen" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="0">Quận huyện</option>
+							<c:forEach var="item" items="${listQuan }">
+								<option value=${item._id }>${item.name }</option>
+							</c:forEach>
 						</select>
 					</div>
 

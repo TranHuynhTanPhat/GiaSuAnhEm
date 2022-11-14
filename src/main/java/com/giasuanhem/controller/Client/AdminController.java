@@ -18,12 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.TutorModel;
 
 import java.util.List;
-
-
 
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
@@ -51,7 +50,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
 	public ModelAndView adminIntroduction() {
-		
+
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/adminIntroduction");
 			return mav;
@@ -77,15 +76,21 @@ public class AdminController {
 
 		if (session.getAttribute("userName") != null) {
 			List<NewClassModel> list = commonService.getListNewClass();
+			List<CategoryModel> listQuan = commonService.getListQuan();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/courceManagement");
 			mav.addObject("listNewClass", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.POST)
 	public ModelAndView remove_courceManagement(@RequestParam("remove_cource") String id) {
 		Map<String, Object> params = new HashMap<>();
@@ -110,26 +115,24 @@ public class AdminController {
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public ModelAndView logoutAdmin() {
 		session.invalidate();
-		System.out.print("a");
 		ModelAndView mav = new ModelAndView("admin/login");
 		return mav;
 
 	}
 
-	
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
 	public ModelAndView tutorManagement() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
 			List<TutorModel> list = commonService.getListTutor();
-			mav.addObject("listTutor",list);
+			mav.addObject("listTutor", list);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.POST)
 	public ModelAndView remove_tutorManagement(@RequestParam("remove_tutor") String id) {
 		Map<String, Object> params = new HashMap<>();
@@ -137,10 +140,9 @@ public class AdminController {
 		commonService.removeTutor(params);
 		List<TutorModel> list = commonService.getListTutor();
 		ModelAndView mav = new ModelAndView("admin/tutorManagement");
-		mav.addObject("listTutor",list);
+		mav.addObject("listTutor", list);
 		return mav;
 	}
-
 
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement() {
@@ -181,7 +183,7 @@ public class AdminController {
 		if (session.getAttribute("userName") != null) {
 			List<ClassModel> list = commonService.getListClass();
 			ModelAndView mav = new ModelAndView("admin/classManagement");
-			mav.addObject("listClass",list);
+			mav.addObject("listClass", list);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -194,7 +196,7 @@ public class AdminController {
 		if (session.getAttribute("userName") != null) {
 			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			mav.addObject("listSubject",list);
+			mav.addObject("listSubject", list);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -311,6 +313,7 @@ public class AdminController {
 			return mav;
 		}
 	}
+
 	@RequestMapping(value = "/addcategory", method = RequestMethod.POST)
 	public ModelAndView addCategory() {
 		if (session.getAttribute("userName") != null) {
@@ -321,6 +324,7 @@ public class AdminController {
 			return mav;
 		}
 	}
+
 	@RequestMapping(value = "/updatecategory", method = RequestMethod.POST)
 	public ModelAndView updateCategory() {
 		if (session.getAttribute("userName") != null) {
@@ -331,6 +335,7 @@ public class AdminController {
 			return mav;
 		}
 	}
+
 	@RequestMapping(value = "/addcategoryclass", method = RequestMethod.POST)
 	public ModelAndView addCategoryClass() {
 		if (session.getAttribute("userName") != null) {
@@ -341,6 +346,7 @@ public class AdminController {
 			return mav;
 		}
 	}
+
 	@RequestMapping(value = "/updatecategoryclass", method = RequestMethod.POST)
 	public ModelAndView updateCategoryClass() {
 		if (session.getAttribute("userName") != null) {
@@ -351,6 +357,7 @@ public class AdminController {
 			return mav;
 		}
 	}
+
 	@RequestMapping(value = "/addsalary", method = RequestMethod.POST)
 	public ModelAndView addSalary() {
 		if (session.getAttribute("userName") != null) {
@@ -361,6 +368,7 @@ public class AdminController {
 			return mav;
 		}
 	}
+
 	@RequestMapping(value = "/updatesalary", method = RequestMethod.POST)
 	public ModelAndView updateSalary() {
 		if (session.getAttribute("userName") != null) {
