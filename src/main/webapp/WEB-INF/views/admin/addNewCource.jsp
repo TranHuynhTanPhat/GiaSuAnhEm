@@ -38,11 +38,14 @@
 						</div>
 					</div>
 					<br>
+					
+					
+					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Điện thoại: <span
+						<label class="col-4 control-label">Lương: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="dienthoai" class="form-control" value="">
+							<input type="text" name="luong" class="form-control" value="">
 						</div>
 					</div>
 
@@ -200,12 +203,20 @@
 
 
 
-
+					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Yêu cầu khác: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
 							<textarea name="yeucaukhac" rows="3" class="form-control"></textarea>
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Liên hệ: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<textarea name="lienhe" rows="3" class="form-control"></textarea>
 						</div>
 					</div>
 					<br>

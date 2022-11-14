@@ -12,16 +12,12 @@
 					<strong><span style="font-size: 14px;"><span>BẢNG
 								HỌC PHÍ 2 BUỔI 1 TUẦN VÀ 3 BUỔI 1 TUẦN</span></span></strong>
 				</p>
-				<table border="0" cellpadding="5" height="178" width="100%" >
+				<table border="0" cellpadding="5" height="178" width="100%">
 					<tbody>
 						<tr>
-							<td rowspan="2" width="2%">
-
-							</td>
-							<td rowspan="2" >
-								<span style="color: rgb(255, 0, 0);"><strong>KHỐI
-										LỚP</strong></span>
-							</td>
+							<td rowspan="2" width="2%"></td>
+							<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
+										LỚP</strong></span></td>
 							<td colspan="2"><strong> 2 buổi 1 tuần</strong></td>
 							<td colspan="2"><strong> 3 buổi 1 tuần</strong></td>
 							<td rowspan="2" width="10%"></td>
@@ -44,8 +40,11 @@
 							<td>1.800 - 2.000</td>
 							<td>1.500 - 1.700</td>
 							<td>2.500 - 2.800</td>
-							<td style="text-align: center;"><button value="1"
-									name="UpdateTuTor" type="button">Cập nhật</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
 							<td style="text-align: center;"><button value="1"
 									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
@@ -57,8 +56,11 @@
 							<td>2.000 - 2.200</td>
 							<td>1.800 - 2.200</td>
 							<td>2.800 - 3.000</td>
-							<td style="text-align: center;"><button value="1"
-									name="UpdateTuTor" type="button">Cập nhật</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
 							<td style="text-align: center;"><button value="1"
 									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
@@ -70,8 +72,11 @@
 							<td>2.200 - 2.400</td>
 							<td>2.000 - 2.400</td>
 							<td>3.200 - 3.600</td>
-							<td style="text-align: center;"><button value="1"
-									name="UpdateTuTor" type="button">Cập nhật</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
 							<td style="text-align: center;"><button value="1"
 									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
@@ -84,33 +89,34 @@
 							<td>2.400 - 2.600</td>
 							<td>2.200 - 2.600</td>
 							<td>3.600 - 4.000</td>
-							<td style="text-align: center;"><button value="1"
-									name="UpdateTuTor" type="button">Cập nhật</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
 							<td style="text-align: center;"><button value="1"
 									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
 					</tbody>
 				</table>
-				<div id="fixedButtonAdd">
-					<button value="1" name="Add" type="button">Thêm</button>
-				</div>
+				<form action="./addsalary" method="post">
+					<div id="fixedButtonAdd">
+						<button value="1" name="Add" type="submit">Thêm</button>
+					</div>
+				</form>
 				<p>
 					<strong><span style="font-size: 14px;"><span>BẢNG
 								HỌC PHÍ 4 BUỔI 1 TUẦN VÀ 5 BUỔI 1 TUẦN</span></span></strong>
 				</p>
-				
-				
-				
+
+
+
 				<table border="0" cellpadding="5" height="178" width="100%">
 					<tbody>
 						<tr>
-							<td rowspan="2" width="2%" >
-
-							</td>
-							<td rowspan="2" >
-								<span style="color: rgb(255, 0, 0);"><strong>KHỐI
-										LỚP</strong></span>
-							</td>
+							<td rowspan="2" width="2%"></td>
+							<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
+										LỚP</strong></span></td>
 							<td colspan="2"><strong> 4 buổi 1 tuần</strong></td>
 							<td colspan="2"><strong> 5 buổi 1 tuần</strong></td>
 							<td rowspan="2" width="10%"></td>
@@ -131,9 +137,13 @@
 							<td>3.400 - 3.600</td>
 							<td>2.600 - 2.800</td>
 							<td>4.400 - 4.600</td>
-							<td style="text-align: center;"><button value="1" name="UpdateTuTor" type="button">Cập
-									nhật</button></td>
-							<td style="text-align: center;"><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
+							<td style="text-align: center;"><button value="1"
+									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
@@ -142,9 +152,13 @@
 							<td>4.000 - 4.400</td>
 							<td>3.000 - 3.400</td>
 							<td>4.800 - 5.000</td>
-							<td style="text-align: center;"><button value="1" name="UpdateTuTor" type="button">Cập
-									nhật</button></td>
-							<td style="text-align: center;"><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
+							<td style="text-align: center;"><button value="1"
+									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
@@ -153,9 +167,13 @@
 							<td>4.600 - 4.800</td>
 							<td>3.600 - 3.800</td>
 							<td>5.400 - 6.000</td>
-							<td style="text-align: center;"><button value="1" name="UpdateTuTor" type="button">Cập
-									nhật</button></td>
-							<td style="text-align: center;"><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
+							<td style="text-align: center;"><button value="1"
+									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
@@ -165,15 +183,21 @@
 							<td>4.800 - 5.000</td>
 							<td>4.000 - 4.400</td>
 							<td>5.600 - 6.400</td>
-							<td style="text-align: center;"><button value="1" name="UpdateTuTor" type="button">Cập
-									nhật</button></td>
-							<td style="text-align: center;"><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
+							<td style="text-align: center;"><form
+									action="./updatesalary" method="post">
+									<button value="1" name="UpdateTuTor" type="submit">Cập
+										nhật</button>
+								</form></td>
+							<td style="text-align: center;"><button value="1"
+									name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
 					</tbody>
 				</table>
-				<div id="fixedButtonAdd">
-					<button value="1" name="Add" type="button">Thêm</button>
-				</div>
+				<form action="./addsalary" method="post">
+					<div id="fixedButtonAdd">
+						<button value="1" name="Add" type="submit">Thêm</button>
+					</div>
+				</form>
 				<div style="box-sizing: inherit; text-align: justify;">
 					<span style="color: rgb(255, 0, 0); font-size: 14px;">*Đối
 						với gia sư là giáo viên có thâm niên, thạc sỹ, giáo viên dạy tại

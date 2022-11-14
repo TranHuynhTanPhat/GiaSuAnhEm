@@ -11,12 +11,6 @@
 				<form action="" method="post" name="info_frm"
 					class="form-horizontal" onsubmit="return check_info();"
 					autocomplete="off" enctype="multipart/form-data">
-					<div class="form-group">
-						<label class="col-1 control-label"></label>
-						<div class="col-11" style="color: #F00">* Vui lòng cung cấp
-							đầy đủ thông tin bên dưới để chúng tôi tiện liên lạc.</div>
-					</div>
-
 					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Họ và tên: <span
@@ -41,12 +35,12 @@
 							<input type="text" name="email" class="form-control" value="">
 						</div>
 					</div>
-					<br>
+					<br> <br>
 					<div class="form-group">
-						<label class="col-4 control-label">Điện thoại: <span
+						<label class="col-4 control-label">Lương: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="dienthoai" class="form-control" value="">
+							<input type="text" name="luong" class="form-control" value="">
 						</div>
 					</div>
 
@@ -204,7 +198,7 @@
 
 
 
-
+					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Yêu cầu khác: <span
 							style="color: #FF0000">*</span></label>
@@ -213,12 +207,11 @@
 						</div>
 					</div>
 					<br>
-
 					<div class="form-group">
-						<label class="col-4 control-label"></label>
+						<label class="col-4 control-label">Liên hệ: <span
+							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input name="update" type="submit" class="input_button"
-								value="Cập nhật">
+							<textarea name="lienhe" rows="3" class="form-control"></textarea>
 						</div>
 					</div>
 				</form>

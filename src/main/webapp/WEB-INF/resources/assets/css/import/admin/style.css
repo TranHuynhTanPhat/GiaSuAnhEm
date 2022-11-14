@@ -203,3 +203,6 @@ body {
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+.col-7 {
+    flex: 0 0 auto;
+}

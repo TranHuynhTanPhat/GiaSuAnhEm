@@ -287,7 +287,7 @@ public class AdminController {
 			return mav;
 		}
 	}
-	@RequestMapping(value = "addcategoryclass", method = RequestMethod.POST)
+	@RequestMapping(value = "/addcategoryclass", method = RequestMethod.POST)
 	public ModelAndView addCategoryClass() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/addCategoryClass");
@@ -297,10 +297,30 @@ public class AdminController {
 			return mav;
 		}
 	}
-	@RequestMapping(value = "updatecategoryclass", method = RequestMethod.POST)
+	@RequestMapping(value = "/updatecategoryclass", method = RequestMethod.POST)
 	public ModelAndView updateCategoryClass() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/updateCategoryClass");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/addsalary", method = RequestMethod.POST)
+	public ModelAndView addSalary() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addSalary");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/updatesalary", method = RequestMethod.POST)
+	public ModelAndView updateSalary() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateSalary");
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

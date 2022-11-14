@@ -133,6 +133,7 @@
 						<td width="2%"><br></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Lớp dạy</strong></td>
+						<td><strong>Môn học</strong></td>
 						<td><strong>Địa chỉ</strong><br></td>
 						<td><strong>Mức lương</strong><br></td>
 						<td><strong>Số buổi</strong><br></td>
@@ -146,6 +147,7 @@
 						<td><input type="checkbox" name="checked" value=1></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Lớp dạy</strong></td>
+						<td><strong>Môn học</strong></td>
 						<td><strong>Địa chỉ</strong><br></td>
 						<td><strong>Mức lương</strong><br></td>
 						<td><strong>Số buổi</strong><br></td>
