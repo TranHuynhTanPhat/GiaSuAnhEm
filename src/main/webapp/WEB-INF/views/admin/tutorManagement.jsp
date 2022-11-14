@@ -126,12 +126,9 @@
 						<td><strong>Email</strong><br></td>
 						<td><strong>Phone</strong><br></td>
 						<td><strong>Năm sinh</strong><br></td>
-<<<<<<< HEAD
 						<td><strong>Giới Tính</strong><br></td>
 						<td><strong>SĐT</strong><br></td>						
-=======
 						<td><strong>Giới tính</strong><br></td>
->>>>>>> Phat1
 						<td><strong>Nghề nghiệp</strong><br></td>
 						<td><strong>Địa Chỉ<strong><br></td>
 						<td><strong>Email<strong><br></td>
@@ -143,7 +140,6 @@
 						<td><strong>Khu vực</strong><br></td>
 						<td><strong>Phương tiện</strong><br></td>
 						<td><strong>Số buổi</strong><br></td>
-<<<<<<< HEAD
 						<td><strong>Năm tốt nghiệpc</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
 						<td width="10%"><br></td>
@@ -171,38 +167,9 @@
 							<td><strong>${item.sobuoi }</strong><br></td>
 							<td><strong>${item.graduateYear }</strong><br></td>
 							<td><strong>${item.describe }</strong><br></td>
-								<td><input type="checkbox" name="checked" value=1></td>
-								<td>
-								<button value="1" name="Update" type="button">Cập nhật</button></td>
-								<td>
-								<button value="1" name="Delete" type="submit">Xóa</button></td>
 						</tr>		
 						</form>				
-=======
-						<td><strong>Lương</strong><br></td>
-						<td><strong>Thông tin khác</strong><br></td>
-					</tr>
-					<tr>
-						<td width="2%"><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên gia sư</strong></td>
-						<td><strong>Địa chỉ</strong><br></td>
-						<td><strong>Email</strong><br></td>
-						<td><strong>Phone</strong><br></td>
-						<td><strong>Năm sinh</strong><br></td>
-						<td><strong>Giới tính</strong><br></td>
-						<td><strong>Nghề nghiệp</strong><br></td>
-						<td><strong>Trường</strong><br></td>
-						<td><strong>Chuyên ngành</strong></td>
-						<td><strong>Năm tốt nghiệp</strong></td>
-						<td><strong>Lớp dạy</strong><br></td>
-						<td><strong>Các môn</strong><br></td>
-						<td><strong>Khu vực</strong><br></td>
-						<td><strong>Phương tiện</strong><br></td>
-						<td><strong>Số buổi</strong><br></td>
-						<td><strong>Lương</strong><br></td>
-						<td><strong>Thông tin khác</strong><br></td>
-
+						</c:forEach>
 
 					</tr>
 					<c:forEach var="item" items="${ listTutors}">
@@ -215,7 +182,6 @@
 								<button value="1" name="Delete" type="button">Xóa</button>
 							</td>
 						</tr>
->>>>>>> Phat1
 					</c:forEach>
 				</tbody>
 			</table>

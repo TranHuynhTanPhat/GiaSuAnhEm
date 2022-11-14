@@ -26,29 +26,14 @@
 						<td><strong>MS</strong><br></td>
 						<td><strong>Tên môn học</strong></td>
 					</tr>
-<<<<<<< HEAD
 					<c:forEach var="item" items="${listSubject }">
 						<tr>
 							<td width="2%"><input type="checkbox" name="checked" value=${ item._id }></td>
 							<td><strong>${ item._id }</strong><br></td>
 							<td><strong>${ item.name }</strong></td>
-							<td width="10%">
-								<button value="1" name="UpdateTuTor" type="button">Cập
-									nhật</button>
-							</td>
-							<td width="10%">
-								<button value="1" name="DeleteTutor" type="button">Xóa</button>
-							</td>
 						</tr>
 					</c:forEach>
-=======
-					<tr>
-						<td width="2%"><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên môn học</strong></td>
-						
-					</tr>
->>>>>>> Phat1
+
 					<c:forEach var="item" items="${ listClasses}">
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>

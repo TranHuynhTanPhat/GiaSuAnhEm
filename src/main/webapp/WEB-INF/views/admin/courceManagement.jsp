@@ -108,7 +108,6 @@
 						<td width="8%"><br></td>
 						<td width="5%"><br></td>
 					</tr>
-<<<<<<< HEAD
 					<c:forEach var="item" items="${listNewClass }">
 					<form>
 						<tr >
@@ -121,33 +120,11 @@
 						<td><strong>${ item.time }</strong></td>
 						<td><strong>${ item.require }</strong></td>
 						<td><strong>Liên hệ</strong><br></td>
-						<td><button value="1" name="UpdateTuTor" type="button">Cập
-								nhật</button></td>
-						<td><button value="1" name="DeleteTutor" type="submit">Xóa</button></td>
+						
 					</tr>
 					</form>
-=======
-					<tr>
-						<td><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Lớp dạy</strong></td>
-						<td><strong>Môn học</strong></td>
-						<td><strong>Category</strong></td>
-						<td><strong>Địa chỉ</strong><br></td>
-						<td><strong>Quận</strong></td>
-						<td><strong>Mức lương</strong><br></td>
-						<td><strong>Số buổi</strong><br></td>
-						<td><strong>Thời gian dạy</strong></td>
-						<td><strong>Thời gian tạo</strong></td>
-						<td><strong>Yêu cầu</strong></td>
-						<td><strong>Liên hệ</strong><br></td>
-						<td><strong>Trạng thái</strong></td>
-						<td><form action="./updatenewcource" method="post">
-								<button value="1" name="UpdateTuTor" type="submit">Cập
-									nhật</button>
-							</form></td>
-						<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
-					</tr>
+					</c:forEach>
+					
 					<c:forEach var="item" items="${ listCources}">
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
@@ -157,7 +134,6 @@
 								</form></td>
 							<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
 						</tr>
->>>>>>> Phat1
 					</c:forEach>
 
 				</tbody>
