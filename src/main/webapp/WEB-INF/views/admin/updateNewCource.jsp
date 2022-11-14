@@ -11,15 +11,10 @@
 				<form action="" method="post" name="info_frm"
 					class="form-horizontal" onsubmit="return check_info();"
 					autocomplete="off" enctype="multipart/form-data">
-					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Họ và tên: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="hoten" class="form-control" value="">
-						</div>
-					</div>
 
+
+
+					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Địa chỉ hiện tại: <span
 							style="color: #FF0000">*</span></label>
@@ -29,10 +24,34 @@
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Email: <span
+						<label class="col-4 control-label">Quận: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="email" class="form-control" value="">
+							<input type="text" name="quan" class="form-control" value="">
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Số buổi: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<input type="text" name="sobuoi" class="form-control" value="">
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Thời gian: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<input type="text" name="time" class="form-control" value="">
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Trạng thái: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<input type="text" name="trangthai" class="form-control" value="">
 						</div>
 					</div>
 					<br> <br>
@@ -47,6 +66,15 @@
 
 
 					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Category: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<table border="0" class="tablebox">
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-4 control-label">Môn dạy: <span
 							style="color: #FF0000">*</span></label>
@@ -212,6 +240,15 @@
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
 							<textarea name="lienhe" rows="3" class="form-control"></textarea>
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="col-4 control-label"></label>
+						<div class="col-7">
+							<input name="update" type="submit" class="input_button"
+								value="Cập nhật">
 						</div>
 					</div>
 				</form>

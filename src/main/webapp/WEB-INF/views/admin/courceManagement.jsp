@@ -10,13 +10,8 @@
 			style="text-align: center; width: 100%; padding: 1px 10px; box-sizing: border-box">
 			<form action="" method="post" name="form1" style="width: 100%">
 				<div style="margin-bottom: 0 !important; boxsizing: boder-box;">
-					<div>
-						<input type="text" name="tu_khoa_tim_kiem" class="form-control"
-							placeholder="Từ khóa hoặc Mã gia sư"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							value="">
-					</div>
-					<div class="col-3">
+
+					<div class="col-2">
 						<select name="chonlop" id="chonlop" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Lớp</option>
@@ -40,7 +35,7 @@
 							<option value="L17L">Hệ Đại học</option>
 						</select>
 					</div>
-					<div class="col-3">
+					<div class="col-2">
 						<select name="chonmon" id="chonmon" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Môn</option>
@@ -73,51 +68,12 @@
 							<option value="M27M">Luyện thi đại học</option>
 						</select>
 					</div>
-					<div class="col-3">
-						<select name="chongioitinh" id="chongioitinh" class="form-control"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Giới Tính</option>
-							<option value="1">Nam</option>
-							<option value="2">Nữ</option>
-						</select>
-					</div>
-				</div>
-				<div style="margin-bottom: 0 !important">
-					<div class="col-3">
-						<select name="chonnguoiday" id="chonnguoiday" class="form-control"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Hiện là</option>
-							<option value="1">Giáo viên</option>
-							<option value="2">Sinh viên</option>
-							<option value="3">Đã tốt nghiệp</option>
-						</select>
 
-					</div>
-					<div class="col-3">
-						<select name="tinhthanh" id="tinhthanh" class="form-control"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Tỉnh Thành</option>
-							<option value="1">TP. Hồ Chí Minh</option>
-							<option value="2">Hà Nội</option>
-							<option value="4">Bà Rịa - Vũng Tàu</option>
-							<option value="10">Bình Dương</option>
-							<option value="16">Cần Thơ</option>
-							<option value="17">Đà Nẵng</option>
-							<option value="21">Đồng Nai</option>
-							<option value="59">Thừa Thiên Huế</option>
-						</select>
-					</div>
-					<div class="col-3">
-						<select name="quanhuyen" id="quanhuyen" class="form-control"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Quận huyện</option>
-						</select>
-					</div>
+
 				</div>
-				<div id="fixedButtonSearch">
+				<div id="fixedButtonSearch" style="float: center">
 					<button value="1" name="Search" type="button">Tìm kiếm</button>
 				</div>
-
 
 			</form>
 		</div>
@@ -134,26 +90,34 @@
 						<td><strong>MS</strong><br></td>
 						<td><strong>Lớp dạy</strong></td>
 						<td><strong>Môn học</strong></td>
+						<td><strong>Category</strong></td>
 						<td><strong>Địa chỉ</strong><br></td>
+						<td><strong>Quận</strong></td>
 						<td><strong>Mức lương</strong><br></td>
 						<td><strong>Số buổi</strong><br></td>
 						<td><strong>Thời gian dạy</strong></td>
+						<td><strong>Thời gian tạo</strong></td>
 						<td><strong>Yêu cầu</strong></td>
 						<td><strong>Liên hệ</strong><br></td>
-						<td width="10%"><br></td>
-						<td width="10%"><br></td>
+						<td><strong>Trạng thái</strong></td>
+						<td width="8%"><br></td>
+						<td width="5%"><br></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" name="checked" value=1></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Lớp dạy</strong></td>
 						<td><strong>Môn học</strong></td>
+						<td><strong>Category</strong></td>
 						<td><strong>Địa chỉ</strong><br></td>
+						<td><strong>Quận</strong></td>
 						<td><strong>Mức lương</strong><br></td>
 						<td><strong>Số buổi</strong><br></td>
 						<td><strong>Thời gian dạy</strong></td>
+						<td><strong>Thời gian tạo</strong></td>
 						<td><strong>Yêu cầu</strong></td>
 						<td><strong>Liên hệ</strong><br></td>
+						<td><strong>Trạng thái</strong></td>
 						<td><form action="./updatenewcource" method="post">
 								<button value="1" name="UpdateTuTor" type="submit">Cập
 									nhật</button>

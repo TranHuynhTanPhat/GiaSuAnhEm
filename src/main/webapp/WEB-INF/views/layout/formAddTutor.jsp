@@ -12,144 +12,7 @@
 					<div class="col-11" style="color: #F00">* Vui lòng cung cấp
 						đầy đủ thông tin bên dưới để chúng tôi tiện liên lạc.</div>
 				</div>
-				<br>
-				<div class="form-group">
-					<label class="col-4 control-label">Tỉnh/Thành dạy: <span
-						style="color: #FF0000">*</span></label>
-					<div class="col-7">
-						<select name="tinhthanhday" class="form-control" id="tinhthanhday"
-							onchange="window.open(this.value, '_top', '')">
-							<option value="/dang-ky-lam-gia-su.html">Chọn Tỉnh/Thành</option>
-							<option value="/dang-ky-lam-gia-su-tai-ho-chi-minh-1.html">TP.
-								Hồ Chí Minh</option>
-							<option value="/dang-ky-lam-gia-su-tai-ha-noi-2.html">Hà
-								Nội</option>
-							<option value="/dang-ky-lam-gia-su-tai-an-giang-3.html">An
-								Giang</option>
-							<option value="/dang-ky-lam-gia-su-tai-ba-ria-vung-tau-4.html">Bà
-								Rịa - Vũng Tàu</option>
-							<option value="/dang-ky-lam-gia-su-tai-bac-lieu-5.html">Bạc
-								Liêu</option>
-							<option value="/dang-ky-lam-gia-su-tai-bac-giang-6.html">Bắc
-								Giang</option>
-							<option value="/dang-ky-lam-gia-su-tai-bac-kan-7.html">Bắc
-								Kạn</option>
-							<option value="/dang-ky-lam-gia-su-tai-bac-ninh-8.html">Bắc
-								Ninh</option>
-							<option value="/dang-ky-lam-gia-su-tai-ben-tre-9.html">Bến
-								Tre</option>
-							<option value="/dang-ky-lam-gia-su-tai-binh-duong-10.html">Bình
-								Dương</option>
-							<option value="/dang-ky-lam-gia-su-tai-binh-dinh-11.html">Bình
-								Định</option>
-							<option value="/dang-ky-lam-gia-su-tai-binh-phuoc-12.html">Bình
-								Phước</option>
-							<option value="/dang-ky-lam-gia-su-tai-binh-thuan-13.html">Bình
-								Thuận</option>
-							<option value="/dang-ky-lam-gia-su-tai-ca-mau-14.html">Cà
-								Mau</option>
-							<option value="/dang-ky-lam-gia-su-tai-cao-bang-15.html">Cao
-								Bằng</option>
-							<option value="/dang-ky-lam-gia-su-tai-can-tho-16.html">Cần
-								Thơ</option>
-							<option value="/dang-ky-lam-gia-su-tai-da-nang-17.html">Đà
-								Nẵng</option>
-							<option value="/dang-ky-lam-gia-su-tai-dak-lak-18.html">Đắk
-								Lắk</option>
-							<option value="/dang-ky-lam-gia-su-tai-dak-nong-19.html">Đắk
-								Nông</option>
-							<option value="/dang-ky-lam-gia-su-tai-dien-bien-20.html">Điện
-								Biên</option>
-							<option value="/dang-ky-lam-gia-su-tai-dong-nai-21.html">Đồng
-								Nai</option>
-							<option value="/dang-ky-lam-gia-su-tai-dong-thap-22.html">Đồng
-								Tháp</option>
-							<option value="/dang-ky-lam-gia-su-tai-gia-lai-23.html">Gia
-								Lai</option>
-							<option value="/dang-ky-lam-gia-su-tai-ha-giang-24.html">Hà
-								Giang</option>
-							<option value="/dang-ky-lam-gia-su-tai-ha-nam-25.html">Hà
-								Nam</option>
-							<option value="/dang-ky-lam-gia-su-tai-ha-tinh-26.html">Hà
-								Tĩnh</option>
-							<option value="/dang-ky-lam-gia-su-tai-hai-duong-27.html">Hải
-								Dương</option>
-							<option value="/dang-ky-lam-gia-su-tai-hai-phong-28.html">Hải
-								Phòng</option>
-							<option value="/dang-ky-lam-gia-su-tai-hau-giang-29.html">Hậu
-								Giang</option>
-							<option value="/dang-ky-lam-gia-su-tai-hoa-binh-30.html">Hòa
-								Bình</option>
-							<option value="/dang-ky-lam-gia-su-tai-hung-yen-31.html">Hưng
-								Yên</option>
-							<option value="/dang-ky-lam-gia-su-tai-kien-giang-32.html">Kiên
-								Giang</option>
-							<option value="/dang-ky-lam-gia-su-tai-kon-tum-33.html">Kon
-								Tum</option>
-							<option value="/dang-ky-lam-gia-su-tai-khanh-hoa-34.html">Khánh
-								Hòa</option>
-							<option value="/dang-ky-lam-gia-su-tai-lai-chau-35.html">Lai
-								Châu</option>
-							<option value="/dang-ky-lam-gia-su-tai-lang-son-36.html">Lạng
-								Sơn</option>
-							<option value="/dang-ky-lam-gia-su-tai-lao-cai-37.html">Lào
-								Cai</option>
-							<option value="/dang-ky-lam-gia-su-tai-lam-dong-38.html">Lâm
-								Đồng</option>
-							<option value="/dang-ky-lam-gia-su-tai-long-an-39.html">Long
-								An</option>
-							<option value="/dang-ky-lam-gia-su-tai-nam-dinh-40.html">Nam
-								Định</option>
-							<option value="/dang-ky-lam-gia-su-tai-ninh-binh-41.html">Ninh
-								Bình</option>
-							<option value="/dang-ky-lam-gia-su-tai-ninh-thuan-42.html">Ninh
-								Thuận</option>
-							<option value="/dang-ky-lam-gia-su-tai-nghe-an-43.html">Nghệ
-								An</option>
-							<option value="/dang-ky-lam-gia-su-tai-phu-tho-44.html">Phú
-								Thọ</option>
-							<option value="/dang-ky-lam-gia-su-tai-phu-yen-45.html">Phú
-								Yên</option>
-							<option value="/dang-ky-lam-gia-su-tai-quang-binh-46.html">Quảng
-								Bình</option>
-							<option value="/dang-ky-lam-gia-su-tai-quang-nam-47.html">Quảng
-								Nam</option>
-							<option value="/dang-ky-lam-gia-su-tai-quang-ninh-48.html">Quảng
-								Ninh</option>
-							<option value="/dang-ky-lam-gia-su-tai-quang-ngai-49.html">Quảng
-								Ngãi</option>
-							<option value="/dang-ky-lam-gia-su-tai-quang-tri-50.html">Quảng
-								Trị</option>
-							<option value="/dang-ky-lam-gia-su-tai-soc-trang-51.html">Sóc
-								Trăng</option>
-							<option value="/dang-ky-lam-gia-su-tai-son-la-52.html">Sơn
-								La</option>
-							<option value="/dang-ky-lam-gia-su-tai-tay-ninh-53.html">Tây
-								Ninh</option>
-							<option value="/dang-ky-lam-gia-su-tai-tien-giang-54.html">Tiền
-								Giang</option>
-							<option value="/dang-ky-lam-gia-su-tai-tuyen-quang-55.html">Tuyên
-								Quang</option>
-							<option value="/dang-ky-lam-gia-su-tai-thai-binh-56.html">Thái
-								Bình</option>
-							<option value="/dang-ky-lam-gia-su-tai-thai-nguyen-57.html">Thái
-								Nguyên</option>
-							<option value="/dang-ky-lam-gia-su-tai-thanh-hoa-58.html">Thanh
-								Hóa</option>
-							<option value="/dang-ky-lam-gia-su-tai-thua-thien-hue-59.html">Thừa
-								Thiên Huế</option>
-							<option value="/dang-ky-lam-gia-su-tai-tra-vinh-60.html">Trà
-								Vinh</option>
-							<option value="/dang-ky-lam-gia-su-tai-vinh-long-61.html">Vĩnh
-								Long</option>
-							<option value="/dang-ky-lam-gia-su-tai-vinh-phuc-62.html">Vĩnh
-								Phúc</option>
-							<option value="/dang-ky-lam-gia-su-tai-yen-bai-63.html">Yên
-								Bái</option>
-						</select>
-					</div>
-				</div>
-				<br>
+				<br> <br>
 				<div class="form-group">
 					<label class="col-4 control-label">Họ và tên: <span
 						style="color: #FF0000">*</span></label>
@@ -167,12 +30,6 @@
 							<option value="0">Chọn giới tính</option>
 							<option value="1">Nam</option>
 							<option value="2">Nữ</option>
-						</select> <select name="giongnoi" id="giongnoi" class="form-control"
-							style="width: 60%; float: right">
-							<option value="0">Chọn giọng nói</option>
-							<option value="1">Miền Nam</option>
-							<option value="2">Miền Trung</option>
-							<option value="3">Miền Bắc</option>
 						</select>
 					</div>
 				</div>
@@ -290,96 +147,16 @@
 						</select>
 					</div>
 				</div>
-				<br>
-				<br>
+				<br> <br>
 				<div class="form-group">
-					<label class="col-4 control-label">Số CMND: <span
+					<label class="col-4 control-label">Địa chỉ: <span
 						style="color: #FF0000">*</span></label>
 					<div class="col-7">
-						<input type="text" name="cmnd" class="form-control" value="">
+						<input type="text" name="hoten" class="form-control" value="">
 					</div>
 				</div>
 				<br>
-				<div class="form-group">
-					<label class="col-4 control-label">Nguyên Quán: <span
-						style="color: #FF0000">*</span></label>
-					<div class="col-7">
-						<select name="noisinh" id="noisinh" class="form-control">
-							<option value="0">Tỉnh/Thành trên CMND</option>
-							<option value="1">TP. Hồ Chí Minh</option>
-							<option value="2">Hà Nội</option>
-							<option value="3">An Giang</option>
-							<option value="4">Bà Rịa - Vũng Tàu</option>
-							<option value="5">Bạc Liêu</option>
-							<option value="6">Bắc Giang</option>
-							<option value="7">Bắc Kạn</option>
-							<option value="8">Bắc Ninh</option>
-							<option value="9">Bến Tre</option>
-							<option value="10">Bình Dương</option>
-							<option value="11">Bình Định</option>
-							<option value="12">Bình Phước</option>
-							<option value="13">Bình Thuận</option>
-							<option value="14">Cà Mau</option>
-							<option value="15">Cao Bằng</option>
-							<option value="16">Cần Thơ</option>
-							<option value="17">Đà Nẵng</option>
-							<option value="18">Đắk Lắk</option>
-							<option value="19">Đắk Nông</option>
-							<option value="20">Điện Biên</option>
-							<option value="21">Đồng Nai</option>
-							<option value="22">Đồng Tháp</option>
-							<option value="23">Gia Lai</option>
-							<option value="24">Hà Giang</option>
-							<option value="25">Hà Nam</option>
-							<option value="26">Hà Tĩnh</option>
-							<option value="27">Hải Dương</option>
-							<option value="28">Hải Phòng</option>
-							<option value="29">Hậu Giang</option>
-							<option value="30">Hòa Bình</option>
-							<option value="31">Hưng Yên</option>
-							<option value="32">Kiên Giang</option>
-							<option value="33">Kon Tum</option>
-							<option value="34">Khánh Hòa</option>
-							<option value="35">Lai Châu</option>
-							<option value="36">Lạng Sơn</option>
-							<option value="37">Lào Cai</option>
-							<option value="38">Lâm Đồng</option>
-							<option value="39">Long An</option>
-							<option value="40">Nam Định</option>
-							<option value="41">Ninh Bình</option>
-							<option value="42">Ninh Thuận</option>
-							<option value="43">Nghệ An</option>
-							<option value="44">Phú Thọ</option>
-							<option value="45">Phú Yên</option>
-							<option value="46">Quảng Bình</option>
-							<option value="47">Quảng Nam</option>
-							<option value="48">Quảng Ninh</option>
-							<option value="49">Quảng Ngãi</option>
-							<option value="50">Quảng Trị</option>
-							<option value="51">Sóc Trăng</option>
-							<option value="52">Sơn La</option>
-							<option value="53">Tây Ninh</option>
-							<option value="54">Tiền Giang</option>
-							<option value="55">Tuyên Quang</option>
-							<option value="56">Thái Bình</option>
-							<option value="57">Thái Nguyên</option>
-							<option value="58">Thanh Hóa</option>
-							<option value="59">Thừa Thiên Huế</option>
-							<option value="60">Trà Vinh</option>
-							<option value="61">Vĩnh Long</option>
-							<option value="62">Vĩnh Phúc</option>
-							<option value="63">Yên Bái</option>
-						</select>
-					</div>
-				</div>
-				<br>
-				<div class="form-group">
-					<label class="col-4 control-label">Địa chỉ hiện tại: <span
-						style="color: #FF0000">*</span></label>
-					<div class="col-7">
-						<input type="text" name="diachi" class="form-control" value="">
-					</div>
-				</div>
+				
 				<br>
 				<div class="form-group">
 					<label class="col-4 control-label">Email: <span
@@ -421,6 +198,15 @@
 						style="color: #FF0000">*</span></label>
 					<div class="col-7">
 						<input type="text" name="chuyennganh" class="form-control"
+							value="">
+					</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<label class="col-4 control-label">Trường: <span
+						style="color: #FF0000">*</span></label>
+					<div class="col-7">
+						<input type="text" name="truong" class="form-control"
 							value="">
 					</div>
 				</div>

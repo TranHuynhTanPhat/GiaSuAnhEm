@@ -13,15 +13,8 @@
 					autocomplete="off" enctype="multipart/form-data">
 
 
-					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Họ và tên: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="hoten" class="form-control" value="">
-						</div>
-					</div>
 
+					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Địa chỉ hiện tại: <span
 							style="color: #FF0000">*</span></label>
@@ -31,16 +24,40 @@
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Email: <span
+						<label class="col-4 control-label">Quận: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="email" class="form-control" value="">
+							<input type="text" name="quan" class="form-control" value="">
 						</div>
 					</div>
 					<br>
-					
-					
+					<div class="form-group">
+						<label class="col-4 control-label">Số buổi: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<input type="text" name="sobuoi" class="form-control" value="">
+						</div>
+					</div>
 					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Thời gian: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<input type="text" name="time" class="form-control" value="">
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Trạng thái: <span
+							style="color: #FF0000">*</span></label> <select name="chonmon"
+							id="chonmon" class="form-control"
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							<option value="">Chọn trạng thái</option>
+							<option value="1">Đã nhận</option>
+							<option value="2">Chưa nhận</option>
+						</select>
+					</div>
+					<br> <br>
 					<div class="form-group">
 						<label class="col-4 control-label">Lương: <span
 							style="color: #FF0000">*</span></label>
@@ -52,6 +69,15 @@
 
 
 					<br>
+					<div class="form-group">
+						<label class="col-4 control-label">Category: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<table border="0" class="tablebox">
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-4 control-label">Môn dạy: <span
 							style="color: #FF0000">*</span></label>

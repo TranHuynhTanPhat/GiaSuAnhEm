@@ -11,6 +11,13 @@
 			src="https://cdn.ckeditor.com/ckeditor5/35.2.1/decoupled-document/ckeditor.js"></script>
 
 		<form>
+			<div class="form-group">
+				<label style="float:left">Title: <span
+					style="color: #FF0000">*</span></label>
+				<div class="col-7" style="width:100%">
+					<input type="text" name="title" class="form-control" value="">
+				</div>
+			</div>
 			<div>
 				<div style="box-sizing: inherit; text-align: justify;">
 					<span style="color: rgb(255, 0, 0);"><span

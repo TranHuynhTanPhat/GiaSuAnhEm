@@ -58,6 +58,15 @@
 	padding-right: 10px;
 }
 
+.col-2 {
+	width: 50%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 .form-control {
 	width: 100%;
 	height: 28px;
