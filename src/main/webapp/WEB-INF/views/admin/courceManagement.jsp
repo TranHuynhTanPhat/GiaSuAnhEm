@@ -77,11 +77,16 @@
 
 			</form>
 		</div>
-		<form action="./addnewcource" method="POST">
-			<div id="fixedButtonAdd">
-				<button value="add" type="submit">Thêm khóa học</button>
+		<div class="group-button">
+				<form action="./addnewcource" method="POST">
+					<button value="add" type="submit">Thêm khóa học</button>
+				</form>
+				<form action="./updatenewcource" method="post">
+					<button name="update" type="submit">Cập nhật</button>
+				</form>
+
+				<button value="1" name="delete" type="button">Xóa</button>
 			</div>
-		</form>
 		<div>
 			<table border="0" width="100%">
 				<tbody>

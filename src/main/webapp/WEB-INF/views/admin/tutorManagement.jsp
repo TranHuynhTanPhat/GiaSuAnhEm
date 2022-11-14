@@ -104,11 +104,17 @@
 
 			</form>
 		</div>
-		<form action="./addtutor" method="POST">
-			<div id="fixedButtonAdd">
+		<div class="group-button">
+			<form action="./addtutor" method="POST">
 				<button value="add" type="submit">Thêm gia sư</button>
-			</div>
-		</form>
+			</form>
+			<form action="./updatetutor" method="post">
+				<button name="update" type="submit">Cập nhật</button>
+			</form>
+
+			<button value="1" name="delete" type="button">Xóa</button>
+		</div>
+
 		<div>
 			<table border="0" width="100%">
 				<tbody>
@@ -132,8 +138,6 @@
 						<td><strong>Số buổi</strong><br></td>
 						<td><strong>Lương</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
-						<td width="8%"><br></td>
-						<td width="5%"><br></td>
 					</tr>
 					<tr>
 						<td width="2%"><input type="checkbox" name="checked" value=1></td>
@@ -155,12 +159,8 @@
 						<td><strong>Số buổi</strong><br></td>
 						<td><strong>Lương</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
-						<td><form action="./updatetutor" method="post">
-								<button name="Update" type="submit">Cập nhật</button>
-							</form></td>
-						<td width="10%">
-							<button value="1" name="DeleteTutor" type="button">Xóa</button>
-						</td>
+
+
 					</tr>
 					<c:forEach var="item" items="${ listTutors}">
 						<tr>
