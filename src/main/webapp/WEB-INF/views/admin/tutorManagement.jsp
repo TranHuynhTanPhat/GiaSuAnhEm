@@ -10,12 +10,7 @@
 			style="text-align: center; width: 100%; padding: 1px 10px; box-sizing: border-box">
 			<form action="" method="post" name="form1" style="width: 100%">
 				<div style="margin-bottom: 0 !important; boxsizing: boder-box;">
-					<div>
-						<input type="text" name="tu_khoa_tim_kiem" class="form-control"
-							placeholder="Từ khóa hoặc Mã gia sư"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							value="">
-					</div>
+
 					<div class="col-3">
 						<select name="chonlop" id="chonlop" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
@@ -93,20 +88,7 @@
 						</select>
 
 					</div>
-					<div class="col-3">
-						<select name="tinhthanh" id="tinhthanh" class="form-control"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Tỉnh Thành</option>
-							<option value="1">TP. Hồ Chí Minh</option>
-							<option value="2">Hà Nội</option>
-							<option value="4">Bà Rịa - Vũng Tàu</option>
-							<option value="10">Bình Dương</option>
-							<option value="16">Cần Thơ</option>
-							<option value="17">Đà Nẵng</option>
-							<option value="21">Đồng Nai</option>
-							<option value="59">Thừa Thiên Huế</option>
-						</select>
-					</div>
+
 					<div class="col-3">
 						<select name="quanhuyen" id="quanhuyen" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
@@ -114,6 +96,7 @@
 						</select>
 					</div>
 				</div>
+				<br> <br> <br> <br>
 				<div id="fixedButtonSearch">
 					<button value="1" name="Search" type="button">Tìm kiếm</button>
 				</div>
@@ -121,6 +104,17 @@
 
 			</form>
 		</div>
+		<div class="group-button">
+			<form action="./addtutor" method="POST">
+				<button value="add" type="submit">Thêm gia sư</button>
+			</form>
+			<form action="./updatetutor" method="post">
+				<button name="update" type="submit">Cập nhật</button>
+			</form>
+
+			<button value="1" name="delete" type="button">Xóa</button>
+		</div>
+
 		<div>
 			<table border="0" width="100%">
 				<tbody>
@@ -128,9 +122,16 @@
 						<td width="2%"><br></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Tên gia sư</strong></td>
+						<td><strong>Địa chỉ</strong><br></td>
+						<td><strong>Email</strong><br></td>
+						<td><strong>Phone</strong><br></td>
 						<td><strong>Năm sinh</strong><br></td>
+<<<<<<< HEAD
 						<td><strong>Giới Tính</strong><br></td>
 						<td><strong>SĐT</strong><br></td>						
+=======
+						<td><strong>Giới tính</strong><br></td>
+>>>>>>> Phat1
 						<td><strong>Nghề nghiệp</strong><br></td>
 						<td><strong>Địa Chỉ<strong><br></td>
 						<td><strong>Email<strong><br></td>
@@ -142,6 +143,7 @@
 						<td><strong>Khu vực</strong><br></td>
 						<td><strong>Phương tiện</strong><br></td>
 						<td><strong>Số buổi</strong><br></td>
+<<<<<<< HEAD
 						<td><strong>Năm tốt nghiệpc</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
 						<td width="10%"><br></td>
@@ -176,12 +178,48 @@
 								<button value="1" name="Delete" type="submit">Xóa</button></td>
 						</tr>		
 						</form>				
+=======
+						<td><strong>Lương</strong><br></td>
+						<td><strong>Thông tin khác</strong><br></td>
+					</tr>
+					<tr>
+						<td width="2%"><input type="checkbox" name="checked" value=1></td>
+						<td><strong>MS</strong><br></td>
+						<td><strong>Tên gia sư</strong></td>
+						<td><strong>Địa chỉ</strong><br></td>
+						<td><strong>Email</strong><br></td>
+						<td><strong>Phone</strong><br></td>
+						<td><strong>Năm sinh</strong><br></td>
+						<td><strong>Giới tính</strong><br></td>
+						<td><strong>Nghề nghiệp</strong><br></td>
+						<td><strong>Trường</strong><br></td>
+						<td><strong>Chuyên ngành</strong></td>
+						<td><strong>Năm tốt nghiệp</strong></td>
+						<td><strong>Lớp dạy</strong><br></td>
+						<td><strong>Các môn</strong><br></td>
+						<td><strong>Khu vực</strong><br></td>
+						<td><strong>Phương tiện</strong><br></td>
+						<td><strong>Số buổi</strong><br></td>
+						<td><strong>Lương</strong><br></td>
+						<td><strong>Thông tin khác</strong><br></td>
+
+
+					</tr>
+					<c:forEach var="item" items="${ listTutors}">
+						<tr>
+							<td><input type="checkbox" name="checked" value=1></td>
+							<td><form action="./updatetutor" method="post">
+									<button name="Update" type="submit">Cập nhật</button>
+								</form></td>
+							<td>
+								<button value="1" name="Delete" type="button">Xóa</button>
+							</td>
+						</tr>
+>>>>>>> Phat1
 					</c:forEach>
 				</tbody>
 			</table>
-			<div id="fixedButtonAdd">
-				<button value="1" name="Add" type="button">Thêm gia sư</button>
-			</div>
+
 		</div>
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>

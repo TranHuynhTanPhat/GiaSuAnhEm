@@ -9,15 +9,24 @@
 
 
 		<div>
+			<div class="group-button">
+				<form action="./addsubject" method="POST">
+					<button value="add" type="submit">Thêm môn học</button>
+				</form>
+				<form action="./updatesubject" method="post">
+					<button name="update" type="submit">Cập nhật</button>
+				</form>
+
+				<button value="1" name="delete" type="button">Xóa</button>
+			</div>
 			<table border="0" width="100%">
 				<tbody>
 					<tr>
 						<td width="2%"><br></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Tên môn học</strong></td>
-						<td width="10%"><br></td>
-						<td width="10%"><br></td>
 					</tr>
+<<<<<<< HEAD
 					<c:forEach var="item" items="${listSubject }">
 						<tr>
 							<td width="2%"><input type="checkbox" name="checked" value=${ item._id }></td>
@@ -32,24 +41,25 @@
 							</td>
 						</tr>
 					</c:forEach>
+=======
+					<tr>
+						<td width="2%"><input type="checkbox" name="checked" value=1></td>
+						<td><strong>MS</strong><br></td>
+						<td><strong>Tên môn học</strong></td>
+						
+					</tr>
+>>>>>>> Phat1
 					<c:forEach var="item" items="${ listClasses}">
-						<tr >
+						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
-							<td>
-								<button value="1" name="Update" type="button">Cập nhật</button>
-							</td>
-							<td>
-								<button value="1" name="Delete" type="button">Xóa</button>
-							</td>
+							
 						</tr>
 					</c:forEach>
 
 
 				</tbody>
 			</table>
-			<div id="fixedButtonAdd">
-				<button value="1" name="Add" type="button">Thêm môn học</button>
-			</div>
+
 		</div>
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>

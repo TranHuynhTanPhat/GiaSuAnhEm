@@ -106,8 +106,8 @@ public class AdminController {
 		return commonService.checkLogin(params, session);
 
 	}
-	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public ModelAndView logoutAdmin() {
 		session.invalidate();
 		System.out.print("a");
@@ -202,12 +202,169 @@ public class AdminController {
 		}
 	}
 
-	
-
 	@RequestMapping(value = "/quanlylienhe", method = RequestMethod.GET)
 	public ModelAndView contactManagement() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/contactManagement");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
+	public ModelAndView categoryManagement() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/categoryManagement");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/addtutor", method = RequestMethod.POST)
+	public ModelAndView addTutor() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addTutor");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/updatetutor", method = RequestMethod.POST)
+	public ModelAndView updateTutor() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateTutor");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/addnewcource", method = RequestMethod.POST)
+	public ModelAndView addNewCource() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addNewCource");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/updatenewcource", method = RequestMethod.POST)
+	public ModelAndView updateNewCource() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateNewCource");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/addclass", method = RequestMethod.POST)
+	public ModelAndView addClass() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addClass");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/updateclass", method = RequestMethod.POST)
+	public ModelAndView updateClass() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateClass");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/addsubject", method = RequestMethod.POST)
+	public ModelAndView addSubject() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addSubject");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/updatesubject", method = RequestMethod.POST)
+	public ModelAndView updateSubject() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateSubject");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/addcategory", method = RequestMethod.POST)
+	public ModelAndView addCategory() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addCategory");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/updatecategory", method = RequestMethod.POST)
+	public ModelAndView updateCategory() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateCategory");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/addcategoryclass", method = RequestMethod.POST)
+	public ModelAndView addCategoryClass() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addCategoryClass");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/updatecategoryclass", method = RequestMethod.POST)
+	public ModelAndView updateCategoryClass() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateCategoryClass");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/addsalary", method = RequestMethod.POST)
+	public ModelAndView addSalary() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/addSalary");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	@RequestMapping(value = "/updatesalary", method = RequestMethod.POST)
+	public ModelAndView updateSalary() {
+		if (session.getAttribute("userName") != null) {
+			ModelAndView mav = new ModelAndView("admin/updateSalary");
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
