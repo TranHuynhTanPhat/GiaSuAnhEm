@@ -121,6 +121,11 @@
 
 			</form>
 		</div>
+		<form action="./addtutor" method="POST">
+			<div id="fixedButtonAdd">
+				<button value="add" type="submit">Thêm gia sư</button>
+			</div>
+		</form>
 		<div>
 			<table border="0" width="100%">
 				<tbody>
@@ -141,7 +146,7 @@
 						<td width="10%"><br></td>
 						<td width="10%"><br></td>
 					</tr>
-					<tr >
+					<tr>
 						<td width="2%"><input type="checkbox" name="checked" value=1></td>
 						<td><strong>MS</strong><br></td>
 						<td><strong>Tên gia sư</strong></td>
@@ -155,30 +160,31 @@
 						<td><strong>Khu vực</strong><br></td>
 						<td><strong>Lương</strong><br></td>
 						<td><strong>Thông tin khác</strong><br></td>
-						<td width="10%">
-							<button value="1" name="UpdateTuTor" type="button">Cập
-								nhật</button>
-						</td>
+						<td><form action="./updatetutor" method="post">
+								<button name="Update" type="submit">Cập nhật</button>
+								</form>
+							</td>
 						<td width="10%">
 							<button value="1" name="DeleteTutor" type="button">Xóa</button>
 						</td>
 					</tr>
 					<c:forEach var="item" items="${ listTutors}">
-						<tr >
+						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
+							<td><form action="./updatetutor" method="post">
+								<button name="Update" type="submit">Cập nhật</button>
+								</form>
+							</td>
 							<td>
-							<button value="1" name="Update" type="button">Cập nhật</button></td>
-							<td>
-							<button value="1" name="Delete" type="button">Xóa</button></td>
+								<button value="1" name="Delete" type="button">Xóa</button>
+							</td>
 						</tr>
 					</c:forEach>
 
 
 				</tbody>
 			</table>
-			<div id="fixedButtonAdd">
-				<button value="1" name="Add" type="button">Thêm gia sư</button>
-			</div>
+
 		</div>
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>
