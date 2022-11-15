@@ -146,6 +146,7 @@ public class AdminController {
 		Map<String, Object> params = new HashMap<>();
 		params.put("_id", id);
 		commonService.removeTutor(params);
+		System.out.println("AA");
 		List<TutorModel> list = commonService.getListTutor();
 		ModelAndView mav = new ModelAndView("admin/tutorManagement");
 		mav.addObject("listTutor", list);
