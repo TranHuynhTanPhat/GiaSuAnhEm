@@ -17,6 +17,7 @@ public class NewClassModel {
 	List<SubjectModel> subjects = new ArrayList<SubjectModel>();
 	private float __v;
 	private int id;
+	private String contact;
 
 	public int getId() {
 		return id;
@@ -122,6 +123,14 @@ public class NewClassModel {
 
 	public void set__v(float __v) {
 		this.__v = __v;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 }

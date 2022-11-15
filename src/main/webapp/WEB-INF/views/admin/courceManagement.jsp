@@ -147,7 +147,7 @@
 						<td><strong>${ item.sobuoi }</strong><br></td>
 						<td><strong>${ item.time }</strong></td>
 						<td><strong>${ item.require }</strong></td>
-						<td><strong>Liên hệ</strong><br></td>
+						<td><strong>${ item.contact }</strong><br></td>
 						<td><button value="1" name="UpdateTuTor" type="button">Cập
 								nhật</button></td>
 						<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
