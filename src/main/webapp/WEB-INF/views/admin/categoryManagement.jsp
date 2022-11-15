@@ -17,7 +17,7 @@
 					<button name="update" type="submit">Cập nhật</button>
 				</form>
 
-				<button value="1" name="delete" type="button">Xóa</button>
+				<button value="1" name="delete" id="xoa1" type="button">Xóa</button>
 			</div>
 			<table border="0" width="100%">
 				<tbody>
@@ -30,14 +30,44 @@
 
 					<c:forEach var="item" items="${ listCategoryDistrict}">
 						<tr>
-							<td width="2%"><input type="checkbox" class="action1" name="checked" value=1></td>
+							<td width="2%"><input type="checkbox" class="action1"
+								name="checked" value=1></td>
 							<td><strong>${item._id }</strong><br></td>
 							<td><strong>${item.name }</strong></td>
 							<td><strong>${item.style }</strong></td>
 
 						</tr>
 					</c:forEach>
+						<script language="javascript">
 
+
+							var temp1 = document.getElementById("xoa1");
+							temp1.disabled = true;
+							temp1.style.color = "#000000";
+						document.addEventListener("DOMContentLoaded", function(
+								event) {
+							// DOM is ready
+							const elements = document
+									.getElementsByClassName("action1");
+							var itemCount = elements.length
+
+							for (let i = 0; i < elements.length; i++) {
+								elements[i].addEventListener('click',
+										()=>{
+											
+											if(elements[i].checked){
+												temp1.disabled = false;
+												itemCount--;
+											} else{
+												itemCount++;
+											}
+											if (itemCount == elements.length){
+												temp1.disabled = true;
+											}
+										});
+							}
+						});
+					</script>
 
 				</tbody>
 			</table>
@@ -52,7 +82,7 @@
 					<button name="update" type="submit">Cập nhật</button>
 				</form>
 
-				<button value="1" name="delete" type="button">Xóa</button>
+				<button value="1" name="delete" id="xoa" type="button">Xóa</button>
 			</div>
 			<table border="0" width="100%">
 				<tbody>
@@ -65,7 +95,8 @@
 
 					<c:forEach var="item" items="${ listCategoryClass}">
 						<tr>
-							<td width="2%"><input type="checkbox" class="action" name="checked" value=1></td>
+							<td width="2%"><input type="checkbox" class="action"
+								name="checked" value=1></td>
 							<td><strong>${item._id }</strong><br></td>
 							<td><strong>${item.name }</strong></td>
 							<td><strong>${item.style }</strong></td>
@@ -74,13 +105,33 @@
 					</c:forEach>
 
 					<script language="javascript">
-						document.getElementsByClassName("action").onclick = function(e) {
-							if (this.checked) {
-								<button value="1" name="delete" type="button">Xóa</button>
-							} else {
-								alert("Bạn vừa bỏ thích freetuts.net");
+
+
+						var temp = document.getElementById("xoa");
+						temp.disabled = true;
+						temp.style.color = "#000000";
+						document.addEventListener("DOMContentLoaded", function(
+								event) {
+							const elements = document
+									.getElementsByClassName("action");
+							var itemCount = elements.length
+
+							for (let i = 0; i < elements.length; i++) {
+								elements[i].addEventListener('click',
+										()=>{
+											
+											if(elements[i].checked){
+												temp.disabled = false;
+												itemCount--;
+											} else{
+												itemCount++;
+											}
+											if (itemCount == elements.length){
+												temp.disabled = true;
+											}
+										});
 							}
-						};
+						});
 					</script>
 				</tbody>
 			</table>

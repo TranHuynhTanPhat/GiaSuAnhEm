@@ -54,7 +54,7 @@
 				<button name="update" type="submit">Cập nhật</button>
 			</form>
 
-			<button value="1" name="delete" type="button">Xóa</button>
+			<button value="1" name="delete" id="xoa" type="button">Xóa</button>
 		</div>
 		<div>
 			<table border="0" width="100%">
@@ -79,7 +79,7 @@
 
 						<form>
 							<tr>
-								<td><input type="checkbox" name="remove_cource"
+								<td><input type="checkbox" class="action" name="remove_cource"
 									value=${ item.id }></td>
 								<td>${ item.id }</td>
 								<td><c:forEach var="cl" items="${item.classes }">
@@ -106,11 +106,36 @@
 							</tr>
 						</form>
 
-
-
-
 					</c:forEach>
+						<script language="javascript">
 
+
+						var temp = document.getElementById("xoa");
+						temp.disabled = true;
+						temp.style.color = "#000000";
+						document.addEventListener("DOMContentLoaded", function(
+								event) {
+							const elements = document
+									.getElementsByClassName("action");
+							var itemCount = elements.length
+
+							for (let i = 0; i < elements.length; i++) {
+								elements[i].addEventListener('click',
+										()=>{
+											
+											if(elements[i].checked){
+												temp.disabled = false;
+												itemCount--;
+											} else{
+												itemCount++;
+											}
+											if (itemCount == elements.length){
+												temp.disabled = true;
+											}
+										});
+							}
+						});
+					</script>
 					<c:forEach var="item" items="${ listCources}">
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
