@@ -1,329 +1,96 @@
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <div id="wrapper">
-	<%@include file = "/WEB-INF/views/layout/header.jsp" %>
+	<%@include file="/WEB-INF/views/layout/header.jsp"%>
 	<table>
 		<tr>
-			<td id="td-top"><%@include file="/WEB-INF/views/layout/sidebar.jsp"%></td>
+			<td id="td-top"><%@include
+					file="/WEB-INF/views/layout/sidebar.jsp"%></td>
 			<td id="td-top">
-	<div id="page-main">
-	    <div class="title">
-	        <span class="icon-graduation"></span>
-	        <span class="menu-ngang">BẢNG LƯƠNG CHO GIA SƯ VÀ PHỤ HUYNH</span>	
-	    </div>
-	    <h1 class="title" itemprop="name">Bảng lương tham khảo</h1>
-	    <p><span style="color: #ff0000; font-size: x-small;">
-	    <strong>
-	    	BẢNG LƯƠNG DÀNH CHO 1 HỌC SINH, TĂNG THẾM 1 HỌC SINH CỘNG THÊM&nbsp; 500.000
-	    </strong></span></p>
-	    <p><span style="color: #ff0000; font-size: x-small;">
-	    <strong>
-	    	HỌC SINH TRƯỜNG QUỐC TẾ CỘNG THÊM&nbsp; 600.000 
-	    </strong></span></p>
-	    <p><span style="color: #ff0000; font-size: x-small;">
-	    <strong>
-	    	LIÊN HỆ ĐIỆN THOẠI: 028.3539 18 19- 0972 38.38.48 
-	    </strong></span></p>
-	    <div style="height: 10xp"></div>
-	    
-	    <table class="table table-bordered">
-		  <thead>
-		    <tr style="text-align: center; vertical-align: middle;">
-		      <th scope="col"></th>
-		      <th scope="col" >SỐ HS</th>
-		      <th scope="col">LỚP LÁ  ĐẾN LỚP 4 MÔN: T-TV-AV KIỂMTRA BÁO BÀI THEO TKB</th>
-		      <th scope="col">LỚP 5 ĐẾN LỚP 6 MÔN: T-L-TV-AV KIỂM TRA BÁO BÀI THEO TKB</th>
-		      <th scope="col">LỚP 7 ĐẾN LỚP 8 MÔN: TLH(1 GIA SƯ) MÔN: V-AV(1 GIA SƯ) KIỂM TRA BÁO BÀI</th>
-		      <th scope="col">LỚP 9( LUYỆN THI) MÔN:TLH (1 GIA SƯ) MÔN:V-AV (1 GIA SƯ) KIỂM TRA BÁO BÀI</th>
-		      <th scope="col">LỚP 10 MÔN:TLH (1 GIA SƯ) MÔN: V-AV (1 GIA SƯ) KIỂM TR BÁO BÀI</th>
-		      <th scope="col">LỚP 11 MÔN: TLH (1 GS) MÔN: V-AV (1 GS)</th>
-		      <th scope="col">LỚP 121 GS PHỤ TRÁCH 1 MÔNLUYỆN THI THEO KHỐINN-TH-ĐÀN-VẼ</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <th scope="row">1BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td style="text-align: center; vertical-align: middle;">1</td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 500</li>
-		      		<li>GV: 1000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 600</li>
-		      		<li>GV: 1000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 600</li>
-		      		<li>GV: 1100</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 700</li>
-		      		<li>GV: 1200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 800</li>
-		      		<li>GV: 1200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 800</li>
-		      		<li>GV: 1200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1000</li>
-		      		<li>GV: 1600</li>
-		      	</ul>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th scope="row">2BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td style="text-align: center; vertical-align: middle;">1</td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1000</li>
-		      		<li>GV: 2000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1200</li>
-		      		<li>GV: 2000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1000</li>
-		      		<li>GV: 2000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1400</li>
-		      		<li>GV: 2500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1500</li>
-		      		<li>GV: 2500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1600</li>
-		      		<li>GV: 2600</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1600</li>
-		      		<li>GV: 2800</li>
-		      	</ul>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th scope="row">3BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td style="text-align: center; vertical-align: middle;">1</td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1500</li>
-		      		<li>GV: 2700</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1600</li>
-		      		<li>GV: 2800</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 1800</li>
-		      		<li>GV: 2800</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2000</li>
-		      		<li>GV: 3200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2000</li>
-		      		<li>GV: 3200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2200</li>
-		      		<li>GV: 3500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2600</li>
-		      		<li>GV: 3800</li>
-		      	</ul>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th scope="row">4BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td style="text-align: center; vertical-align: middle;">1</td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2000</li>
-		      		<li>GV: 3600</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2000</li>
-		      		<li>GV: 3800</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2200</li>
-		      		<li>GV: 3800</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2800</li>
-		      		<li>GV: 4200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2800</li>
-		      		<li>GV: 4000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3000</li>
-		      		<li>GV: 4500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3500</li>
-		      		<li>GV: 5000</li>
-		      	</ul>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th scope="row">5BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td style="text-align: center; vertical-align: middle;">1</td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2500</li>
-		      		<li>GV: 4500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2600</li>
-		      		<li>GV: 4800</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 2800</li>
-		      		<li>GV: 4800</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3500</li>
-		      		<li>GV: 5000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3500</li>
-		      		<li>GV: 5000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3800</li>
-		      		<li>GV: 5500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 4200</li>
-		      		<li>GV: 6000</li>
-		      	</ul>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th scope="row">6BUỔI/TUẦN 120 PHÚT/SV 90 PHÚT/ GV</th>
-		      <td>1</td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3200</li>
-		      		<li>GV: 5000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3500</li>
-		      		<li>GV: 5200</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 3500</li>
-		      		<li>GV: 5000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 4000</li>
-		      		<li>GV: 5500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 5000</li>
-		      		<li>GV: 6000</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 4500</li>
-		      		<li>GV: 6500</li>
-		      	</ul>
-		      </td>
-		      <td>
-		      	<ul>
-		      		<li>SV: 5000</li>
-		      		<li>GV: 7000</li>
-		      	</ul>
-		      </td>
-		    </tr>
-		  </tbody>
-		</table>
-	    
-	</div>
-	</td>
-	</tr>
-	</table>
-	<%@include file = "/WEB-INF/views/layout/footer.jsp" %>
-</div>
+				<div id="page-main">
+					<div class="title">
+						<span class="icon-graduation"></span> <span class="menu-ngang">BẢNG
+							HỌC PHÍ 2 BUỔI 1 TUẦN VÀ 3 BUỔI 1 TUẦN</span>
+					</div>
 
+					<table border="0" width="100%">
+						<tbody>
+							<tr>
+								<td rowspan="2" width="2%"></td>
+								<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
+											LỚP</strong></span></td>
+								<td colspan="4" style="text-align: center"><strong>
+										Sinh viên</strong></td>
+							</tr>
+							<tr>
+								<td><span><strong>2 buổi 1 tuần</strong></span></td>
+								<td><span style="color: rgb(255, 0, 0);"><strong>3
+											buổi 1 tuần</strong></span></td>
+								<td><span><strong>4 buổi 1 tuần</strong></span></td>
+								<td><span style="color: rgb(255, 0, 0);"><strong>5
+											buổi 1 tuần</strong></span></td>
+
+							</tr>
+							<c:forEach var="item" items="${listSST }">
+								<tr>
+									<td><input type="checkbox" name="checked"
+										value="${item._id }"></td>
+									<td>${item.grade }</td>
+									<td>${item.twoSessions }</td>
+									<td>${item.threeSessions }</td>
+									<td>${item.fourSessions }</td>
+									<td>${item.fiveSessions }</td>
+								</tr>
+							</c:forEach>
+
+						</tbody>
+					</table>
+					<hr>
+					<div class="title">
+						<span class="icon-graduation"></span> <span class="menu-ngang">BẢNG
+							HỌC PHÍ 4 BUỔI 1 TUẦN VÀ 5 BUỔI 1 TUẦN</span>
+					</div>
+
+
+
+					<div class="lop-day">
+						<table border="0" width="100%">
+							<tbody>
+								<tr align="center">
+									<td rowspan="2" width="2%"></td>
+									<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
+												LỚP</strong></span></td>
+									<td colspan="4" style="text-align: center"><strong>
+											Giáo viên</strong></td>
+								</tr>
+								<tr>
+									<td><span><strong>2 buổi 1 tuần</strong></span></td>
+									<td><span style="color: rgb(255, 0, 0);"><strong>3
+												buổi 1 tuần</strong></span></td>
+									<td><span><strong>4 buổi 1 tuần</strong></span></td>
+									<td><span style="color: rgb(255, 0, 0);"><strong>5
+												buổi 1 tuần</strong></span></td>
+
+								</tr>
+								<c:forEach var="item" items="${listSST }">
+									<tr>
+										<td><input type="checkbox" name="checked"
+											value="${item._id }"></td>
+										<td>${item.grade }</td>
+										<td>${item.twoSessions }</td>
+										<td>${item.threeSessions }</td>
+										<td>${item.fourSessions }</td>
+										<td>${item.fiveSessions }</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<%@include file="/WEB-INF/views/layout/footer.jsp"%>
+</div>

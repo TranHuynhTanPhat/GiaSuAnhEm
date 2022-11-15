@@ -2,6 +2,8 @@ package com.giasuanhem.controller.Client;
 
 import java.util.List;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +30,7 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.Service.MapperModel;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -36,6 +39,8 @@ public class AdminController {
 	HttpSession session;
 	@Autowired
 	CommonService commonService;
+	@Autowired
+	MapperModel commonModel;
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
@@ -124,6 +129,7 @@ public class AdminController {
 
 	}
 
+//ok
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
 	public ModelAndView tutorManagement() {
 		if (session.getAttribute("userName") != null) {
@@ -143,8 +149,9 @@ public class AdminController {
 		}
 	}
 
+//ok
 	@RequestMapping(value = "/quanlygiasu", params = "delete", method = RequestMethod.POST)
-	public ModelAndView remove_tutorManagement(@RequestParam("remove_tutor") String[] ids) {
+	public ModelAndView deleteTutor(@RequestParam("remove_tutor") String[] ids) {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			for (String id : ids) {
@@ -152,29 +159,125 @@ public class AdminController {
 				commonService.removeTutor(params);
 			}
 			List<TutorModel> list = commonService.getListTutor();
+			List<CategoryModel> listQuan = commonService.getListQuan();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
 			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();
 			List<TutorModel> list = commonService.getListTutor();
+			List<CategoryModel> listQuan = commonService.getListQuan();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
 			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
 			return mav;
 		}
 	}
 
-	@RequestMapping(value = "/quanlygiasu", params = "update", method = RequestMethod.POST)
-	public ModelAndView update_tutorManagement(@RequestParam("remove_tutor") String id) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("_id", id);
-//			commonService.updateTutor(params);
-		System.out.print("update");
-		List<TutorModel> list = commonService.getListTutor();
-		ModelAndView mav = new ModelAndView("admin/tutorManagement");
-		mav.addObject("listTutor", list);
-		return mav;
+	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.POST)
+	public ModelAndView addTutor(@RequestParam("hoten") String hoten, @RequestParam("gioitinh") String gioitinh,
+			@RequestParam("namsinh") String namsinh, @RequestParam("diachi") String diachi,
+			@RequestParam("email") String email, @RequestParam("dienthoai") String sdt,
+			@RequestParam("truong") String truong, @RequestParam("chuyennganh") String chuyennghanh,
+			@RequestParam("namtotnghiep") String namtotnghiem, @RequestParam("nghenghiep") String nghenghiep,
+			@RequestParam("trinhdo") String trinhdo, @RequestParam("uudiem") String uudiem,
+			@RequestParam("monhoc") String[] monhocs, @RequestParam("lophoc") String[] lophocs,
+			@RequestParam("khuvuc") String[] khuvucs, @RequestParam("sobuoiday") String sobuoiday) {
+		try {
+			List<TutorModel> list = commonService.getListTutor();
+			Map<String, Object> paramsP = new HashMap<>();
+			paramsP.put("style", 1);
+			Map<String, Object> paramsC = new HashMap<>();
+			paramsC.put("style", 0);
+			List<CategoryModel> listQuan = commonService.getListCategory(paramsP);
+			List<CategoryModel> listLop = commonService.getListCategory(paramsC);
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
+
+			ModelAndView mav = new ModelAndView("admin/tutorManagement");
+			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
+			mav.addObject("listLop", listLop);
+			
+			List<Object> classes = new ArrayList<>();
+			List<Object> subjects = new ArrayList<>();
+			List<Object> teachAreas = new ArrayList<>();
+			for (String item : monhocs) {
+				classes.add(item);
+			}
+			for (String item : lophocs) {
+				subjects.add(item);
+			}
+			for (String item : monhocs) {
+				teachAreas.add(item);
+			}
+
+			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes, subjects,
+					teachAreas, "Xe máy", Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem, nghenghiep,
+					trinhdo);
+			System.out.print(itemAdd);
+			return mav;
+		} catch (Exception e) {
+			e.printStackTrace();
+			List<TutorModel> list = commonService.getListTutor();
+			List<CategoryModel> listQuan = commonService.getListQuan();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
+			ModelAndView mav = new ModelAndView("admin/tutorManagement");
+			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
+			return mav;
+		}
 	}
+
+	@RequestMapping(value = "/addtutor", method = RequestMethod.GET)
+	public ModelAndView addTutor() {
+		if (session.getAttribute("userName") != null) {
+			List<SubjectModel> listSubjects = commonService.getListSubject();
+			List<ClassModel> listClasses = commonService.getListClass();
+			Map<String, Object> paramsP = new HashMap<>();
+			paramsP.put("style", 1);
+			Map<String, Object> paramsC = new HashMap<>();
+			paramsC.put("style", 0);
+			List<CategoryModel> listQuan = commonService.getListCategory(paramsP);
+			List<CategoryModel> listLop = commonService.getListCategory(paramsC);
+			ModelAndView mav = new ModelAndView("admin/addTutor");
+			mav.addObject("listSubjects", listSubjects);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listlop", listLop);
+			mav.addObject("listClasses", listClasses);
+
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+
+//	@RequestMapping(value = "/quanlygiasu", params = "update", method = RequestMethod.POST)
+//	public ModelAndView update_tutorManagement(@RequestParam("remove_tutor") String id) {
+//		Map<String, Object> params = new HashMap<>();
+//		params.put("_id", id);
+////			commonService.updateTutor(params);
+//		System.out.print("update");
+//		List<TutorModel> list = commonService.getListTutor();
+//		ModelAndView mav = new ModelAndView("admin/tutorManagement");
+//		mav.addObject("listTutor", list);
+//		return mav;
+//	}
 
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement() {
@@ -273,27 +376,16 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping(value = "/addtutor", method = RequestMethod.POST)
-	public ModelAndView addTutor() {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addTutor");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/updatetutor", method = RequestMethod.POST)
-	public ModelAndView updateTutor() {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/updateTutor");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-	}
+//	@RequestMapping(value = "/updatetutor", method = RequestMethod.POST)
+//	public ModelAndView updateTutor() {
+//		if (session.getAttribute("userName") != null) {
+//			ModelAndView mav = new ModelAndView("admin/updateTutor");
+//			return mav;
+//		} else {
+//			ModelAndView mav = new ModelAndView("admin/login");
+//			return mav;
+//		}
+//	}
 
 	@RequestMapping(value = "/addnewcource", method = RequestMethod.POST)
 	public ModelAndView addNewCource() {

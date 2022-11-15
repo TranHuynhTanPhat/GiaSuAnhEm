@@ -1,11 +1,16 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="wrapper">
 	<%@include file="/WEB-INF/views/layout/header.jsp"%>
+	<script type="text/javascript">
+		function insertText(x,y) {
+			document.getElementById(x).innerHTML = "0";
+		}
+	</script>
 	<table>
 		<tr>
 			<td id="td-top"><%@include
@@ -45,13 +50,17 @@
 								<c:forEach var="item" items="${ listNewClass }">
 									<tr class="row0">
 										<td>${ item.id }</td>
-										<td>${ item.classes[0].name },</td>
-										<td>LẬP TRÌNH,</td>
+										<td><c:forEach var="cl" items="${item.classes }">
+											${ cl.name },
+										</c:forEach></td>
+										<td><c:forEach var="subject" items="${item.subjects }">
+											${ subject.name },
+										</c:forEach></td>
 										<td>${ item.address }</td>
 										<td>${ item.district }<br></td>
 										<td>${ item.sobuoi }</td>
 										<td>${ item.time }</td>
-										<td align="right">${ item.salary }</td>
+										<td align="right" >	${item.salary}</td>
 										<td>${ item.require }</td>
 									</tr>
 								</c:forEach>

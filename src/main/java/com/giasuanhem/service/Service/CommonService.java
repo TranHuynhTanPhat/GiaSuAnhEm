@@ -47,6 +47,8 @@ public class CommonService {
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl), HttpMethod.GET, entity,
 				String.class);
 		String jsonResponse = response.getBody();
+//		System.out.print(jsonResponse);
+//		System.out.println();
 		return jsonResponse;
 
 	}
@@ -162,6 +164,7 @@ public class CommonService {
 			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<CategoryModel>>() {
 					});
+			System.out.println(jsonResponse);
 			return listCategoryModel;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -236,15 +239,15 @@ public class CommonService {
 		}
 	}
 
-	public List<SalaryModel> getListSalary(Map<String, Object> params){
-		String jsonResponse=getWithParams(ApiConstant.LIST_SALARY, params);
+	public List<SalaryModel> getListSalary(Map<String, Object> params) {
+		String jsonResponse = getWithParams(ApiConstant.LIST_SALARY, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			List<SalaryModel> listSalary = objectMapper.readValue(jsonResponse, new TypeReference<List<SalaryModel>>() {});
+			List<SalaryModel> listSalary = objectMapper.readValue(jsonResponse, new TypeReference<List<SalaryModel>>() {
+			});
 			System.out.print(jsonResponse);
 			return listSalary;
-		}
-		catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}
