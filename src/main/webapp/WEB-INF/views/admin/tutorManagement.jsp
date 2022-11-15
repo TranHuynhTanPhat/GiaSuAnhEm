@@ -104,6 +104,7 @@
 
 			</form>
 		</div>
+		<form id="tutor-form" action="./quanlygiasu" method="POST" >
 		<div class="group-button">
 			<form action="./addtutor" method="POST">
 				<button value="add" type="submit">Thêm gia sư</button>
@@ -111,8 +112,7 @@
 			<form action="./updatetutor" method="post">
 				<button name="update" type="submit">Cập nhật</button>
 			</form>
-
-			<button value="1" name="delete" type="button">Xóa</button>
+				<button value="1" name="delete" type="submit">Xóa</button>
 		</div>
 
 		<div>
@@ -124,17 +124,11 @@
 						<td><strong>Tên gia sư</strong></td>
 						<td><strong>Địa chỉ</strong><br></td>
 						<td><strong>Email</strong><br></td>
-						<td><strong>Phone</strong><br></td>
 						<td><strong>Năm sinh</strong><br></td>
-						<td><strong>Giới Tính</strong><br></td>
 						<td><strong>SĐT</strong><br></td>						
 						<td><strong>Giới tính</strong><br></td>
-						<td><strong>Nghề nghiệp</strong><br></td>
-						<td><strong>Địa Chỉ<strong><br></td>
-						<td><strong>Email<strong><br></td>
 						<td><strong>Trường</strong><br></td>
 						<td><strong>Chuyên ngành</strong></td>
-						<td><strong>Năm tốt nghiệp</strong></td>
 						<td><strong>Lớp dạy</strong><br></td>
 						<td><strong>Các môn</strong><br></td>
 						<td><strong>Khu vực</strong><br></td>
@@ -145,21 +139,19 @@
 						<td width="10%"><br></td>
 					</tr>
 					<c:forEach var="item" items="${ listTutor }">
-						<form id="tutor-form" action="./quanlygiasu" method="post" >
 					
 						<tr>
 							<td width="2%"><input type="checkbox" name="remove_tutor" value=${item._id }></td>
 							<td><strong>${item._id }</strong><br></td>
 							<td><strong>${item.name }</strong></td>
-							<td><strong>${item.birthYear }</strong><br></td>
-							<td><strong>${item.gender }</strong><br></td>
-							<td><strong>${item.phone }</strong><br></td>
-							<td><strong>${item.isNow }</strong><br></td>
 							<td><strong>${item.address }</strong><br></td>
 							<td><strong>${item.email }</strong><br></td>
+							<td><strong>${item.birthYear }</strong><br></td>
+							<td><strong>${item.phone }</strong><br></td>
+							<td><strong>${item.gender }</strong><br></td>
 							<td><strong>${item.school }</strong><br></td>
+							<td><strong>${item.department }</strong><br></td>
 							<td><strong>${item.department }</strong></td>
-							<td><strong>${item.graduateYear }</strong></td>
 							<td><strong>Lớp dạy</strong><br></td>
 							<td><strong>Các môn</strong><br></td>
 							<td><strong>Khu vực</strong><br></td>
@@ -167,22 +159,11 @@
 							<td><strong>${item.sobuoi }</strong><br></td>
 							<td><strong>${item.graduateYear }</strong><br></td>
 							<td><strong>${item.describe }</strong><br></td>
-						</tr>		
-						</form>				
+						</tr>					
 						</c:forEach>
-
 					</tr>
-					<c:forEach var="item" items="${ listTutors}">
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><form action="./updatetutor" method="post">
-									<button name="Update" type="submit">Cập nhật</button>
-								</form></td>
-							<td>
-								<button value="1" name="Delete" type="button">Xóa</button>
-							</td>
-						</tr>
-					</c:forEach>
+			</form>
+					
 				</tbody>
 			</table>
 

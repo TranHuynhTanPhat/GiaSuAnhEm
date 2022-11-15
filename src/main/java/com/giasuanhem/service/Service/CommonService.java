@@ -99,6 +99,7 @@ public class CommonService {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
 			System.out.println(jsonResponse);
+			System.out.println("BB	");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
