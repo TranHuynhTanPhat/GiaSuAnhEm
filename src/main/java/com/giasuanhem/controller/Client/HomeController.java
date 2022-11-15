@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -53,8 +54,12 @@ public class HomeController {
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
 		
+		List<PostModel> listPost = commonService.getIntroduction();
+		
+		
 		ModelAndView mav = new ModelAndView("home/introduce");
 		mav.addObject("listCategoryClass",listClass);
+		mav.addObject("listPost", listPost);
 		mav.addObject("listCategoryDistrict",listDistrict);
 		return mav;
 	}

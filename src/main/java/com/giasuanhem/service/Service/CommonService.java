@@ -142,7 +142,7 @@ public class CommonService {
 			List<ClassModel> listClassModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<ClassModel>>() {
 					});
-			
+
 			return listClassModels;
 
 		} catch (IOException e) {
@@ -200,6 +200,25 @@ public class CommonService {
 
 	}
 
+	public List<PostModel> getIntroduction() {
+		Map<String, Object> params = new HashMap<>();
+		params.put("style", 0);
+		String jsonResponse = getWithParams(ApiConstant.LIST_POST, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
+			});
+
+			return listPost;
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+
 	public List<SubjectModel> getListSubject() {
 		String jsonResponse = get(ApiConstant.LIST_SUBJECT);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -207,6 +226,7 @@ public class CommonService {
 			List<SubjectModel> listSubject = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<SubjectModel>>() {
 					});
+
 			return listSubject;
 
 		} catch (IOException e) {

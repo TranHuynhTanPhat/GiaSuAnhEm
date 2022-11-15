@@ -4,7 +4,7 @@ public class PostModel {
 	 private String _id;
 	 private String title;
 	 private String body;
-	 private float __v;
+	 private float style;
 	
 	
 	 // Getter Methods 
@@ -21,8 +21,8 @@ public class PostModel {
 	  return body;
 	 }
 	
-	 public float get__v() {
-	  return __v;
+	 public float getstyle() {
+	  return style;
 	 }
 	
 	 // Setter Methods 
@@ -39,7 +39,7 @@ public class PostModel {
 	  this.body = body;
 	 }
 	
-	 public void set__v(float __v) {
-	  this.__v = __v;
+	 public void setstyle(float style) {
+	  this.style = style;
 	 }
 	}

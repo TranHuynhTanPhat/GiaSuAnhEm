@@ -24,6 +24,7 @@ import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.TutorModel;
 
 import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.CommonService;
 
@@ -47,9 +48,11 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
 	public ModelAndView adminIntroduction() {
-
+		
 		if (session.getAttribute("userName") != null) {
+			List<PostModel> listPost=commonService.getIntroduction();
 			ModelAndView mav = new ModelAndView("admin/adminIntroduction");
+			mav.addObject("listPost", listPost);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -122,7 +125,13 @@ public class AdminController {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
 			List<TutorModel> list = commonService.getListTutor();
+			List<CategoryModel> listQuan = commonService.getListQuan();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
 			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

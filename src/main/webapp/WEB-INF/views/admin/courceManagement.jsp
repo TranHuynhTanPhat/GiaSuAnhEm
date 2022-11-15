@@ -74,22 +74,33 @@
 						<td><strong>Yêu cầu</strong></td>
 						<td><strong>Liên hệ</strong><br></td>
 						<td><strong>Trạng thái</strong></td>
-						<td width="8%"><br></td>
-						<td width="5%"><br></td>
 					</tr>
 					<c:forEach var="item" items="${listNewClass }">
 						<form>
 							<tr>
 								<td><input type="checkbox" name="remove_cource"
 									value=${ item.id }></td>
-								<td><strong>${ item.id }</strong><br></td>
-								<td><strong>${ item.classes[0].name },</strong></td>
-								<td><strong>${ item.address }</strong><br></td>
-								<td><strong>${ item.salary }</strong><br></td>
-								<td><strong>${ item.sobuoi }</strong><br></td>
-								<td><strong>${ item.time }</strong></td>
-								<td><strong>${ item.require }</strong></td>
-								<td><strong>Liên hệ</strong><br></td>
+								<td>${ item.id }</td>
+								<td><c:forEach var="cl" items="${item.classes }">
+										${ cl.name },
+									</c:forEach></td>
+
+								<td><c:forEach var="subject" items="${item.subjects }">
+										${ subject.name },
+									</c:forEach></td>
+
+								<td><c:forEach var="category" items="${item.categories }">
+										${ category.name },
+									</c:forEach></td>
+								<td>${ item.address }</td>
+								<td>${ item.district }</td>
+								<td>${ item.salary }</td>
+								<td>${ item.sobuoi }</td>
+								<td>${ item.time }</td>
+								<td>${ item.created_at }</td>
+								<td>${ item.require }</td>
+								<td>${item.contact }</td>
+								<td>${ item.status }</td>
 
 							</tr>
 						</form>
