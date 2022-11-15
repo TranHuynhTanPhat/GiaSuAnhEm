@@ -27,16 +27,13 @@
 						<td><strong>Quận</strong></td>
 						<td><strong>Style</strong></td>
 					</tr>
-					<tr>
-						<td width="2%"><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên lớp học</strong></td>
-						<td><strong>1</strong></td>
 
-					</tr>
-					<c:forEach var="item" items="${ listClasses}">
+					<c:forEach var="item" items="${ listCategoryDistrict}">
 						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
+							<td width="2%"><input type="checkbox" class="action1" name="checked" value=1></td>
+							<td><strong>${item._id }</strong><br></td>
+							<td><strong>${item.name }</strong></td>
+							<td><strong>${item.style }</strong></td>
 
 						</tr>
 					</c:forEach>
@@ -65,26 +62,26 @@
 						<td><strong>Lớp</strong></td>
 						<td><strong>Style</strong></td>
 					</tr>
-					<tr>
-						<td width="2%"><input type="checkbox" name="checked" value=1></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên lớp học</strong></td>
-						<td><strong>2</strong></td>
 
-					</tr>
-					<c:forEach var="item" items="${ listClasses}">
+					<c:forEach var="item" items="${ listCategoryClass}">
 						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><form action="./updatecategoryclass" method="post">
-									<button value="1" name="Update" type="submit">Cập nhật</button>
-								</form></td>
-							<td>
-								<button value="1" name="Delete" type="button">Xóa</button>
-							</td>
+							<td width="2%"><input type="checkbox" class="action" name="checked" value=1></td>
+							<td><strong>${item._id }</strong><br></td>
+							<td><strong>${item.name }</strong></td>
+							<td><strong>${item.style }</strong></td>
+
 						</tr>
 					</c:forEach>
 
-
+					<script language="javascript">
+						document.getElementsByClassName("action").onclick = function(e) {
+							if (this.checked) {
+								<button value="1" name="delete" type="button">Xóa</button>
+							} else {
+								alert("Bạn vừa bỏ thích freetuts.net");
+							}
+						};
+					</script>
 				</tbody>
 			</table>
 
