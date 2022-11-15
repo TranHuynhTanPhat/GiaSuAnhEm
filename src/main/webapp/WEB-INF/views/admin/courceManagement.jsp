@@ -11,7 +11,7 @@
 			<form action="" method="post" name="form1" style="width: 100%">
 				<div style="margin-bottom: 0 !important; boxsizing: boder-box;">
 
-					<div class="col-2">
+					<div class="col-3">
 						<select name="chonlop" id="chonlop" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Lớp</option>
@@ -35,7 +35,7 @@
 							<option value="L17L">Hệ Đại học</option>
 						</select>
 					</div>
-					<div class="col-2">
+					<div class="col-3">
 						<select name="chonmon" id="chonmon" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Môn</option>
@@ -68,7 +68,12 @@
 							<option value="M27M">Luyện thi đại học</option>
 						</select>
 					</div>
-
+					<div class="col-3">
+						<select name="quanhuyen" id="quanhuyen" class="form-control"
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							<option value="0">Quận huyện</option>
+						</select>
+					</div>
 
 				</div>
 				<div id="fixedButtonSearch" style="float: center">
@@ -78,15 +83,15 @@
 			</form>
 		</div>
 		<div class="group-button">
-				<form action="./addnewcource" method="POST">
-					<button value="add" type="submit">Thêm khóa học</button>
-				</form>
-				<form action="./updatenewcource" method="post">
-					<button name="update" type="submit">Cập nhật</button>
-				</form>
+			<form action="./addnewcource" method="POST">
+				<button value="add" type="submit">Thêm khóa học</button>
+			</form>
+			<form action="./updatenewcource" method="post">
+				<button name="update" type="submit">Cập nhật</button>
+			</form>
 
-				<button value="1" name="delete" type="button">Xóa</button>
-			</div>
+			<button value="1" name="delete" type="button">Xóa</button>
+		</div>
 		<div>
 			<table border="0" width="100%">
 				<tbody>
@@ -109,22 +114,23 @@
 						<td width="5%"><br></td>
 					</tr>
 					<c:forEach var="item" items="${listNewClass }">
-					<form>
-						<tr >
-						<td><input type="checkbox" name="remove_cource" value=${ item.id }></td>
-						<td><strong>${ item.id }</strong><br></td>
-						<td><strong>${ item.classes[0].name },</strong></td>
-						<td><strong>${ item.address }</strong><br></td>
-						<td><strong>${ item.salary }</strong><br></td>
-						<td><strong>${ item.sobuoi }</strong><br></td>
-						<td><strong>${ item.time }</strong></td>
-						<td><strong>${ item.require }</strong></td>
-						<td><strong>Liên hệ</strong><br></td>
-						
-					</tr>
-					</form>
+						<form>
+							<tr>
+								<td><input type="checkbox" name="remove_cource"
+									value=${ item.id }></td>
+								<td><strong>${ item.id }</strong><br></td>
+								<td><strong>${ item.classes[0].name },</strong></td>
+								<td><strong>${ item.address }</strong><br></td>
+								<td><strong>${ item.salary }</strong><br></td>
+								<td><strong>${ item.sobuoi }</strong><br></td>
+								<td><strong>${ item.time }</strong></td>
+								<td><strong>${ item.require }</strong></td>
+								<td><strong>Liên hệ</strong><br></td>
+
+							</tr>
+						</form>
 					</c:forEach>
-					
+
 					<c:forEach var="item" items="${ listCources}">
 						<tr>
 							<td><input type="checkbox" name="checked" value=1></td>
