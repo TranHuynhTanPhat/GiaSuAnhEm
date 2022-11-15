@@ -26,15 +26,14 @@ public class HomeController {
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
 		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
-		
+
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
-		
 
 		ModelAndView mav = new ModelAndView("home/home");
-		mav.addObject("listCategoryClass",listClass);
-		mav.addObject("listCategoryDistrict",listDistrict);
+		mav.addObject("listCategoryClass", listClass);
+		mav.addObject("listCategoryDistrict", listDistrict);
 		return mav;
 	}
 
@@ -49,18 +48,19 @@ public class HomeController {
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
 		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
-		
+
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
-		
-		List<PostModel> listPost = commonService.getIntroduction();
-		
-		
+
+		Map<String, Object> paramsIntroduction = new HashMap<>();
+		paramsIntroduction.put("style", 0);
+		List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
+
 		ModelAndView mav = new ModelAndView("home/introduce");
-		mav.addObject("listCategoryClass",listClass);
+		mav.addObject("listCategoryClass", listClass);
 		mav.addObject("listPost", listPost);
-		mav.addObject("listCategoryDistrict",listDistrict);
+		mav.addObject("listCategoryDistrict", listDistrict);
 		return mav;
 	}
 
@@ -69,14 +69,14 @@ public class HomeController {
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
 		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
-		
+
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
-		
+
 		ModelAndView mav = new ModelAndView("home/recruit");
-		mav.addObject("listCategoryClass",listClass);
-		mav.addObject("listCategoryDistrict",listDistrict);
+		mav.addObject("listCategoryClass", listClass);
+		mav.addObject("listCategoryDistrict", listDistrict);
 		return mav;
 	}
 
@@ -85,14 +85,14 @@ public class HomeController {
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
 		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
-		
+
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
-		
+
 		ModelAndView mav = new ModelAndView("home/feeTutor");
-		mav.addObject("listCategoryClass",listClass);
-		mav.addObject("listCategoryDistrict",listDistrict);
+		mav.addObject("listCategoryClass", listClass);
+		mav.addObject("listCategoryDistrict", listDistrict);
 		return mav;
 	}
 
@@ -101,14 +101,14 @@ public class HomeController {
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
 		List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
-		
+
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
-		
+
 		ModelAndView mav = new ModelAndView("home/contact");
-		mav.addObject("listCategoryClass",listClass);
-		mav.addObject("listCategoryDistrict",listDistrict);
+		mav.addObject("listCategoryClass", listClass);
+		mav.addObject("listCategoryDistrict", listDistrict);
 		return mav;
 	}
 }

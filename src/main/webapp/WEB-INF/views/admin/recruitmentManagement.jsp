@@ -10,7 +10,37 @@
 		<script
 			src="https://cdn.ckeditor.com/ckeditor5/35.2.1/decoupled-document/ckeditor.js"></script>
 
+		<div class="group-button" style="text-align: left">
+
+			<form action="#" method="post">
+				<button name="update" type="submit">Cập nhật</button>
+			</form>
+
+			<button value="1" name="delete" type="button">Xóa</button>
+		</div>
 		<form>
+
+			<table border="0" width="100%">
+				<tbody>
+					<tr>
+						<td width="2%"><br></td>
+						<td><strong>MS</strong><br></td>
+						<td><strong>Title</strong></td>
+						<td><strong>Content</strong><br></td>
+					</tr>
+					<c:forEach var="item" items="${ listPost }">
+						<td width="2%"><input type="checkbox" name="remove_tutor"
+							value=${item._id }></td>
+						<td>${item._id }</td>
+						<td>${item.title }</td>
+						<td>${item.body }</td>
+					</c:forEach>
+
+
+				</tbody>
+			</table>
+			<hr>
+
 			<div>
 				<div style="box-sizing: inherit; text-align: justify;">
 					<span style="color: rgb(255, 0, 0);"><span
@@ -20,6 +50,20 @@
 										style="box-sizing: inherit;"><u
 											style="box-sizing: inherit;">Tuyển dụng</u></em></span></span></span></span></span>
 				</div>
+				<div class="form-group">
+					<label style="float: left">Title: <span
+						style="color: #FF0000">*</span></label>
+					<div class="col-7" style="width: 100%">
+						<input type="text" name="title" class="form-control" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label style="float: left">Content: <span
+						style="color: #FF0000">*</span></label>
+
+				</div>
+				<br>
 				<!-- The toolbar will be rendered in this container. -->
 				<div id="toolbar-container" style="border: 2px solid #0c5776;"></div>
 
@@ -42,7 +86,7 @@
             } );
     </script>
 				<div id="fixedButtonAdd">
-					<button value="1" name="Upload" type="button">Upload</button>
+					<button value="1" name="add" type="button">Thêm</button>
 				</div>
 		</form>
 	</div>

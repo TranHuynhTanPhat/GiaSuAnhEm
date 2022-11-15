@@ -104,53 +104,39 @@
 						<td><strong>Thông tin khác</strong><br></td>
 					</tr>
 					<c:forEach var="item" items="${ listTutor }">
-						<form id="tutor-form" action="./quanlygiasu" method="post">
+						<tr>
+							<td width="2%"><input type="checkbox" name="remove_tutor"
+								value=${item._id }></td>
+							<td>${item._id }</td>
+							<td>${item.name }</td>
+							<td>${item.address }</td>
+							<td>${item.email }</td>
 
-							<tr>
-								<td width="2%"><input type="checkbox" name="remove_tutor"
-									value=${item._id }></td>
-								<td>${item._id }</td>
-								<td>${item.name }</td>
-								<td>${item.address }</td>
-								<td>${item.email }</td>
-
-								<td>${item.birthYear }</td>
-								<td>${item.gender }</td>
-								<td>${item.phone }</td>
-								<td>${item.isNow }</td>
+							<td>${item.birthYear }</td>
+							<td>${item.gender }</td>
+							<td>${item.phone }</td>
+							<td>${item.isNow }</td>
 
 
-								<td>${item.school }</td>
-								<td>${item.department }</td>
-								<td>${item.graduateYear }</td>
-								<td><c:forEach var="cl" items="${item.classes }">
+							<td>${item.school }</td>
+							<td>${item.department }</td>
+							<td>${item.graduateYear }</td>
+							<td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
 									</c:forEach></td>
-								<td><c:forEach var="subject" items="${item.subjects }">
+							<td><c:forEach var="subject" items="${item.subjects }">
 										${ subject.name },
 									</c:forEach></td>
-								<td><c:forEach var="area" items="${item.teachAreas }">
+							<td><c:forEach var="area" items="${item.teachAreas }">
 										${ area },
 									</c:forEach></td>
-								<td>${item.vehicle }</td>
-								<td>${item.sobuoi }</td>
-								<td>${item.describe }</td>
-							</tr>
-						</form>
-					</c:forEach>
-
-					</tr>
-					<c:forEach var="item" items="${ listTutors}">
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><form action="./updatetutor" method="post">
-									<button name="Update" type="submit">Cập nhật</button>
-								</form></td>
-							<td>
-								<button value="1" name="Delete" type="button">Xóa</button>
-							</td>
+							<td>${item.vehicle }</td>
+							<td>${item.sobuoi }</td>
+							<td>${item.describe }</td>
 						</tr>
 					</c:forEach>
+
+
 				</tbody>
 			</table>
 

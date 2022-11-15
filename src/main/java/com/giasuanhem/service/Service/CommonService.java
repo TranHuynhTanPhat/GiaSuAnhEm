@@ -200,15 +200,12 @@ public class CommonService {
 
 	}
 
-	public List<PostModel> getIntroduction() {
-		Map<String, Object> params = new HashMap<>();
-		params.put("style", 0);
+	public List<PostModel> getListPostWithParams(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.LIST_POST, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
 			});
-
 			return listPost;
 
 		} catch (IOException e) {

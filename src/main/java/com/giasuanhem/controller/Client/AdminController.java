@@ -48,9 +48,11 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
 	public ModelAndView adminIntroduction() {
-		
+
 		if (session.getAttribute("userName") != null) {
-			List<PostModel> listPost=commonService.getIntroduction();
+			Map<String, Object> params = new HashMap<>();
+			params.put("style", 0);
+			List<PostModel> listPost = commonService.getListPostWithParams(params);
 			ModelAndView mav = new ModelAndView("admin/adminIntroduction");
 			mav.addObject("listPost", listPost);
 			return mav;
@@ -164,7 +166,11 @@ public class AdminController {
 	@RequestMapping(value = "/quanlytuyendung", method = RequestMethod.GET)
 	public ModelAndView recruitmentManagement() {
 		if (session.getAttribute("userName") != null) {
+			Map<String, Object> params = new HashMap<>();
+			params.put("style", 0);
+			List<PostModel> listPost = commonService.getListPostWithParams(params);
 			ModelAndView mav = new ModelAndView("admin/recruitmentManagement");
+			mav.addObject("listPost", listPost);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
