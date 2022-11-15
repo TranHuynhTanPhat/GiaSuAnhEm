@@ -95,15 +95,25 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.POST)
-	public ModelAndView remove_courceManagement(@RequestParam("remove_cource") String id) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("_id", id);
-		commonService.removeCource(params);
-		List<NewClassModel> list = commonService.getListNewClass();
-		ModelAndView mav = new ModelAndView("admin/courceManagement");
-		mav.addObject("listNewClass", list);
-		return mav;
+	@RequestMapping(value = "/quanlykhoahoc", params = "delete",method = RequestMethod.POST)
+	public ModelAndView remove_courceManagement(@RequestParam("remove_cource") String[] ids) {
+		try {
+			Map<String, Object> params = new HashMap<>();
+			for (String id : ids) {
+				params.put("_id", id);
+				commonService.removeCource(params);
+			}
+			List<NewClassModel> list = commonService.getListNewClass();
+			ModelAndView mav = new ModelAndView("admin/courceManagement");
+			mav.addObject("listNewClass", list);
+			return mav;
+		} catch (Exception e) {
+			e.printStackTrace();
+			List<NewClassModel> list = commonService.getListNewClass();
+			ModelAndView mav = new ModelAndView("admin/courceManagement");
+			mav.addObject("listNewClass", list);
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -237,7 +247,28 @@ public class AdminController {
 			return mav;
 		}
 	}
-
+	
+	@RequestMapping(value = "/quanlylophoc", params = "delete", method = RequestMethod.POST)
+	public ModelAndView remove_classManagement(@RequestParam("remove_class") String[] ids) {
+		try {
+			Map<String, Object> params = new HashMap<>();
+			for (String id : ids) {
+				params.put("_id", id);
+				commonService.removeClass(params);
+			}
+			List <ClassModel> list = commonService.getListClass();
+			ModelAndView mav = new ModelAndView("admin/classManagement");
+			mav.addObject("listClass",list);
+			return mav;
+		}catch(Exception e) {
+			e.printStackTrace();
+			List <ClassModel> list = commonService.getListClass();
+			ModelAndView mav = new ModelAndView("admin/classManagement");
+			mav.addObject("listClass",list);
+			return mav;
+		}
+	}
+	
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement() {
 		if (session.getAttribute("userName") != null) {
@@ -247,6 +278,27 @@ public class AdminController {
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
+	
+	@RequestMapping(value = "/quanlymonhoc", params = "delete", method = RequestMethod.POST)
+	public ModelAndView remove_subjectManagement(@RequestParam("remove_subject") String[] ids) {
+		try {
+			Map<String, Object> params = new HashMap<>();
+			for (String id : ids) {
+				params.put("_id", id);
+				commonService.removeSubject(params);
+			}
+			List <SubjectModel> list = commonService.getListSubject();
+			ModelAndView mav = new ModelAndView("admin/subjectManagement");
+			mav.addObject("listSubject",list);
+			return mav;
+		}catch(Exception e) {
+			e.printStackTrace();
+			List <SubjectModel> list = commonService.getListSubject();
+			ModelAndView mav = new ModelAndView("admin/subjectManagement");
+			mav.addObject("listSubject",list);
 			return mav;
 		}
 	}

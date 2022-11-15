@@ -6,46 +6,37 @@
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<div id="page-main-Admin">
-
-
 		<div>
-			<div class="group-button">
-				<form action="./addclass" method="POST">
+			<form action="./quanlylophoc" method="post">
+				<div class="group-button">
+
 					<button value="add" type="submit">Thêm lớp học</button>
-				</form>
-				<form action="./updateclass" method="post">
+
 					<button name="update" type="submit">Cập nhật</button>
-				</form>
 
-				<button value="1" name="delete" type="button">Xóa</button>
-			</div>
-			<table border="0" width="100%">
-				<tbody>
-					<tr>
-						<td width="2%"><br></td>
-						<td><strong>ID</strong><br></td>
-						<td><strong>Tên lớp học</strong></td>
-					</tr>
-					<c:forEach var="item" items="${ listClass }">
-					<tr>
-						<td width="2%"><input type="checkbox" name="checked" value=${ item._id }></td>
-							<td><strong>${ item._id }</strong><br></td>
-							<td><strong>${ item.name }</strong></td>
-
-						
-					</tr>
-					</c:forEach>
-					<c:forEach var="item" items="${ listClasses}">
+					<button value="1" name="delete" type="submit">Xóa</button>
+				</div>
+				<table border="0" width="100%">
+					<tbody>
 						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-
+							<td width="2%"><br></td>
+							<td><strong>ID</strong><br></td>
+							<td><strong>Tên lớp học</strong></td>
 						</tr>
-					</c:forEach>
+						<c:forEach var="item" items="${ listClass }">
+							<tr>
+								<td width="2%"><input type="checkbox" name="remove_class"
+									value=${ item._id }></td>
+								<td><strong>${ item._id }</strong><br></td>
+								<td><strong>${ item.name }</strong></td>
 
 
-				</tbody>
-			</table>
+							</tr>
+						</c:forEach>
 
+					</tbody>
+				</table>
+			</form>
 		</div>
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>

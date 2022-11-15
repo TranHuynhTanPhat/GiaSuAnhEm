@@ -87,6 +87,22 @@ public class CommonService {
 		return "";
 	}
 
+	public void removeSubject(Map<String, Object> params) {
+		try {
+			String jsonResponse = postWithParams(ApiConstant.SUBJECT_REMOVE, params);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeClass(Map<String, Object> params) {
+		try {
+			String jsonResponse = postWithParams(ApiConstant.CLASS_REMOVE, params);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	public void removeTutor(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.TUTOR_REMOVE, params);
@@ -96,10 +112,9 @@ public class CommonService {
 	}
 
 	public void removeCource(Map<String, Object> params) {
+		System.out.println("CC");
 		try {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
-			System.out.println(jsonResponse);
-			System.out.println("BB	");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -46,41 +46,37 @@
 
 			</form>
 		</div>
-		<div class="group-button">
-			<form action="./addnewcource" method="POST">
-				<button value="add" type="submit">Thêm khóa học</button>
-			</form>
-			<form action="./updatenewcource" method="post">
-				<button name="update" type="submit">Cập nhật</button>
-			</form>
+		<form action="./quanlykhoahoc" method="post">
+			<div class="group-button">
+					<button value="add" type="submit">Thêm khóa học</button>
 
-			<button value="1" name="delete" type="button">Xóa</button>
-		</div>
-		<div>
-			<table border="0" width="100%">
-				<tbody>
-					<tr>
-						<td width="2%"><br></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Lớp dạy</strong></td>
-						<td><strong>Môn học</strong></td>
-						<td><strong>Category</strong></td>
-						<td><strong>Địa chỉ</strong><br></td>
-						<td><strong>Quận</strong></td>
-						<td><strong>Mức lương</strong><br></td>
-						<td><strong>Số buổi</strong><br></td>
-						<td><strong>Thời gian dạy</strong></td>
-						<td><strong>Thời gian tạo</strong></td>
-						<td><strong>Yêu cầu</strong></td>
-						<td><strong>Liên hệ</strong><br></td>
-						<td><strong>Trạng thái</strong></td>
-					</tr>
-					<c:forEach var="item" items="${listNewClass }">
+					<button name="update" type="submit">Cập nhật</button>
 
-						<form>
+				<button value="delete" name="delete" type="submit">Xóa</button>
+			</div>
+			<div>
+				<table border="0" width="100%">
+					<tbody>
+						<tr>
+							<td width="2%"><br></td>
+							<td><strong>MS</strong><br></td>
+							<td><strong>Lớp dạy</strong></td>
+							<td><strong>Môn học</strong></td>
+							<td><strong>Category</strong></td>
+							<td><strong>Địa chỉ</strong><br></td>
+							<td><strong>Quận</strong></td>
+							<td><strong>Mức lương</strong><br></td>
+							<td><strong>Số buổi</strong><br></td>
+							<td><strong>Thời gian dạy</strong></td>
+							<td><strong>Thời gian tạo</strong></td>
+							<td><strong>Yêu cầu</strong></td>
+							<td><strong>Liên hệ</strong><br></td>
+							<td><strong>Trạng thái</strong></td>
+						</tr>
+						<c:forEach var="item" items="${listNewClass }">
 							<tr>
 								<td><input type="checkbox" name="remove_cource"
-									value=${ item.id }></td>
+									value=${ item._id }></td>
 								<td>${ item.id }</td>
 								<td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
@@ -104,28 +100,12 @@
 								<td>${ item.status }</td>
 
 							</tr>
-						</form>
+						</c:forEach>
+					</tbody>
+				</table>
 
-
-
-
-					</c:forEach>
-
-					<c:forEach var="item" items="${ listCources}">
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><form action="./updatenewcource" method="post">
-									<button value="1" name="UpdateTuTor" type="button">Cập
-										nhật</button>
-								</form></td>
-							<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
-						</tr>
-					</c:forEach>
-
-				</tbody>
-			</table>
-
-		</div>
+			</div>
+		</form>
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>
 </div>
