@@ -73,8 +73,9 @@
 			<form action="./addtutor" method="POST">
 				<button value="add" type="submit">Thêm gia sư</button>
 			</form>
-			<!-- <form action="./updatetutor" method="post"></form>
-			<form action="./deletetutor" method="POST"></form> -->
+			<form action="./updatetutor" method="post">
+
+			<!-- <form action="./deletetutor" method="POST"></form> -->
 
 		</div>
 		<br> <br>

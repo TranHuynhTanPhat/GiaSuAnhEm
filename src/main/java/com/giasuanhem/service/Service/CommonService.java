@@ -264,7 +264,7 @@ public class CommonService {
 			return null;
 		}
 	}
-
+	
 	public ModelAndView checkLogin(Map<String, Object> params, HttpSession session) {
 		try {
 			ModelAndView mav = new ModelAndView("admin/adminhome");

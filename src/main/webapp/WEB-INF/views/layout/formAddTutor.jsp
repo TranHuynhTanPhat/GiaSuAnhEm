@@ -1082,6 +1082,7 @@
 						</select>
 					</div>
 				</div>
+				
 				<div class="form-group">
 					<label class="col-4 control-label">Ưu điểm: <span
 						style="color: #FF0000">*</span></label>

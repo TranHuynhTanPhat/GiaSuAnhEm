@@ -14,9 +14,9 @@ public class NewClassModel {
 	 private String require;
 	 private float status;
 	 private String created_at;
-	 List < CategoryModel > categories = new ArrayList < CategoryModel > ();
-	 List < ClassModel > classes = new ArrayList < ClassModel > ();
-	 List < SubjectModel > subjects = new ArrayList < SubjectModel > ();
+	 List < Object > categories = new ArrayList < Object > ();
+	 List < Object > classes = new ArrayList < Object > ();
+	 List < Object > subjects = new ArrayList < Object > ();
 	 private String contact;
 	
 
@@ -112,27 +112,27 @@ public class NewClassModel {
 	  this.contact = contact;
 	 }
 	 
-	 public List<CategoryModel> getCategories() {
+	 public List<Object> getCategories() {
 			return categories;
 		}
 
-		public void setCategories(List<CategoryModel> categories) {
+		public void setCategories(List<Object> categories) {
 			this.categories = categories;
 		}
 
-		public List<ClassModel> getClasses() {
+		public List<Object> getClasses() {
 			return classes;
 		}
 
-		public void setClasses(List<ClassModel> classes) {
+		public void setClasses(List<Object> classes) {
 			this.classes = classes;
 		}
 
-		public List<SubjectModel> getSubjects() {
+		public List<Object> getSubjects() {
 			return subjects;
 		}
 
-		public void setSubjects(List<SubjectModel> subjects) {
+		public void setSubjects(List<Object> subjects) {
 			this.subjects = subjects;
 		}
 

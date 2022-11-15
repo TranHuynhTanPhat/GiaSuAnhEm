@@ -19,6 +19,7 @@ import com.giasuanhem.service.Service.CommonService;
 public class HomeController {
 	@Autowired
 	private CommonService commonService;
+	
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {

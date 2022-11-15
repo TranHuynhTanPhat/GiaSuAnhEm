@@ -11,9 +11,9 @@ public class TutorModel {
 	 private String phone;
 	 private String school;
 	 private String department;
-	 List < SubjectModel > subjects = new ArrayList < SubjectModel > ();
-	 List < ClassModel > classes = new ArrayList < ClassModel > ();
-	 List< String > teachAreas = new ArrayList < String > ();
+	 List < Object > subjects = new ArrayList < Object > ();
+	 List < Object > classes = new ArrayList < Object > ();
+	 List< Object > teachAreas = new ArrayList < Object > ();
 	 private String vehicle;
 	 private float sobuoi;
 	 private String gender;
@@ -148,27 +148,27 @@ public class TutorModel {
 	  this.__v = __v;
 	 }
 	 
-	 public List<SubjectModel> getSubjects() {
+	 public List<Object> getSubjects() {
 			return subjects;
 		}
 
-		public void setSubjects(List<SubjectModel> subjects) {
+		public void setSubjects(List<Object> subjects) {
 			this.subjects = subjects;
 		}
 
-		public List<ClassModel> getClasses() {
+		public List<Object> getClasses() {
 			return classes;
 		}
 
-		public void setClasses(List<ClassModel> classes) {
+		public void setClasses(List<Object> classes) {
 			this.classes = classes;
 		}
 
-		public List<String> getTeachAreas() {
+		public List<Object> getTeachAreas() {
 			return teachAreas;
 		}
 
-		public void setTeachAreas(List<String> teachAreas) {
+		public void setTeachAreas(List<Object> teachAreas) {
 			this.teachAreas = teachAreas;
 		}
 
