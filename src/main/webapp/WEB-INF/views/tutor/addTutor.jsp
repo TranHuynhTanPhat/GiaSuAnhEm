@@ -8,9 +8,7 @@
 			<td id="td-top"><%@include
 					file="/WEB-INF/views/layout/sidebar.jsp"%></td>
 			<td id="td-top">
-<<<<<<< HEAD
 				<%@include file="/WEB-INF/views/layout/formAddTutor.jsp"%>
-=======
 				<div style="width: 100%">
 					<div class="panel">
 
@@ -732,8 +730,7 @@
 					</div>
 				</div>
 
->>>>>>> dang3
-			</td>
+				</td>
 		</tr>
 	</table>
 
