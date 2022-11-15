@@ -13,6 +13,4 @@ public class ApiConstant{
 	public static final String SUBJECT_REMOVE = "/subject/remove";
 	public static final String TUTOR_REMOVE = "/tutor/remove";
 	public static final String CHECK_LOGIN="/login";
-
-
 }

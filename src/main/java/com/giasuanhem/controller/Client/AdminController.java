@@ -31,6 +31,7 @@ import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.MapperModel;
+import com.google.gson.Gson;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -236,7 +237,8 @@ public class AdminController {
 			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes, subjects,
 					teachAreas, "Xe máy", Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem, nghenghiep,
 					trinhdo);
-			System.out.print(itemAdd);
+			System.out.println(itemAdd.getAddress());
+			commonService.createTutor(itemAdd);
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();

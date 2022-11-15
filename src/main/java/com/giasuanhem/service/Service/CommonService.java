@@ -18,8 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
@@ -28,6 +30,7 @@ import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ApiConstant;
+import com.google.gson.Gson;
 
 @Service
 @Transactional
@@ -69,6 +72,20 @@ public class CommonService {
 		String jsonResponse = response.getBody();
 		return jsonResponse;
 	}
+	
+	void postWithJson(String apiUrl, String jsonReq) {
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
+			String reqString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
+			System.out.println("###################RESPONSE JSONNNNN###################");
+			System.out.println(reqString);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	String getWithParams(String apiUrl, Map<String, Object> params) {
 		String paramsSrt = "";
@@ -85,8 +102,10 @@ public class CommonService {
 		return jsonResponse;
 	}
 
-	String post(String apiUrl) {
-		return "";
+	public void createTutor(TutorModel model) throws JsonProcessingException {
+		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		String json = ow.writeValueAsString(model);
+		postWithJson(ApiConstant.LIST_TUTOR, json);
 	}
 
 	public void removeSubject(Map<String, Object> params) {
