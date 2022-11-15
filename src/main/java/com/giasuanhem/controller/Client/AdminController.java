@@ -1,6 +1,7 @@
 package com.giasuanhem.controller.Client;
 
 import java.util.List;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -142,12 +143,33 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.POST)
-	public ModelAndView remove_tutorManagement(@RequestParam("remove_tutor") String id) {
+	@RequestMapping(value = "/quanlygiasu", params = "delete", method = RequestMethod.POST)
+	public ModelAndView remove_tutorManagement(@RequestParam("remove_tutor") String[] ids) {
+		try {
+			Map<String, Object> params = new HashMap<>();
+			for (String id : ids) {
+				params.put("_id", id);
+				commonService.removeTutor(params);
+			}
+			List<TutorModel> list = commonService.getListTutor();
+			ModelAndView mav = new ModelAndView("admin/tutorManagement");
+			mav.addObject("listTutor", list);
+			return mav;
+		} catch (Exception e) {
+			e.printStackTrace();
+			List<TutorModel> list = commonService.getListTutor();
+			ModelAndView mav = new ModelAndView("admin/tutorManagement");
+			mav.addObject("listTutor", list);
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/quanlygiasu", params = "update", method = RequestMethod.POST)
+	public ModelAndView update_tutorManagement(@RequestParam("remove_tutor") String id) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("_id", id);
-		commonService.removeTutor(params);
-		System.out.println("AA");
+//			commonService.updateTutor(params);
+		System.out.print("update");
 		List<TutorModel> list = commonService.getListTutor();
 		ModelAndView mav = new ModelAndView("admin/tutorManagement");
 		mav.addObject("listTutor", list);
@@ -157,18 +179,18 @@ public class AdminController {
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement() {
 		if (session.getAttribute("userName") != null) {
-			Map<String, Object> paramST=new HashMap<>();
-			paramST.put("style",0);
-			List<SalaryModel> listSST=commonService.getListSalary(paramST);
-			
-			Map<String, Object> paramTE=new HashMap<>();
-			paramTE.put("style",1);
-			List<SalaryModel> listSTE=commonService.getListSalary(paramTE);
-			
+			Map<String, Object> paramST = new HashMap<>();
+			paramST.put("style", 0);
+			List<SalaryModel> listSST = commonService.getListSalary(paramST);
+
+			Map<String, Object> paramTE = new HashMap<>();
+			paramTE.put("style", 1);
+			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
+
 			ModelAndView mav = new ModelAndView("admin/salaryManagement");
 			mav.addObject("listSST", listSST);
 			mav.addObject("listSTE", listSTE);
-			
+
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

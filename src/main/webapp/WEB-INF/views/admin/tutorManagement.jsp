@@ -69,18 +69,22 @@
 
 			</form>
 		</div>
-		<form id="tutor-form" action="./quanlygiasu" method="POST">
-			<div class="group-button">
-				<form action="./addtutor" method="POST">
-					<button value="add" type="submit">Thêm gia sư</button>
-				</form>
-				<form action="./updatetutor" method="post">
-					<button name="update" type="submit">Cập nhật</button>
-				</form>
-				<button value="1" name="delete" type="submit">Xóa</button>
-			</div>
+		<div class="col-3">
+			<form action="./addtutor" method="POST">
+				<button value="add" type="submit">Thêm gia sư</button>
+			</form>
+			<!-- <form action="./updatetutor" method="post"></form>
+			<form action="./deletetutor" method="POST"></form> -->
 
-			<div>
+		</div>
+		<br> <br>
+		<div>
+			<form action="./quanlygiasu" method="post">
+				<div class="col-3">
+					<button value="update" name="update" type="submit">Cập
+						nhật</button>
+					<button value="delete" name="delete" type="submit">Xóa</button>
+				</div>
 				<table border="0" width="100%">
 					<tbody>
 						<tr>
@@ -136,12 +140,12 @@
 							</tr>
 						</c:forEach>
 
-						</tr>
-						</form>
 					</tbody>
 				</table>
 
-			</div>
-			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+			</form>
+		</div>
 	</div>
+	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+</div>
 </div>
