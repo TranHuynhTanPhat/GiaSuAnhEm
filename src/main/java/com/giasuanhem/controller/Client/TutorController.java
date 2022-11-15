@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.CategoryModel;
+import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
+import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -37,7 +39,11 @@ public class TutorController{
 	}
 	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
 	public ModelAndView addTutorPage() {
+		List<ClassModel> listClass = commonService.getListClass();
+		List<SubjectModel> listSubject = commonService.getListSubject();
 		ModelAndView mav = new ModelAndView("tutor/addTutor");
+		mav.addObject("listClass",listClass);
+		mav.addObject("listSubject",listSubject);
 		return mav;
 	}
 	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)

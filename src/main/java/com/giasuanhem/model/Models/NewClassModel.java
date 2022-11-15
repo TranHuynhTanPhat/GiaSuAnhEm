@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewClassModel {
+<<<<<<< HEAD
 	 private String _id;
 	 private float id;
 	 private String address;
@@ -18,6 +19,22 @@ public class NewClassModel {
 	 List < ClassModel > classes = new ArrayList < ClassModel > ();
 	 List < SubjectModel > subjects = new ArrayList < SubjectModel > ();
 	 private String contact;
+=======
+	private String _id;
+	private String address;
+	private String district;
+	private int sobuoi;
+	private String time;
+	private int salary;
+	private String require;
+	private int status;
+	List<CategoryModel> categories = new ArrayList<CategoryModel>();
+	List<ClassModel> classes = new ArrayList<ClassModel>();
+	List<SubjectModel> subjects = new ArrayList<SubjectModel>();
+	private float __v;
+	private int id;
+	private String contact;
+>>>>>>> dang3
 
 
 	 // Getter Methods 
@@ -135,5 +152,13 @@ public class NewClassModel {
 		public void setSubjects(List<SubjectModel> subjects) {
 			this.subjects = subjects;
 		}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
 
 }
