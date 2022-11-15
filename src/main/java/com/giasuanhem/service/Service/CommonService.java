@@ -24,6 +24,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
+import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ApiConstant;
@@ -99,7 +100,7 @@ public class CommonService {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
 			System.out.println(jsonResponse);
 			System.out.println("BB	");
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -230,6 +231,20 @@ public class CommonService {
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public List<SalaryModel> getListSalary(Map<String, Object> params){
+		String jsonResponse=getWithParams(ApiConstant.LIST_SALARY, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			List<SalaryModel> listSalary = objectMapper.readValue(jsonResponse, new TypeReference<List<SalaryModel>>() {});
+			System.out.print(jsonResponse);
+			return listSalary;
+		}
+		catch(IOException e) {
 			e.printStackTrace();
 			return null;
 		}

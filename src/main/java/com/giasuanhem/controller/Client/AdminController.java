@@ -25,6 +25,7 @@ import com.giasuanhem.model.Models.TutorModel;
 
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
+import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.CommonService;
 
@@ -156,7 +157,18 @@ public class AdminController {
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement() {
 		if (session.getAttribute("userName") != null) {
+			Map<String, Object> paramST=new HashMap<>();
+			paramST.put("style",0);
+			List<SalaryModel> listSST=commonService.getListSalary(paramST);
+			
+			Map<String, Object> paramTE=new HashMap<>();
+			paramTE.put("style",1);
+			List<SalaryModel> listSTE=commonService.getListSalary(paramTE);
+			
 			ModelAndView mav = new ModelAndView("admin/salaryManagement");
+			mav.addObject("listSST", listSST);
+			mav.addObject("listSTE", listSTE);
+			
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

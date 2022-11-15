@@ -12,68 +12,39 @@
 					<strong><span style="font-size: 14px;"><span>BẢNG
 								HỌC PHÍ 2 BUỔI 1 TUẦN VÀ 3 BUỔI 1 TUẦN</span></span></strong>
 				</p>
-				<table border="0" cellpadding="5" height="178" width="100%">
+				<table border="0" cellpadding="5" width="100%">
 					<tbody>
 						<tr>
 							<td rowspan="2" width="2%"></td>
 							<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
 										LỚP</strong></span></td>
-							<td colspan="2"><strong> 2 buổi 1 tuần</strong></td>
-							<td colspan="2"><strong> 3 buổi 1 tuần</strong></td>
+							<td colspan="4" style="text-align: center"><strong>
+									Sinh viên</strong></td>
 						</tr>
 						<tr>
-							<td><span><strong>Sinh viên</strong></span></td>
-							<td><span style="color: rgb(255, 0, 0);"><strong>Giáo
-										viên</strong></span></td>
-							<td><span><strong>Sinh viên</strong></span></td>
-							<td><span style="color: rgb(255, 0, 0);"><strong>Giáo
-										viên</strong></span></td>
+							<td><span><strong>2 buổi 1 tuần</strong></span></td>
+							<td><span style="color: rgb(255, 0, 0);"><strong>3
+										buổi 1 tuần</strong></span></td>
+							<td><span><strong>4 buổi 1 tuần</strong></span></td>
+							<td><span style="color: rgb(255, 0, 0);"><strong>5
+										buổi 1 tuần</strong></span></td>
 
 						</tr>
-						<tr>
-							<td style="text-align: center;"><input type="checkbox"
-								name="checked" value=1></td>
-							<td><span>Lớp Lá, 1, 2, 3, 4</span></td>
-							<td>1.000 - 1.200</td>
-							<td>1.800 - 2.000</td>
-							<td>1.500 - 1.700</td>
-							<td>2.500 - 2.800</td>
+						<c:forEach var="item" items="${listSST }">
+							<tr>
+								<td><input type="checkbox" name="checked"
+									value="${item._id }"></td>
+								<td>${item.grade }</td>
+								<td>${item.twoSessions }</td>
+								<td>${item.threeSessions }</td>
+								<td>${item.fourSessions }</td>
+								<td>${item.fiveSessions }</td>
+							</tr>
+						</c:forEach>
 
-						</tr>
-						<tr>
-							<td style="text-align: center;"><input type="checkbox"
-								name="checked" value=1></td>
-							<td><span>Lớp 5, 6, 7, 8</span></td>
-							<td>1.200 - 1.400</td>
-							<td>2.000 - 2.200</td>
-							<td>1.800 - 2.200</td>
-							<td>2.800 - 3.000</td>
-
-						</tr>
-						<tr>
-							<td style="text-align: center;"><input type="checkbox"
-								name="checked" value=1></td>
-							<td><span>Lớp 9, 10, 11, 12</span></td>
-							<td>1.400 - 1.600</td>
-							<td>2.200 - 2.400</td>
-							<td>2.000 - 2.400</td>
-							<td>3.200 - 3.600</td>
-
-						</tr>
-						<tr>
-							<td style="text-align: center;"><input type="checkbox"
-								name="checked" value=1></td>
-							<td><span style="color: rgb(255, 0, 0);">LTĐH-NGOẠI
-									NGỮ</span></td>
-							<td>1.600 - 1.800</td>
-							<td>2.400 - 2.600</td>
-							<td>2.200 - 2.600</td>
-							<td>3.600 - 4.000</td>
-
-						</tr>
 					</tbody>
 				</table>
-				<div class="group-button" style="padding-bottom:100px">
+				<div class="group-button" style="padding-bottom: 100px">
 					<form action="./addsalary" method="POST">
 						<button value="add" type="submit">Thêm</button>
 					</form>
@@ -96,57 +67,32 @@
 							<td rowspan="2" width="2%"></td>
 							<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
 										LỚP</strong></span></td>
-							<td colspan="2"><strong> 4 buổi 1 tuần</strong></td>
-							<td colspan="2"><strong> 5 buổi 1 tuần</strong></td>
+							<td colspan="4" style="text-align: center"><strong>
+									Giáo viên</strong></td>
 						</tr>
 						<tr>
-							<td><span><strong>Sinh viên</strong></span></td>
-							<td><span style="color: rgb(255, 0, 0);"><strong>Giáo
-										viên</strong></span></td>
-							<td><span><strong>Sinh viên</strong></span></td>
-							<td><span style="color: rgb(255, 0, 0);"><strong>Giáo
-										viên</strong></span></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><span>Lớp Lá, 1, 2, 3, 4</span></td>
-							<td>2.000 - 2.200</td>
-							<td>3.400 - 3.600</td>
-							<td>2.600 - 2.800</td>
-							<td>4.400 - 4.600</td>
+							<td><span><strong>2 buổi 1 tuần</strong></span></td>
+							<td><span style="color: rgb(255, 0, 0);"><strong>3
+										buổi 1 tuần</strong></span></td>
+							<td><span><strong>4 buổi 1 tuần</strong></span></td>
+							<td><span style="color: rgb(255, 0, 0);"><strong>5
+										buổi 1 tuần</strong></span></td>
 
 						</tr>
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><span>Lớp 5, 6, 7, 8</span></td>
-							<td>2.400 - 2.600</td>
-							<td>4.000 - 4.400</td>
-							<td>3.000 - 3.400</td>
-							<td>4.800 - 5.000</td>
-
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><span>Lớp 9, 10, 11, 12</span></td>
-							<td>2.800 - 3.200</td>
-							<td>4.600 - 4.800</td>
-							<td>3.600 - 3.800</td>
-							<td>5.400 - 6.000</td>
-
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="checked" value=1></td>
-							<td><span style="color: rgb(255, 0, 0);">LTĐH-NGOẠI
-									NGỮ</span></td>
-							<td>3.000 - 3.200</td>
-							<td>4.800 - 5.000</td>
-							<td>4.000 - 4.400</td>
-							<td>5.600 - 6.400</td>
-
-						</tr>
+						<c:forEach var="item" items="${listSST }">
+							<tr>
+								<td><input type="checkbox" name="checked"
+									value="${item._id }"></td>
+								<td>${item.grade }</td>
+								<td>${item.twoSessions }</td>
+								<td>${item.threeSessions }</td>
+								<td>${item.fourSessions }</td>
+								<td>${item.fiveSessions }</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-				<div class="group-button" style="padding-bottom:100px">
+				<div class="group-button" style="padding-bottom: 100px">
 					<form action="./addsalary" method="POST">
 						<button value="add" type="submit">Thêm</button>
 					</form>
