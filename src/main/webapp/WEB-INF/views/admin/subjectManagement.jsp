@@ -14,7 +14,6 @@
 
 					<button name="update" type="submit">Cập nhật</button>
 
-<<<<<<< HEAD
 					<button value="1" name="delete" type="submit">Xóa</button>
 				</div>
 				<table border="0" width="100%">
@@ -26,39 +25,13 @@
 						</tr>
 						<c:forEach var="item" items="${listSubject }">
 							<tr>
-								<td width="2%"><input type="checkbox" name="remove_subject"
-									value=${ item._id }></td>
+								<td width="2%"><input type="checkbox" class="action"
+									name="checked" value=${ item._id }></td>
 								<td><strong>${ item._id }</strong><br></td>
 								<td><strong>${ item.name }</strong></td>
 							</tr>
 						</c:forEach>
-
-						<c:forEach var="item" items="${ listClasses}">
-							<tr>
-								<td><input type="checkbox" name="checked" value=1></td>
-
-							</tr>
-						</c:forEach>
-=======
-				<button value="1" name="delete" id="xoa" type="button">Xóa</button>
-			</div>
-			<table border="0" width="100%">
-				<tbody>
-					<tr>
-						<td width="2%"><br></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Tên môn học</strong></td>
-					</tr>
-					<c:forEach var="item" items="${listSubject }">
-						<tr>
-							<td width="2%"><input type="checkbox" class="action" name="checked" value=${ item._id }></td>
-							<td><strong>${ item._id }</strong><br></td>
-							<td><strong>${ item.name }</strong></td>
-						</tr>
-					</c:forEach>
 						<script language="javascript">
-
-
 						var temp = document.getElementById("xoa");
 						temp.disabled = true;
 						temp.style.color = "#000000";
@@ -85,8 +58,6 @@
 							}
 						});
 					</script>
->>>>>>> dang3
-
 
 					</tbody>
 				</table>

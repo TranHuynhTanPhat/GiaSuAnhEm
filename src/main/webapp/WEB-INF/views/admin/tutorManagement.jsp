@@ -69,36 +69,20 @@
 
 			</form>
 		</div>
-<<<<<<< HEAD
 		<div class="col-3">
 			<form action="./addtutor" method="POST">
 				<button value="add" type="submit">Thêm gia sư</button>
 			</form>
 			<form action="./updatetutor" method="post">
-=======
-		<form id="tutor-form" action="./quanlygiasu" method="POST">
-			<div class="group-button">
-				<form action="./addtutor" method="POST">
-					<button value="add" type="submit">Thêm gia sư</button>
-				</form>
-				<form action="./updatetutor" method="post">
-					<button name="update" type="submit">Cập nhật</button>
-				</form>
-				<button value="1" name="delete" id="xoa" type="submit">Xóa</button>
-			</div>
->>>>>>> dang3
-
-			<!-- <form action="./deletetutor" method="POST"></form> -->
-
+				<button name="update" type="submit">Cập nhật</button>
+			</form>
+			<button value="1" name="delete" id="xoa" type="submit">Xóa</button>
 		</div>
-		<br> <br>
+		<!-- <form action="./deletetutor" method="POST"></form> -->
+
 		<div>
 			<form action="./quanlygiasu" method="post">
-				<div class="col-3">
-					<button value="update" name="update" type="submit">Cập
-						nhật</button>
-					<button value="delete" name="delete" type="submit">Xóa</button>
-				</div>
+
 				<table border="0" width="100%">
 					<tbody>
 						<tr>
@@ -123,8 +107,8 @@
 						</tr>
 						<c:forEach var="item" items="${ listTutor }">
 							<tr>
-								<td width="2%"><input type="checkbox" class="action" name="remove_tutor"
-									value=${item._id }></td>
+								<td width="2%"><input type="checkbox" class="action"
+									name="remove_tutor" value=${item._id }></td>
 								<td>${item._id }</td>
 								<td>${item.name }</td>
 								<td>${item.address }</td>
@@ -154,9 +138,6 @@
 							</tr>
 						</c:forEach>
 						<script language="javascript">
-
-<<<<<<< HEAD
-=======
 						var temp = document.getElementById("xoa");
 						temp.disabled = true;
 						temp.style.color = "#000000";
@@ -183,9 +164,6 @@
 							}
 						});
 					</script>
-						</tr>
-						</form>
->>>>>>> dang3
 					</tbody>
 				</table>
 
@@ -193,5 +171,5 @@
 		</div>
 	</div>
 	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
-</div>
+
 </div>

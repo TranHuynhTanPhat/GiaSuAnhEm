@@ -38,7 +38,7 @@
 
 						</tr>
 					</c:forEach>
-						<script language="javascript">
+					<script language="javascript">
 
 
 							var temp1 = document.getElementById("xoa1");

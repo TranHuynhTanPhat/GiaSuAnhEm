@@ -14,9 +14,9 @@
 
 					<button name="update" type="submit">Cập nhật</button>
 
-<<<<<<< HEAD
 					<button value="1" name="delete" type="submit">Xóa</button>
 				</div>
+
 				<table border="0" width="100%">
 					<tbody>
 						<tr>
@@ -26,30 +26,18 @@
 						</tr>
 						<c:forEach var="item" items="${ listClass }">
 							<tr>
-								<td width="2%"><input type="checkbox" name="remove_class"
-									value=${ item._id }></td>
+								<td width="2%"><input type="checkbox" class="action"
+									name="checked" value=${ item._id }></td>
 								<td><strong>${ item._id }</strong><br></td>
 								<td><strong>${ item.name }</strong></td>
-=======
-				<button value="1" name="delete" id="xoa" type="button">Xóa</button>
-			</div>
-			<table border="0" width="100%">
-				<tbody>
-					<tr>
-						<td width="2%"><br></td>
-						<td><strong>ID</strong><br></td>
-						<td><strong>Tên lớp học</strong></td>
-					</tr>
-					<c:forEach var="item" items="${ listClass }">
-					<tr>
-						<td width="2%"><input type="checkbox" class="action" name="checked" value=${ item._id }></td>
-							<td><strong>${ item._id }</strong><br></td>
-							<td><strong>${ item.name }</strong></td>
 
-						
-					</tr>
-					</c:forEach>
-					<script language="javascript">
+
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</form>
+			<script language="javascript">
 
 
 						var temp = document.getElementById("xoa");
@@ -78,16 +66,9 @@
 							}
 						});
 					</script>
->>>>>>> dang3
 
-
-							</tr>
-						</c:forEach>
-
-					</tbody>
-				</table>
-			</form>
 		</div>
-		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>
+	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+
 </div>
