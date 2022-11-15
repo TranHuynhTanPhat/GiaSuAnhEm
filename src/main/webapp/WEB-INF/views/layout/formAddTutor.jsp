@@ -1,11 +1,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- 
+
 <div style="width: 100%">
 	<div class="panel">
 
 		<div class="panel-body" style="padding: 5px 10px">
-			<form action="" method="post" name="info_frm" class="form-horizontal"
+			<form action="./addtutor" method="post" name="info_frm" class="form-horizontal"
 				onsubmit="return check_info();" autocomplete="off"
 				enctype="multipart/form-data">
 				<div class="form-group">
@@ -637,7 +637,7 @@
 		</div>
 	</div>
 </div>
---%>
+<%--
 <div style="width: 100%">
 	<div class="panel">
 
@@ -1354,3 +1354,4 @@
 		</div>
 	</div>
 </div>
+--%>

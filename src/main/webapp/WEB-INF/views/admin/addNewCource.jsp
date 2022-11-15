@@ -8,7 +8,7 @@
 		<div class="panel">
 
 			<div class="panel-body" style="padding: 5px 10px">
-				<form action="" method="post" name="info_frm"
+				<form action="./addnewcource" method="post" name="info_frm"
 					class="form-horizontal" onsubmit="return check_info();"
 					autocomplete="off" enctype="multipart/form-data">
 

@@ -83,6 +83,21 @@
 		<div>
 			<form action="./quanlygiasu" method="post">
 
+
+		<br> <br>
+
+		<div>
+			<form action="./quanlygiasu" method="post">
+				<div class="col-3">
+					<a href="./addtutor">
+						<div value="add" name="add" class="btn">Thêm gia sư</div>
+					</a> <a href="./updatetutor">
+						<button value="update" name="update" type="submit">Cập
+							nhật</button>
+					</a> <a href="./quanlygiasu">
+						<button value="delete" name="delete" type="submit">Xóa</button>
+					</a>
+				</div>
 				<table border="0" width="100%">
 					<tbody>
 						<tr>
