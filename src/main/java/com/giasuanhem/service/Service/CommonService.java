@@ -97,13 +97,9 @@ public class CommonService {
 	public void removeCource(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
-<<<<<<< HEAD
-		} catch (Exception e) {
-=======
 			System.out.println(jsonResponse);
 			System.out.println("BB	");
 		}catch(Exception e) {
->>>>>>> 27170ab67b938fe50e31f80e9ecfe211e57777d5
 			e.printStackTrace();
 		}
 	}

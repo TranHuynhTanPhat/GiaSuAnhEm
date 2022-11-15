@@ -90,14 +90,11 @@
 						<td><strong>Địa chỉ</strong><br></td>
 						<td><strong>Email</strong><br></td>
 						<td><strong>Năm sinh</strong><br></td>
-<<<<<<< HEAD
 						<td><strong>Giới Tính</strong><br></td>
 						<td><strong>SĐT</strong><br></td>
 						<td><strong>Nghề nghiệp</strong><br></td>
-=======
 						<td><strong>SĐT</strong><br></td>						
 						<td><strong>Giới tính</strong><br></td>
->>>>>>> 27170ab67b938fe50e31f80e9ecfe211e57777d5
 						<td><strong>Trường</strong><br></td>
 						<td><strong>Chuyên ngành</strong></td>
 						<td><strong>Lớp dạy</strong><br></td>
@@ -108,7 +105,6 @@
 						<td><strong>Thông tin khác</strong><br></td>
 					</tr>
 					<c:forEach var="item" items="${ listTutor }">
-<<<<<<< HEAD
 						<tr>
 							<td width="2%"><input type="checkbox" name="remove_tutor"
 								value=${item._id }></td>
@@ -140,35 +136,9 @@
 							<td>${item.describe }</td>
 						</tr>
 					</c:forEach>
-
-
-=======
 					
-						<tr>
-							<td width="2%"><input type="checkbox" name="remove_tutor" value=${item._id }></td>
-							<td><strong>${item._id }</strong><br></td>
-							<td><strong>${item.name }</strong></td>
-							<td><strong>${item.address }</strong><br></td>
-							<td><strong>${item.email }</strong><br></td>
-							<td><strong>${item.birthYear }</strong><br></td>
-							<td><strong>${item.phone }</strong><br></td>
-							<td><strong>${item.gender }</strong><br></td>
-							<td><strong>${item.school }</strong><br></td>
-							<td><strong>${item.department }</strong><br></td>
-							<td><strong>${item.department }</strong></td>
-							<td><strong>Lớp dạy</strong><br></td>
-							<td><strong>Các môn</strong><br></td>
-							<td><strong>Khu vực</strong><br></td>
-							<td><strong>${item.vehicle }</strong><br></td>
-							<td><strong>${item.sobuoi }</strong><br></td>
-							<td><strong>${item.graduateYear }</strong><br></td>
-							<td><strong>${item.describe }</strong><br></td>
-						</tr>					
-						</c:forEach>
 					</tr>
-			</form>
-					
->>>>>>> 27170ab67b938fe50e31f80e9ecfe211e57777d5
+			</form>			
 				</tbody>
 			</table>
 
