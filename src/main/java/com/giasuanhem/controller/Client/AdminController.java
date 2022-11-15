@@ -317,7 +317,16 @@ public class AdminController {
 	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
 	public ModelAndView categoryManagement() {
 		if (session.getAttribute("userName") != null) {
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("style", 0);
+			List<CategoryModel> listClass = commonService.getListCategory(paramsClass);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("style", 1);
+			List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
 			ModelAndView mav = new ModelAndView("admin/categoryManagement");
+			mav.addObject("listCategoryClass", listClass);
+			mav.addObject("listCategoryDistrict", listDistrict);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

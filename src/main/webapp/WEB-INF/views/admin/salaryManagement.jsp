@@ -32,7 +32,7 @@
 						</tr>
 						<c:forEach var="item" items="${listSST }">
 							<tr>
-								<td><input type="checkbox" name="checked"
+								<td><input type="checkbox" class="action" name="checked"
 									value="${item._id }"></td>
 								<td>${item.grade }</td>
 								<td>${item.twoSessions }</td>
@@ -41,7 +41,7 @@
 								<td>${item.fiveSessions }</td>
 							</tr>
 						</c:forEach>
-
+						
 					</tbody>
 				</table>
 				<div class="group-button" style="padding-bottom: 100px">
@@ -52,7 +52,36 @@
 						<button name="update" type="submit">Cập nhật</button>
 					</form>
 
-					<button value="1" name="delete" type="button">Xóa</button>
+					<button value="1" name="delete" id="xoa" type="button">Xóa</button>
+					<script language="javascript">
+
+
+						var temp = document.getElementById("xoa");
+						temp.disabled = true;
+						temp.style.color = "#000000";
+						document.addEventListener("DOMContentLoaded", function(
+								event) {
+							const elements = document
+									.getElementsByClassName("action");
+							var itemCount = elements.length
+
+							for (let i = 0; i < elements.length; i++) {
+								elements[i].addEventListener('click',
+										()=>{
+											
+											if(elements[i].checked){
+												temp.disabled = false;
+												itemCount--;
+											} else{
+												itemCount++;
+											}
+											if (itemCount == elements.length){
+												temp.disabled = true;
+											}
+										});
+							}
+						});
+					</script>
 				</div>
 				<p>
 					<strong><span style="font-size: 14px;"><span>BẢNG
@@ -81,7 +110,7 @@
 						</tr>
 						<c:forEach var="item" items="${listSST }">
 							<tr>
-								<td><input type="checkbox" name="checked"
+								<td><input type="checkbox" class="action1" name="checked"
 									value="${item._id }"></td>
 								<td>${item.grade }</td>
 								<td>${item.twoSessions }</td>
@@ -90,6 +119,7 @@
 								<td>${item.fiveSessions }</td>
 							</tr>
 						</c:forEach>
+						
 					</tbody>
 				</table>
 				<div class="group-button" style="padding-bottom: 100px">
@@ -100,7 +130,36 @@
 						<button name="update" type="submit">Cập nhật</button>
 					</form>
 
-					<button value="1" name="delete" type="button">Xóa</button>
+					<button value="1" name="delete" id="xoa1" type="button">Xóa</button>
+					<script language="javascript">
+
+
+						var temp1 = document.getElementById("xoa1");
+						temp1.disabled = true;
+						temp1.style.color = "#000000";
+						document.addEventListener("DOMContentLoaded", function(
+								event) {
+							const elements = document
+									.getElementsByClassName("action1");
+							var itemCount = elements.length
+
+							for (let i = 0; i < elements.length; i++) {
+								elements[i].addEventListener('click',
+										()=>{
+											
+											if(elements[i].checked){
+												temp1.disabled = false;
+												itemCount--;
+											} else{
+												itemCount++;
+											}
+											if (itemCount == elements.length){
+												temp1.disabled = true;
+											}
+										});
+							}
+						});
+					</script>
 				</div>
 				<div style="box-sizing: inherit; text-align: justify;">
 					<span style="color: rgb(255, 0, 0); font-size: 14px;">*Đối

@@ -69,11 +69,24 @@
 
 			</form>
 		</div>
+<<<<<<< HEAD
 		<div class="col-3">
 			<form action="./addtutor" method="POST">
 				<button value="add" type="submit">Thêm gia sư</button>
 			</form>
 			<form action="./updatetutor" method="post">
+=======
+		<form id="tutor-form" action="./quanlygiasu" method="POST">
+			<div class="group-button">
+				<form action="./addtutor" method="POST">
+					<button value="add" type="submit">Thêm gia sư</button>
+				</form>
+				<form action="./updatetutor" method="post">
+					<button name="update" type="submit">Cập nhật</button>
+				</form>
+				<button value="1" name="delete" id="xoa" type="submit">Xóa</button>
+			</div>
+>>>>>>> dang3
 
 			<!-- <form action="./deletetutor" method="POST"></form> -->
 
@@ -110,7 +123,7 @@
 						</tr>
 						<c:forEach var="item" items="${ listTutor }">
 							<tr>
-								<td width="2%"><input type="checkbox" name="remove_tutor"
+								<td width="2%"><input type="checkbox" class="action" name="remove_tutor"
 									value=${item._id }></td>
 								<td>${item._id }</td>
 								<td>${item.name }</td>
@@ -140,7 +153,39 @@
 								<td>${item.describe }</td>
 							</tr>
 						</c:forEach>
+						<script language="javascript">
 
+<<<<<<< HEAD
+=======
+						var temp = document.getElementById("xoa");
+						temp.disabled = true;
+						temp.style.color = "#000000";
+						document.addEventListener("DOMContentLoaded", function(
+								event) {
+							const elements = document
+									.getElementsByClassName("action");
+							var itemCount = elements.length
+
+							for (let i = 0; i < elements.length; i++) {
+								elements[i].addEventListener('click',
+										()=>{
+											
+											if(elements[i].checked){
+												temp.disabled = false;
+												itemCount--;
+											} else{
+												itemCount++;
+											}
+											if (itemCount == elements.length){
+												temp.disabled = true;
+											}
+										});
+							}
+						});
+					</script>
+						</tr>
+						</form>
+>>>>>>> dang3
 					</tbody>
 				</table>
 
