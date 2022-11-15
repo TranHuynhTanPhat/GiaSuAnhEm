@@ -76,7 +76,7 @@
 						<td><strong>Trạng thái</strong></td>
 					</tr>
 					<c:forEach var="item" items="${listNewClass }">
-<<<<<<< HEAD
+
 						<form>
 							<tr>
 								<td><input type="checkbox" name="remove_cource"
@@ -105,22 +105,10 @@
 
 							</tr>
 						</form>
-=======
-						<tr >
-						<td><input type="checkbox" name="checked" value=${ item.id }></td>
-						<td><strong>${ item.id }</strong><br></td>
-						<td><strong>${ item.classes[0].name },</strong></td>
-						<td><strong>${ item.address }</strong><br></td>
-						<td><strong>${ item.salary }</strong><br></td>
-						<td><strong>${ item.sobuoi }</strong><br></td>
-						<td><strong>${ item.time }</strong></td>
-						<td><strong>${ item.require }</strong></td>
-						<td><strong>${ item.contact }</strong><br></td>
-						<td><button value="1" name="UpdateTuTor" type="button">Cập
-								nhật</button></td>
-						<td><button value="1" name="DeleteTutor" type="button">Xóa</button></td>
-					</tr>
->>>>>>> dang3
+
+
+
+
 					</c:forEach>
 
 					<c:forEach var="item" items="${ listCources}">
