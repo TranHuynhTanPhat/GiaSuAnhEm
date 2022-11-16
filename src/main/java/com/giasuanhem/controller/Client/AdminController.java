@@ -226,19 +226,24 @@ public class AdminController {
 			List<Object> teachAreas = new ArrayList<>();
 			for (String item : monhocs) {
 				classes.add(item);
+				System.out.println(item);
 			}
 			for (String item : lophocs) {
 				subjects.add(item);
+				System.out.println(item);
+
 			}
 			for (String item : monhocs) {
 				teachAreas.add(item);
+				System.out.println(item);
+
 			}
 
-			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes, subjects,
-					teachAreas, "Xe máy", Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem, nghenghiep,
-					trinhdo);
-			System.out.println(itemAdd.getAddress());
-			commonService.createTutor(itemAdd);
+//			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes, subjects,
+//					teachAreas, "Xe máy", Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem, nghenghiep,
+//					trinhdo);
+//			System.out.println(itemAdd.getAddress());
+//			commonService.createTutor(itemAdd);
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();

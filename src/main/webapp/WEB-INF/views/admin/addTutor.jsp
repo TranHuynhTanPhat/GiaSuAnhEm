@@ -199,8 +199,8 @@
 								<tbody>
 									<c:forEach var="item" items="${listSubjects }">
 										<tr>
-											<td><label><input type="checkbox"
-													name="monhoc" id="monhoc" value="${item.name }">${item.name}</label></td>
+											<td><label><input type="checkbox" name="monhoc"
+													id="monhoc" value="${ item._id }">${item.name}</label></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -216,8 +216,8 @@
 								<tbody>
 									<c:forEach var="item" items="${ listClasses }">
 										<tr>
-											<td><label><input type="checkbox"
-													name="lophoc" id="monhoc" value="${item._id }">${item.name}</label></td>
+											<td><label><input type="checkbox" name="lophoc"
+													id="monhoc" value="${ item._id }">${item.name}</label></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -231,16 +231,16 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${listQuan }">
+									<c:forEach var="item" items="${ listQuan }">
 										<tr>
-											<td><label><input type="checkbox"
-													name="khuvuc" id="khuvuc" value="${item._id }">${item.name}</label></td>
+											<td><label><input type="checkbox" name="khuvuc"
+													id="khuvuc" value="${ item.name }">${item.name}</label></td>
 										</tr>
 									</c:forEach>
-									<c:forEach var="item" items="${listlop }">
-										<tr>	
-											<td><label><input type="checkbox"
-													name="khuvuc" id="khuvuc" value="${item._id }">${item.name}</label></td>
+									<c:forEach var="item" items="${ listlop }">
+										<tr>
+											<td><label><input type="checkbox" name="khuvuc"
+													id="khuvuc" value="${ item.name }">${item.name}</label></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -248,75 +248,6 @@
 						</div>
 					</div>
 					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Thời gian dạy: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<table border="0" class="tablebox">
-								<tbody>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" id="thoigianday" value="2S">Thứ
-												2 - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="2C">Thứ 2 - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="2T">Thứ 2 - Tối</label></td>
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="3S">Thứ 3 - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="3C">Thứ 3 - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="3T">Thứ 3 - Tối</label></td>
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="4S">Thứ 4 - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="4C">Thứ 4 - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="4T">Thứ 4 - Tối</label></td>
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="5S">Thứ 5 - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="5C">Thứ 5 - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="5T">Thứ 5 - Tối</label></td>
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="6S">Thứ 6 - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="6C">Thứ 6 - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="6T">Thứ 6 - Tối</label></td>
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="7S">Thứ 7 - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="7C">Thứ 7 - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="7T">Thứ 7 - Tối</label></td>
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="CNS">CN - Sáng</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="CNC">CN - Chiều</label></td>
-										<td><label><input type="checkbox"
-												name="thoigianday[]" value="CNT">CN - Tối</label></td>
-									</tr>
-									<tr>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-4 control-label">Số buổi dạy: <span
 							style="color: #FF0000">*</span></label>
