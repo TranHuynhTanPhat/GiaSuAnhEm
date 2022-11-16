@@ -101,7 +101,7 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping(value = "/quanlykhoahoc", params = "delete",method = RequestMethod.POST)
+	@RequestMapping(value = "/quanlykhoahoc", params = "delete", method = RequestMethod.POST)
 	public ModelAndView remove_courceManagement(@RequestParam("remove_cource") String[] ids) {
 		try {
 			Map<String, Object> params = new HashMap<>();
@@ -204,6 +204,28 @@ public class AdminController {
 			@RequestParam("monhoc") String[] monhocs, @RequestParam("lophoc") String[] lophocs,
 			@RequestParam("khuvuc") String[] khuvucs, @RequestParam("sobuoiday") String sobuoiday) {
 		try {
+			List<Object> classes = new ArrayList<>();
+			List<Object> subjects = new ArrayList<>();
+			List<Object> teachAreas = new ArrayList<>();
+			for (String item : monhocs) {
+				classes.add(item);
+				System.out.println(item);
+			}
+			for (String item : lophocs) {
+				subjects.add(item);
+				System.out.println(item);
+
+			}
+			for (String item : khuvucs) {
+				teachAreas.add(item);
+				System.out.println(item);
+
+			}
+
+			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
+					subjects, teachAreas, "Xe máy", Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
+					nghenghiep, trinhdo);
+			commonService.createTutor(itemAdd);
 			List<TutorModel> list = commonService.getListTutor();
 			Map<String, Object> paramsP = new HashMap<>();
 			paramsP.put("style", 1);
@@ -220,30 +242,7 @@ public class AdminController {
 			mav.addObject("listClass", listClass);
 			mav.addObject("listSubject", listSubject);
 			mav.addObject("listLop", listLop);
-			
-			List<Object> classes = new ArrayList<>();
-			List<Object> subjects = new ArrayList<>();
-			List<Object> teachAreas = new ArrayList<>();
-			for (String item : monhocs) {
-				classes.add(item);
-				System.out.println(item);
-			}
-			for (String item : lophocs) {
-				subjects.add(item);
-				System.out.println(item);
 
-			}
-			for (String item : monhocs) {
-				teachAreas.add(item);
-				System.out.println(item);
-
-			}
-
-//			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes, subjects,
-//					teachAreas, "Xe máy", Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem, nghenghiep,
-//					trinhdo);
-//			System.out.println(itemAdd.getAddress());
-//			commonService.createTutor(itemAdd);
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -357,7 +356,7 @@ public class AdminController {
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/quanlylophoc", params = "delete", method = RequestMethod.POST)
 	public ModelAndView remove_classManagement(@RequestParam("remove_class") String[] ids) {
 		try {
@@ -366,19 +365,19 @@ public class AdminController {
 				params.put("_id", id);
 				commonService.removeClass(params);
 			}
-			List <ClassModel> list = commonService.getListClass();
+			List<ClassModel> list = commonService.getListClass();
 			ModelAndView mav = new ModelAndView("admin/classManagement");
-			mav.addObject("listClass",list);
+			mav.addObject("listClass", list);
 			return mav;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			List <ClassModel> list = commonService.getListClass();
+			List<ClassModel> list = commonService.getListClass();
 			ModelAndView mav = new ModelAndView("admin/classManagement");
-			mav.addObject("listClass",list);
+			mav.addObject("listClass", list);
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement() {
 		if (session.getAttribute("userName") != null) {
@@ -391,7 +390,7 @@ public class AdminController {
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/quanlymonhoc", params = "delete", method = RequestMethod.POST)
 	public ModelAndView remove_subjectManagement(@RequestParam("remove_subject") String[] ids) {
 		try {
@@ -400,15 +399,15 @@ public class AdminController {
 				params.put("_id", id);
 				commonService.removeSubject(params);
 			}
-			List <SubjectModel> list = commonService.getListSubject();
+			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			mav.addObject("listSubject",list);
+			mav.addObject("listSubject", list);
 			return mav;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			List <SubjectModel> list = commonService.getListSubject();
+			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			mav.addObject("listSubject",list);
+			mav.addObject("listSubject", list);
 			return mav;
 		}
 	}

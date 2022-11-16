@@ -234,7 +234,7 @@
 									<c:forEach var="item" items="${ listQuan }">
 										<tr>
 											<td><label><input type="checkbox" name="khuvuc"
-													id="khuvuc" value="${ item.name }">${item.name}</label></td>
+													id="khuvuc" value="${ item.name }">${ item.name}</label></td>
 										</tr>
 									</c:forEach>
 									<c:forEach var="item" items="${ listlop }">
@@ -307,8 +307,6 @@
 			</div>
 		</div>
 	</div>
-
-
 	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 </div>
 
