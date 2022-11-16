@@ -74,10 +74,8 @@
 						</tr>
 						<c:forEach var="item" items="${listNewClass }">
 							<tr>
-								<td><input type="checkbox" name="remove_cource"
+								<td><input type="checkbox" class="action" name="remove_cource"
 									value=${ item._id }></td>
-								<td><input type="checkbox" class="action"
-									name="remove_cource" value=${ item.id }></td>
 								<td>${ item.id }</td>
 								<td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
@@ -99,16 +97,9 @@
 								<td>${ item.require }</td>
 								<td>${item.contact }</td>
 								<td>${ item.status }</td>
-
 							</tr>
 						</c:forEach>
-					</tbody>
-				</table>
-
-			</div>
-
-		</form>
-		<script language="javascript">
+						<script language="javascript">
 
 
 						var temp = document.getElementById("xoa");
@@ -137,6 +128,12 @@
 							}
 						});
 					</script>
+					</tbody>
+				</table>
+
+			</div>
+
+		</form>
 	</div>
 
 	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>

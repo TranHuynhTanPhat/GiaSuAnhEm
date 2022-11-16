@@ -87,7 +87,7 @@
 								<button value="update" name="update" type="submit">Cập
 									nhật</button>
 							</a> <a href="./quanlygiasu">
-								<button value="delete" name="delete" type="submit">Xóa</button>
+								<button value="delete" name="delete" id="xoa" type="submit">Xóa</button>
 							</a>
 						</div>
 						<table border="0" width="100%">
@@ -145,32 +145,32 @@
 									</tr>
 								</c:forEach>
 								<script language="javascript">
-						var temp = document.getElementById("xoa");
-						temp.disabled = true;
-						temp.style.color = "#000000";
-						document.addEventListener("DOMContentLoaded", function(
-								event) {
-							const elements = document
-									.getElementsByClassName("action");
-							var itemCount = elements.length
-
-							for (let i = 0; i < elements.length; i++) {
-								elements[i].addEventListener('click',
-										()=>{
-											
-											if(elements[i].checked){
-												temp.disabled = false;
-												itemCount--;
-											} else{
-												itemCount++;
-											}
-											if (itemCount == elements.length){
-												temp.disabled = true;
-											}
-										});
-							}
-						});
-					</script>
+									var temp = document.getElementById("xoa");
+									temp.disabled = true;
+									temp.style.color = "#000000";
+									document.addEventListener("DOMContentLoaded", function(
+											event) {
+										const elements = document
+												.getElementsByClassName("action");
+										var itemCount = elements.length
+			
+										for (let i = 0; i < elements.length; i++) {
+											elements[i].addEventListener('click',
+													()=>{
+														
+														if(elements[i].checked){
+															temp.disabled = false;
+															itemCount--;
+														} else{
+															itemCount++;
+														}
+														if (itemCount == elements.length){
+															temp.disabled = true;
+														}
+													});
+										}
+									});
+								</script>
 							</tbody>
 						</table>
 

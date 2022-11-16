@@ -14,7 +14,7 @@
 
 					<button name="update" type="submit">Cập nhật</button>
 
-					<button value="1" name="delete" type="submit">Xóa</button>
+					<button value="1" name="delete" id="xoa" type="submit">Xóa</button>
 				</div>
 
 				<table border="0" width="100%">
