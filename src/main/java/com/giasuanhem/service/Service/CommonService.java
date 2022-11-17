@@ -50,8 +50,8 @@ public class CommonService {
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl), HttpMethod.GET, entity,
 				String.class);
 		String jsonResponse = response.getBody();
-//		System.out.print(jsonResponse);
-//		System.out.println();
+		System.out.println("###################RESPONSE JSONNNNN###################");
+		System.out.println(jsonResponse);
 		return jsonResponse;
 
 	}
@@ -63,28 +63,24 @@ public class CommonService {
 			paramsSrt += key + "=" + params.get(key).toString() + "&";
 
 		}
-
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity<String> entity = new HttpEntity<>("parameters");
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
 				entity, String.class);
 		String jsonResponse = response.getBody();
+		System.out.println("###################RESPONSE JSONNNNN###################");
+		System.out.println(jsonResponse);
 		return jsonResponse;
 	}
 	
 	void postWithJson(String apiUrl, String jsonReq) {
-		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
-			String reqString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
+			String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
 			System.out.println("###################RESPONSE JSONNNNN###################");
-			System.out.println(reqString);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
+			System.out.println(resString);
 	}
 
 	String getWithParams(String apiUrl, Map<String, Object> params) {
@@ -103,9 +99,12 @@ public class CommonService {
 	}
 
 	public void createTutor(TutorModel model) throws JsonProcessingException {
-		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String json = ow.writeValueAsString(model);
-		postWithJson(ApiConstant.LIST_TUTOR, json);
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithJson(ApiConstant.LIST_TUTOR, jsonReq);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	public void removeSubject(Map<String, Object> params) {
