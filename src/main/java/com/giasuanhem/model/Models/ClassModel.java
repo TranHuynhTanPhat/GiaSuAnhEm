@@ -3,6 +3,26 @@ package com.giasuanhem.model.Models;
 public class ClassModel {
 	 private String _id;
 	 private String name;
+	 private String createdAt;
+	 private String updatedAt;
+
+	// Getter Methods
+
+	public String getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public String getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(String updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 
 
 	 // Getter Methods 
