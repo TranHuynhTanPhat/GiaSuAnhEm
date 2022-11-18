@@ -36,7 +36,7 @@ import com.google.gson.Gson;
 @Transactional
 public class CommonService {
 
-	private static final String BASE_URL_API = "https://guarded-ocean-48054.herokuapp.com/giasuanhem/v1";
+	private static final String BASE_URL_API = "https://dbgiasuanhem.onrender.com/giasuanhem/v1";
 	static RestTemplate restTemplate = new RestTemplate();
 
 	String takeApiURL(String path) {
@@ -287,15 +287,19 @@ public class CommonService {
 	}
 	
 	public ModelAndView checkLogin(Map<String, Object> params, HttpSession session) {
+		String jsonResponse=null;
 		try {
 			ModelAndView mav = new ModelAndView("admin/adminhome");
+			jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
 			session.setAttribute("userName", params.get("userName"));
 			session.setAttribute("password", params.get("password"));
 			return mav;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			ModelAndView mav = new ModelAndView("admin/login");
+			mav.addObject("errorMessage", jsonResponse);
 			return mav;
 		}
 	}

@@ -4,14 +4,14 @@
 <div id="sidebar">
     <ul class="danhmuc">
         <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Lớp cần gia sư</span></h3>
-		<c:forEach var="item" items="${ listCategoryClass }">
+		<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
 			<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
 		</c:forEach>
 	
     </ul>
     <ul class="danhmuc">
         <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Gia sư theo quận</span></h3>
-		<c:forEach var="item" items="${ listCategoryDistrict }">
+		<c:forEach var="item" items="${ sessionScope.listCategoryDistrict}">
 			<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
 		</c:forEach>
     </ul>
