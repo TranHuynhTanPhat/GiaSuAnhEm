@@ -8,8 +8,8 @@
 		<div class="panel">
 
 			<div class="panel-body" style="padding: 5px 10px">
-				<form action="./quanlygiasu" method="post" name="info_frm"
-					class="form-horizontal">
+				<form action="${pageContext.request.contextPath }/createTutor"
+					method="post" name="info_frm" class="form-horizontal" onclick="">
 					<div class="form-group">
 						<label class="col-1 control-label"></label>
 						<div class="col-11" style="color: #F00">* Vui lòng cung cấp
@@ -277,6 +277,16 @@
 					</div>
 					<br>
 					<div class="form-group">
+						<label class="col-4 control-label">Phương tiện: <span
+							style="color: #FF0000">*</span></label>
+						<div class="col-7">
+							<input type="text" name="phuongtien" id="phuongtien"
+								class="form-control" value="" style="width: 50%; float: left">
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="form-group">
 						<label class="col-4 control-label">Yêu cầu khác: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
@@ -298,8 +308,8 @@
 					<div class="form-group">
 						<label class="col-4 control-label"></label>
 						<div class="col-7">
-							<input name="dangky" type="submit" class="input_button"
-								value="Đăng ký">
+							<button value="create" name="create" type="submit">Thêm</button>
+							<a href="${pageContext.request.contextPath }/quanlygiasu">Cancel</a>
 						</div>
 					</div>
 				</form>

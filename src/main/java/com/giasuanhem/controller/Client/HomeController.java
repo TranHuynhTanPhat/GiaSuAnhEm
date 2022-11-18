@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +25,7 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-	public ModelAndView homePage() {
+	public ModelAndView homePage(HttpSession session) {
 
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
@@ -31,10 +34,11 @@ public class HomeController {
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
-
+		session.setAttribute("listCategoryClass", listClass);
+		session.setAttribute("listCategoryDistrict", listDistrict);
 		ModelAndView mav = new ModelAndView("home/home");
-		mav.addObject("listCategoryClass", listClass);
-		mav.addObject("listCategoryDistrict", listDistrict);
+//		mav.addObject("listCategoryClass", listClass);
+//		mav.addObject("listCategoryDistrict", listDistrict);
 		return mav;
 	}
 
