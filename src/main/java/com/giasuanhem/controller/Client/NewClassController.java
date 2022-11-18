@@ -16,25 +16,14 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
-public class NewClassController{
+public class NewClassController {
 	@Autowired
 	CommonService commnService;
+
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
-		List<NewClassModel> list = commnService.getListNewClass();
-		
-		Map<String, Object> paramsClass = new HashMap<>();
-		paramsClass.put("style", 0);
-		List<CategoryModel> listClass = commnService.getListCategory(paramsClass);
-		
-		Map<String, Object> paramsDistrict = new HashMap<>();
-		paramsDistrict.put("style", 1);
-		List<CategoryModel> listDistrict = commnService.getListCategory(paramsDistrict);
-		
+
 		ModelAndView mav = new ModelAndView("newclass/newclass");
-		mav.addObject("listNewClass", list);
-		mav.addObject("listCategoryClass",listClass);
-		mav.addObject("listCategoryDistrict",listDistrict);
 		return mav;
 	}
 }

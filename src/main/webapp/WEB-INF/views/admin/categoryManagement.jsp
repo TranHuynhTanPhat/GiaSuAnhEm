@@ -28,7 +28,7 @@
 						<td><strong>Style</strong></td>
 					</tr>
 
-					<c:forEach var="item" items="${ listCategoryDistrict}">
+					<c:forEach var="item" items="${ sessionScope.listCategoryDistrict}">
 						<tr>
 							<td width="2%"><input type="checkbox" class="action1"
 								name="checked" value=1></td>
@@ -93,7 +93,7 @@
 						<td><strong>Style</strong></td>
 					</tr>
 
-					<c:forEach var="item" items="${ listCategoryClass}">
+					<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
 						<tr>
 							<td width="2%"><input type="checkbox" class="action"
 								name="checked" value=1></td>

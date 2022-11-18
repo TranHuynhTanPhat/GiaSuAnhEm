@@ -27,7 +27,7 @@
 						<select name="chonlop" id="chonlop" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Lớp</option>
-							<c:forEach var="item" items="${listClass }">
+							<c:forEach var="item" items="${sessionScope.listClass }">
 								<option value="${item._id }">${item.name}</option>
 							</c:forEach>
 						</select>
@@ -36,7 +36,7 @@
 						<select name="chonmon" id="chonmon" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Môn</option>
-							<c:forEach var="item" items="${listSubject }">
+							<c:forEach var="item" items="${sessionScope.listSubject }">
 								<option value="${item._id}">${item.name}</option>
 							</c:forEach>
 						</select>
@@ -67,7 +67,7 @@
 						<select name="quanhuyen" id="quanhuyen" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="0">Quận huyện</option>
-							<c:forEach var="item" items="${listQuan }">
+							<c:forEach var="item" items="${sessionScope.listCategoryDistrict }">
 								<option value=${item._id }>${item.name }</option>
 							</c:forEach>
 						</select>
@@ -93,7 +93,8 @@
 					<button value="update" name="update" type="submit">Cập
 						nhật</button>
 				</a> <a href="./quanlygiasu">
-					<button value="delete" name="delete" id="xoa" onclick="testConfirmDialog()">Xóa</button>
+					<button value="delete" name="delete" id="xoa"
+						onclick="testConfirmDialog()">Xóa</button>
 				</a>
 		</div>
 		<table border="0" width="100%">
@@ -118,7 +119,7 @@
 					<td><strong>Số buổi</strong><br></td>
 					<td><strong>Thông tin khác</strong><br></td>
 				</tr>
-				<c:forEach var="item" items="${ listTutor }">
+				<c:forEach var="item" items="${ sessionScope.listTutor }">
 					<tr>
 						<td width="2%"><input type="checkbox" class="action"
 							name="remove_tutor" value=${item._id }></td>

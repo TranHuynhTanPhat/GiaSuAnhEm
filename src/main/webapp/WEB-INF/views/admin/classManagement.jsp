@@ -24,7 +24,7 @@
 							<td><strong>ID</strong><br></td>
 							<td><strong>Tên lớp học</strong></td>
 						</tr>
-						<c:forEach var="item" items="${ listClass }">
+						<c:forEach var="item" items="${ sessionScope.listClass }">
 							<tr>
 								<td width="2%"><input type="checkbox" class="action"
 									name="checked" value=${ item._id }></td>

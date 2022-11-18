@@ -47,7 +47,7 @@
 									<td><strong>Lương </strong><br></td>
 									<td><strong>Yêu cầu </strong><br></td>
 								</tr>
-								<c:forEach var="item" items="${ listNewClass }">
+								<c:forEach var="item" items="${ sessionScope.listNewClass }">
 									<tr class="row0">
 										<td>${ item.id }</td>
 										<td><c:forEach var="cl" items="${item.classes }">

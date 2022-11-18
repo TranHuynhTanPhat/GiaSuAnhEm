@@ -27,9 +27,7 @@ public class SubjectManagementController {
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
-			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			mav.addObject("listSubject", list);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -47,13 +45,13 @@ public class SubjectManagementController {
 			}
 			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			mav.addObject("listSubject", list);
+			session.setAttribute("listSubject", list);
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();
 			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			mav.addObject("listSubject", list);
+			session.setAttribute("listSubject", list);
 			return mav;
 		}
 	}

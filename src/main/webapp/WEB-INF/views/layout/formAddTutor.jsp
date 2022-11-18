@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div style="width: 100%">
 	<div class="panel">
 
@@ -256,7 +256,7 @@
 					<div class="col-7">
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${listSubject }">
+								<c:forEach var="item" items="${sessionScope.listSubject }">
 									<tr>
 										<td><label><input type="checkbox" name="monday[]"
 												id="${ item._id }" value="${ item._id }">${ item.name }</label></td>
@@ -273,7 +273,7 @@
 					<div class="col-7">
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${ listClass }">
+								<c:forEach var="item" items="${ sessionScope.listClass }">
 									<tr>
 										<td><label><input type="checkbox" name="lopday[]"
 												id="${ item._id }" value="${ item._id }">${ item.name }</label></td>

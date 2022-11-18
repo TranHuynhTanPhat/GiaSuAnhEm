@@ -23,7 +23,7 @@
 							<td><strong>MS</strong><br></td>
 							<td><strong>Tên môn học</strong></td>
 						</tr>
-						<c:forEach var="item" items="${listSubject }">
+						<c:forEach var="item" items="${sessionScope.listSubject }">
 							<tr>
 								<td width="2%"><input type="checkbox" class="action"
 									name="checked" value=${ item._id }></td>

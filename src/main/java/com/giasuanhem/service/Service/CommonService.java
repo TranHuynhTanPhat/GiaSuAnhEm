@@ -50,8 +50,6 @@ public class CommonService {
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl), HttpMethod.GET, entity,
 				String.class);
 		String jsonResponse = response.getBody();
-		System.out.println("###################RESPONSE JSONNNNN###################");
-		System.out.println(jsonResponse);
 		return jsonResponse;
 
 	}
@@ -69,18 +67,14 @@ public class CommonService {
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
 				entity, String.class);
 		String jsonResponse = response.getBody();
-		System.out.println("###################RESPONSE JSONNNNN###################");
-		System.out.println(jsonResponse);
 		return jsonResponse;
 	}
-	
+
 	void postWithJson(String apiUrl, String jsonReq) {
-			HttpHeaders headers = new HttpHeaders();
-			headers.setContentType(MediaType.APPLICATION_JSON);
-			HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
-			String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
-			System.out.println("###################RESPONSE JSONNNNN###################");
-			System.out.println(resString);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
+		String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
 	}
 
 	String getWithParams(String apiUrl, Map<String, Object> params) {
@@ -102,7 +96,7 @@ public class CommonService {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithJson(ApiConstant.LIST_TUTOR, jsonReq);
-		} catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -110,19 +104,19 @@ public class CommonService {
 	public void removeSubject(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.SUBJECT_REMOVE, params);
-		}catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void removeClass(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.CLASS_REMOVE, params);
-		}catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void removeTutor(Map<String, Object> params) {
 		try {
 			String jsonResponse = postWithParams(ApiConstant.TUTOR_REMOVE, params);
@@ -132,7 +126,7 @@ public class CommonService {
 	}
 
 	public void removeCource(Map<String, Object> params) {
-		System.out.println("CC");
+		
 		try {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
 		} catch (Exception e) {
@@ -180,7 +174,6 @@ public class CommonService {
 			List<ClassModel> listClassModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<ClassModel>>() {
 					});
-
 			return listClassModels;
 
 		} catch (IOException e) {
@@ -197,7 +190,6 @@ public class CommonService {
 			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<CategoryModel>>() {
 					});
-			System.out.println(jsonResponse);
 			return listCategoryModel;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -214,6 +206,7 @@ public class CommonService {
 			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<NewClassModel>>() {
 					});
+			System.out.print(jsonResponse);
 			return listNewClassModels;
 
 		} catch (IOException e) {
@@ -278,30 +271,22 @@ public class CommonService {
 		try {
 			List<SalaryModel> listSalary = objectMapper.readValue(jsonResponse, new TypeReference<List<SalaryModel>>() {
 			});
-			System.out.print(jsonResponse);
+
 			return listSalary;
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	public ModelAndView checkLogin(Map<String, Object> params, HttpSession session) {
-		String jsonResponse=null;
-		try {
-			ModelAndView mav = new ModelAndView("admin/adminhome");
-			jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
-			session.setAttribute("userName", params.get("userName"));
-			session.setAttribute("password", params.get("password"));
-			return mav;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-			ModelAndView mav = new ModelAndView("admin/login");
-			mav.addObject("errorMessage", jsonResponse);
-			return mav;
-		}
+
+	public String checkLogin(Map<String, Object> params, HttpSession session) {
+		String jsonResponse = null;
+
+		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
+		session.setAttribute("userName", params.get("userName"));
+		session.setAttribute("password", params.get("password"));
+		return jsonResponse;
+
 	}
 
 }

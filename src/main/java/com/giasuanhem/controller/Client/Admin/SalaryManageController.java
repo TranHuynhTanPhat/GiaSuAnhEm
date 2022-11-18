@@ -26,17 +26,8 @@ public class SalaryManageController {
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
-			Map<String, Object> paramST = new HashMap<>();
-			paramST.put("style", 0);
-			List<SalaryModel> listSST = commonService.getListSalary(paramST);
-
-			Map<String, Object> paramTE = new HashMap<>();
-			paramTE.put("style", 1);
-			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
 
 			ModelAndView mav = new ModelAndView("admin/salaryManagement");
-			mav.addObject("listSST", listSST);
-			mav.addObject("listSTE", listSTE);
 
 			return mav;
 		} else {

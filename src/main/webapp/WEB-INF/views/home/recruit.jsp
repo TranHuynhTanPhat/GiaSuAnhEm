@@ -5,7 +5,8 @@
 	<%@include file="/WEB-INF/views/layout/header.jsp"%>
 	<table>
 		<tr>
-			<td id="td-top"><%@include file="/WEB-INF/views/layout/sidebar.jsp"%></td>
+			<td id="td-top"><%@include
+					file="/WEB-INF/views/layout/sidebar.jsp"%></td>
 			<td id="td-top">
 				<div id="page-main">
 					<div class="title">

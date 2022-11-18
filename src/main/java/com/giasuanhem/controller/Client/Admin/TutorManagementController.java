@@ -32,14 +32,6 @@ public class TutorManagementController {
 	public ModelAndView tutorManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
-			List<TutorModel> list = commonService.getListTutor();
-			List<CategoryModel> listQuan = commonService.getListQuan();
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			mav.addObject("listTutor", list);
-			mav.addObject("listQuan", listQuan);
-			mav.addObject("listClass", listClass);
-			mav.addObject("listSubject", listSubject);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

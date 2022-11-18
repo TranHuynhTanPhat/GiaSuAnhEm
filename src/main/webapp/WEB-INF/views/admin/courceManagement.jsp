@@ -15,7 +15,7 @@
 						<select name="chonlop" id="chonlop" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Lớp</option>
-							<c:forEach var="item" items="${listClass }">
+							<c:forEach var="item" items="${sessionScope.listClass }">
 								<option value="${item._id }">${item.name}</option>
 							</c:forEach>
 						</select>
@@ -24,7 +24,7 @@
 						<select name="chonmon" id="chonmon" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="">Chọn Môn</option>
-							<c:forEach var="item" items="${listSubject }">
+							<c:forEach var="item" items="${sessionScope.listSubject }">
 								<option value="${item._id}">${item.name}</option>
 							</c:forEach>
 						</select>
@@ -33,7 +33,7 @@
 						<select name="quanhuyen" id="quanhuyen" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="0">Quận huyện</option>
-							<c:forEach var="item" items="${listQuan }">
+							<c:forEach var="item" items="${sessionScope.listCategoryDistrict }">
 								<option value=${item._id }>${item.name }</option>
 							</c:forEach>
 						</select>
@@ -72,7 +72,7 @@
 							<td><strong>Liên hệ</strong><br></td>
 							<td><strong>Trạng thái</strong></td>
 						</tr>
-						<c:forEach var="item" items="${listNewClass }">
+						<c:forEach var="item" items="${sessionScope.listNewCource }">
 							<tr>
 								<td><input type="checkbox" class="action" name="remove_cource"
 									value=${ item._id }></td>

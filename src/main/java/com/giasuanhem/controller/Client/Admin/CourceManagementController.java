@@ -32,15 +32,9 @@ public class CourceManagementController {
 	public ModelAndView courceManagement(HttpSession session) {
 
 		if (session.getAttribute("userName") != null) {
-			List<NewClassModel> list = commonService.getListNewClass();
-			List<CategoryModel> listQuan = commonService.getListQuan();
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
+
 			ModelAndView mav = new ModelAndView("admin/courceManagement");
-			mav.addObject("listNewClass", list);
-			mav.addObject("listQuan", listQuan);
-			mav.addObject("listClass", listClass);
-			mav.addObject("listSubject", listSubject);
+
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -58,13 +52,13 @@ public class CourceManagementController {
 			}
 			List<NewClassModel> list = commonService.getListNewClass();
 			ModelAndView mav = new ModelAndView("admin/courceManagement");
-			mav.addObject("listNewClass", list);
+			session.setAttribute("listNewCource", list);
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();
 			List<NewClassModel> list = commonService.getListNewClass();
 			ModelAndView mav = new ModelAndView("admin/courceManagement");
-			mav.addObject("listNewClass", list);
+			session.setAttribute("listNewCource", list);
 			return mav;
 		}
 	}
