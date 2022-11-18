@@ -25,6 +25,7 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
+	public ModelAndView homePage() {
 
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
