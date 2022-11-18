@@ -25,7 +25,6 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-	public ModelAndView homePage(HttpSession session) {
 
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("style", 0);
@@ -34,6 +33,7 @@ public class HomeController {
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
+
 		session.setAttribute("listCategoryClass", listClass);
 		session.setAttribute("listCategoryDistrict", listDistrict);
 		ModelAndView mav = new ModelAndView("home/home");

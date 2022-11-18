@@ -1,0 +1,9 @@
+diff a/src/main/java/com/giasuanhem/controller/Client/HomeController.java b/src/main/java/com/giasuanhem/controller/Client/HomeController.java	(rejected hunks)
+@@ -34,7 +34,6 @@
+ 		Map<String, Object> paramsDistrict = new HashMap<>();
+ 		paramsDistrict.put("style", 1);
+ 		List<CategoryModel> listDistrict = commonService.getListCategory(paramsDistrict);
+-
+ 		session.setAttribute("listCategoryClass", listClass);
+ 		session.setAttribute("listCategoryDistrict", listDistrict);
+ 		ModelAndView mav = new ModelAndView("home/home");
