@@ -206,7 +206,6 @@ public class CommonService {
 			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<NewClassModel>>() {
 					});
-			System.out.print(jsonResponse);
 			return listNewClassModels;
 
 		} catch (IOException e) {
@@ -278,15 +277,31 @@ public class CommonService {
 			return null;
 		}
 	}
+	
+	public CategoryModel getCategory(Map<String, Object> params) {
+		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			CategoryModel category = objectMapper.readValue(jsonResponse, new TypeReference<CategoryModel>() {
+			});
+
+			return category;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public String checkLogin(Map<String, Object> params, HttpSession session) {
 		String jsonResponse = null;
 
-		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
+//		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
 		session.setAttribute("userName", params.get("userName"));
 		session.setAttribute("password", params.get("password"));
 		return jsonResponse;
 
 	}
+	
+	
 
 }

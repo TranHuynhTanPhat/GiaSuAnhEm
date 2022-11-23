@@ -125,31 +125,45 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(HttpSession session, @RequestParam("username") String username,
-			@RequestParam("password") String password) {
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String login(HttpSession session, @RequestParam("username") String username, @RequestParam("password") String password) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("userName", username);
 		params.put("password", password);
 		try {
 			commonService.checkLogin(params, session);
-			ModelAndView mav = new ModelAndView("admin/adminhome");
-			return mav;
+			return "redirect:/admin";
 		} catch (Exception e) {
 			e.printStackTrace();
-			ModelAndView mav = new ModelAndView("admin/login");
-			mav.addObject("errorMessage", "Bạn nhập sai");
-			return mav;
+			session.setAttribute("errorMessage", e.getMessage());
+			return "admin/login";
 		}
-
 	}
+	
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public ModelAndView login(HttpSession session, @RequestParam("username") String username,
+//			@RequestParam("password") String password) {
+//		Map<String, Object> params = new HashMap<>();
+//		params.put("userName", username);
+//		params.put("password", password);
+//		try {
+//			commonService.checkLogin(params, session);
+//			ModelAndView mav = new ModelAndView("admin/adminhome");
+//			return mav;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			ModelAndView mav = new ModelAndView("admin/login");
+//			mav.addObject("errorMessage", "Bạn nhập sai");
+//			return mav;
+//		}
+//
+//	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public ModelAndView logoutAdmin(HttpSession session) {
-		session.removeAttribute("username");
+	public String logoutAdmin(HttpSession session) {
+		session.removeAttribute("userName");
 		session.removeAttribute("password");
-		ModelAndView mav = new ModelAndView("admin/login");
-		return mav;
+		return "redirect:/login";
 
 	}
 

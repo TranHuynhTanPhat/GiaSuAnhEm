@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.CategoryModel;
@@ -45,8 +46,20 @@ public class CatrgoryManagementController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value="/updateCategory", method=RequestMethod.GET)
+	public ModelAndView updateCategory(HttpSession session, @RequestParam("id") String id) {
+		if (session.getAttribute("userName") != null) {
+			System.out.println(id);
+			ModelAndView mav = new ModelAndView("admin/updateCategory");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
 
-	@RequestMapping(value = "/updatecategory", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
 	public ModelAndView updateCategory(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/updateCategory");
@@ -57,7 +70,7 @@ public class CatrgoryManagementController {
 		}
 	}
 
-	@RequestMapping(value = "/addcategoryclass", method = RequestMethod.POST)
+	@RequestMapping(value = "/addCategoryClass", method = RequestMethod.POST)
 	public ModelAndView addCategoryClass(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/addCategoryClass");
@@ -67,8 +80,20 @@ public class CatrgoryManagementController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value = "/updateCategoryClass", method = RequestMethod.GET)
+	public ModelAndView updateCategoryClass(HttpSession session, @RequestParam("id") String id) {
+		if (session.getAttribute("userName") != null) {
+			System.out.println(id);
+			ModelAndView mav = new ModelAndView("admin/updateCategoryClass");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		}
+	}
 
-	@RequestMapping(value = "/updatecategoryclass", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateCategoryClass", method = RequestMethod.POST)
 	public ModelAndView updateCategoryClass(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/updateCategoryClass");
@@ -76,6 +101,15 @@ public class CatrgoryManagementController {
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
+		}
+	}
+	
+	@RequestMapping(value="/deleteCategory", method=RequestMethod.GET)
+	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id) {
+		if (session.getAttribute("userName") != null) {
+			return "redirect:/quanlydanhmuc";
+		} else {
+			return "redirect:/login";
 		}
 	}
 }

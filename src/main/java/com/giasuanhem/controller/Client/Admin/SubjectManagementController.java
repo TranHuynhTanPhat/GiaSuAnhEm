@@ -34,6 +34,11 @@ public class SubjectManagementController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value="/abc")
+	public String abc() {
+		return "redirect:/trang-chu";
+	}
 
 	@RequestMapping(value = "/quanlymonhoc", params = "delete", method = RequestMethod.POST)
 	public ModelAndView remove_subjectManagement(HttpSession session, @RequestParam("remove_subject") String[] ids) {
@@ -49,9 +54,7 @@ public class SubjectManagementController {
 			return mav;
 		} catch (Exception e) {
 			e.printStackTrace();
-			List<SubjectModel> list = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			session.setAttribute("listSubject", list);
 			return mav;
 		}
 	}

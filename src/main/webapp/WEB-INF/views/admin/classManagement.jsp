@@ -27,7 +27,7 @@
 						<c:forEach var="item" items="${ sessionScope.listClass }">
 							<tr>
 								<td width="2%"><input type="checkbox" class="action"
-									name="checked" value=${ item._id }></td>
+									name="remove_class" value=${ item._id }></td>
 								<td><strong>${ item._id }</strong><br></td>
 								<td><strong>${ item.name }</strong></td>
 

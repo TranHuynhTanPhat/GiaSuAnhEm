@@ -4,7 +4,7 @@
 <div id="wrapperAdmin">
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<div id="Custome-div">
-	<div color="black">${errorMessage}</div>
+	<div color="black">${sessionScope.errorMessage}</div>
 		<form id="Customer-form" action="./login" method="post" >
 			<div>
 				<div id="Textbox">
