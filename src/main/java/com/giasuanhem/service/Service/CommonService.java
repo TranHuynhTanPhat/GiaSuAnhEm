@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -28,6 +29,7 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
+import com.giasuanhem.model.Models.adminModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ApiConstant;
 import com.google.gson.Gson;
@@ -35,6 +37,8 @@ import com.google.gson.Gson;
 @Service
 @Transactional
 public class CommonService {
+	@Autowired
+	HttpSession session;
 
 	private static final String BASE_URL_API = "https://dbgiasuanhem.onrender.com/giasuanhem/v1";
 	static RestTemplate restTemplate = new RestTemplate();
@@ -63,7 +67,9 @@ public class CommonService {
 		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<>("parameters");
+		headers.set("token", "Bearer "+session.getAttribute("accessToken"));
+
+		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
 				entity, String.class);
 		String jsonResponse = response.getBody();
@@ -73,6 +79,7 @@ public class CommonService {
 	void postWithJson(String apiUrl, String jsonReq) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("token", "Bearer "+session.getAttribute("accessToken"));
 		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
 		String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
 	}
@@ -126,16 +133,16 @@ public class CommonService {
 	}
 
 	public void removeCource(Map<String, Object> params) {
-		
+
 		try {
 			String jsonResponse = postWithParams(ApiConstant.NEWCLASS_REMMOVE, params);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void removeCategory(Map<String, Object> params) {
-		
+
 		try {
 			String jsonResponse = postWithParams(ApiConstant.CATEGORY_REMMOVE, params);
 		} catch (Exception e) {
@@ -286,7 +293,7 @@ public class CommonService {
 			return null;
 		}
 	}
-	
+
 	public CategoryModel getCategory(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -301,16 +308,20 @@ public class CommonService {
 		}
 	}
 
-	public String checkLogin(Map<String, Object> params, HttpSession session) {
+	public void checkLogin(Map<String, Object> params, HttpSession session) {
 		String jsonResponse = null;
 
-//		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
-		session.setAttribute("userName", params.get("userName"));
-		session.setAttribute("password", params.get("password"));
-		return jsonResponse;
-
+		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			adminModel admin = objectMapper.readValue(jsonResponse, new TypeReference<adminModel>() {
+			});
+			session.setAttribute("userName", admin.getUserName());
+			session.setAttribute("accessToken", admin.getAccessToken());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
-	
-	
 
 }
