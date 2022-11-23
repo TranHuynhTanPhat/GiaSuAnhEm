@@ -119,6 +119,7 @@ public class TutorManagementController {
 					subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
 					nghenghiep, uudiem);
 			commonService.createTutor(itemAdd);
+<<<<<<< HEAD
 
 			List<TutorModel> list = commonService.getListTutor();
 			Map<String, Object> paramsP = new HashMap<>();
@@ -155,6 +156,12 @@ public class TutorManagementController {
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
+=======
+			return "redirect:/quanlygiasu";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/createTutor";
+>>>>>>> chien
 		}
 	}
 

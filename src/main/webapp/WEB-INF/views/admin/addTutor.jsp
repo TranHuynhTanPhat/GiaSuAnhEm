@@ -165,10 +165,27 @@
 						<div class="col-7">
 							<select name="nghenghiep" id="nghenghiep" class="form-control"
 								style="width: 45%; float: left">
+<<<<<<< HEAD
 								<option value="0">Nghề nghiệp</option>
 								<option value="Giáo viên">Giáo viên</option>
 								<option value="Sinh viên">Sinh viên</option>
 								<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
+=======
+								<option value="Nghề nghiệp">Nghề nghiệp</option>
+								<option value="Giáo viên">Giáo viên</option>
+								<option value="Sinh viên">Sinh viên</option>
+								<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
+							</select> <select name="trinhdo" id="trinhdo" class="form-control"
+								style="width: 45%; float: right">
+								<option value="Trình độ">Trình độ</option>
+								<option value="Cao Đẳng">Cao Đẳng</option>
+								<option value="Đại Học">Đại Học</option>
+								<option value="Cử nhân">Cử nhân</option>
+								<option value="Thạc sỹ">Thạc sỹ</option>
+								<option value="Tiến sỹ">Tiến sỹ</option>
+								<option value="Kỹ sư">Kỹ sư</option>
+								<option value="Bằng cấp khác">Bằng cấp khác</option>
+>>>>>>> chien
 							</select>
 						</div>
 					</div>
