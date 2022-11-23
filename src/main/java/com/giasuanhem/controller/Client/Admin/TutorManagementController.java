@@ -99,7 +99,7 @@ public class TutorManagementController {
 	}
 
 	@RequestMapping(value = "/createTutor", method = RequestMethod.POST)
-	public ModelAndView addTutor(@RequestParam("hoten") String hoten, @RequestParam("gioitinh") String gioitinh,
+	public String addTutor(@RequestParam("hoten") String hoten, @RequestParam("gioitinh") String gioitinh,
 			@RequestParam("namsinh") String namsinh, @RequestParam("diachi") String diachi,
 			@RequestParam("email") String email, @RequestParam("dienthoai") String sdt,
 			@RequestParam("truong") String truong, @RequestParam("chuyennganh") String chuyennghanh,
@@ -129,38 +129,12 @@ public class TutorManagementController {
 
 			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
 					subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
-					nghenghiep, trinhdo);
+					nghenghiep, uudiem);
 			commonService.createTutor(itemAdd);
-			List<TutorModel> list = commonService.getListTutor();
-			Map<String, Object> paramsP = new HashMap<>();
-			paramsP.put("style", 1);
-			Map<String, Object> paramsC = new HashMap<>();
-			paramsC.put("style", 0);
-			List<CategoryModel> listQuan = commonService.getListCategory(paramsP);
-			List<CategoryModel> listLop = commonService.getListCategory(paramsC);
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-
-			ModelAndView mav = new ModelAndView("admin/tutorManagement");
-			mav.addObject("listTutor", list);
-			mav.addObject("listQuan", listQuan);
-			mav.addObject("listClass", listClass);
-			mav.addObject("listSubject", listSubject);
-			mav.addObject("listLop", listLop);
-
-			return mav;
+			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
 			e.printStackTrace();
-			List<TutorModel> list = commonService.getListTutor();
-			List<CategoryModel> listQuan = commonService.getListQuan();
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			ModelAndView mav = new ModelAndView("admin/tutorManagement");
-			mav.addObject("listTutor", list);
-			mav.addObject("listQuan", listQuan);
-			mav.addObject("listClass", listClass);
-			mav.addObject("listSubject", listSubject);
-			return mav;
+			return "redirect:/createTutor";
 		}
 	}
 
