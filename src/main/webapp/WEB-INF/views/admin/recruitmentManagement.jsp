@@ -28,7 +28,7 @@
 						<td><strong>Title</strong></td>
 						<td><strong>Content</strong><br></td>
 					</tr>
-					<c:forEach var="item" items="${ sessionScope.listRecruitPost }">
+					<c:forEach var="item" items="${ listRecruitPost }">
 						<tr>
 							<td width="2%"><input type="checkbox" class="action"
 								name="remove_tutor" value=${item._id }></td>

@@ -33,8 +33,10 @@ public class CourceManagementController {
 
 		if (session.getAttribute("userName") != null) {
 
+			List<NewClassModel> listNewCource = commonService.getListNewClass();
 			ModelAndView mav = new ModelAndView("admin/courceManagement");
 
+			session.removeAttribute("listNewCource");
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

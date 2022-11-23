@@ -133,6 +133,15 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void removeCategory(Map<String, Object> params) {
+		
+		try {
+			String jsonResponse = postWithParams(ApiConstant.CATEGORY_REMMOVE, params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public List<TutorModel> getListTutor() {
 		String jsonResponse = get(ApiConstant.LIST_TUTOR);

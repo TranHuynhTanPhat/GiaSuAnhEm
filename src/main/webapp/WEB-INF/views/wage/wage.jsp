@@ -32,7 +32,7 @@
 											buổi 1 tuần</strong></span></td>
 
 							</tr>
-							<c:forEach var="item" items="${sessionScope.listSST }">
+							<c:forEach var="item" items="${listSST }">
 								<tr>
 									<td><input type="checkbox" name="checked"
 										value="${item._id }"></td>
@@ -73,7 +73,7 @@
 												buổi 1 tuần</strong></span></td>
 
 								</tr>
-								<c:forEach var="item" items="${sessionScope.listSST }">
+								<c:forEach var="item" items="${listSST }">
 									<tr>
 										<td><input type="checkbox" name="checked"
 											value="${item._id }"></td>

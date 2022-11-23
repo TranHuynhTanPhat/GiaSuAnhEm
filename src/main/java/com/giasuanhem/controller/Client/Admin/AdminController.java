@@ -35,62 +35,14 @@ public class AdminController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminPage(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
-
-			Map<String, Object> params = new HashMap<>();
-			params.put("style", 0);
-			List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
-
-			Map<String, Object> paramsRecruit = new HashMap<>();
-			params.put("style", 0);
-			List<PostModel> listRecruitPost = commonService.getListPostWithParams(paramsRecruit);
-			
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
+			List<ClassModel> listClass = commonService.getListClass();
+			session.setAttribute("listClass", listClass);
+			List<SubjectModel> listSubject = commonService.getListSubject();
+			session.setAttribute("listSubject", listSubject);
 			Map<String, Object> paramsDistrict = new HashMap<>();
 			paramsDistrict.put("style", 1);
 			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-			
-			List<ClassModel> listClass = commonService.getListClass();
-			
-			List<NewClassModel> listNewCource = commonService.getListNewClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			
-			Map<String, Object> paramST = new HashMap<>();
-			paramST.put("style", 0);
-			List<SalaryModel> listSST = commonService.getListSalary(paramST);
-
-			Map<String, Object> paramTE = new HashMap<>();
-			paramTE.put("style", 1);
-			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
-			
-			List<TutorModel> listTutor = commonService.getListTutor();
-			
-			session.removeAttribute("listIntroductionPost");
-			session.removeAttribute("listRecruitPost");
-			session.removeAttribute("listCategoryClass");
-			session.removeAttribute("listCategoryDistrict");
-			session.removeAttribute("listClass");
-			session.removeAttribute("listNewCource");
-			session.removeAttribute("listSubject");
-			session.removeAttribute("listSST");
-			session.removeAttribute("listSTE");
-			session.removeAttribute("listTutor");
-			
-			
-
-			session.setAttribute("listIntroductionPost", listIntroductionPost);
-			session.setAttribute("listRecruitPost", listRecruitPost);
-			session.setAttribute("listCategoryClass", listCategoryClass);
 			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			session.setAttribute("listClass", listClass);
-			session.setAttribute("listNewCource", listNewCource);
-			session.setAttribute("listSubject", listSubject);
-			session.setAttribute("listSST", listSST);
-			session.setAttribute("listSTE", listSTE);
-			session.setAttribute("listTutor", listTutor);
-
 			ModelAndView mav = new ModelAndView("admin/adminhome");
 			return mav;
 		} else {
@@ -104,7 +56,12 @@ public class AdminController {
 
 		if (session.getAttribute("userName") != null) {
 
+			Map<String, Object> params = new HashMap<>();
+			params.put("style", 0);
+			List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
+			
 			ModelAndView mav = new ModelAndView("admin/adminIntroduction");
+			mav.addObject("listIntroductionPost", listIntroductionPost);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -163,6 +120,7 @@ public class AdminController {
 	public String logoutAdmin(HttpSession session) {
 		session.removeAttribute("userName");
 		session.removeAttribute("password");
+		session.invalidate();
 		return "redirect:/login";
 
 	}
@@ -171,7 +129,12 @@ public class AdminController {
 	public ModelAndView recruitmentManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 
+			Map<String, Object> paramsRecruit = new HashMap<>();
+			paramsRecruit.put("style", 0);
+			List<PostModel> listRecruitPost = commonService.getListPostWithParams(paramsRecruit);
+			
 			ModelAndView mav = new ModelAndView("admin/recruitmentManagement");
+			mav.addObject("listRecruitPost", listRecruitPost);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

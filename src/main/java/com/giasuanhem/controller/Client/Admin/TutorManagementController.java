@@ -31,6 +31,8 @@ public class TutorManagementController {
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
 	public ModelAndView tutorManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
+			List<TutorModel> listTutor = commonService.getListTutor();
+			session.setAttribute("listTutor", listTutor);
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
 			return mav;
 		} else {

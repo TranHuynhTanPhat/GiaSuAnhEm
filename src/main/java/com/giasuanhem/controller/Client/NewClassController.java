@@ -18,12 +18,14 @@ import com.giasuanhem.service.Service.CommonService;
 @Controller
 public class NewClassController {
 	@Autowired
-	CommonService commnService;
+	CommonService commonService;
 
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
+		List<NewClassModel> listNewClass = commonService.getListNewClass();
 
 		ModelAndView mav = new ModelAndView("newclass/newclass");
+		mav.addObject("listNewClass", listNewClass);
 		return mav;
 	}
 }

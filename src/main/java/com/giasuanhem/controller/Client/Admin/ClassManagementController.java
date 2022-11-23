@@ -27,8 +27,10 @@ public class ClassManagementController {
 	@RequestMapping(value = "/quanlylophoc", method = RequestMethod.GET)
 	public ModelAndView classManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
-
+			List<ClassModel> listClass = commonService.getListClass();
+			session.setAttribute("listClass", listClass);
 			ModelAndView mav = new ModelAndView("admin/classManagement");
+			
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

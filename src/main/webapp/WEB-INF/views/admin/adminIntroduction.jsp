@@ -16,7 +16,7 @@
 					style="color: #FF0000">*</span></label>
 				<div class="col-7" style="width: 100%">
 					<input type="text" name="title" class="form-control"
-						value="${sessionScope.listIntroductionPost[0].title }">
+						value="${listIntroductionPost[0].title }">
 				</div>
 			</div>
 			<div>
@@ -34,7 +34,7 @@
 				<!-- This container will become the editable. -->
 				<div id="editor"
 					style="width: 100%; height: 500px; border: 2px solid #0c5776;">
-					<p>${sessionScope.listIntroductionPost[0].body }</p>
+					<p>${listIntroductionPost[0].body }</p>
 				</div>
 
 				<script>

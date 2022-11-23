@@ -26,7 +26,7 @@
 						<h2
 							style="margin: 0.5em 0px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: normal; line-height: 40px; color: inherit; text-rendering: optimizelegibility; font-size: 1.4em"
 							align="center">
-							<span style="font-size: 18pt; color: #ff0000">${sessionScope.listIntroductionPost[0].title }</span>
+							<span style="font-size: 18pt; color: #ff0000">${listIntroductionPost[0].title }</span>
 						</h2>
 						<div align="left">
 							<p>
@@ -44,7 +44,7 @@
 						</div>
 						<h2
 							style="margin: 0.5em 0px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: normal; line-height: 40px; color: inherit; text-rendering: optimizelegibility; font-size: 1.4em">
-							<span style="color: #0000ff">${sessionScope.listIntroductionPost[0].body}</span>
+							<span style="color: #0000ff">${listIntroductionPost[0].body}</span>
 						</h2>
 
 

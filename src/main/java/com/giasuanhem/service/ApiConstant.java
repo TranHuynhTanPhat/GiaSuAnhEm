@@ -10,6 +10,7 @@ public class ApiConstant{
 	public static final String LIST_SALARY = "/salary_info/index";	
 	public static final String CLASS_REMOVE = "/class/remove";	
 	public static final String NEWCLASS_REMMOVE = "/new_class/remove";	
+	public static final String CATEGORY_REMMOVE = "/category/remove";	
 	public static final String SUBJECT_REMOVE = "/subject/remove";
 	public static final String TUTOR_REMOVE = "/tutor/remove";
 	public static final String CHECK_LOGIN="/login";

@@ -28,7 +28,17 @@ public class CatrgoryManagementController {
 	public ModelAndView categoryManagement(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 			
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("style", 0);
+			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("style", 1);
+			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+			
 			ModelAndView mav = new ModelAndView("admin/categoryManagement");
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -107,6 +117,20 @@ public class CatrgoryManagementController {
 	@RequestMapping(value="/deleteCategory", method=RequestMethod.GET)
 	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id) {
 		if (session.getAttribute("userName") != null) {
+			Map<String, Object> param =new HashMap<String, Object>();
+			param.put("_id", id);
+			commonService.removeCategory(param);
+			
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("style", 0);
+			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("style", 1);
+			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+			
 			return "redirect:/quanlydanhmuc";
 		} else {
 			return "redirect:/login";

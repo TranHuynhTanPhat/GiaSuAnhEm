@@ -25,9 +25,8 @@ import com.giasuanhem.service.Service.CommonService;
 public class HomeController {
 	@Autowired
 	private CommonService commonService;
-	
 
-	@RequestMapping(value = {"/trang-chu"}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
 	public ModelAndView homePage(HttpSession session) {
 
 		Map<String, Object> paramsClass = new HashMap<>();
@@ -38,38 +37,20 @@ public class HomeController {
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
-		Map<String, Object> paramsIntroduction = new HashMap<>();
-		paramsIntroduction.put("style", 0);
-		List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
+		
 
-		List<NewClassModel> listNewClass = commonService.getListNewClass();
 		
-		Map<String, Object> paramST=new HashMap<>();
-		paramST.put("style", 0);
-		List<SalaryModel> listSST=commonService.getListSalary(paramST);
-		
-		Map<String, Object> paramTE=new HashMap<>();
-		paramST.put("style", 1);
-		List<SalaryModel> listSTE=commonService.getListSalary(paramTE);
-		
+
 		List<ClassModel> listClass = commonService.getListClass();
 		List<SubjectModel> listSubject = commonService.getListSubject();
 
 		session.removeAttribute("listCategoryClass");
 		session.removeAttribute("listCategoryDistrict");
-		session.removeAttribute("listIntroductionPost");
-		session.removeAttribute("listNewClass");
-		session.removeAttribute("listSST");
-		session.removeAttribute("listSTE");
 		session.removeAttribute("listClass");
 		session.removeAttribute("listSubject");
-		
+
 		session.setAttribute("listCategoryClass", listCategoryClass);
 		session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-		session.setAttribute("listIntroductionPost", listPost);
-		session.setAttribute("listNewClass", listNewClass);
-		session.setAttribute("listSST", listSST);
-		session.setAttribute("listSTE", listSTE);
 		session.setAttribute("listClass", listClass);
 		session.setAttribute("listSubject", listSubject);
 
@@ -85,8 +66,12 @@ public class HomeController {
 
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
 	public ModelAndView instructionPage(HttpSession session) {
-
+		Map<String, Object> paramsIntroduction = new HashMap<>();
+		paramsIntroduction.put("style", 0);
+		List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
+		
 		ModelAndView mav = new ModelAndView("home/introduce");
+		mav.addObject("listIntroductionPost", listPost);
 		return mav;
 	}
 
