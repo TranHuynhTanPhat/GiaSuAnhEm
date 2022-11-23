@@ -42,8 +42,7 @@
 						<label class="col-4 control-label">Năm sinh: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-
-							</select><select name="namsinh" id="namsinh" class="form-control"
+							<select name="namsinh" id="namsinh" class="form-control"
 								style="width: 30%; float: left;">
 								<option value="0">Năm</option>
 								<option value="1952">1952</option>
@@ -165,32 +164,15 @@
 						<div class="col-7">
 							<select name="nghenghiep" id="nghenghiep" class="form-control"
 								style="width: 45%; float: left">
-<<<<<<< HEAD
-								<option value="0">Nghề nghiệp</option>
-								<option value="Giáo viên">Giáo viên</option>
-								<option value="Sinh viên">Sinh viên</option>
-								<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
-=======
+
 								<option value="Nghề nghiệp">Nghề nghiệp</option>
 								<option value="Giáo viên">Giáo viên</option>
 								<option value="Sinh viên">Sinh viên</option>
 								<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
-							</select> <select name="trinhdo" id="trinhdo" class="form-control"
-								style="width: 45%; float: right">
-								<option value="Trình độ">Trình độ</option>
-								<option value="Cao Đẳng">Cao Đẳng</option>
-								<option value="Đại Học">Đại Học</option>
-								<option value="Cử nhân">Cử nhân</option>
-								<option value="Thạc sỹ">Thạc sỹ</option>
-								<option value="Tiến sỹ">Tiến sỹ</option>
-								<option value="Kỹ sư">Kỹ sư</option>
-								<option value="Bằng cấp khác">Bằng cấp khác</option>
->>>>>>> chien
 							</select>
 						</div>
 					</div>
-					<br>
-					<br>
+					<br> <br>
 					<div class="form-group">
 						<label class="col-4 control-label">Ưu điểm: <span
 							style="color: #FF0000">*</span></label>
@@ -206,7 +188,7 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${listSubjects }">
+									<c:forEach var="item" items="${listSubject }">
 										<tr>
 											<td><label><input type="checkbox" name="monhoc"
 													id="monhoc" value="${ item._id }">${item.name}</label></td>
@@ -223,7 +205,7 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${ listClasses }">
+									<c:forEach var="item" items="${ listClass }">
 										<tr>
 											<td><label><input type="checkbox" name="lophoc"
 													id="monhoc" value="${ item._id }">${item.name}</label></td>
@@ -246,12 +228,7 @@
 													id="khuvuc" value="${ item.name }">${ item.name}</label></td>
 										</tr>
 									</c:forEach>
-									<c:forEach var="item" items="${ listlop }">
-										<tr>
-											<td><label><input type="checkbox" name="khuvuc"
-													id="khuvuc" value="${ item.name }">${item.name}</label></td>
-										</tr>
-									</c:forEach>
+
 								</tbody>
 							</table>
 						</div>

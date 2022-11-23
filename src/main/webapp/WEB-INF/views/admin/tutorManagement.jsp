@@ -82,7 +82,7 @@
 
 
 		<div>
-			<form action="createTutor" method="get">
+			<form action="./createTutor" method="get">
 				<button value=create name="create" type="submit">Thêm gia
 					sư</button>
 			</form>

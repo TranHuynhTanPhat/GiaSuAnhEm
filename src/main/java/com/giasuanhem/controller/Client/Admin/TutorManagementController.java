@@ -65,20 +65,15 @@ public class TutorManagementController {
 	@RequestMapping(value = "/createTutor", method = RequestMethod.GET)
 	public ModelAndView addTutor() {
 		if (session.getAttribute("userName") != null) {
-			List<SubjectModel> listSubjects = commonService.getListSubject();
+			List<TutorModel> list = commonService.getListTutor();
+			List<CategoryModel> listQuan = commonService.getListQuan();
 			List<ClassModel> listClass = commonService.getListClass();
-
-			Map<String, Object> paramsP = new HashMap<>();
-			paramsP.put("style", 1);
-			Map<String, Object> paramsC = new HashMap<>();
-			paramsC.put("style", 0);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsP);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsC);
+			List<SubjectModel> listSubject = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/addTutor");
-			session.setAttribute("listSubjects", listSubjects);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listClass", listClass);
+			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
 
 			return mav;
 		} else {
@@ -119,22 +114,6 @@ public class TutorManagementController {
 					subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
 					nghenghiep, uudiem);
 			commonService.createTutor(itemAdd);
-<<<<<<< HEAD
-
-			List<TutorModel> list = commonService.getListTutor();
-			Map<String, Object> paramsP = new HashMap<>();
-			paramsP.put("style", 1);
-			Map<String, Object> paramsC = new HashMap<>();
-			paramsC.put("style", 0);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsP);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsC);
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listSubject", listSubject);
-			session.setAttribute("listLop", listClass);
-
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -152,16 +131,18 @@ public class TutorManagementController {
 			TutorModel model = commonService.getTutor(param);
 			ModelAndView mav = new ModelAndView("admin/updateTutor");
 			mav.addObject("model", model);
+			List<TutorModel> list = commonService.getListTutor();
+			List<CategoryModel> listQuan = commonService.getListQuan();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
+			mav.addObject("listTutor", list);
+			mav.addObject("listQuan", listQuan);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listSubject", listSubject);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
-=======
-			return "redirect:/quanlygiasu";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "redirect:/createTutor";
->>>>>>> chien
 		}
 	}
 
@@ -203,28 +184,11 @@ public class TutorManagementController {
 						nghenghiep, trinhdo);
 
 				commonService.updateTutor(model, param);
+				return "redirect:/quanlygiasu";
 			} catch (Exception e) {
 				e.printStackTrace();
-
 				return "redirect:/quanlygiasu";
 			}
-//			model.setName(name);
-//			
-//			Map<String, Object> param = new HashMap<String, Object>();
-//			param.put("_id", id);
-//			commonService.updateCategory(model, param);
-//
-//			Map<String, Object> paramsClass = new HashMap<>();
-//			paramsClass.put("style", 0);
-//			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-//
-//			Map<String, Object> paramsDistrict = new HashMap<>();
-//			paramsDistrict.put("style", 1);
-//			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-//			session.setAttribute("listCategoryClass", listCategoryClass);
-//			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-
-			return "redirect:/quanlydanhmuc";
 		} else {
 			return "redirect:/login";
 		}

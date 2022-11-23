@@ -109,7 +109,8 @@
 						<label class="col-4 control-label">Địa chỉ: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="diachi" class="form-control" value="${model.address }">
+							<input type="text" name="diachi" class="form-control"
+								value="${model.address }">
 						</div>
 					</div>
 					<br> <br>
@@ -117,7 +118,8 @@
 						<label class="col-4 control-label">Email: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="email" class="form-control" value="${model.email }">
+							<input type="text" name="email" class="form-control"
+								value="${model.email }">
 						</div>
 					</div>
 					<br>
@@ -125,7 +127,8 @@
 						<label class="col-4 control-label">Điện thoại: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="dienthoai" class="form-control" value="${model.phone }">
+							<input type="text" name="dienthoai" class="form-control"
+								value="${model.phone }">
 						</div>
 					</div>
 
@@ -136,8 +139,8 @@
 							trường: <span style="color: #FF0000">*</span>
 						</label>
 						<div class="col-7">
-							<input type="text" name="truong" class="form-control" value="${model.school }"
-								placeholder="Ví dụ: Đại học Sư Phạm">
+							<input type="text" name="truong" class="form-control"
+								value="${model.school }" placeholder="Ví dụ: Đại học Sư Phạm">
 						</div>
 					</div>
 					<br>
@@ -156,7 +159,8 @@
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
 							<input type="text" name="namtotnghiep" id="namtotnghiep"
-								class="form-control" placeholder="Ví dụ: 2010" value="${model.graduateYear }">
+								class="form-control" placeholder="Ví dụ: 2010"
+								value="${model.graduateYear }">
 						</div>
 					</div>
 					<br>
@@ -173,8 +177,7 @@
 							</select>
 						</div>
 					</div>
-					<br>
-					<br>
+					<br> <br>
 					<div class="form-group">
 						<label class="col-4 control-label">Ưu điểm: <span
 							style="color: #FF0000">*</span></label>
@@ -190,11 +193,24 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${listSubjects }">
-										<tr>
-											<td><label><input type="checkbox" name="monhoc"
-													id="monhoc" value="${ item._id }">${item.name}</label></td>
-										</tr>
+									<c:forEach var="item" items="${listSubject }">
+										<c:forEach var="itemModel" items="${ model.subjects }">
+											<c:choose>
+												<c:when test="${itemModel._id == item._id}">
+													<tr>
+														<td><label><input type="checkbox"
+																name="monhoc" id="monhoc" value="${ item._id }" checked>${item.name}</label></td>
+													</tr>
+												</c:when>
+												<c:otherwise>
+													<tr>
+														<td><label><input type="checkbox"
+																name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
+													</tr>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+
 									</c:forEach>
 								</tbody>
 							</table>
@@ -207,7 +223,7 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${ listClasses }">
+									<c:forEach var="item" items="${ listClass}">
 										<tr>
 											<td><label><input type="checkbox" name="lophoc"
 													id="monhoc" value="${ item._id }">${item.name}</label></td>
@@ -265,7 +281,8 @@
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
 							<input type="text" name="phuongtien" id="phuongtien"
-								class="form-control" value="${model.vehicle }" style="width: 50%; float: left">
+								class="form-control" value="${model.vehicle }"
+								style="width: 50%; float: left">
 						</div>
 					</div>
 					<br>
