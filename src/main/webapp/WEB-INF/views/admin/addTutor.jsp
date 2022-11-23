@@ -166,22 +166,14 @@
 							<select name="nghenghiep" id="nghenghiep" class="form-control"
 								style="width: 45%; float: left">
 								<option value="0">Nghề nghiệp</option>
-								<option value="1">Giáo viên</option>
-								<option value="2">Sinh viên</option>
-								<option value="3">Đã tốt nghiệp</option>
-							</select> <select name="trinhdo" id="trinhdo" class="form-control"
-								style="width: 45%; float: right">
-								<option value="0">Trình độ</option>
-								<option value="1">Cao Đẳng</option>
-								<option value="2">Đại Học</option>
-								<option value="3">Cử nhân</option>
-								<option value="4">Thạc sỹ</option>
-								<option value="5">Tiến sỹ</option>
-								<option value="6">Kỹ sư</option>
-								<option value="7">Bằng cấp khác</option>
+								<option value="Giáo viên">Giáo viên</option>
+								<option value="Sinh viên">Sinh viên</option>
+								<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
 							</select>
 						</div>
 					</div>
+					<br>
+					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Ưu điểm: <span
 							style="color: #FF0000">*</span></label>
@@ -265,16 +257,7 @@
 							</select> buổi/tuần
 						</div>
 					</div>
-					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Mức lương yêu cầu: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="mucluong" id="mucluong"
-								class="form-control" value="" style="width: 50%; float: left">
-							đồng/tháng
-						</div>
-					</div>
+
 					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Phương tiện: <span
@@ -285,16 +268,7 @@
 						</div>
 					</div>
 					<br>
-					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Yêu cầu khác: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<textarea name="yeucaukhac" rows="3" class="form-control"></textarea>
-						</div>
-					</div>
-					<br>
-					<div class="form-group"></div>
+
 					<div class="form-group">
 						<div class="col-11" style="color: red">
 							* Lưu ý: Khi bạn đăng ký làm gia sư, thông tin, hình ảnh của bạn

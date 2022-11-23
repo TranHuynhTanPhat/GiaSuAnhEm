@@ -6,6 +6,7 @@ public class CategoryModel {
 	 private float style;
 	 private String createdAt;
 	 private String updatedAt;
+	 
 
 	// Getter Methods
 

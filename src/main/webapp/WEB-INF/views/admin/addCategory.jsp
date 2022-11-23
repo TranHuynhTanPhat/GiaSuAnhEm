@@ -8,35 +8,17 @@
 		<div class="panel">
 
 			<div class="panel-body" style="padding: 5px 10px">
-				<form action="" method="post" name="info_frm"
-					class="form-horizontal" onsubmit="return check_info();"
-					autocomplete="off" enctype="multipart/form-data">
+				<form action="./addCategory" method="post">
 
 
-					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Quận: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="quan" class="form-control" value="">
-						</div>
-					</div>
-					<br>
-					<div class="form-group">
-						<label class="col-4 control-label">Style: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="style" class="form-control" value="">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-4 control-label"></label>
-						<div class="col-7">
-							<input name="register" type="submit" class="input_button"
-								value="Đăng ký">
-						</div>
-					</div>
+					<br> <label class="col-4 control-label">Name: <span
+						style="color: #FF0000">*</span></label> <input type="text"
+						name="CategoryName" class="form-control" value=""> <br>
+					<label class="col-4 control-label">Style: <span
+						style="color: #FF0000">*</span></label> <input type="text" name="style"
+						class="form-control" value=""> <br> <label
+						class="col-4 control-label"></label> <input name="register"
+						type="submit" class="input_button" value="Đăng ký">
 				</form>
 				<div class="clearfix"></div>
 			</div>

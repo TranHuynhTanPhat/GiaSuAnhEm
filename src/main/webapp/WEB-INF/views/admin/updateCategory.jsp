@@ -8,35 +8,30 @@
 		<div class="panel">
 
 			<div class="panel-body" style="padding: 5px 10px">
-				<form action="" method="post" name="info_frm"
-					class="form-horizontal" onsubmit="return check_info();"
-					autocomplete="off" enctype="multipart/form-data">
+				<form action="./updateCategory" method="post" >
 
 
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Quận: <span
-							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="quan" class="form-control" value="">
-						</div>
+							<input type="hidden" name="id" class="form-control"
+								value="${category._id }" >
 					</div>
 					<br>
-					<div class="form-group">
+						<label class="col-4 control-label">Name: <span
+							style="color: #FF0000">*</span></label>
+							<input type="text" name="CategoryName" class="form-control"
+								value="${category.name }">
+					<br>
 						<label class="col-4 control-label">Style: <span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
-							<input type="text" name="style" class="form-control" value="">
-						</div>
-					</div>
+							<input type="text" name="style" class="form-control"
+								value="${category.style }" >
+					<br>
 
-					<div class="form-group">
+
 						<label class="col-4 control-label"></label>
-						<div class="col-7">
 							<input name="update" type="submit" class="input_button"
 								value="Cập nhật">
-						</div>
-					</div>
 				</form>
 				<div class="clearfix"></div>
 			</div>

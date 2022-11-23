@@ -83,6 +83,19 @@ public class CommonService {
 		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
 		String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
 	}
+	void postWithParamAndJson(String apiUrl, String jsonReq, Map<String, Object> params) {
+		String paramsSrt = "";
+		for (String key : params.keySet()) {
+
+			paramsSrt += key + "=" + params.get(key).toString() + "&";
+
+		}
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("token", "Bearer "+session.getAttribute("accessToken"));
+		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
+		String resString = restTemplate.postForObject(takeApiURL(apiUrl) + "?" + paramsSrt, requestEntity, String.class);
+	}
 
 	String getWithParams(String apiUrl, Map<String, Object> params) {
 		String paramsSrt = "";
@@ -103,6 +116,15 @@ public class CommonService {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithJson(ApiConstant.LIST_TUTOR, jsonReq);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void createCategory(CategoryModel model) throws JsonProcessingException {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithJson(ApiConstant.LIST_CATEGORY, jsonReq);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -144,7 +166,7 @@ public class CommonService {
 	public void removeCategory(Map<String, Object> params) {
 
 		try {
-			String jsonResponse = postWithParams(ApiConstant.CATEGORY_REMMOVE, params);
+			String jsonResponse = postWithParams(ApiConstant.CATEGORY_REMOVE, params);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -295,16 +317,48 @@ public class CommonService {
 	}
 
 	public CategoryModel getCategory(Map<String, Object> params) {
-		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
+		String jsonResponse = getWithParams(ApiConstant.CATEGORY_FINDID, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			CategoryModel category = objectMapper.readValue(jsonResponse, new TypeReference<CategoryModel>() {
 			});
-
 			return category;
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public TutorModel getTutor(Map<String, Object> params) {
+		String jsonResponse = getWithParams(ApiConstant.TUTOR_FINDID, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			TutorModel model = objectMapper.readValue(jsonResponse, new TypeReference<TutorModel>() {
+			});
+			return model;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public void updateCategory(CategoryModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			System.out.print(jsonReq);
+			postWithParamAndJson(ApiConstant.CATEGORY_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateTutor(TutorModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			System.out.print(jsonReq);
+			postWithParamAndJson(ApiConstant.TUTOR_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

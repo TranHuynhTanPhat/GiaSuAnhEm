@@ -6,16 +6,13 @@
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<script type="text/javascript">
-	function testConfirmDialog(){
-		var result=confirm("Bạn chắc chắn muốn xóa ?");
-		
-		if(result){
-		window.location.href="quanlygiasu";
-		}else{
-		return false;
+		function confirmDelete() {
+			var result = confirm("Bạn chắc chưa?");
+			if (result) {
+				return true;
+			} else
+				return false;
 		}
-	}
-	
 	</script>
 	<div id="page-main-Admin">
 		<div
@@ -67,7 +64,8 @@
 						<select name="quanhuyen" id="quanhuyen" class="form-control"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="0">Quận huyện</option>
-							<c:forEach var="item" items="${sessionScope.listCategoryDistrict }">
+							<c:forEach var="item"
+								items="${sessionScope.listCategoryDistrict }">
 								<option value=${item._id }>${item.name }</option>
 							</c:forEach>
 						</select>
@@ -88,42 +86,35 @@
 				<button value=create name="create" type="submit">Thêm gia
 					sư</button>
 			</form>
-			<form action="./quanlygiasu" method="post">
-				<a href="./updatetutor">
-					<button value="update" name="update" type="submit">Cập
-						nhật</button>
-				</a> <a href="./quanlygiasu">
-					<button value="delete" name="delete" id="xoa"
-						onclick="testConfirmDialog()">Xóa</button>
-				</a>
+
 		</div>
 		<table border="0" width="100%">
-			<tbody>
+			<thead>
 				<tr>
-					<td width="2%"><br></td>
-					<td><strong>MS</strong><br></td>
-					<td><strong>Tên gia sư</strong></td>
-					<td><strong>Địa chỉ</strong><br></td>
-					<td><strong>Email</strong><br></td>
-					<td><strong>Năm sinh</strong><br></td>
-					<td><strong>Giới Tính</strong><br></td>
-					<td><strong>SĐT</strong><br></td>
-					<td><strong>Nghề nghiệp</strong><br></td>
-					<td><strong>SĐT</strong><br></td>
-					<td><strong>Trường</strong><br></td>
-					<td><strong>Chuyên ngành</strong></td>
-					<td><strong>Lớp dạy</strong><br></td>
-					<td><strong>Các môn</strong><br></td>
-					<td><strong>Khu vực</strong><br></td>
-					<td><strong>Phương tiện</strong><br></td>
-					<td><strong>Số buổi</strong><br></td>
-					<td><strong>Thông tin khác</strong><br></td>
+					<th><strong>Tên gia sư</strong></th>
+					<th><strong>Địa chỉ</strong><br></th>
+					<th><strong>Email</strong><br></th>
+					<th><strong>Năm sinh</strong><br></th>
+					<th><strong>Giới Tính</strong><br></th>
+					<th><strong>SĐT</strong><br></th>
+					<th><strong>Nghề nghiệp</strong><br></th>
+					<th><strong>SĐT</strong><br></th>
+					<th><strong>Trường</strong><br></th>
+					<th><strong>Chuyên ngành</strong></th>
+					<th><strong>Lớp dạy</strong><br></th>
+					<th><strong>Các môn</strong><br></th>
+					<th><strong>Khu vực</strong><br></th>
+					<th><strong>Phương tiện</strong><br></th>
+					<th><strong>Số buổi</strong><br></th>
+					<th><strong>Thông tin khác</strong><br></th>
+
+					<th width="5%"></th>
+					<th width="5%"></th>
 				</tr>
+			</thead>
+			<tbody>
 				<c:forEach var="item" items="${ sessionScope.listTutor }">
 					<tr>
-						<td width="2%"><input type="checkbox" class="action"
-							name="remove_tutor" value=${item._id }></td>
-						<td>${item._id }</td>
 						<td>${item.name }</td>
 						<td>${item.address }</td>
 						<td>${item.email }</td>
@@ -149,39 +140,14 @@
 						<td>${item.vehicle }</td>
 						<td>${item.sobuoi }</td>
 						<td>${item.describe }</td>
+						<th><a href="updateTutor?id=${item._id}">Update</a></th>
+						<th><a href="./deleteTutor?id=${item._id }"
+							onclick="return confirmDelete()">Delete</a></th>
 					</tr>
 				</c:forEach>
-				<script language="javascript">
-									var temp = document.getElementById("xoa");
-									temp.disabled = true;
-									temp.style.color = "#000000";
-									document.addEventListener("DOMContentLoaded", function(
-											event) {
-										const elements = document
-												.getElementsByClassName("action");
-										var itemCount = elements.length
-			
-										for (let i = 0; i < elements.length; i++) {
-											elements[i].addEventListener('click',
-													()=>{
-														
-														if(elements[i].checked){
-															temp.disabled = false;
-															itemCount--;
-														} else{
-															itemCount++;
-														}
-														if (itemCount == elements.length){
-															temp.disabled = true;
-														}
-													});
-										}
-									});
-								</script>
+
 			</tbody>
 		</table>
-
-		</form>
 	</div>
 </div>
 <%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
