@@ -13,7 +13,6 @@ public class NewClassModel {
 	 private float salary;
 	 private String require;
 	 private float status;
-	 private String created_at;
 	 List < Object > categories = new ArrayList < Object > ();
 	 List < Object > classes = new ArrayList < Object > ();
 	 List < Object > subjects = new ArrayList < Object > ();
@@ -78,10 +77,6 @@ public class NewClassModel {
 	  return status;
 	 }
 
-	 public String getCreated_at() {
-	  return created_at;
-	 }
-
 	 public String getContact() {
 	  return contact;
 	 }
@@ -124,9 +119,6 @@ public class NewClassModel {
 	  this.status = status;
 	 }
 
-	 public void setCreated_at(String created_at) {
-	  this.created_at = created_at;
-	 }
 
 	 public void setContact(String contact) {
 	  this.contact = contact;

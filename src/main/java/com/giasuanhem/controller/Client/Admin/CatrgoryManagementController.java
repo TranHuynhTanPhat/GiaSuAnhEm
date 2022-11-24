@@ -47,7 +47,7 @@ public class CatrgoryManagementController {
 		}
 	}
 
-	@RequestMapping(value = "/addCategory", method = RequestMethod.GET)
+	@RequestMapping(value = "/createCategory", method = RequestMethod.GET)
 	public ModelAndView addCategory(HttpSession session) {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/addCategory");
@@ -58,13 +58,12 @@ public class CatrgoryManagementController {
 		}
 	}
 	
-	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
+	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
 	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name, @RequestParam("style") float style) throws JsonProcessingException {
 		if (session.getAttribute("userName") != null) {
 			CategoryModel model =new CategoryModel();
 			model.setName(name);
 			model.setStyle(style);
-			System.out.println(model.getName());
 			commonService.createCategory(model);
 
 			Map<String, Object> paramsClass = new HashMap<>();

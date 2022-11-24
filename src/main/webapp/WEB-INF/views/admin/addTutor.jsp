@@ -217,7 +217,7 @@
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Phân loại: <span
+						<label class="col-4 control-label">Khuc vực: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
 							<table border="0" class="tablebox">

@@ -152,10 +152,10 @@ public class TutorManagementController {
 			@RequestParam("diachi") String diachi, @RequestParam("email") String email,
 			@RequestParam("dienthoai") String sdt, @RequestParam("truong") String truong,
 			@RequestParam("chuyennganh") String chuyennghanh, @RequestParam("namtotnghiep") String namtotnghiem,
-			@RequestParam("nghenghiep") String nghenghiep, @RequestParam("trinhdo") String trinhdo,
-			@RequestParam("uudiem") String uudiem, @RequestParam("monhoc") String[] monhocs,
-			@RequestParam("lophoc") String[] lophocs, @RequestParam("khuvuc") String[] khuvucs,
-			@RequestParam("sobuoiday") String sobuoiday, @RequestParam("phuongtien") String phuongtien) {
+			@RequestParam("nghenghiep") String nghenghiep, @RequestParam("uudiem") String uudiem,
+			@RequestParam("monhoc") String[] monhocs, @RequestParam("lophoc") String[] lophocs,
+			@RequestParam("khuvuc") String[] khuvucs, @RequestParam("sobuoiday") String sobuoiday,
+			@RequestParam("phuongtien") String phuongtien) {
 		if (session.getAttribute("userName") != null) {
 			System.out.println(id);
 			try {
@@ -181,7 +181,7 @@ public class TutorManagementController {
 
 				TutorModel model = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
 						subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
-						nghenghiep, trinhdo);
+						nghenghiep, uudiem);
 
 				commonService.updateTutor(model, param);
 				return "redirect:/quanlygiasu";

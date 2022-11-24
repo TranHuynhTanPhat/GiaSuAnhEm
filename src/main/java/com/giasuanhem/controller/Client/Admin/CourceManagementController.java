@@ -1,5 +1,6 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.MapperModel;
 
@@ -27,16 +29,18 @@ public class CourceManagementController {
 	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.GET)
-	public ModelAndView courceManagement(HttpSession session) {
+	public ModelAndView courceManagement() {
 
 		if (session.getAttribute("userName") != null) {
 
 			List<NewClassModel> listNewCource = commonService.getListNewClass();
 			ModelAndView mav = new ModelAndView("admin/courceManagement");
 
-			session.removeAttribute("listNewCource");
+			session.setAttribute("listNewCource", listNewCource);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -44,31 +48,38 @@ public class CourceManagementController {
 		}
 	}
 
-	@RequestMapping(value = "/quanlykhoahoc", params = "delete", method = RequestMethod.POST)
-	public ModelAndView remove_courceManagement(HttpSession session, @RequestParam("remove_cource") String[] ids) {
+	@RequestMapping(value = "/deleteNewCource", method = RequestMethod.GET)
+	public String removeNewCource(@RequestParam("id") String id) {
 		try {
 			Map<String, Object> params = new HashMap<>();
-			for (String id : ids) {
-				params.put("_id", id);
-				commonService.removeCource(params);
-			}
+
+			params.put("_id", id);
+			commonService.removeCource(params);
 			List<NewClassModel> list = commonService.getListNewClass();
-			ModelAndView mav = new ModelAndView("admin/courceManagement");
 			session.setAttribute("listNewCource", list);
-			return mav;
+			return "redirect:/quanlykhoahoc";
 		} catch (Exception e) {
 			e.printStackTrace();
-			List<NewClassModel> list = commonService.getListNewClass();
-			ModelAndView mav = new ModelAndView("admin/courceManagement");
-			session.setAttribute("listNewCource", list);
-			return mav;
+			return "redirect:/quanlykhoahoc";
 		}
 	}
 
-	@RequestMapping(value = "/addnewcource", method = RequestMethod.POST)
-	public ModelAndView addNewCource(HttpSession session) {
+	@RequestMapping(value = "/createNewCource", method = RequestMethod.GET)
+	public ModelAndView createNewCource() {
 		if (session.getAttribute("userName") != null) {
+			Map<String, Object> paramD = new HashMap<String, Object>();
+			paramD.put("style", 0);
+			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramD);
+			Map<String, Object> paramC = new HashMap<String, Object>();
+			paramC.put("style", 1);
+			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramC);
+			List<ClassModel> listClasses = commonService.getListClass();
+			List<SubjectModel> listSubjects = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/addNewCource");
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+			mav.addObject("listCategoryClass", listCategoryClass);
+			mav.addObject("listClasses", listClasses);
+			mav.addObject("listSubjects", listSubjects);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -76,14 +87,107 @@ public class CourceManagementController {
 		}
 	}
 
-	@RequestMapping(value = "/updatenewcource", method = RequestMethod.POST)
-	public ModelAndView updateNewCource(HttpSession session) {
+	@RequestMapping(value = "/createNewCource", method = RequestMethod.POST)
+	public String createNewCource(@RequestParam("diachi") String diachi, @RequestParam("quan") String quan,
+			@RequestParam("sobuoi") float sobuoi, @RequestParam("time") String time,
+			@RequestParam("trangthai") float trangthai, @RequestParam("luong") float luong,
+			@RequestParam("category") String[] categories, @RequestParam("monhoc") String[] monhocs,
+			@RequestParam("lophoc") String[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
+			@RequestParam("lienhe") String lienhe) {
+		try {
+			List<Object> classes = new ArrayList<>();
+			List<Object> subjects = new ArrayList<>();
+			List<Object> categoriesL = new ArrayList<>();
+			for (String item : lophocs) {
+				classes.add(item);
+			}
+			for (String item : monhocs) {
+				subjects.add(item);
+
+			}
+			for (String item : categories) {
+				categoriesL.add(item);
+
+			}
+
+			NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
+					categoriesL, classes, subjects, lienhe);
+			commonService.createNewCource(model);
+			return "redirect:/quanlykhoahoc";
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			return "redirect:/quanlykhoahoc";
+		}
+	}
+
+	@RequestMapping(value = "/updateNewCource", method = RequestMethod.GET)
+	public ModelAndView updateNewCource(@RequestParam("id") String id) {
 		if (session.getAttribute("userName") != null) {
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("_id", id);
+			NewClassModel model = commonService.getNewClass(param);
+
+			Map<String, Object> paramD = new HashMap<String, Object>();
+			paramD.put("style", 0);
+			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramD);
+			Map<String, Object> paramC = new HashMap<String, Object>();
+			paramC.put("style", 1);
+			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramC);
+			List<ClassModel> listClasses = commonService.getListClass();
+			List<SubjectModel> listSubjects = commonService.getListSubject();
+
 			ModelAndView mav = new ModelAndView("admin/updateNewCource");
+			mav.addObject("model", model);
+
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+			mav.addObject("listCategoryClass", listCategoryClass);
+			mav.addObject("listClasses", listClasses);
+			mav.addObject("listSubjects", listSubjects);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/updateNewCource", method = RequestMethod.POST)
+	public String updateNewCource(@RequestParam("id") String id, @RequestParam("diachi") String diachi,
+			@RequestParam("quan") String quan, @RequestParam("sobuoi") float sobuoi, @RequestParam("time") String time,
+			@RequestParam("trangthai") float trangthai, @RequestParam("luong") float luong,
+			@RequestParam("category") String[] categories, @RequestParam("monhoc") String[] monhocs,
+			@RequestParam("lophoc") String[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
+			@RequestParam("lienhe") String lienhe) {
+		if (session.getAttribute("userName") != null) {
+			Map<String, Object> param=new HashMap<String, Object>();
+			param.put("_id", id);
+			try {
+				List<Object> classes = new ArrayList<>();
+				List<Object> subjects = new ArrayList<>();
+				List<Object> categoriesL = new ArrayList<>();
+				for (String item : lophocs) {
+					classes.add(item);
+				}
+				for (String item : monhocs) {
+					subjects.add(item);
+
+				}
+				for (String item : categories) {
+					categoriesL.add(item);
+
+				}
+
+				NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
+						categoriesL, classes, subjects, lienhe);
+				commonService.updateNewClass(model, param);
+				return "redirect:/quanlykhoahoc";
+			} catch (Exception e) {
+				e.printStackTrace();
+
+				return "redirect:/quanlykhoahoc";
+			}
+		} else {
+			return "redirect:/login";
 		}
 	}
 

@@ -129,6 +129,15 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void createNewCource(NewClassModel model) throws JsonProcessingException {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithJson(ApiConstant.LIST_NEWCLASS, jsonReq);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void removeSubject(Map<String, Object> params) {
 		try {
@@ -342,10 +351,22 @@ public class CommonService {
 		}
 	}
 	
+	public NewClassModel getNewClass(Map<String, Object> params) {
+		String jsonResponse = getWithParams(ApiConstant.NEWCLASS_FINDID, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			NewClassModel model = objectMapper.readValue(jsonResponse, new TypeReference<NewClassModel>() {
+			});
+			return model;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public void updateCategory(CategoryModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
-			System.out.print(jsonReq);
 			postWithParamAndJson(ApiConstant.CATEGORY_UPDATE, jsonReq, param);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -355,8 +376,16 @@ public class CommonService {
 	public void updateTutor(TutorModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
-			System.out.print(jsonReq);
 			postWithParamAndJson(ApiConstant.TUTOR_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateNewClass(NewClassModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithParamAndJson(ApiConstant.NEWCLASS_UPDATE, jsonReq, param);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

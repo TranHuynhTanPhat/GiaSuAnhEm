@@ -19,7 +19,7 @@
 
 		<div>
 			<div class="group-button">
-				<form action="./addCategory" method="GET">
+				<form action="./createCategory" method="GET">
 					<button value="add" type="submit">Thêm phân loại</button>
 				</form>
 
@@ -51,7 +51,7 @@
 		</div>
 		<div>
 			<div class="group-button" style="padding-top: 100px">
-				<form action="./addCategory" method="GET">
+				<form action="./createCategory" method="GET">
 					<button value="add" type="submit">Thêm phân loại</button>
 				</form>
 

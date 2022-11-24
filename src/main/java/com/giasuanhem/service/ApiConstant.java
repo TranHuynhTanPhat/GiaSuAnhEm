@@ -10,8 +10,10 @@ public class ApiConstant{
 	public static final String LIST_SALARY = "/salary_info/index";	
 	public static final String CATEGORY_FINDID="/category/id";
 	public static final String TUTOR_FINDID="/tutor/id";
+	public static final String NEWCLASS_FINDID="/new_class/id";
 	public static final String CATEGORY_UPDATE="/category/edit";
 	public static final String TUTOR_UPDATE="/tutor/edit";
+	public static final String NEWCLASS_UPDATE="/new_class/edit";
 	public static final String CLASS_REMOVE = "/class/remove";	
 	public static final String NEWCLASS_REMMOVE = "/new_class/remove";	
 	public static final String CATEGORY_REMOVE = "/category/remove";	
