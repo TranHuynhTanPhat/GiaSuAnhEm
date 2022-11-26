@@ -29,7 +29,7 @@
 				<thead>
 					<tr>
 						<th><strong>Quận</strong></th>
-						<th><strong>Style</strong></th>
+						<th width="20%"><strong>Style</strong></th>
 						<th width="5%"></th>
 						<th width="5%"></th>
 					</tr>
@@ -60,7 +60,7 @@
 				<thead>
 					<tr>
 						<th><strong>Khối</strong></th>
-						<th><strong>Style</strong></th>
+						<th width="20%"><strong>Style</strong></th>
 						<th width="5%"></th>
 						<th width="5%"></th>
 					</tr>

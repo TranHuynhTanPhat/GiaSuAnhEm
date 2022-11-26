@@ -22,9 +22,11 @@ public class SalaryManageController {
 	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
-	public ModelAndView salaryManagement(HttpSession session) {
+	public ModelAndView salaryManagement() {
 		if (session.getAttribute("userName") != null) {
 			Map<String, Object> paramST = new HashMap<>();
 			paramST.put("style", 0);
@@ -34,8 +36,8 @@ public class SalaryManageController {
 			paramTE.put("style", 1);
 			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
 			ModelAndView mav = new ModelAndView("admin/salaryManagement");
-			session.setAttribute("listSST", listSST);
-			session.setAttribute("listSTE", listSTE);
+			mav.addObject("listSST", listSST);
+			mav.addObject("listSTE", listSTE);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -43,8 +45,8 @@ public class SalaryManageController {
 		}
 	}
 
-	@RequestMapping(value = "/addsalary", method = RequestMethod.POST)
-	public ModelAndView addSalary(HttpSession session) {
+	@RequestMapping(value = "/addSalary", method = RequestMethod.POST)
+	public ModelAndView addSalary() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/addSalary");
 			return mav;
@@ -54,8 +56,8 @@ public class SalaryManageController {
 		}
 	}
 
-	@RequestMapping(value = "/updatesalary", method = RequestMethod.POST)
-	public ModelAndView updateSalary(HttpSession session) {
+	@RequestMapping(value = "/updateSalary", method = RequestMethod.POST)
+	public ModelAndView updateSalary() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/updateSalary");
 			return mav;

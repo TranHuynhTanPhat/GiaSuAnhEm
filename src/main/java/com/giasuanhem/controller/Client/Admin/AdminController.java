@@ -31,18 +31,29 @@ public class AdminController {
 	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public ModelAndView adminPage(HttpSession session) {
+	public ModelAndView adminPage() {
 		if (session.getAttribute("userName") != null) {
 			List<ClassModel> listClass = commonService.getListClass();
-			session.setAttribute("listClass", listClass);
+
 			List<SubjectModel> listSubject = commonService.getListSubject();
-			session.setAttribute("listSubject", listSubject);
+
 			Map<String, Object> paramsDistrict = new HashMap<>();
 			paramsDistrict.put("style", 1);
 			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsDistrict.put("style", 0);
+			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+
+			session.setAttribute("listSubject", listSubject);
+			session.setAttribute("listClass", listClass);
 			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+			session.setAttribute("listCategoryClass", listCategoryClass);
+
 			ModelAndView mav = new ModelAndView("admin/adminhome");
 			return mav;
 		} else {
@@ -52,38 +63,54 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
-	public ModelAndView adminIntroduction(HttpSession session) {
+	public ModelAndView adminIntroduction() {
 
 		if (session.getAttribute("userName") != null) {
 
 			Map<String, Object> params = new HashMap<>();
-			params.put("style", 0);
+			params.put("style", 1);
 			List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
-			
+
 			ModelAndView mav = new ModelAndView("admin/adminIntroduction");
 			mav.addObject("listIntroductionPost", listIntroductionPost);
+
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/uploadIntroduction", method = RequestMethod.POST)
+	public String uploadIntroduction(@RequestParam("id") String id, @RequestParam("title") String title,
+			@RequestParam("content") String content) {
+		if (session.getAttribute("userName") != null) {
+			System.out.println(content);
+			System.out.println(title);
+			PostModel model = new PostModel();
+			model.setTitle(title);
+			model.setBody(content);
+
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("_id", id);
+			commonService.updatePost(model, param);
+
+			return "redirect:/admin-introduction";
+		} else {
+			return "redirect:/login";
 		}
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(HttpSession session) {
-		session.removeAttribute("username");
+	public ModelAndView login() {
+		session.removeAttribute("userName");
 		session.removeAttribute("password");
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/adminhome");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
+		ModelAndView mav = new ModelAndView("admin/login");
+		return mav;
 	}
 
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(HttpSession session, @RequestParam("username") String username, @RequestParam("password") String password) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("userName", username);
 		params.put("password", password);
@@ -93,75 +120,16 @@ public class AdminController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.setAttribute("errorMessage", e.getMessage());
-			return "admin/login";
+			return "redirect:/login";
 		}
 	}
-	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public ModelAndView login(HttpSession session, @RequestParam("username") String username,
-//			@RequestParam("password") String password) {
-//		Map<String, Object> params = new HashMap<>();
-//		params.put("userName", username);
-//		params.put("password", password);
-//		try {
-//			commonService.checkLogin(params, session);
-//			ModelAndView mav = new ModelAndView("admin/adminhome");
-//			return mav;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			ModelAndView mav = new ModelAndView("admin/login");
-//			mav.addObject("errorMessage", "Bạn nhập sai");
-//			return mav;
-//		}
-//
-//	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String logoutAdmin(HttpSession session) {
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutAdmin() {
 		session.removeAttribute("userName");
 		session.removeAttribute("password");
-		session.invalidate();
 		return "redirect:/login";
 
 	}
 
-	@RequestMapping(value = "/quanlytuyendung", method = RequestMethod.GET)
-	public ModelAndView recruitmentManagement(HttpSession session) {
-		if (session.getAttribute("userName") != null) {
-
-			Map<String, Object> paramsRecruit = new HashMap<>();
-			paramsRecruit.put("style", 0);
-			List<PostModel> listRecruitPost = commonService.getListPostWithParams(paramsRecruit);
-			
-			ModelAndView mav = new ModelAndView("admin/recruitmentManagement");
-			mav.addObject("listRecruitPost", listRecruitPost);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/quanlyphigiasu", method = RequestMethod.GET)
-	public ModelAndView feeTutorManagement(HttpSession session) {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/feeTutorManagement");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-
-	}
-
-	@RequestMapping(value = "/quanlylienhe", method = RequestMethod.GET)
-	public ModelAndView contactManagement(HttpSession session) {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/contactManagement");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-	}
 }

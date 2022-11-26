@@ -15,60 +15,60 @@
 
 					<br>
 					<div class="form-group" style="float: left">
-						<label class="col-4 control-label">Grade: <span
+						<label class="col-11 control-label">Grade: <span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
+						<div class="col-11">
 							<input type="text" name="grade" class="form-control" value="">
 						</div>
 					</div>
 					<div class="form-group" style="float: right">
-						<label class="col-4 control-label">styleTeacher:<span
+						<label class="col-11 control-label">styleTeacher:<span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
+						<div class="col-11">
 							<input type="text" name="styleTeacher" class="form-control"
 								value="">
 						</div>
 					</div>
 					<br>
 					<div class="form-group" style="float:left">
-						<label class="col-4 control-label">twosession: <span
+						<label class="col-11 control-label">twosession: <span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
+						<div class="col-11">
 							<input type="text" name="twosession" class="form-control"
 								value="">
 						</div>
 					</div>
 					<br>
 					<div class="form-group"style="float:right">
-						<label class="col-4 control-label">threesession: <span
+						<label class="col-11 control-label">threesession: <span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
+						<div class="col-11">
 							<input type="text" name="threesesion" class="form-control"
 								value="">
 						</div>
 					</div>
 					<br>
 					<div class="form-group"style="float:left">
-						<label class="col-4 control-label">foursession: <span
+						<label class="col-11 control-label">foursession: <span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
+						<div class="col-11">
 							<input type="text" name="foursession" class="form-control"
 								value="">
 						</div>
 					</div>
 					<br>
 					<div class="form-group"style="float:right">
-						<label class="col-4 control-label">fivesession: <span
+						<label class="col-11 control-label">fivesession: <span
 							style="color: #FF0000">*</span></label>
-						<div class="col-7">
+						<div class="col-11">
 							<input type="text" name="fivesession" class="form-control"
 								value="">
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-4 control-label"></label>
-						<div class="col-7">
+						<label class="col-11 control-label"></label>
+						<div class="col-11">
 							<input name="register" type="submit" class="input_button"
 								value="Đăng ký">
 						</div>

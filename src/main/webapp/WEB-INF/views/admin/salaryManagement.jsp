@@ -12,88 +12,69 @@
 					<strong><span style="font-size: 14px;"><span>BẢNG
 								HỌC PHÍ 2 BUỔI 1 TUẦN VÀ 3 BUỔI 1 TUẦN</span></span></strong>
 				</p>
+				<div class="group-button"
+					style="padding-bottom: 5px; text-align: left;">
+					<form action="./addSalary" method="POST">
+						<button value="add" type="submit">Thêm mức học phí</button>
+					</form>
+				</div>
 				<table border="0" cellpadding="5" width="100%">
-					<tbody>
+					<thead>
 						<tr>
-							<td rowspan="2" width="2%"></td>
 							<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
 										LỚP</strong></span></td>
 							<td colspan="4" style="text-align: center"><strong>
 									Sinh viên</strong></td>
+
 						</tr>
 						<tr>
 							<td><span><strong>2 buổi 1 tuần</strong></span></td>
+
 							<td><span style="color: rgb(255, 0, 0);"><strong>3
 										buổi 1 tuần</strong></span></td>
+
 							<td><span><strong>4 buổi 1 tuần</strong></span></td>
+
 							<td><span style="color: rgb(255, 0, 0);"><strong>5
 										buổi 1 tuần</strong></span></td>
+							<th width="5%"></th>
+							<th width="5%"></th>
 
 						</tr>
+					</thead>
+					<tbody>
 						<c:forEach var="item" items="${listSST }">
 							<tr>
-								<td><input type="checkbox" class="action" name="checked"
-									value="${item._id }"></td>
 								<td>${item.grade }</td>
 								<td>${item.twoSessions }</td>
 								<td>${item.threeSessions }</td>
 								<td>${item.fourSessions }</td>
 								<td>${item.fiveSessions }</td>
+								<th><a href="./updateSalary?id=${item._id}">Update</a></th>
+								<th><a href="./deleteSalary?id=${item._id }"
+									onclick="return confirmDelete()">Delete</a></th>
 							</tr>
 						</c:forEach>
-						
+
 					</tbody>
 				</table>
-				<div class="group-button" style="padding-bottom: 100px">
-					<form action="./addsalary" method="POST">
-						<button value="add" type="submit">Thêm</button>
-					</form>
-					<form action="./updatesalary" method="post">
-						<button name="update" type="submit">Cập nhật</button>
-					</form>
-
-					<button value="1" name="delete" id="xoa" type="button">Xóa</button>
-					<script language="javascript">
-
-
-						var temp = document.getElementById("xoa");
-						temp.disabled = true;
-						temp.style.color = "#000000";
-						document.addEventListener("DOMContentLoaded", function(
-								event) {
-							const elements = document
-									.getElementsByClassName("action");
-							var itemCount = elements.length
-
-							for (let i = 0; i < elements.length; i++) {
-								elements[i].addEventListener('click',
-										()=>{
-											
-											if(elements[i].checked){
-												temp.disabled = false;
-												itemCount--;
-											} else{
-												itemCount++;
-											}
-											if (itemCount == elements.length){
-												temp.disabled = true;
-											}
-										});
-							}
-						});
-					</script>
-				</div>
+				<div class="group-button"
+					style="padding-bottom: 100px; text-align: left;"></div>
 				<p>
 					<strong><span style="font-size: 14px;"><span>BẢNG
 								HỌC PHÍ 4 BUỔI 1 TUẦN VÀ 5 BUỔI 1 TUẦN</span></span></strong>
 				</p>
 
-
+				<div class="group-button"
+					style="padding-bottom: 5px; text-align: left;">
+					<form action="./addSalary" method="POST">
+						<button value="add" type="submit">Thêm mức học phí</button>
+					</form>
+				</div>
 
 				<table border="0" cellpadding="5" height="178" width="100%">
-					<tbody>
+					<thead>
 						<tr>
-							<td rowspan="2" width="2%"></td>
 							<td rowspan="2"><span style="color: rgb(255, 0, 0);"><strong>KHỐI
 										LỚP</strong></span></td>
 							<td colspan="4" style="text-align: center"><strong>
@@ -106,61 +87,28 @@
 							<td><span><strong>4 buổi 1 tuần</strong></span></td>
 							<td><span style="color: rgb(255, 0, 0);"><strong>5
 										buổi 1 tuần</strong></span></td>
-
+							<th width="5%"></th>
+							<th width="5%"></th>
 						</tr>
+					</thead>
+					<tbody>
 						<c:forEach var="item" items="${listSST }">
 							<tr>
-								<td><input type="checkbox" class="action1" name="checked"
-									value="${item._id }"></td>
 								<td>${item.grade }</td>
 								<td>${item.twoSessions }</td>
 								<td>${item.threeSessions }</td>
 								<td>${item.fourSessions }</td>
 								<td>${item.fiveSessions }</td>
+								<th><a href="./updateSalary?id=${item._id}">Update</a></th>
+								<th><a href="./deleteSalary?id=${item._id }"
+									onclick="return confirmDelete()">Delete</a></th>
 							</tr>
 						</c:forEach>
-						
+
 					</tbody>
 				</table>
-				<div class="group-button" style="padding-bottom: 100px">
-					<form action="./addsalary" method="POST">
-						<button value="add" type="submit">Thêm</button>
-					</form>
-					<form action="./updatesalary" method="post">
-						<button name="update" type="submit">Cập nhật</button>
-					</form>
-
-					<button value="1" name="delete" id="xoa1" type="button">Xóa</button>
-					<script language="javascript">
-
-
-						var temp1 = document.getElementById("xoa1");
-						temp1.disabled = true;
-						temp1.style.color = "#000000";
-						document.addEventListener("DOMContentLoaded", function(
-								event) {
-							const elements = document
-									.getElementsByClassName("action1");
-							var itemCount = elements.length
-
-							for (let i = 0; i < elements.length; i++) {
-								elements[i].addEventListener('click',
-										()=>{
-											
-											if(elements[i].checked){
-												temp1.disabled = false;
-												itemCount--;
-											} else{
-												itemCount++;
-											}
-											if (itemCount == elements.length){
-												temp1.disabled = true;
-											}
-										});
-							}
-						});
-					</script>
-				</div>
+				<div class="group-button"
+					style="padding-bottom: 100px; text-align: left;"></div>
 				<div style="box-sizing: inherit; text-align: justify;">
 					<span style="color: rgb(255, 0, 0); font-size: 14px;">*Đối
 						với gia sư là giáo viên có thâm niên, thạc sỹ, giáo viên dạy tại

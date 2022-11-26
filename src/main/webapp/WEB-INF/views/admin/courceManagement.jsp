@@ -77,13 +77,12 @@
 						<th><strong>Yêu cầu</strong></th>
 						<th><strong>Liên hệ</strong><br></th>
 						<th><strong>Trạng thái</strong></th>
-
 						<th width="5%"></th>
 						<th width="5%"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="item" items="${sessionScope.listNewCource }">
+					<c:forEach var="item" items="${listNewCource }">
 						<tr>
 
 							<td><c:forEach var="cl" items="${item.classes }">

@@ -24,9 +24,11 @@ public class CatrgoryManagementController {
 	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
-	public ModelAndView categoryManagement(HttpSession session) {
+	public ModelAndView categoryManagement() {
 		if (session.getAttribute("userName") != null) {
 
 			Map<String, Object> paramsClass = new HashMap<>();
@@ -37,9 +39,10 @@ public class CatrgoryManagementController {
 			paramsDistrict.put("style", 1);
 			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
-			ModelAndView mav = new ModelAndView("admin/categoryManagement");
 			session.setAttribute("listCategoryClass", listCategoryClass);
 			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+
+			ModelAndView mav = new ModelAndView("admin/categoryManagement");
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -48,7 +51,7 @@ public class CatrgoryManagementController {
 	}
 
 	@RequestMapping(value = "/createCategory", method = RequestMethod.GET)
-	public ModelAndView addCategory(HttpSession session) {
+	public ModelAndView addCategory() {
 		if (session.getAttribute("userName") != null) {
 			ModelAndView mav = new ModelAndView("admin/addCategory");
 			return mav;
@@ -57,26 +60,15 @@ public class CatrgoryManagementController {
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
-	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name, @RequestParam("style") float style) throws JsonProcessingException {
+	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name,
+			@RequestParam("style") float style) throws JsonProcessingException {
 		if (session.getAttribute("userName") != null) {
-			CategoryModel model =new CategoryModel();
+			CategoryModel model = new CategoryModel();
 			model.setName(name);
 			model.setStyle(style);
 			commonService.createCategory(model);
-
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			
-			
 			return "redirect:/quanlydanhmuc";
 		} else {
 			return "redirect:/login";
@@ -90,6 +82,7 @@ public class CatrgoryManagementController {
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("_id", id);
 			CategoryModel category = commonService.getCategory(param);
+
 			ModelAndView mav = new ModelAndView("admin/updateCategory");
 			mav.addObject("category", category);
 			return mav;
@@ -100,25 +93,16 @@ public class CatrgoryManagementController {
 	}
 
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
-	public String updateCategory(HttpSession session,@RequestParam("id") String id, @RequestParam("CategoryName") String name, @RequestParam("style") float style) {
+	public String updateCategory(HttpSession session, @RequestParam("id") String id,
+			@RequestParam("CategoryName") String name, @RequestParam("style") float style) {
 		if (session.getAttribute("userName") != null) {
 			CategoryModel model = new CategoryModel();
 			model.setName(name);
 			model.setStyle(style);
-			
+
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("_id", id);
 			commonService.updateCategory(model, param);
-
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
 			return "redirect:/quanlydanhmuc";
 		} else {
@@ -126,34 +110,23 @@ public class CatrgoryManagementController {
 		}
 	}
 
-	@RequestMapping(value = "/addCategoryClass", method = RequestMethod.POST)
-	public ModelAndView addCategoryClass(HttpSession session) {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addCategoryClass");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-	}
+//	@RequestMapping(value = "/addCategoryClass", method = RequestMethod.POST)
+//	public ModelAndView addCategoryClass(HttpSession session) {
+//		if (session.getAttribute("userName") != null) {
+//			ModelAndView mav = new ModelAndView("admin/addCategoryClass");
+//			return mav;
+//		} else {
+//			ModelAndView mav = new ModelAndView("admin/login");
+//			return mav;
+//		}
+//	}
 
-	
 	@RequestMapping(value = "/deleteCategory", method = RequestMethod.GET)
 	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id) {
 		if (session.getAttribute("userName") != null) {
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("_id", id);
 			commonService.removeCategory(param);
-
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
 			return "redirect:/quanlydanhmuc";
 		} else {

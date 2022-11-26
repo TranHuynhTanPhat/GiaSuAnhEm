@@ -37,17 +37,13 @@ public class HomeController {
 		paramsDistrict.put("style", 1);
 		List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
-		
-
-		
-
 		List<ClassModel> listClass = commonService.getListClass();
 		List<SubjectModel> listSubject = commonService.getListSubject();
-
-		session.removeAttribute("listCategoryClass");
-		session.removeAttribute("listCategoryDistrict");
-		session.removeAttribute("listClass");
-		session.removeAttribute("listSubject");
+//
+//		session.removeAttribute("listCategoryClass");
+//		session.removeAttribute("listCategoryDistrict");
+//		session.removeAttribute("listClass");
+//		session.removeAttribute("listSubject");
 
 		session.setAttribute("listCategoryClass", listCategoryClass);
 		session.setAttribute("listCategoryDistrict", listCategoryDistrict);
@@ -67,9 +63,9 @@ public class HomeController {
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
 	public ModelAndView instructionPage(HttpSession session) {
 		Map<String, Object> paramsIntroduction = new HashMap<>();
-		paramsIntroduction.put("style", 0);
+		paramsIntroduction.put("style", 1);
 		List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
-		
+
 		ModelAndView mav = new ModelAndView("home/introduce");
 		mav.addObject("listIntroductionPost", listPost);
 		return mav;
@@ -77,8 +73,12 @@ public class HomeController {
 
 	@RequestMapping(value = "/tuyen-dung", method = RequestMethod.GET)
 	public ModelAndView recruitPage() {
+		Map<String, Object> paramsIntroduction = new HashMap<>();
+		paramsIntroduction.put("style", 0);
+		List<PostModel> listRecruitment = commonService.getListPostWithParams(paramsIntroduction);
 
 		ModelAndView mav = new ModelAndView("home/recruit");
+		mav.addObject("listRecruitment", listRecruitment);
 		return mav;
 	}
 

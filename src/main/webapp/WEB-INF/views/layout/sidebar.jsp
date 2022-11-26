@@ -3,7 +3,7 @@
 
 <div id="sidebar">
     <ul class="danhmuc">
-        <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Lớp cần gia sư</span></h3>
+        <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Phân loại lớp theo khối</span></h3>
 		<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
 			<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
 		</c:forEach>

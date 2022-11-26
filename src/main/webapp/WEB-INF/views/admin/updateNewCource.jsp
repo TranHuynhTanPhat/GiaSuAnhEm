@@ -12,25 +12,25 @@
 
 					<input type="hidden" name="id" value="${model._id }"> <br>
 					<div class="form-group">
-						<label class="col-4 control-label">Địa chỉ hiện tại: <span
+						<label class="col-7 control-label">Địa chỉ hiện tại: <span
 							style="color: #FF0000">*</span></label> <input type="text" name="diachi"
 							class="form-control" value="${model.address }">
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Quận: <span
+						<label class="col-7 control-label">Quận: <span
 							style="color: #FF0000">*</span></label> <input type="text" name="quan"
 							class="form-control" value="${model.district }">
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Số buổi: <span
+						<label class="col-7 control-label">Số buổi: <span
 							style="color: #FF0000">*</span></label> <input type="text" name="sobuoi"
 							class="form-control" value="${model.sobuoi }">
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Thời gian: <span
+						<label class="col-7 control-label">Thời gian: <span
 							style="color: #FF0000">*</span></label> <input type="text" name="time"
 							class="form-control" value="${model.time }">
 					</div>
@@ -54,7 +54,7 @@
 					</div>
 					<br> <br>
 					<div class="form-group">
-						<label class="col-4 control-label">Lương: <span
+						<label class="col-7 control-label">Lương: <span
 							style="color: #FF0000">*</span></label> <input type="text" name="luong"
 							class="form-control" value="${model.salary }">
 					</div>
@@ -63,11 +63,12 @@
 
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Category: <span
+						<label class="col-7 control-label">Category: <span
 							style="color: #FF0000">*</span></label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${listCategoryDistrict }">
+								<c:forEach var="item"
+									items="${sessionScope.listCategoryDistrict }">
 									<c:choose>
 										<c:when test="${fn:contains(model.categories, item.name)}">
 											<tr>
@@ -85,7 +86,7 @@
 									</c:choose>
 
 								</c:forEach>
-								<c:forEach var="item" items="${listCategoryClass }">
+								<c:forEach var="item" items="${sessionScope.listCategoryClass }">
 									<c:choose>
 										<c:when test="${fn:contains(model.categories, item.name)}">
 											<tr>
@@ -106,11 +107,11 @@
 						</table>
 					</div>
 					<div class="form-group">
-						<label class="col-4 control-label">Môn dạy: <span
+						<label class="col-7 control-label">Môn dạy: <span
 							style="color: #FF0000">*</span></label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${listSubjects }">
+								<c:forEach var="item" items="${sessionScope.listSubject }">
 									<c:choose>
 										<c:when test="${fn:contains(model.subjects, item.name)}">
 											<tr>
@@ -132,11 +133,11 @@
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Lớp dạy: <span
+						<label class="col-7 control-label">Lớp dạy: <span
 							style="color: #FF0000">*</span></label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${ listClasses}">
+								<c:forEach var="item" items="${ sessionScope.listClass}">
 									<c:choose>
 										<c:when test="${fn:contains(model.classes, item.name)}">
 											<tr>
@@ -160,22 +161,24 @@
 
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Yêu cầu khác: <span
-							style="color: #FF0000">*</span></label>
-						<textarea name="yeucaukhac" rows="3" class="form-control">${model.require }</textarea>
+						<label class="col-7 control-label">Yêu cầu khác: <span
+							style="color: #FF0000">*</span></label> <input type="text"
+							name="yeucaukhac" class="form-control" value="${model.require }">
 					</div>
 					<br>
 					<div class="form-group">
-						<label class="col-4 control-label">Liên hệ: <span
-							style="color: #FF0000">*</span></label>
-						<textarea name="lienhe" rows="3" class="form-control">${model.contact }</textarea>
+						<label class="col-7 control-label">Liên hệ: <span
+							style="color: #FF0000">*</span></label> <input type="text" name="lienhe"
+							class="form-control" value="${model.contact }">
 
 					</div>
 					<br>
 
 					<div class="form-group">
-						<label class="col-4 control-label"></label> <input name="update"
-							type="submit" class="input_button" value="Cập nhật">
+						<div class="col-11">
+							<input name="update" type="submit" class="input_button"
+								value="Cập nhật">
+						</div>
 					</div>
 				</form>
 				<div class="clearfix"></div>

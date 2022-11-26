@@ -8,7 +8,7 @@
 		<div class="panel">
 
 			<div class="panel-body" style="padding: 5px 10px">
-				<form action="${pageContext.request.contextPath }/addsubject" method="post" name="info_frm"
+				<form action="${pageContext.request.contextPath }/addSubject" method="post" name="info_frm"
 					class="form-horizontal" onsubmit="">
 					
 

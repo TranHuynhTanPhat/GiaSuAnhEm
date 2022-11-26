@@ -32,30 +32,11 @@ public class ClassManagementController {
 		if (session.getAttribute("userName") != null) {
 			List<ClassModel> listClass = commonService.getListClass();
 			session.setAttribute("listClass", listClass);
+			
 			ModelAndView mav = new ModelAndView("admin/classManagement");
-
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
-			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/quanlylophoc", params = "delete", method = RequestMethod.POST)
-	public ModelAndView remove_classManagement(HttpSession session, @RequestParam("remove_class") String[] ids) {
-		try {
-			Map<String, Object> params = new HashMap<>();
-			for (String id : ids) {
-				params.put("_id", id);
-				commonService.removeClass(params);
-			}
-			List<ClassModel> list = commonService.getListClass();
-			ModelAndView mav = new ModelAndView("admin/classManagement");
-			session.setAttribute("listClass", list);
-			return mav;
-		} catch (Exception e) {
-			e.printStackTrace();
-			ModelAndView mav = new ModelAndView("admin/classManagement");
 			return mav;
 		}
 	}
@@ -91,6 +72,7 @@ public class ClassManagementController {
 			ClassModel Class = commonService.getClass(param);
 			ModelAndView mav = new ModelAndView("admin/updateClass");
 			mav.addObject("Class", Class);
+			
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -99,34 +81,31 @@ public class ClassManagementController {
 	}
 
 	@RequestMapping(value = "/updateClass", method = RequestMethod.POST)
-	public String updateClass(@RequestParam("id") String id, @RequestParam("tenlop") String tenlop) { 
-		if(session.getAttribute("userName") != null) { 
+	public String updateClass(@RequestParam("id") String id, @RequestParam("tenlop") String tenlop) {
+		if (session.getAttribute("userName") != null) {
 			try {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
-
 				ClassModel Class = commonModel.mapClass(tenlop);
-
 				commonService.updateClass(Class, param);
+				
 				return "redirect:/quanlylophoc";
-			}catch(Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 				return "redirect:quanlylophoc";
 			}
-		}else { 
-			return "redirect:/login"; 
-		} 
+		} else {
+			return "redirect:/login";
+		}
 	}
-	 
+
 	@RequestMapping(value = "/deleteClass", method = RequestMethod.GET)
 	public String deleteClass(@RequestParam("id") String id) {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
 			commonService.removeClass(params);
-			List<ClassModel> list = commonService.getListClass();
-
-			session.setAttribute("listClass", list);
+			
 			return "redirect:/quanlylophoc";
 		} catch (Exception e) {
 			e.printStackTrace();

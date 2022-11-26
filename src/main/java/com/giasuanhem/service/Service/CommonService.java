@@ -67,7 +67,7 @@ public class CommonService {
 		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		headers.set("token", "Bearer "+session.getAttribute("accessToken"));
+		headers.set("token", "Bearer " + session.getAttribute("accessToken"));
 
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
@@ -79,10 +79,11 @@ public class CommonService {
 	void postWithJson(String apiUrl, String jsonReq) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.set("token", "Bearer "+session.getAttribute("accessToken"));
+		headers.set("token", "Bearer " + session.getAttribute("accessToken"));
 		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
 		String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
 	}
+
 	void postWithParamAndJson(String apiUrl, String jsonReq, Map<String, Object> params) {
 		String paramsSrt = "";
 		for (String key : params.keySet()) {
@@ -92,9 +93,10 @@ public class CommonService {
 		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.set("token", "Bearer "+session.getAttribute("accessToken"));
+		headers.set("token", "Bearer " + session.getAttribute("accessToken"));
 		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
-		String resString = restTemplate.postForObject(takeApiURL(apiUrl) + "?" + paramsSrt, requestEntity, String.class);
+		String resString = restTemplate.postForObject(takeApiURL(apiUrl) + "?" + paramsSrt, requestEntity,
+				String.class);
 	}
 
 	String getWithParams(String apiUrl, Map<String, Object> params) {
@@ -120,7 +122,7 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void createCategory(CategoryModel model) throws JsonProcessingException {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -129,7 +131,7 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void createNewCource(NewClassModel model) throws JsonProcessingException {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -138,21 +140,30 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
-	public void createClass(ClassModel model) throws JsonProcessingException{
+
+	public void createClass(ClassModel model) throws JsonProcessingException {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithJson(ApiConstant.LIST_CLASS, jsonReq);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void createSubject(SubjectModel model) throws JsonProcessingException{
+
+	public void createSubject(SubjectModel model) throws JsonProcessingException {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithJson(ApiConstant.LIST_SUBJECT, jsonReq);
-		}catch(Exception e) {
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void createRecruitment(PostModel model) throws JsonProcessingException {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithJson(ApiConstant.LIST_POST, jsonReq);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -199,9 +210,19 @@ public class CommonService {
 		}
 	}
 
+	public void removePost(Map<String, Object> params) {
+
+		try {
+			String jsonResponse = postWithParams(ApiConstant.POST_REMOVE, params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public List<TutorModel> getListTutor() {
 		String jsonResponse = get(ApiConstant.LIST_TUTOR);
 		ObjectMapper objectMapper = new ObjectMapper();
+		System.out.println(jsonResponse);
 		try {
 			List<TutorModel> listTutorModels = objectMapper.readValue(jsonResponse,
 					new TypeReference<List<TutorModel>>() {
@@ -298,6 +319,7 @@ public class CommonService {
 
 	public List<PostModel> getListPostWithParams(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.LIST_POST, params);
+		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
@@ -355,7 +377,7 @@ public class CommonService {
 			return null;
 		}
 	}
-	
+
 	public TutorModel getTutor(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.TUTOR_FINDID, params);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -368,7 +390,7 @@ public class CommonService {
 			return null;
 		}
 	}
-	
+
 	public ClassModel getClass(Map<String, Object> param) {
 		String jsonResponse = getWithParams(ApiConstant.CLASS_FINDID, param);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -376,12 +398,12 @@ public class CommonService {
 			ClassModel model = objectMapper.readValue(jsonResponse, new TypeReference<ClassModel>() {
 			});
 			return model;
-		} catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	public SubjectModel getSubject(Map<String, Object> param) {
 		String jsonResponse = getWithParams(ApiConstant.SUBJECT_FINDID, param);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -389,12 +411,12 @@ public class CommonService {
 			SubjectModel model = objectMapper.readValue(jsonResponse, new TypeReference<SubjectModel>() {
 			});
 			return model;
-		} catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	public NewClassModel getNewClass(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.NEWCLASS_FINDID, params);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -407,7 +429,20 @@ public class CommonService {
 			return null;
 		}
 	}
-	
+
+	public PostModel getPost(Map<String, Object> params) {
+		String jsonResponse = getWithParams(ApiConstant.POST_FINDID, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			PostModel model = objectMapper.readValue(jsonResponse, new TypeReference<PostModel>() {
+			});
+			return model;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public void updateCategory(CategoryModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -416,7 +451,7 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateTutor(TutorModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -425,7 +460,7 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateClass(ClassModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -434,21 +469,29 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateSubject(SubjectModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
-			System.out.println(jsonReq);
 			postWithParamAndJson(ApiConstant.SUBJECT_UPDATE, jsonReq, param);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateNewClass(NewClassModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithParamAndJson(ApiConstant.NEWCLASS_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void updatePost(PostModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithParamAndJson(ApiConstant.POST_UPDATE, jsonReq, param);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -467,7 +510,7 @@ public class CommonService {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 	}
 
 }

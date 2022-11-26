@@ -3,8 +3,9 @@
 
 <div id="sidebarAdmin">
 	<ul class="danhmucAdmin">
-		<h3 class="jsn-moduletitle">
-			<span class="jsn-moduleiconAdmin">ADMIN</span>
+		<h3>
+			<a href="admin" title="Thống kê"><span
+				class="jsn-moduleiconAdmin">ADMIN</span></a>
 		</h3>
 		<li><a href="admin" title="Thống kê">Thống kê</a></li>
 		<li><a href="admin-introduction" title="Giới thiệu">Giới
@@ -16,16 +17,15 @@
 		<li><a href="quanlyluong" title="Quản lý bảng lương">Quản lý
 				bảng lương</a></li>
 		<li><a href="quanlytuyendung" title="Tuyển dụng">Tuyển dụng</a></li>
-		<li><a href="quanlyphigiasu" title="Mức phí gia sư">Mức phí
-				gia sư</a></li>
+
 		<li><a href="quanlylophoc" title="Quản lý lớp học">Quản lý
 				lớp học</a></li>
 		<li><a href="quanlymonhoc" title="Quản lý môn học">Quản lý
 				môn học</a></li>
 		<li><a href="quanlydanhmuc" title="Quản lý danh mục">Quản lý
 				danh mục</a></li>
-		<li><a href="quanlylienhe" title="Liên hệ">Liên hệ</a></li>
-		<li><form action="./logout" method="POST">
+
+		<li><form action="./logout" method="GET">
 				<div id="Button ">
 					<button value="logout" type="submit">Đăng xuất</button>
 				</div>

@@ -34,10 +34,10 @@ public class TutorManagementController {
 	public ModelAndView tutorManagement() {
 		if (session.getAttribute("userName") != null) {
 			List<TutorModel> listTutor = commonService.getListTutor();
-			session.setAttribute("listTutor", listTutor);
-			List<ClassModel> listClass = commonService.getListClass();
-			session.setAttribute("listClass", listClass);
+
 			ModelAndView mav = new ModelAndView("admin/tutorManagement");
+
+			mav.addObject("listTutor", listTutor);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -51,13 +51,10 @@ public class TutorManagementController {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
 			commonService.removeTutor(params);
-			List<TutorModel> list = commonService.getListTutor();
 
-			session.setAttribute("listTutor", list);
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
 			e.printStackTrace();
-
 			return "redirect:/quanlygiasu";
 		}
 	}
@@ -65,16 +62,7 @@ public class TutorManagementController {
 	@RequestMapping(value = "/createTutor", method = RequestMethod.GET)
 	public ModelAndView addTutor() {
 		if (session.getAttribute("userName") != null) {
-			List<TutorModel> list = commonService.getListTutor();
-			List<CategoryModel> listQuan = commonService.getListQuan();
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
 			ModelAndView mav = new ModelAndView("admin/addTutor");
-			mav.addObject("listTutor", list);
-			mav.addObject("listQuan", listQuan);
-			mav.addObject("listClass", listClass);
-			mav.addObject("listSubject", listSubject);
-
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -95,25 +83,23 @@ public class TutorManagementController {
 			List<Object> classes = new ArrayList<>();
 			List<Object> subjects = new ArrayList<>();
 			List<Object> teachAreas = new ArrayList<>();
-			for (String item : monhocs) {
-				classes.add(item);
-				System.out.println(item);
-			}
 			for (String item : lophocs) {
+				classes.add(item);
+			}
+			for (String item : monhocs) {
 				subjects.add(item);
-				System.out.println(item);
 
 			}
 			for (String item : khuvucs) {
 				teachAreas.add(item);
-				System.out.println(item);
 
 			}
 
-			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
-					subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
+			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, subjects,
+					classes, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
 					nghenghiep, uudiem);
 			commonService.createTutor(itemAdd);
+			
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -125,20 +111,11 @@ public class TutorManagementController {
 	@RequestMapping(value = "/updateTutor", method = RequestMethod.GET)
 	public ModelAndView updateTutor(@RequestParam("id") String id) {
 		if (session.getAttribute("userName") != null) {
-			System.out.println(id);
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("_id", id);
 			TutorModel model = commonService.getTutor(param);
 			ModelAndView mav = new ModelAndView("admin/updateTutor");
 			mav.addObject("model", model);
-			List<TutorModel> list = commonService.getListTutor();
-			List<CategoryModel> listQuan = commonService.getListQuan();
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			mav.addObject("listTutor", list);
-			mav.addObject("listQuan", listQuan);
-			mav.addObject("listClass", listClass);
-			mav.addObject("listSubject", listSubject);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -157,23 +134,19 @@ public class TutorManagementController {
 			@RequestParam("khuvuc") String[] khuvucs, @RequestParam("sobuoiday") String sobuoiday,
 			@RequestParam("phuongtien") String phuongtien) {
 		if (session.getAttribute("userName") != null) {
-			System.out.println(id);
 			try {
 				List<Object> classes = new ArrayList<>();
 				List<Object> subjects = new ArrayList<>();
 				List<Object> teachAreas = new ArrayList<>();
 				for (String item : monhocs) {
 					classes.add(item);
-					System.out.println(item);
 				}
 				for (String item : lophocs) {
 					subjects.add(item);
-					System.out.println(item);
 
 				}
 				for (String item : khuvucs) {
 					teachAreas.add(item);
-					System.out.println(item);
 
 				}
 				Map<String, Object> param = new HashMap<String, Object>();

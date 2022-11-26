@@ -14,8 +14,13 @@
 							DỤNG GIA SƯ ANH EM</span>
 					</div>
 					<div class="content-temp" style="width: 100%;">
-						<h1 class="title" itemprop="name">Gia sư Anh Em Tuyển dụng</h1>
-						<p>
+						<c:forEach var="item" items="${listRecruitment}">
+							<h1 class="title highlight" itemprop="name">${item.title}</h1>
+							<h3>${item.body }</h3>
+							<hr>
+						</c:forEach>
+
+						<!-- <p>
 							<span style="background-color: #3366ff;"><br></span>
 						</p>
 						<p>
@@ -268,7 +273,7 @@
 								</tr>
 							</tbody>
 						</table>
-
+ -->
 					</div>
 
 				</div>

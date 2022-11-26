@@ -7,53 +7,34 @@
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<div id="page-main-Admin" style="text-align: center;">
 
-		<script
-			src="https://cdn.ckeditor.com/ckeditor5/35.2.1/decoupled-document/ckeditor.js"></script>
 
-		<form>
+		<form action="./uploadIntroduction" method="post">
+			<input type="hidden" name="id" value="${listIntroductionPost[0]._id}">
 			<div class="form-group">
 				<label style="float: left">Title: <span
 					style="color: #FF0000">*</span></label>
-				<div class="col-7" style="width: 100%">
+				<div style="width: 100%">
 					<input type="text" name="title" class="form-control"
 						value="${listIntroductionPost[0].title }">
 				</div>
 			</div>
-			<div>
-				<div style="box-sizing: inherit; text-align: justify;">
-					<span style="color: rgb(255, 0, 0);"><span
-						style="font-size: 14px;"><span style="box-sizing: inherit;"><span
-								style="box-sizing: inherit;"><span
-									style="box-sizing: inherit;"><em
-										style="box-sizing: inherit;"><u
-											style="box-sizing: inherit;">Giới thiệu</u></em></span></span></span></span></span>
-				</div>
-				<!-- The toolbar will be rendered in this container. -->
-				<div id="toolbar-container" style="border: 2px solid #0c5776;"></div>
+			<div style="box-sizing: inherit; text-align: justify;">
+				<span style="color: rgb(255, 0, 0);"><span
+					style="font-size: 14px;"><span style="box-sizing: inherit;"><span
+							style="box-sizing: inherit;"><span
+								style="box-sizing: inherit;"><em
+									style="box-sizing: inherit;"><u
+										style="box-sizing: inherit;">Giới thiệu</u></em></span></span></span></span></span>
+			</div>
+			<textarea name="content" rows="50"
+				style="width: 100%; height: 500px; display: inline-block;">${listIntroductionPost[0].body }</textarea>
+			<canvas width="1000" height="10"></canvas>
 
-				<!-- This container will become the editable. -->
-				<div id="editor"
-					style="width: 100%; height: 500px; border: 2px solid #0c5776;">
-					<p>${listIntroductionPost[0].body }</p>
-				</div>
-
-				<script>
-        DecoupledEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( editor => {
-                const toolbarContainer = document.querySelector( '#toolbar-container' );
-
-                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
-				<div id="fixedButtonAdd">
-					<button value="1" name="Upload" type="button">Upload</button>
-				</div>
+			<div id="fixedButtonAdd">
+				<button value="1" name="Upload" type="submit">Upload</button>
+			</div>
 		</form>
+
 	</div>
-</div>
-<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 </div>

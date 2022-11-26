@@ -14,17 +14,21 @@ public class ApiConstant{
 	public static final String NEWCLASS_FINDID="/new_class/id";
 	public static final String CLASS_FINDID="/class/id";
 	public static final String SUBJECT_FINDID="/subject/id";
+	public static final String POST_FINDID="/subject/id";
 
 	public static final String CATEGORY_UPDATE="/category/edit";
 	public static final String TUTOR_UPDATE="/tutor/edit";
 	public static final String NEWCLASS_UPDATE="/new_class/edit";
 	public static final String CLASS_UPDATE="/class/edit";
 	public static final String SUBJECT_UPDATE="/subject/edit";
+	public static final String POST_UPDATE="/post/edit";
 
 	public static final String CLASS_REMOVE = "/class/remove";	
 	public static final String NEWCLASS_REMMOVE = "/new_class/remove";	
 	public static final String CATEGORY_REMOVE = "/category/remove";	
 	public static final String SUBJECT_REMOVE = "/subject/remove";
 	public static final String TUTOR_REMOVE = "/tutor/remove";
+	public static final String POST_REMOVE = "/post/remove";
+	
 	public static final String CHECK_LOGIN="/login";
 }

@@ -6,66 +6,39 @@
 	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<div id="page-main-Admin" style="text-align: center;">
+		<script type="text/javascript">
+			function confirmDelete() {
+				var result = confirm("Bạn chắc chưa?");
+				if (result) {
+					return true;
+				} else
+					return false;
+			}
+		</script>
 
-		<script
-			src="https://cdn.ckeditor.com/ckeditor5/35.2.1/decoupled-document/ckeditor.js"></script>
 
-		<div class="group-button" style="text-align: left">
-
-			<form action="#" method="post">
-				<button name="update" type="submit">Cập nhật</button>
-			</form>
-
-			<button value="1" name="delete" id="xoa" type="button">Xóa</button>
-		</div>
-		<form>
+		<form action="./createRecruitment" method="post">
 
 			<table border="0" width="100%">
-				<tbody>
+				<thead>
 					<tr>
-						<td width="2%"><br></td>
-						<td><strong>MS</strong><br></td>
-						<td><strong>Title</strong></td>
-						<td><strong>Content</strong><br></td>
+						<th><strong>Title</strong></th>
+						<th><strong>Content</strong></th>
+						<th width="5%"></th>
+						<th width="5%"></th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach var="item" items="${ listRecruitPost }">
 						<tr>
-							<td width="2%"><input type="checkbox" class="action"
-								name="remove_tutor" value=${item._id }></td>
-							<td>${item._id }</td>
 							<td>${item.title }</td>
 							<td>${item.body }</td>
+							<th><a href="./updateRecruitment?id=${item._id}">Update</a></th>
+							<th><a href="./deleteRecruitment?id=${item._id }"
+								onclick="return confirmDelete()">Delete</a></th>
 						</tr>
 					</c:forEach>
-					<script language="javascript">
 
-
-						var temp = document.getElementById("xoa");
-						temp.disabled = true;
-						temp.style.color = "#000000";
-						document.addEventListener("DOMContentLoaded", function(
-								event) {
-							const elements = document
-									.getElementsByClassName("action");
-							var itemCount = elements.length
-
-							for (let i = 0; i < elements.length; i++) {
-								elements[i].addEventListener('click',
-										()=>{
-											
-											if(elements[i].checked){
-												temp.disabled = false;
-												itemCount--;
-											} else{
-												itemCount++;
-											}
-											if (itemCount == elements.length){
-												temp.disabled = true;
-											}
-										});
-							}
-						});
-					</script>
 
 				</tbody>
 			</table>
@@ -93,30 +66,12 @@
 						style="color: #FF0000">*</span></label>
 
 				</div>
-				<br>
-				<!-- The toolbar will be rendered in this container. -->
-				<div id="toolbar-container" style="border: 2px solid #0c5776;"></div>
+				<textarea name="content" rows="50"
+					style="width: 100%; height: 500px; display: inline-block;">${listIntroductionPost[0].body }</textarea>
+				<canvas width="1000" height="10"></canvas>
 
-				<!-- This container will become the editable. -->
-				<div id="editor"
-					style="width: 100%; height: 500px; border: 2px solid #0c5776;">
-					<p>This is the initial editor content.</p>
-				</div>
-
-				<script>
-        DecoupledEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( editor => {
-                const toolbarContainer = document.querySelector( '#toolbar-container' );
-
-                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
 				<div id="fixedButtonAdd">
-					<button value="1" name="add" type="button">Thêm</button>
+					<button value="1" name="add" type="submit">Thêm</button>
 				</div>
 			</div>
 

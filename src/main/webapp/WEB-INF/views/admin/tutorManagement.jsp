@@ -113,7 +113,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="item" items="${ sessionScope.listTutor }">
+				<c:forEach var="item" items="${ listTutor }">
 					<tr>
 						<td>${item.name }</td>
 						<td>${item.address }</td>

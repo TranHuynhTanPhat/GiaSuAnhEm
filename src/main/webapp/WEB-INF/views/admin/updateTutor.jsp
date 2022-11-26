@@ -140,8 +140,10 @@
 						<label class="col-4 control-label">Ưu điểm: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<textarea name="uudiem" rows="3" class="form-control"
-								placeholder="Ví dụ: Có 3 năm kinh nghiệm dạy kèm, nhiệt tình...">${model.describe }</textarea>
+							<input type="text" name="uudiem" id="uudiem" class="form-control"
+								placeholder="Ví dụ: Có 3 năm kinh nghiệm dạy kèm, nhiệt tình..."
+								value="${model.describe }">
+
 						</div>
 					</div>
 					<br>
@@ -151,23 +153,21 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${listSubject }">
-										<c:forEach var="itemModel" items="${ model.subjects }">
-											<c:choose>
-												<c:when test="${itemModel._id == item._id}">
-													<tr>
-														<td><label><input type="checkbox"
-																name="monhoc" id="monhoc" value="${ item._id }" checked>${item.name}</label></td>
-													</tr>
-												</c:when>
-												<c:otherwise>
-													<tr>
-														<td><label><input type="checkbox"
-																name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
-													</tr>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
+									<c:forEach var="item" items="${sessionScope.listSubject }">
+										<c:choose>
+											<c:when test="${fn:contains(model.subjects, item.name)}">
+												<tr>
+													<td><label><input type="checkbox"
+															name="monhoc" id="monhoc" value="${ item._id }" checked>${item.name}</label></td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<tr>
+													<td><label><input type="checkbox"
+															name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
 
 									</c:forEach>
 								</tbody>
@@ -181,24 +181,21 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${ listClass}">
-										<c:forEach var="itemModel" items="${ model.classes }">
-											<c:choose>
-												<c:when test="${itemModel._id == item._id}">
-													<tr>
-														<td><label><input type="checkbox"
-																name="lophoc" id="lophoc" value="${ item._id }" checked>${item.name}</label></td>
-													</tr>
-												</c:when>
-												<c:otherwise>
-													<tr>
-														<td><label><input type="checkbox"
-																name="lophoc" id="lophoc" value="${ item._id }">${item.name}</label></td>
-													</tr>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-
+									<c:forEach var="item" items="${ sessionScope.listClass}">
+										<c:choose>
+											<c:when test="${fn:contains(model.classes, item.name)}">
+												<tr>
+													<td><label><input type="checkbox"
+															name="lophoc" id="lophoc" value="${ item._id }" checked>${item.name}</label></td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<tr>
+													<td><label><input type="checkbox"
+															name="lophoc" id="lophoc" value="${ item._id }">${item.name}</label></td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
 									</c:forEach>
 								</tbody>
 							</table>
@@ -211,26 +208,23 @@
 						<div class="col-7">
 							<table border="0" class="tablebox">
 								<tbody>
-									<c:forEach var="item" items="${ listQuan }">
-										<c:forEach var="itemModel" items="${ model.teachAreas }">
-											<c:choose>
-												<c:when test="${itemModel == item.name}">
-													<tr>
-														<td><label><input type="checkbox"
-																name="khuvuc" id="khuvuc" value="${ item.name}" checked>${item.name}</label></td>
-													</tr>
-												</c:when>
-												<c:otherwise>
-													<tr>
-														<td><label><input type="checkbox"
-																name="khuvuc" id="khuvuc" value="${ item.name }">${item.name}</label></td>
-													</tr>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-
+									<c:forEach var="item"
+										items="${ sessionScope.listCategoryDistrict }">
+										<c:choose>
+											<c:when test="${fn:contains(model.teachAreas, item.name)}">
+												<tr>
+													<td><label><input type="checkbox"
+															name="khuvuc" id="khuvuc" value="${ item.name }" checked>${item.name}</label></td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<tr>
+													<td><label><input type="checkbox"
+															name="khuvuc" id="khuvuc" value="${ item.name }">${item.name}</label></td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
 									</c:forEach>
-									
 								</tbody>
 							</table>
 						</div>
@@ -264,8 +258,7 @@
 								style="width: 50%; float: left">
 						</div>
 					</div>
-					<br>
-
+					<br> <br>
 					<div class="form-group">
 						<div class="col-11" style="color: red">
 							* Lưu ý: Khi bạn đăng ký làm gia sư, thông tin, hình ảnh của bạn
