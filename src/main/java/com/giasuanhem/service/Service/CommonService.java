@@ -138,6 +138,24 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void createClass(ClassModel model) throws JsonProcessingException{
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithJson(ApiConstant.LIST_CLASS, jsonReq);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void createSubject(SubjectModel model) throws JsonProcessingException{
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithJson(ApiConstant.LIST_SUBJECT, jsonReq);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void removeSubject(Map<String, Object> params) {
 		try {
@@ -351,6 +369,32 @@ public class CommonService {
 		}
 	}
 	
+	public ClassModel getClass(Map<String, Object> param) {
+		String jsonResponse = getWithParams(ApiConstant.CLASS_FINDID, param);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			ClassModel model = objectMapper.readValue(jsonResponse, new TypeReference<ClassModel>() {
+			});
+			return model;
+		} catch(IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public SubjectModel getSubject(Map<String, Object> param) {
+		String jsonResponse = getWithParams(ApiConstant.SUBJECT_FINDID, param);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			SubjectModel model = objectMapper.readValue(jsonResponse, new TypeReference<SubjectModel>() {
+			});
+			return model;
+		} catch(IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public NewClassModel getNewClass(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.NEWCLASS_FINDID, params);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -377,6 +421,25 @@ public class CommonService {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithParamAndJson(ApiConstant.TUTOR_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateClass(ClassModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithParamAndJson(ApiConstant.CLASS_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateSubject(SubjectModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			System.out.println(jsonReq);
+			postWithParamAndJson(ApiConstant.SUBJECT_UPDATE, jsonReq, param);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

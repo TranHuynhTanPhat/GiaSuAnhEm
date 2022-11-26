@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.model.Models.TutorModel;
 
 @Service
@@ -48,6 +50,18 @@ public class MapperModel {
 		newItem.setStatus(status);
 		newItem.setCategories(categories);
 		newItem.setContact(contact);
+		return newItem;
+	}
+	
+	public ClassModel mapClass(String name) {
+		ClassModel newItem = new ClassModel();
+		newItem.setName(name);
+		return newItem;
+	}
+	
+	public SubjectModel mapSubject(String name) {
+		SubjectModel newItem = new SubjectModel();
+		newItem.setName(name);
 		return newItem;
 	}
 

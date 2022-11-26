@@ -8,17 +8,16 @@
 		<div class="panel">
 
 			<div class="panel-body" style="padding: 5px 10px">
-				<form action="" method="post" name="info_frm"
-					class="form-horizontal" onsubmit="return check_info();"
-					autocomplete="off" enctype="multipart/form-data">
-
+				<form action="${pageContext.request.contextPath }/updateClass" method="post" name="info_frm"
+					class="form-horizontal" onsubmit="">
 
 					<br>
 					<div class="form-group">
 						<label class="col-4 control-label">Tên lớp: <span
 							style="color: #FF0000">*</span></label>
 						<div class="col-7">
-							<input type="text" name="tenlop" class="form-control" value="">
+							<input type="hidden" name="id" value="${Class._id }">
+							<input type="text" name="tenlop" class="form-control" value="${Class.name }">
 						</div>
 					</div>
 
