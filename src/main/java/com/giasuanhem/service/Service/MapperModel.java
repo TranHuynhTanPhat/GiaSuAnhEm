@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.model.Models.TutorModel;
 
@@ -37,7 +38,8 @@ public class MapperModel {
 	}
 
 	public NewClassModel mapNewCource(String address, String district, float sobuoi, String time, float salary,
-			String require, float status, List<Object> categories, List<Object> classes, List<Object> subjects, String contact) {
+			String require, float status, List<Object> categories, List<Object> classes, List<Object> subjects,
+			String contact) {
 		NewClassModel newItem = new NewClassModel();
 		newItem.setAddress(address);
 		newItem.setDistrict(district);
@@ -52,16 +54,28 @@ public class MapperModel {
 		newItem.setContact(contact);
 		return newItem;
 	}
-	
+
 	public ClassModel mapClass(String name) {
 		ClassModel newItem = new ClassModel();
 		newItem.setName(name);
 		return newItem;
 	}
-	
+
 	public SubjectModel mapSubject(String name) {
 		SubjectModel newItem = new SubjectModel();
 		newItem.setName(name);
+		return newItem;
+	}
+
+	public SalaryModel mapSalary(String grade, float styleTeacher, String twoSessions, String threeSessions,
+			String fourSessions, String fiveSessions) {
+		SalaryModel newItem = new SalaryModel();
+		newItem.setGrade(grade);
+		newItem.setStyleTeacher(styleTeacher);
+		newItem.setTwoSessions(twoSessions);
+		newItem.setThreeSessions(threeSessions);
+		newItem.setFourSessions(fourSessions);
+		newItem.setFiveSessions(fiveSessions);
 		return newItem;
 	}
 

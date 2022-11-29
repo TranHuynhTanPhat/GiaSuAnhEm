@@ -14,7 +14,7 @@
 				</p>
 				<div class="group-button"
 					style="padding-bottom: 5px; text-align: left;">
-					<form action="./addSalary" method="POST">
+					<form action="./addSalary" method="GET">
 						<button value="add" type="submit">Thêm mức học phí</button>
 					</form>
 				</div>
@@ -67,7 +67,7 @@
 
 				<div class="group-button"
 					style="padding-bottom: 5px; text-align: left;">
-					<form action="./addSalary" method="POST">
+					<form action="./addSalary" method="GET">
 						<button value="add" type="submit">Thêm mức học phí</button>
 					</form>
 				</div>
@@ -92,7 +92,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="item" items="${listSST }">
+						<c:forEach var="item" items="${listSTE }">
 							<tr>
 								<td>${item.grade }</td>
 								<td>${item.twoSessions }</td>

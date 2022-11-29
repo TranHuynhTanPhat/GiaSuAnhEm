@@ -14,7 +14,8 @@ public class ApiConstant{
 	public static final String NEWCLASS_FINDID="/new_class/id";
 	public static final String CLASS_FINDID="/class/id";
 	public static final String SUBJECT_FINDID="/subject/id";
-	public static final String POST_FINDID="/subject/id";
+	public static final String POST_FINDID="/post/id";
+	public static final String SALARY_FINDID="/salary_info/id";
 
 	public static final String CATEGORY_UPDATE="/category/edit";
 	public static final String TUTOR_UPDATE="/tutor/edit";
@@ -22,6 +23,7 @@ public class ApiConstant{
 	public static final String CLASS_UPDATE="/class/edit";
 	public static final String SUBJECT_UPDATE="/subject/edit";
 	public static final String POST_UPDATE="/post/edit";
+	public static final String SALARY_UPDATE="/salary_info/edit";
 
 	public static final String CLASS_REMOVE = "/class/remove";	
 	public static final String NEWCLASS_REMMOVE = "/new_class/remove";	
@@ -29,6 +31,7 @@ public class ApiConstant{
 	public static final String SUBJECT_REMOVE = "/subject/remove";
 	public static final String TUTOR_REMOVE = "/tutor/remove";
 	public static final String POST_REMOVE = "/post/remove";
+	public static final String SALARY_REMOVE = "/salary_info/remove";
 	
 	public static final String CHECK_LOGIN="/login";
 }

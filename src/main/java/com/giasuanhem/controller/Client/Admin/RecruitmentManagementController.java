@@ -47,7 +47,6 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/updateRecruitment", method = RequestMethod.GET)
 	public ModelAndView updateRecruitment(@RequestParam("id") String id) {
 		if (session.getAttribute("userName") != null) {
-			System.out.print(id);
 			Map<String, Object> paramsRecruit = new HashMap<>();
 			paramsRecruit.put("_id", id);
 			PostModel recruitPost = commonService.getPost(paramsRecruit);
@@ -100,7 +99,6 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/deleteRecruitment", method = RequestMethod.GET)
 	public String createIntroduction(@RequestParam("id") String id) {
 		if (session.getAttribute("userName") != null) {
-			System.out.println(id);
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("_id", id);
 			commonService.removePost(param);

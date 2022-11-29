@@ -167,6 +167,16 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void createSalary(SalaryModel model) throws JsonProcessingException {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			System.out.println(jsonReq);
+			postWithJson(ApiConstant.LIST_SALARY, jsonReq);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void removeSubject(Map<String, Object> params) {
 		try {
@@ -214,6 +224,15 @@ public class CommonService {
 
 		try {
 			String jsonResponse = postWithParams(ApiConstant.POST_REMOVE, params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void removeSalary(Map<String, Object> params) {
+
+		try {
+			String jsonResponse = postWithParams(ApiConstant.SALARY_REMOVE, params);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -357,7 +376,7 @@ public class CommonService {
 		try {
 			List<SalaryModel> listSalary = objectMapper.readValue(jsonResponse, new TypeReference<List<SalaryModel>>() {
 			});
-
+			System.out.println(jsonResponse);
 			return listSalary;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -436,6 +455,20 @@ public class CommonService {
 		try {
 			PostModel model = objectMapper.readValue(jsonResponse, new TypeReference<PostModel>() {
 			});
+			System.out.println(jsonResponse);
+			return model;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public SalaryModel getSalary(Map<String, Object> params) {
+		String jsonResponse = getWithParams(ApiConstant.SALARY_FINDID, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			SalaryModel model = objectMapper.readValue(jsonResponse, new TypeReference<SalaryModel>() {
+			});
 			return model;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -492,6 +525,15 @@ public class CommonService {
 		try {
 			String jsonReq = new Gson().toJson(model);
 			postWithParamAndJson(ApiConstant.POST_UPDATE, jsonReq, param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void updateSalary(SalaryModel model, Map<String, Object> param) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			postWithParamAndJson(ApiConstant.SALARY_UPDATE, jsonReq, param);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
