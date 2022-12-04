@@ -8,8 +8,7 @@ html, body {
 	text-transform: none;
 	background-color: #eef2f8;
     font-family: 'Roboto', sans-serif;
-	font-family: 'Roboto Slab', serif;
-    color: #6d727c;
+    color: #001c44;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
 }
@@ -114,26 +113,6 @@ html, body {
 
 
 
-* {
-	margin: 0;
-	outline: none;
-}
-
-:root { --1e3145: #1e3145; --colorWhite: #ffffff;
-}
-
-body {
-	margin: 0px auto;
-	font-family: 'Roboto', sans-serif;
-	font-size: 0.8em;
-	line-height: normal;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	color: #000000;
-	/*font-family: "Lucida Grande", Arial, Helvetica, sans-serif;*/
-}
 
 
 

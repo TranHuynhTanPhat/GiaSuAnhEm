@@ -1,10 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
+<title>404</title>
 <script type="module" src="/resources/assets/js/main.js"></script>
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -81,73 +79,18 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<script type="text/javascript">
-		function confirmDelete() {
-			var result = confirm("Bạn chắc chưa?");
-			if (result) {
-				return true;
-			} else
-				return false;
-		}
-	</script>
-	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
-	<section class="home">
-		<div class="row">
-			<div class="container-fluid">
-				<!-- Page Heading -->
-				<div
-					class="d-sm-flex align-items-center justify-content-between mb-4 title">
-					<strong>Quản lý tuyển dụng</strong>
-				</div>
-				<div id="page-main-Admin" style="text-align: center;">
-					<table width="100%">
-						<thead>
-							<tr>
-								<th><strong>Tiêu đề</strong></th>
-								<th><strong>Nội dung</strong></th>
-								<th width="5%"></th>
-								<th width="5%"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="item" items="${ listRecruitPost }">
-								<tr>
-									<td>${item.title }</td>
-									<td>${item.body }</td>
-									<th><a href="./updateRecruitment?id=${item._id}">Update</a></th>
-									<th><a href="./deleteRecruitment?id=${item._id }"
-										onclick="return confirmDelete()">Delete</a></th>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					<hr>
 
-					<form action="./createRecruitment" method="post">
-						<div class="form-group">
-							<label style="float: left">Tiêu đề: </label>
-							<div class="col-7" style="width: 100%">
-								<input type="text" name="title" class="form-control" value="">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label style="float: left">Nội dung: </label>
-
-							<textarea name="content" rows="50"
-								style="width: 100%; height: 500px; display: inline-block;">${listIntroductionPost[0].body }</textarea>
-						</div>
-						<canvas width="1000" height="10"></canvas>
-
-						<div id="fixedButtonAdd">
-							<button class="btn btn-primary btn-block mb-4" type="submit">Thêm</button>
-						</div>
-
-
-					</form>
-				</div>
+	<div class="container-fluid">
+		<div class="Custome-div">
+			<!-- 404 Error Text -->
+			<div class="text-center">
+				<div class="error mx-auto" data-text="404">404</div>
+				<p class="lead text-gray-800 mb-5">Page Not Found</p>
+				<p class="text-gray-500 mb-0">It looks like you found a glitch
+					in the matrix...</p>
+				<a href="./admin">← Back to Dashboard</a>
 			</div>
 		</div>
-	</section>
-	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+	</div>
 </body>
+</html>
