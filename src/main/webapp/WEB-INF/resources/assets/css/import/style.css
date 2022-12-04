@@ -1,10 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap');
+html, body {
+	width: 100%;
+	height: 100%;
+	line-height: 1.7e;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	background-color: #eef2f8;
+    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto Slab', serif;
+    color: #6d727c;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.navbar{
+	background-color:#0a426e!important;
+	position:fixed;
+	width:100%;
+}
+.navbar li {
+	text-align: center;
+}
+
+.navbar li a {
+	color: white ;
+	display: inline-block;
+	width: 120px;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.navbar li a:hover {
+	color: #746c6b !important;
+}
+
+.sidenav {
+	height: 100%;
+	width: 250px;
+	z-index: 1;
+	/* margin-left: 5px; */
+	/* margin-top: 5px; */
+	overflow-x: hidden;
+	padding-top: 20px;
+	background-color: #f2f2f2;
+	/* border: 2px solid #b85b56;*/
+	box-shadow: 0 2px 4px rgb(0 0 0/ 50%), 0 8px 16px rgb(0 0 0/ 50%);
+}
+.sidenav li{
+	height: 30px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.sidenav li a {
+	padding: 6px 8px 6px 16px;
+	color: #17629f !important;
+	font-size: 15px;
+	font-weight:200;
+	display: block;
+}
+
+.sidenav a:hover {
+	color: white !important;
+	background-color:#0a426e !important;
+	border-radius: 5px;
+}
+
+.sidenav li span {
+	margin-top:10px;
+	border-bottom: 1px dotted #0a426e;
+	color: #145589!important;
+	font-size: 16px;
+	font-weight: 900;
+	text-align: center;
+	display: block;
+}
+
+.main {
+	margin-left: 0px;
+	text-align: left;
+}
+.dropdown-menu li a{
+	width: auto; padding: 10px; color: #6d727c;
+}
+.dropdown-menu li a:hover{
+	color: white !important;
+	background-color:#0a426e !important;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * {
 	margin: 0;
 	outline: none;
 }
 
-:root { 
-	--1e3145: #1e3145; --colorWhite: #ffffff;
+:root { --1e3145: #1e3145; --colorWhite: #ffffff;
 }
 
 body {
@@ -16,11 +131,32 @@ body {
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	background-image: linear-gradient(#001c44, #0c5776, #2d99ae, #bcfefe, #f8dad0);
 	color: #000000;
 	/*font-family: "Lucida Grande", Arial, Helvetica, sans-serif;*/
-	line-height: 1.7;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #wrapper {
 	width: 1000px;

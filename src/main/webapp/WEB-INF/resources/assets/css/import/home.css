@@ -6,8 +6,6 @@
 
 
 .banner-video-container {
-    background-color: rgb(255, 255, 255);
-    height: 253.33px;
     position: relative;
 }
 
@@ -19,8 +17,8 @@ span.icon-graduation {
 }
 
 span.menu-ngang {
-    background: #0c5776;
-    color: #fff;
+    background: #8b0000;
+    color: #eef2f8;
     padding: 5px 10px !important;
     border-radius: 10px;
     font-size: 20px;

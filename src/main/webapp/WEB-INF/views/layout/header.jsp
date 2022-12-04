@@ -1,103 +1,62 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="en">
+<div style="line-height: 0;">
+	<nav class="navbar navbar-expand-md navbar-light sticky-top">
+		<div class="container-fluid">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown" id="myDropdown"><a
+					class="navbar-branch nav-link dropdown-toggle" href="#"
+					data-bs-toggle="dropdown"> <img
+						src="resources/assets/images/icon-people.png" height="40"></a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><a href="#">Thông tin
+								cá nhân</a></li>
+						<li class="dropdown-item"><a href="#">Đăng nhập</a></li>
+						<li class="dropdown-item"><a href="#">Đăng xuất</a></li>
 
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="resources/assets/css/import/footer.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/newclass.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-	rel="stylesheet">
-
-
-<script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
-	type="text/javascript"></script>
-<script
-	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
-	type="text/javascript"></script>
-<script
-	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
-	type="text/javascript"></script>
-<script
-	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
-	type="text/javascript"></script>
-<script src="<c:url value="resources/assets/js/main.js"/>"
-	type="text/javascript"></script>
-</head>
-
-<body>
-
-	<div id="base-header-footer">
-		<a href="/TrungTamGiaSu/trang-chu"> <video autoplay loop muted
-				plays-inline class="back-video" width="100%" height="auto">
-				<source src="<c:url value="resources/assets/images/banner.mp4"/>"
-					type="video/mp4">
-			</video></a>
-		<div id="menu-top">
-			<div class="ddsmoothmenu" id="smoothmenu1">
-				<ul>
-					<li><a href="/TrungTamGiaSu/trang-chu">Trang chủ</a></li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/gioi-thieu">Giới
-							thiệu</a></li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/lop-moi">Lớp
-							mới</a></li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/bang-luong">Bảng
-							lương</a></li>
-					<li style="z-index: 100;" class="nav-giasu nav-item dropdown">
-						<a href="/TrungTamGiaSu/gia-su">Gia sư<img
-							class="downarrowclass"></a>
-						<ul class="nav-menu dropdown-menu fade-up">
-							<li><a href="them-gia-su" class="dropdown-item">Đăng ký làm gia sư</a></li>
-							<li><a href="quy-trinh-nhan-lop" class="dropdown-item">Quy trình nhận lớp</a></li>
-							<li><a href="#" class="dropdown-item">Trung tâm gia sư
-									uy tín</a></li>
-						</ul>
-					</li>
-					<li style="z-index: 100;"><a href="/TrungTamGiaSu/tuyen-dung">Tuyển
-							dụng</a></li>
-					<li style="z-index: 100;"><a
-						href="/TrungTamGiaSu/muc-phi-gia-su">Mức phí gia sư</a></li>
-					<li style="background: none"><a href="/TrungTamGiaSu/lien-he">Liên
-							hệ</a></li>
-				</ul>
-			</div>
+					</ul></li>
+			</ul>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 		</div>
-	</div>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="navbar-item active"><a
+					href="/TrungTamGiaSu/trang-chu" class="nav-link">Trang chủ</a></li>
+				<li class="navbar-item"><a href="/TrungTamGiaSu/gioi-thieu"
+					class="nav-link">Giới thiệu</a></li>
+				<li class="nav-item dropdown" id="myDropdown"><a
+					class="nav-link dropdown-toggle" href="/TrungTamGiaSu/lop-moi"
+					data-bs-toggle="dropdown">Lớp mới</a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><a href="#"
+							style="width: auto; padding: 10px">Đăng ký mở lớp</a></li>
+						<li class="dropdown-item"><a href="#"
+							style="width: auto; padding: 10px">Quy trình mở lớp</a></li>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-		crossorigin="anonymous"></script>
-	<script src="./resources/assets/js/bootstrap.min.js"></script>
-</body>
+					</ul></li>
+				<li class="navbar-item"><a href="/TrungTamGiaSu/bang-luong"
+					class="nav-link">Bảng lương</a></li>
+				<li class="nav-item dropdown" id="myDropdown"><a
+					class="nav-link dropdown-toggle" href="/TrungTamGiaSu/gia-su"
+					data-bs-toggle="dropdown"> Gia sư </a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><a href="them-gia-su"
+							style="width: auto; padding: 10px">Đăng ký làm gia sư</a></li>
+						<li class="dropdown-item"><a href="quy-trinh-nhan-lop"
+							style="width: auto; padding: 10px">Quy trình nhận lớp</a></li>
 
-</html>
+					</ul></li>
+				<li class="navbar-item"><a href="/TrungTamGiaSu/tuyen-dung"
+					class="nav-link">Tuyển dụng</a></li>
+				<li class="navbar-item"><a href="/TrungTamGiaSu/muc-phi-gia-su"
+					class="nav-link">Mức phí gia sư</a></li>
+				<li class="navbar-item"><a href="/TrungTamGiaSu/lien-he"
+					class="nav-link">Liên hệ</a></li>
+			</ul>
+		</div>
+	</nav>
+
+</div>

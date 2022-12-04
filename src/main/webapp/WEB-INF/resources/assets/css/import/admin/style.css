@@ -1,219 +1,257 @@
-#fixedButtonAdd {
-	margin: 20px auto;
-	align-items: center;
-	background-color: #1877f2;
-	/* border: none; */
-	/* border-radius: 8px; */
-	/* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
-	/* box-sizing: border-box; */
-	/* margin: 100px auto; */
-	/* padding: 20px 0 28px; */
-	border-radius: 6px;
-	width: 396px;
-	text-align: center;
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-#fixedButtonDelete {
-	background-color: red;
-	border: none;
-	font-size: 15px;
-	line-height: 30px;
-	padding: 0 16px;
-	width: 150px;
-	text-align: center;
+:root{
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
 }
 
-#fixedButtonSearch {
-	border: none;
-	font-size: 15px;
-	line-height: 30px;
-	margin: 20px auto;
-	align-items: center;
-	width: 150px;
-	text-align: center;
+body{
+    min-height: 100vh;
+    
 }
 
-#fixedButtonSearch button {
-	background-color: #f8dad0;
+::selection{
+    background-color: #bcfefe;
+    color: #fff;
 }
 
-#fixedButtonDelete button {
-	background-color: red;
+
+
+/* ===== Sidebar ===== */
+ .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    padding: 10px 14px;
+    background: white;
+    transition: var(--tran-05);
+    z-index: 100;
+}
+.sidebar.close{
+    width: 88px;
 }
 
-#page-main-Admin {
-	float: left;
-	padding-left: 210px;
-	padding-bottom: 5%;
-	padding-top: 5%;
-	width: 100%;
+/* ===== Reusable code - Here ===== */
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.col-3 {
-	width: 33.3333333%;
-	float: left;
-	position: relative;
-	min-height: 1px;
-	padding-left: 10px;
-	padding-right: 10px;
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
 }
 
-.col-2 {
-	width: 50%;
-	float: left;
-	position: relative;
-	min-height: 1px;
-	padding-left: 10px;
-	padding-right: 10px;
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
 }
 
-button {
-	background-color: #1877f2;
-	border: none;
-	border-radius: 6px;
-	font-size: 15px;
-	line-height: 30px;
-	padding: 0 16px;
-	width: auto;
+.sidebar .text,
+.sidebar .icon{
+    color: #001c44;
+    transition: var(--tran-03);
 }
 
-* {
-	margin: 0;
-	outline: none;
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
 }
 
-:root { --1e3145: #1e3145; --colorWhite: #ffffff;
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-body {
-	margin: 0px auto;
-	font-family: 'Roboto', sans-serif;
-	font-size: 0.8em;
-	line-height: normal;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	background-image: linear-gradient(#001c44, #0c5776, #2d99ae, #bcfefe, #f8dad0);
-	color: #000000;
-	/*font-family: "Lucida Grande", Arial, Helvetica, sans-serif;*/
-	line-height: 1.7;
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
 }
 
-#wrapper {
-	width: 1000px;
-	text-align: left;
-	margin: 0px auto;
-	padding: 0px 10px;
-	background: #FFFFFF;
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#wrapperAdmin {
-	text-align: left;
-	margin: 0px auto;
-	padding: 0px 10px;
-	background: #FFFFFF;
-	padding-top: 10px;
-	height: -webkit-fill-available;
+.sidebar header .image img{
+    width: 40px;
+    border-radius: 6px;
 }
 
-.space-text-widget {
-	height: 30px;
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: #55acee;
+    color: #001c44;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
 }
 
-.highlight {
-	font-style: oblique;
-	color: red;
+
+.sidebar.close .toggle{
+    transform: translateY(-50%) rotate(0deg);
 }
 
-#td-top {
-	vertical-align: top;
-	font-family: 'Roboto', sans-serif;
-	font-size: 0.8em;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	color: #000000;
-	line-height: 1.7;
-	border-radius: 5px;
+.sidebar .menu{
+    margin-top: 40px;
 }
 
-.panel {
-	margin: 7px 0;
-	background-color: #fff;
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
 }
 
-.panel-heading {
-	padding: 5px 15px;
-	color: #fff;
-	background-color: #0471dc;
-	border-radius: 2px;
-	-webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0/ 14%), 0 1px 5px 0
-		rgb(0 0 0/ 12%), 0 3px 1px -2px rgb(0 0 0/ 20%);
-	box-shadow: 0 2px 2px 0 rgb(0 0 0/ 14%), 0 1px 5px 0 rgb(0 0 0/ 12%), 0
-		3px 1px -2px rgb(0 0 0/ 20%);
+.sidebar li a:hover{
+    background-color: #55acee;
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: white;
 }
 
-.panel-body {
-	padding: 0;
-	border: 1px solid #e1e1e1;
-	border-top: 1px solid #0471dc;
+
+.sidebar .menu-bar{
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+.sidebar .menu-bar .mode{
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
 }
 
-.panel-title {
-	margin-top: 0;
-	margin-bottom: 0;
-	font-size: 14px;
-	color: #fff;
-	line-height: 150%;
-	text-align: center;
+.menu-bar .mode .sun-moon{
+    height: 50px;
+    width: 60px;
 }
 
-.clearfix, .form-horizontal .form-group:after, .row:after {
-	clear: both;
+.mode .sun-moon i{
+    position: absolute;
+}
+.mode .sun-moon i.sun{
+    opacity: 0;
+}
+body.dark .mode .sun-moon i.sun{
+    opacity: 1;
+}
+body.dark .mode .sun-moon i.moon{
+    opacity: 0;
 }
 
-.form-group {
-	margin-bottom: 15px;
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
 }
 
-#main-content-3col {
-	float: left;
-	width: 60%;
-	margin: 0 20%;
-	box-sizing: border-box;
-	padding: 0 15px;
+
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: #eef2f8;
+    transition: var(--tran-05);
+}
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: #001c44;
+    padding: 12px 60px;
 }
 
-.form-control {
-	width: 100%;
-	height: 38px;
-	font-size: 14px;
-	line-height: 1.42857143;
-	color: #555;
-	background-color: #fff;
-	background-image: none;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0/ 8%);
-	box-shadow: inset 0 1px 1px rgb(0 0 0/ 8%);
-	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
-		ease-in-out .15s;
-	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
-		.15s;
-	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+.sidebar.close ~ .home{
+    left: 88px;
+    height: 100vh;
+    width: calc(100% - 78px);
 }
 
-.col-7 {
-	flex: 0 0 auto;
+.row{
+	margin:0px;
 }
 
-#group-button {
-	float: left;
-	width: auto;
-	/* margin: 0 10px 0 0; */
-	box-sizing: border-box;
-	padding: 0 0 10px 0;
-}
+
 

@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div id="wrapperAdmin">
-	<%@include file="/WEB-INF/views/admin/layout/header.jsp"%>
-	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
+<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
+<section class="home">
+	<div class="row">
+		
+	</div>
+</section>
+<!-- <div id="wrapperAdmin">
+
 	<div id="page-main-Admin">
 		<div class="row">
 			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -12,7 +17,8 @@
 						<div class="row">
 							<div class="col-8">
 								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng tiền hôm nay</p>
+									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng
+										tiền hôm nay</p>
 									<h5 class="font-weight-bolder mb-0">
 										$53,000 <span class="text-success text-sm font-weight-bolder">+55%</span>
 									</h5>
@@ -35,7 +41,8 @@
 						<div class="row">
 							<div class="col-8">
 								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng lượt requests hôm nay</p>
+									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng
+										lượt requests hôm nay</p>
 									<h5 class="font-weight-bolder mb-0">
 										2,300 <span class="text-success text-sm font-weight-bolder">+3%</span>
 									</h5>
@@ -57,7 +64,8 @@
 						<div class="row">
 							<div class="col-8">
 								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Khóa học mới</p>
+									<p class="text-sm mb-0 text-capitalize font-weight-bold">Khóa
+										học mới</p>
 									<h5 class="font-weight-bolder mb-0">
 										+3,462 <span class="text-danger text-sm font-weight-bolder">-2%</span>
 									</h5>
@@ -80,7 +88,8 @@
 						<div class="row">
 							<div class="col-8">
 								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng tiền tháng </p>
+									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng
+										tiền tháng</p>
 									<h5 class="font-weight-bolder mb-0">
 										$103,430 <span class="text-success text-sm font-weight-bolder">+5%</span>
 									</h5>
@@ -97,7 +106,7 @@
 				</div>
 			</div>
 		</div>
-		<br> <br> <br> 
+		<br> <br> <br>
 
 		<div class="col-lg-7">
 			<div class="card z-index-2">
@@ -117,7 +126,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
-</div>
+	</div> -->
+<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+
 
