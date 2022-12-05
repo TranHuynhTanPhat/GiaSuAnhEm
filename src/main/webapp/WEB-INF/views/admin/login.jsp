@@ -12,7 +12,6 @@
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
 <title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
@@ -62,8 +61,7 @@
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
-<script src="<c:url value="resources/assets/js/main.js"/>"
-	type="text/javascript"></script>
+
 
 </head>
 
@@ -71,22 +69,26 @@
 	<div id="Custome-div">
 
 		<div class="container-fluid">
-			<div>${sessionScope.errorMessage}</div>
 			<header>
-			<div class="image-text">
-				<span class="image"> <img
-					src="resources/assets/images/icon.png" width="50px">
-				</span>
+				<div class="image-text">
+					<span class="image"> <img
+						src="resources/assets/images/icon.png" width="50px">
+					</span>
 
-				<div class="text logo-text">
-					<span class="name">ADMIN</span> <span class="profession">Trang quản lý</span>
+					<div class="text logo-text">
+						<div class="row">
+							<span class="name">ADMIN</span> <span class="profession">Trang
+								quản lý</span>
+						</div>
+
+					</div>
 				</div>
-			</div>
-
-			<i class='bx bx-chevron-right toggle'></i>
-		</header>
+				<div class="row" style="margin-top:5px;">
+					<span class="text" style="color: red">${sessionScope.errorMessage}</span>
+				</div>
+			</header>
 		</div>
-		<form action="./login" method="post" style="padding-top: 40px">
+		<form action="./login" method="post" style="padding-top: 30px">
 			<!-- Email input -->
 			<div class="form-outline mb-4">
 				<input type="text" id="username" class="form-control"
@@ -102,14 +104,7 @@
 
 			<!-- 2 column grid layout for inline styling -->
 			<div class="row mb-4">
-				<div class="col d-flex justify-content-center">
-					<!-- Checkbox -->
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value=""
-							id="form2Example31" checked /> <label class="form-check-label"
-							for="form2Example31"> Remember me </label>
-					</div>
-				</div>
+
 
 				<div class="col">
 					<!-- Simple link -->

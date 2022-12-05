@@ -73,6 +73,11 @@
 								class="fa-regular fa-pen-to-square icon"></i> <span
 								class="text nav-text">Quản lý môn học</span>
 						</a></li>
+						
+						<li class="nav-link"><a href="quanlydanhmuc"> <i
+								class="fa-regular fa-pen-to-square icon"></i> <span
+								class="text nav-text">Quản lý danh mục</span>
+						</a></li>
 					</ul></li>
 
 				<li class="nav-link"><a href="#"> <i

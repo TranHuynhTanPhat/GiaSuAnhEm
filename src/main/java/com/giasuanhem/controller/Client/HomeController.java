@@ -25,74 +25,99 @@ import com.giasuanhem.service.Service.CommonService;
 public class HomeController {
 	@Autowired
 	private CommonService commonService;
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
-	public ModelAndView homePage(HttpSession session) {
+	public ModelAndView homePage() {
+		try {
 
-		Map<String, Object> paramsClass = new HashMap<>();
-		paramsClass.put("style", 0);
-		List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("style", 0);
+			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
 
-		Map<String, Object> paramsDistrict = new HashMap<>();
-		paramsDistrict.put("style", 1);
-		List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("style", 1);
+			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
-		List<ClassModel> listClass = commonService.getListClass();
-		List<SubjectModel> listSubject = commonService.getListSubject();
+			List<ClassModel> listClass = commonService.getListClass();
+			List<SubjectModel> listSubject = commonService.getListSubject();
 //
 //		session.removeAttribute("listCategoryClass");
 //		session.removeAttribute("listCategoryDistrict");
 //		session.removeAttribute("listClass");
 //		session.removeAttribute("listSubject");
 
-		session.setAttribute("listCategoryClass", listCategoryClass);
-		session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-		session.setAttribute("listClass", listClass);
-		session.setAttribute("listSubject", listSubject);
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+			session.setAttribute("listClass", listClass);
+			session.setAttribute("listSubject", listSubject);
 
-		ModelAndView mav = new ModelAndView("home/home");
-		return mav;
+			ModelAndView mav = new ModelAndView("home/home");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 
-	@RequestMapping(value = "/springmvc", method = RequestMethod.GET)
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public ModelAndView springMVCPage() {
-		ModelAndView mav = new ModelAndView("springmvc");
+		ModelAndView mav = new ModelAndView("404page");
 		return mav;
 	}
 
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
 	public ModelAndView instructionPage(HttpSession session) {
-		Map<String, Object> paramsIntroduction = new HashMap<>();
-		paramsIntroduction.put("style", 1);
-		List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
+		try {
+			Map<String, Object> paramsIntroduction = new HashMap<>();
+			paramsIntroduction.put("style", 1);
+			List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
 
-		ModelAndView mav = new ModelAndView("home/introduce");
-		mav.addObject("listIntroductionPost", listPost);
-		return mav;
+			ModelAndView mav = new ModelAndView("home/introduce");
+			mav.addObject("listIntroductionPost", listPost);
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "/tuyen-dung", method = RequestMethod.GET)
 	public ModelAndView recruitPage() {
-		Map<String, Object> paramsIntroduction = new HashMap<>();
-		paramsIntroduction.put("style", 0);
-		List<PostModel> listRecruitment = commonService.getListPostWithParams(paramsIntroduction);
+		try {
+			Map<String, Object> paramsIntroduction = new HashMap<>();
+			paramsIntroduction.put("style", 0);
+			List<PostModel> listRecruitment = commonService.getListPostWithParams(paramsIntroduction);
 
-		ModelAndView mav = new ModelAndView("home/recruit");
-		mav.addObject("listRecruitment", listRecruitment);
-		return mav;
+			ModelAndView mav = new ModelAndView("home/recruit");
+			mav.addObject("listRecruitment", listRecruitment);
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "muc-phi-gia-su", method = RequestMethod.GET)
 	public ModelAndView feeTutorPage() {
-
-		ModelAndView mav = new ModelAndView("home/feeTutor");
-		return mav;
+		try {
+			ModelAndView mav = new ModelAndView("home/feeTutor");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "/lien-he", method = RequestMethod.GET)
 	public ModelAndView contactPage() {
-
-		ModelAndView mav = new ModelAndView("home/contact");
-		return mav;
+		try {
+			ModelAndView mav = new ModelAndView("home/contact");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 }

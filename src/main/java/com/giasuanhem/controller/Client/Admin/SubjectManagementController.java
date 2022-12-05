@@ -29,24 +29,34 @@ public class SubjectManagementController {
 
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement() {
-		if (session.getAttribute("userName") != null) {
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			session.setAttribute("listSubject", listSubject);
-			ModelAndView mav = new ModelAndView("admin/subjectManagement");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				List<SubjectModel> listSubject = commonService.getListSubject();
+				session.setAttribute("listSubject", listSubject);
+				ModelAndView mav = new ModelAndView("admin/subjectManagement");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/addSubject", method = RequestMethod.GET)
 	public ModelAndView addSubject() {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addSubject");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				ModelAndView mav = new ModelAndView("admin/addSubject");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -59,42 +69,51 @@ public class SubjectManagementController {
 			return "redirect:/quanlymonhoc";
 		} catch (Exception e) {
 			// TODO: handle exception
-			return "redirect:/quanlymonhoc";
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/updateSubject", method = RequestMethod.GET)
 	public ModelAndView updateSubject(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<>();
-			param.put("_id", id);
-			SubjectModel Subject = commonService.getSubject(param);
-			ModelAndView mav = new ModelAndView("admin/updateSubject");
-			mav.addObject("Subject", Subject);
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<>();
+				param.put("_id", id);
+				SubjectModel Subject = commonService.getSubject(param);
+				ModelAndView mav = new ModelAndView("admin/updateSubject");
+				mav.addObject("Subject", Subject);
 
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/updateSubject", method = RequestMethod.POST)
 	public String updateSubject(@RequestParam("id") String id, @RequestParam("tenmon") String tenmon) {
-		if (session.getAttribute("userName") != null) {
-			try {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				SubjectModel Subject = commonModel.mapSubject(tenmon);
-				commonService.updateSubject(Subject, param);
+		try {
+			if (session.getAttribute("userName") != null) {
+				try {
+					Map<String, Object> param = new HashMap<String, Object>();
+					param.put("_id", id);
+					SubjectModel Subject = commonModel.mapSubject(tenmon);
+					commonService.updateSubject(Subject, param);
 
-				return "redirect:/quanlymonhoc";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "redirect:quanlymonhoc";
+					return "redirect:/quanlymonhoc";
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "redirect:quanlymonhoc";
+				}
+			} else {
+				return "redirect:/login";
 			}
-		} else {
-			return "redirect:/login";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
@@ -109,7 +128,7 @@ public class SubjectManagementController {
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			return "redirect:/quanlymonhoc";
+			return "redirect:/error";
 		}
 	}
 }

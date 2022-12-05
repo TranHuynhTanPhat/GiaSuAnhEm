@@ -29,33 +29,43 @@ public class RecruitmentManagementController {
 
 	@RequestMapping(value = "/quanlytuyendung", method = RequestMethod.GET)
 	public ModelAndView recruitmentManagement() {
-		if (session.getAttribute("userName") != null) {
+		try {
+			if (session.getAttribute("userName") != null) {
 
-			Map<String, Object> paramsRecruit = new HashMap<>();
-			paramsRecruit.put("style", 0);
-			List<PostModel> listRecruitPost = commonService.getListPostWithParams(paramsRecruit);
+				Map<String, Object> paramsRecruit = new HashMap<>();
+				paramsRecruit.put("style", 0);
+				List<PostModel> listRecruitPost = commonService.getListPostWithParams(paramsRecruit);
 
-			ModelAndView mav = new ModelAndView("admin/recruitmentManagement");
-			mav.addObject("listRecruitPost", listRecruitPost);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				ModelAndView mav = new ModelAndView("admin/recruitmentManagement");
+				mav.addObject("listRecruitPost", listRecruitPost);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/updateRecruitment", method = RequestMethod.GET)
 	public ModelAndView updateRecruitment(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> paramsRecruit = new HashMap<>();
-			paramsRecruit.put("_id", id);
-			PostModel recruitPost = commonService.getPost(paramsRecruit);
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> paramsRecruit = new HashMap<>();
+				paramsRecruit.put("_id", id);
+				PostModel recruitPost = commonService.getPost(paramsRecruit);
 
-			ModelAndView mav = new ModelAndView("admin/updateRecruitment");
-			mav.addObject("recruitPost", recruitPost);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				ModelAndView mav = new ModelAndView("admin/updateRecruitment");
+				mav.addObject("recruitPost", recruitPost);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -63,19 +73,23 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/updateRecruitment", method = RequestMethod.POST)
 	public String updateRecruitment(@RequestParam("id") String id, @RequestParam("title") String title,
 			@RequestParam("content") String content) {
-		if (session.getAttribute("userName") != null) {
-			PostModel model = new PostModel();
-			model.setTitle(title);
-			model.setBody(content);
+		try {
+			if (session.getAttribute("userName") != null) {
+				PostModel model = new PostModel();
+				model.setTitle(title);
+				model.setBody(content);
 
-			Map<String, Object> paramsRecruit = new HashMap<>();
-			paramsRecruit.put("_id", id);
+				Map<String, Object> paramsRecruit = new HashMap<>();
+				paramsRecruit.put("_id", id);
 
-			commonService.updatePost(model, paramsRecruit);
+				commonService.updatePost(model, paramsRecruit);
 
-			return "redirect:/quanlytuyendung";
-		} else {
-			return "redirect:/login";
+				return "redirect:/quanlytuyendung";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
@@ -98,13 +112,17 @@ public class RecruitmentManagementController {
 
 	@RequestMapping(value = "/deleteRecruitment", method = RequestMethod.GET)
 	public String createIntroduction(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			commonService.removePost(param);
-			return "redirect:/quanlytuyendung";
-		} else {
-			return "redirect:/login";
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				commonService.removePost(param);
+				return "redirect:/quanlytuyendung";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 }

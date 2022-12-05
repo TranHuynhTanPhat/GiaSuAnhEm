@@ -32,15 +32,20 @@ public class TutorManagementController {
 
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
 	public ModelAndView tutorManagement() {
-		if (session.getAttribute("userName") != null) {
-			List<TutorModel> listTutor = commonService.getListTutor();
+		try {
+			if (session.getAttribute("userName") != null) {
+				List<TutorModel> listTutor = commonService.getListTutor();
 
-			ModelAndView mav = new ModelAndView("admin/tutorManagement");
+				ModelAndView mav = new ModelAndView("admin/tutorManagement");
 
-			mav.addObject("listTutor", listTutor);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				mav.addObject("listTutor", listTutor);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -55,7 +60,7 @@ public class TutorManagementController {
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect:/quanlygiasu";
+			return "redirect:/error";
 		}
 	}
 
@@ -99,26 +104,31 @@ public class TutorManagementController {
 					classes, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
 					nghenghiep, uudiem);
 			commonService.createTutor(itemAdd);
-			
+
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			return "redirect:/quanlygiasu";
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/updateTutor", method = RequestMethod.GET)
 	public ModelAndView updateTutor(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			TutorModel model = commonService.getTutor(param);
-			ModelAndView mav = new ModelAndView("admin/updateTutor");
-			mav.addObject("model", model);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				TutorModel model = commonService.getTutor(param);
+				ModelAndView mav = new ModelAndView("admin/updateTutor");
+				mav.addObject("model", model);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -133,37 +143,41 @@ public class TutorManagementController {
 			@RequestParam("monhoc") String[] monhocs, @RequestParam("lophoc") String[] lophocs,
 			@RequestParam("khuvuc") String[] khuvucs, @RequestParam("sobuoiday") String sobuoiday,
 			@RequestParam("phuongtien") String phuongtien) {
-		if (session.getAttribute("userName") != null) {
-			try {
-				List<Object> classes = new ArrayList<>();
-				List<Object> subjects = new ArrayList<>();
-				List<Object> teachAreas = new ArrayList<>();
-				for (String item : monhocs) {
-					classes.add(item);
+		try {
+			if (session.getAttribute("userName") != null) {
+				try {
+					List<Object> classes = new ArrayList<>();
+					List<Object> subjects = new ArrayList<>();
+					List<Object> teachAreas = new ArrayList<>();
+					for (String item : monhocs) {
+						classes.add(item);
+					}
+					for (String item : lophocs) {
+						subjects.add(item);
+
+					}
+					for (String item : khuvucs) {
+						teachAreas.add(item);
+
+					}
+					Map<String, Object> param = new HashMap<String, Object>();
+					param.put("_id", id);
+
+					TutorModel model = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
+							subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh,
+							namtotnghiem, nghenghiep, uudiem);
+
+					commonService.updateTutor(model, param);
+					return "redirect:/quanlygiasu";
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "redirect:/quanlygiasu";
 				}
-				for (String item : lophocs) {
-					subjects.add(item);
-
-				}
-				for (String item : khuvucs) {
-					teachAreas.add(item);
-
-				}
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-
-				TutorModel model = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
-						subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, namsinh, namtotnghiem,
-						nghenghiep, uudiem);
-
-				commonService.updateTutor(model, param);
-				return "redirect:/quanlygiasu";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "redirect:/quanlygiasu";
+			} else {
+				return "redirect:/login";
 			}
-		} else {
-			return "redirect:/login";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 

@@ -22,10 +22,15 @@ public class NewClassController {
 
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
-		List<NewClassModel> listNewClass = commonService.getListNewClass();
+		try {
+			List<NewClassModel> listNewClass = commonService.getListNewClass();
 
-		ModelAndView mav = new ModelAndView("newclass/newclass");
-		mav.addObject("listNewClass", listNewClass);
-		return mav;
+			ModelAndView mav = new ModelAndView("newclass/newclass");
+			mav.addObject("listNewClass", listNewClass);
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 }

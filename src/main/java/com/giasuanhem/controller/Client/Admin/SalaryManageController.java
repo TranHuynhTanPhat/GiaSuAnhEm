@@ -30,20 +30,25 @@ public class SalaryManageController {
 
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement() {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> paramST = new HashMap<>();
-			paramST.put("style", 0);
-			List<SalaryModel> listSST = commonService.getListSalary(paramST);
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> paramST = new HashMap<>();
+				paramST.put("style", 0);
+				List<SalaryModel> listSST = commonService.getListSalary(paramST);
 
-			Map<String, Object> paramTE = new HashMap<>();
-			paramTE.put("style", 1);
-			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
-			ModelAndView mav = new ModelAndView("admin/salaryManagement");
-			mav.addObject("listSST", listSST);
-			mav.addObject("listSTE", listSTE);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				Map<String, Object> paramTE = new HashMap<>();
+				paramTE.put("style", 1);
+				List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
+				ModelAndView mav = new ModelAndView("admin/salaryManagement");
+				mav.addObject("listSST", listSST);
+				mav.addObject("listSTE", listSTE);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -52,30 +57,39 @@ public class SalaryManageController {
 	public String addSalary(@RequestParam("grade") String grade, @RequestParam("styleTeacher") float styleTeacher,
 			@RequestParam("twosession") String twosession, @RequestParam("threesession") String threesession,
 			@RequestParam("foursession") String foursession, @RequestParam("fivesession") String fivesession) {
-		if (session.getAttribute("userName") != null) {
-			try {
-				System.out.println(grade);
-				SalaryModel model = commonModel.mapSalary(grade, styleTeacher, twosession, threesession, foursession,
-						fivesession);
+		try {
+			if (session.getAttribute("userName") != null) {
+				try {
+					System.out.println(grade);
+					SalaryModel model = commonModel.mapSalary(grade, styleTeacher, twosession, threesession,
+							foursession, fivesession);
 
-				commonService.createSalary(model);
-				return "redirect:/quanlyluong";
-			} catch (Exception e) {
-				e.printStackTrace();
+					commonService.createSalary(model);
+					return "redirect:/quanlyluong";
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "redirect:/quanlyluong";
+				}
+			} else {
 				return "redirect:/quanlyluong";
 			}
-		} else {
-			return "redirect:/quanlyluong";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/addSalary", method = RequestMethod.GET)
 	public ModelAndView addSalary() {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addSalary");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				ModelAndView mav = new ModelAndView("admin/addSalary");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -85,50 +99,63 @@ public class SalaryManageController {
 			@RequestParam("styleTeacher") float styleTeacher, @RequestParam("twosession") String twosession,
 			@RequestParam("threesession") String threesession, @RequestParam("foursession") String foursession,
 			@RequestParam("fivesession") String fivesession) {
-		if (session.getAttribute("userName") != null) {
-			try {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
+		try {
+			if (session.getAttribute("userName") != null) {
+				try {
+					Map<String, Object> param = new HashMap<String, Object>();
+					param.put("_id", id);
 
-				SalaryModel model = commonModel.mapSalary(grade, styleTeacher, twosession, threesession, foursession,
-						fivesession);
+					SalaryModel model = commonModel.mapSalary(grade, styleTeacher, twosession, threesession,
+							foursession, fivesession);
 
-				commonService.updateSalary(model, param);
-				return "redirect:/quanlyluong";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "redirect:/quanlyluong";
+					commonService.updateSalary(model, param);
+					return "redirect:/quanlyluong";
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "redirect:/quanlyluong";
+				}
+			} else {
+				return "redirect:/login";
 			}
-		} else {
-			return "redirect:/login";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/updateSalary", method = RequestMethod.GET)
 	public ModelAndView updateSalary(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			SalaryModel model = commonService.getSalary(param);
-			ModelAndView mav = new ModelAndView("admin/updateSalary");
-			mav.addObject("model", model);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				SalaryModel model = commonService.getSalary(param);
+				ModelAndView mav = new ModelAndView("admin/updateSalary");
+				mav.addObject("model", model);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/deleteSalary", method = RequestMethod.GET)
 	public String deleteSalary(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			System.out.println(id);
-			commonService.removeSalary(param);
-			return "redirect:/quanlyluong";
-		} else {
-			return "redirect:/login";
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				System.out.println(id);
+				commonService.removeSalary(param);
+				return "redirect:/quanlyluong";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 }

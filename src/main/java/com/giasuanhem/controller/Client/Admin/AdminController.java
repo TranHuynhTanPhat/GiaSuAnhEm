@@ -36,47 +36,56 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
-		if (session.getAttribute("userName") != null) {
-			List<ClassModel> listClass = commonService.getListClass();
+		try {
+			if (session.getAttribute("userName") != null) {
+				List<ClassModel> listClass = commonService.getListClass();
 
-			List<SubjectModel> listSubject = commonService.getListSubject();
+				List<SubjectModel> listSubject = commonService.getListSubject();
 
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("style", 1);
+				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsDistrict.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsDistrict.put("style", 0);
+				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
 
-			session.setAttribute("listSubject", listSubject);
-			session.setAttribute("listClass", listClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			session.setAttribute("listCategoryClass", listCategoryClass);
+				session.setAttribute("listSubject", listSubject);
+				session.setAttribute("listClass", listClass);
+				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+				session.setAttribute("listCategoryClass", listCategoryClass);
 
-			ModelAndView mav = new ModelAndView("admin/adminhome");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				ModelAndView mav = new ModelAndView("admin/adminhome");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
 	public ModelAndView adminIntroduction() {
+		try {
+			if (session.getAttribute("userName") != null) {
 
-		if (session.getAttribute("userName") != null) {
+				Map<String, Object> params = new HashMap<>();
+				params.put("style", 1);
+				List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
 
-			Map<String, Object> params = new HashMap<>();
-			params.put("style", 1);
-			List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
+				ModelAndView mav = new ModelAndView("admin/adminIntroduction");
+				mav.addObject("listIntroductionPost", listIntroductionPost);
 
-			ModelAndView mav = new ModelAndView("admin/adminIntroduction");
-			mav.addObject("listIntroductionPost", listIntroductionPost);
-
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -84,52 +93,66 @@ public class AdminController {
 	@RequestMapping(value = "/uploadIntroduction", method = RequestMethod.POST)
 	public String uploadIntroduction(@RequestParam("id") String id, @RequestParam("title") String title,
 			@RequestParam("content") String content) {
-		if (session.getAttribute("userName") != null) {
-			System.out.println(content);
-			System.out.println(title);
-			PostModel model = new PostModel();
-			model.setTitle(title);
-			model.setBody(content);
+		try {
+			if (session.getAttribute("userName") != null) {
+				PostModel model = new PostModel();
+				model.setTitle(title);
+				model.setBody(content);
 
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			commonService.updatePost(model, param);
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				commonService.updatePost(model, param);
 
-			return "redirect:/admin-introduction";
-		} else {
-			return "redirect:/login";
+				return "redirect:/admin-introduction";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redrect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
-		session.removeAttribute("userName");
-		session.removeAttribute("password");
-		ModelAndView mav = new ModelAndView("admin/login");
-		return mav;
+		try {
+			session.removeAttribute("userName");
+			session.removeAttribute("password");
+			ModelAndView mav = new ModelAndView("admin/login");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userName", username);
-		params.put("password", password);
 		try {
-			commonService.checkLogin(params, session);
-			return "redirect:/admin";
+			Map<String, Object> params = new HashMap<>();
+			params.put("userName", username);
+			params.put("password", password);
+			try {
+				commonService.checkLogin(params, session);
+				return "redirect:/admin";
+			} catch (Exception e) {
+				e.printStackTrace();
+				session.setAttribute("errorMessage", e.getMessage());
+				return "redirect:/login";
+			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			session.setAttribute("errorMessage", e.getMessage());
-			return "redirect:/login";
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutAdmin() {
-		session.removeAttribute("userName");
-		session.removeAttribute("password");
-		return "redirect:/login";
-
+		try {
+			session.removeAttribute("userName");
+			session.removeAttribute("password");
+			return "redirect:/login";
+		} catch (Exception e) {
+			return "redirect:error";
+		}
 	}
 
 }

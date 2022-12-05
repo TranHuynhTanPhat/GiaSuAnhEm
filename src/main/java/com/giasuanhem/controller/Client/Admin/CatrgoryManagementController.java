@@ -29,34 +29,43 @@ public class CatrgoryManagementController {
 
 	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
 	public ModelAndView categoryManagement() {
-		if (session.getAttribute("userName") != null) {
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("style", 0);
+				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
 
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("style", 1);
+				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+				session.setAttribute("listCategoryClass", listCategoryClass);
+				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-
-			ModelAndView mav = new ModelAndView("admin/categoryManagement");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				ModelAndView mav = new ModelAndView("admin/categoryManagement");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/createCategory", method = RequestMethod.GET)
 	public ModelAndView addCategory() {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addCategory");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				ModelAndView mav = new ModelAndView("admin/addCategory");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -64,30 +73,39 @@ public class CatrgoryManagementController {
 	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
 	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name,
 			@RequestParam("style") float style) throws JsonProcessingException {
-		if (session.getAttribute("userName") != null) {
-			CategoryModel model = new CategoryModel();
-			model.setName(name);
-			model.setStyle(style);
-			commonService.createCategory(model);
-			return "redirect:/quanlydanhmuc";
-		} else {
-			return "redirect:/login";
+		try {
+			if (session.getAttribute("userName") != null) {
+				CategoryModel model = new CategoryModel();
+				model.setName(name);
+				model.setStyle(style);
+				commonService.createCategory(model);
+				return "redirect:/quanlydanhmuc";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.GET)
 	public ModelAndView updateCategory(HttpSession session, @RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
+		try {
+			if (session.getAttribute("userName") != null) {
 
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			CategoryModel category = commonService.getCategory(param);
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				CategoryModel category = commonService.getCategory(param);
 
-			ModelAndView mav = new ModelAndView("admin/updateCategory");
-			mav.addObject("category", category);
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+				ModelAndView mav = new ModelAndView("admin/updateCategory");
+				mav.addObject("category", category);
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -95,42 +113,39 @@ public class CatrgoryManagementController {
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
 	public String updateCategory(HttpSession session, @RequestParam("id") String id,
 			@RequestParam("CategoryName") String name, @RequestParam("style") float style) {
-		if (session.getAttribute("userName") != null) {
-			CategoryModel model = new CategoryModel();
-			model.setName(name);
-			model.setStyle(style);
+		try {
+			if (session.getAttribute("userName") != null) {
+				CategoryModel model = new CategoryModel();
+				model.setName(name);
+				model.setStyle(style);
 
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			commonService.updateCategory(model, param);
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				commonService.updateCategory(model, param);
 
-			return "redirect:/quanlydanhmuc";
-		} else {
-			return "redirect:/login";
+				return "redirect:/quanlydanhmuc";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
-//	@RequestMapping(value = "/addCategoryClass", method = RequestMethod.POST)
-//	public ModelAndView addCategoryClass(HttpSession session) {
-//		if (session.getAttribute("userName") != null) {
-//			ModelAndView mav = new ModelAndView("admin/addCategoryClass");
-//			return mav;
-//		} else {
-//			ModelAndView mav = new ModelAndView("admin/login");
-//			return mav;
-//		}
-//	}
-
 	@RequestMapping(value = "/deleteCategory", method = RequestMethod.GET)
 	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("_id", id);
-			commonService.removeCategory(param);
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("_id", id);
+				commonService.removeCategory(param);
 
-			return "redirect:/quanlydanhmuc";
-		} else {
-			return "redirect:/login";
+				return "redirect:/quanlydanhmuc";
+			} else {
+				return "redirect:/login";
+			}
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 }

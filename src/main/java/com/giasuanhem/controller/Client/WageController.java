@@ -21,18 +21,22 @@ public class WageController {
 
 	@RequestMapping(value = "/bang-luong", method = RequestMethod.GET)
 	public ModelAndView wagePage() {
+		try {
+			Map<String, Object> paramST = new HashMap<>();
+			paramST.put("style", 0);
+			List<SalaryModel> listSST = commonService.getListSalary(paramST);
 
-		Map<String, Object> paramST = new HashMap<>();
-		paramST.put("style", 0);
-		List<SalaryModel> listSST = commonService.getListSalary(paramST);
+			Map<String, Object> paramTE = new HashMap<>();
+			paramST.put("style", 1);
+			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
 
-		Map<String, Object> paramTE = new HashMap<>();
-		paramST.put("style", 1);
-		List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
-
-		ModelAndView mav = new ModelAndView("wage/wage");
-		mav.addObject("listSST", listSST);
-		mav.addObject("listSTE", listSTE);
-		return mav;
+			ModelAndView mav = new ModelAndView("wage/wage");
+			mav.addObject("listSST", listSST);
+			mav.addObject("listSTE", listSTE);
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
 	}
 }

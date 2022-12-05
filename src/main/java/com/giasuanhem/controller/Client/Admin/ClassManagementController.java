@@ -28,26 +28,36 @@ public class ClassManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlylophoc", method = RequestMethod.GET)
-	public ModelAndView classManagement(HttpSession session) {
-		if (session.getAttribute("userName") != null) {
-			List<ClassModel> listClass = commonService.getListClass();
-			session.setAttribute("listClass", listClass);
-			
-			ModelAndView mav = new ModelAndView("admin/classManagement");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+	public ModelAndView classManagement() {
+		try {
+			if (session.getAttribute("userName") != null) {
+				List<ClassModel> listClass = commonService.getListClass();
+				session.setAttribute("listClass", listClass);
+
+				ModelAndView mav = new ModelAndView("admin/classManagement");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/addClass", method = RequestMethod.GET)
-	public ModelAndView addClass(HttpSession session) {
-		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addClass");
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+	public ModelAndView addClass() {
+		try {
+			if (session.getAttribute("userName") != null) {
+				ModelAndView mav = new ModelAndView("admin/addClass");
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
@@ -55,47 +65,59 @@ public class ClassManagementController {
 	@RequestMapping(value = "/addClass", method = RequestMethod.POST)
 	public String addClass(@RequestParam("tenlop") String tenlop) {
 		try {
-			ClassModel itemAdd = commonModel.mapClass(tenlop);
-			commonService.createClass(itemAdd);
-			return "redirect:/quanlylophoc";
+			if (session.getAttribute("userName") != null) {
+				ClassModel itemAdd = commonModel.mapClass(tenlop);
+				commonService.createClass(itemAdd);
+				return "redirect:/quanlylophoc";
+			} else {
+				return "redirect:/login";
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
-			return "redirect:/quanlylophoc";
+			return "redirect:/error";
 		}
 	}
 
 	@RequestMapping(value = "/updateClass", method = RequestMethod.GET)
 	public ModelAndView updateClass(@RequestParam("id") String id) {
-		if (session.getAttribute("userName") != null) {
-			Map<String, Object> param = new HashMap<>();
-			param.put("_id", id);
-			ClassModel Class = commonService.getClass(param);
-			ModelAndView mav = new ModelAndView("admin/updateClass");
-			mav.addObject("Class", Class);
-			
-			return mav;
-		} else {
-			ModelAndView mav = new ModelAndView("admin/login");
+		try {
+			if (session.getAttribute("userName") != null) {
+				Map<String, Object> param = new HashMap<>();
+				param.put("_id", id);
+				ClassModel Class = commonService.getClass(param);
+				ModelAndView mav = new ModelAndView("admin/updateClass");
+				mav.addObject("Class", Class);
+
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/updateClass", method = RequestMethod.POST)
 	public String updateClass(@RequestParam("id") String id, @RequestParam("tenlop") String tenlop) {
-		if (session.getAttribute("userName") != null) {
-			try {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				ClassModel Class = commonModel.mapClass(tenlop);
-				commonService.updateClass(Class, param);
-				
-				return "redirect:/quanlylophoc";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "redirect:quanlylophoc";
+		try {
+			if (session.getAttribute("userName") != null) {
+				try {
+					Map<String, Object> param = new HashMap<String, Object>();
+					param.put("_id", id);
+					ClassModel Class = commonModel.mapClass(tenlop);
+					commonService.updateClass(Class, param);
+
+					return "redirect:/quanlylophoc";
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "redirect:quanlylophoc";
+				}
+			} else {
+				return "redirect:/login";
 			}
-		} else {
-			return "redirect:/login";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 
@@ -105,12 +127,12 @@ public class ClassManagementController {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
 			commonService.removeClass(params);
-			
+
 			return "redirect:/quanlylophoc";
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			return "redirect:/quanlylophoc";
+			return "redirect:/error";
 		}
 	}
 }

@@ -16,7 +16,6 @@ html, body {
 	-webkit-font-smoothing: antialiased;
 }
 
-
 .navbar {
 	background-color: #0a426e !important;
 	position: fixed;
@@ -204,4 +203,9 @@ html, body {
 	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
 		.15s;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+footer.sticky-footer {
+	padding: 2rem 0;
+	flex-shrink: 0;
 }
