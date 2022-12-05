@@ -10,8 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
+<title>DANH SÁCH LỚP HỌC</title>
+
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap"
 	rel="stylesheet">
 
 
@@ -44,15 +44,17 @@
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<script
+<!-- <script
 	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
 	type="text/javascript"></script>
+<script type="module" src="/resources/assets/js/main.js"></script> 
+<script src="./resources/assets/js/bootstrap.min.js"></script>-->
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
-<script src="./resources/assets/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -63,7 +65,7 @@
 			document.getElementById(x).innerHTML = "0";
 		}
 	</script>
-	<div class="container-fluid" style="margin-top:60px">
+	<div class="container-fluid" style="margin-top: 60px">
 		<div class="row flex-nowrap">
 			<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
 			<div class="col py-3 main">

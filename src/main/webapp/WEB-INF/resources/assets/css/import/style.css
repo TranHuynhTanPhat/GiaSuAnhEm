@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap')
+	;
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -7,23 +10,25 @@ html, body {
 	font-variant: normal;
 	text-transform: none;
 	background-color: #eef2f8;
-    font-family: 'Roboto', sans-serif;
-    color: #001c44;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
+	font-family: 'Roboto', sans-serif;
+	color: #001c44;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
 }
 
-.navbar{
-	background-color:#0a426e!important;
-	position:fixed;
-	width:100%;
+
+.navbar {
+	background-color: #0a426e !important;
+	position: fixed;
+	width: 100%;
 }
+
 .navbar li {
 	text-align: center;
 }
 
 .navbar li a {
-	color: white ;
+	color: white;
 	display: inline-block;
 	width: 120px;
 	font-size: 15px;
@@ -42,34 +47,37 @@ html, body {
 	/* margin-top: 5px; */
 	overflow-x: hidden;
 	padding-top: 20px;
-	background-color: #f2f2f2;
+	background-color: white;
 	/* border: 2px solid #b85b56;*/
 	box-shadow: 0 2px 4px rgb(0 0 0/ 50%), 0 8px 16px rgb(0 0 0/ 50%);
 }
-.sidenav li{
+
+.sidenav li {
+	margin-top: 5px;
 	height: 30px;
-    list-style: none;
-    display: flex;
-    align-items: center;
+	list-style: none;
+	display: flex;
+	align-items: center;
 }
+
 .sidenav li a {
 	padding: 6px 8px 6px 16px;
 	color: #17629f !important;
 	font-size: 15px;
-	font-weight:200;
+	font-weight: 200;
 	display: block;
 }
 
 .sidenav a:hover {
 	color: white !important;
-	background-color:#0a426e !important;
+	background-color: #0a426e !important;
 	border-radius: 5px;
 }
 
 .sidenav li span {
-	margin-top:10px;
+	margin-top: 10px;
 	border-bottom: 1px dotted #0a426e;
-	color: #145589!important;
+	color: #145589 !important;
 	font-size: 16px;
 	font-weight: 900;
 	text-align: center;
@@ -80,62 +88,18 @@ html, body {
 	margin-left: 0px;
 	text-align: left;
 }
-.dropdown-menu li a{
-	width: auto; padding: 10px; color: #6d727c;
+
+.dropdown-menu li a {
+	width: auto;
+	padding: 10px;
+	color: #6d727c;
 }
-.dropdown-menu li a:hover{
+
+.dropdown-menu li a:hover {
 	color: white !important;
-	background-color:#0a426e !important;
+	background-color: #0a426e !important;
 	border-radius: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #wrapper {
 	width: 1000px;

@@ -9,23 +9,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!----======== CSS ======== -->
-<link rel="stylesheet" href="style.css">
-
+<title>Thống kê</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
 
 <!--<title>Dashboard Sidebar Menu</title>-->
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
+
+
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
@@ -68,9 +62,10 @@
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<script
+<!-- <script
 	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
 	type="text/javascript"></script>
+<script type="module" src="/resources/assets/js/main.js"></script> -->
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
@@ -173,7 +168,7 @@
 									<div class="col mr-2">
 										<div
 											class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-											Yêu cầu đăng kí dạy</div>
+											Yêu cầu nhận lớp</div>
 										<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 									</div>
 									<div class="col-auto">
@@ -218,137 +213,12 @@
 						</div>
 					</div>
 
-
-
-
-
-
 				</div>
 			</div>
 
 		</div>
+		<div><%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
 	</section>
-	<!-- <div id="wrapperAdmin">
-
-	<div id="page-main-Admin">
-		<div class="row">
-			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-				<div class="card">
-					<div class="card-body p-3">
-						<div class="row">
-							<div class="col-8">
-								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng
-										tiền hôm nay</p>
-									<h5 class="font-weight-bolder mb-0">
-										$53,000 <span class="text-success text-sm font-weight-bolder">+55%</span>
-									</h5>
-								</div>
-							</div>
-							<div class="col-4 text-end">
-								<div
-									class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-									<i class="ni ni-money-coins text-lg opacity-10"
-										aria-hidden="true"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-				<div class="card">
-					<div class="card-body p-3">
-						<div class="row">
-							<div class="col-8">
-								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng
-										lượt requests hôm nay</p>
-									<h5 class="font-weight-bolder mb-0">
-										2,300 <span class="text-success text-sm font-weight-bolder">+3%</span>
-									</h5>
-								</div>
-							</div>
-							<div class="col-4 text-end">
-								<div
-									class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-									<i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-				<div class="card">
-					<div class="card-body p-3">
-						<div class="row">
-							<div class="col-8">
-								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Khóa
-										học mới</p>
-									<h5 class="font-weight-bolder mb-0">
-										+3,462 <span class="text-danger text-sm font-weight-bolder">-2%</span>
-									</h5>
-								</div>
-							</div>
-							<div class="col-4 text-end">
-								<div
-									class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-									<i class="ni ni-paper-diploma text-lg opacity-10"
-										aria-hidden="true"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-3 col-sm-6">
-				<div class="card">
-					<div class="card-body p-3">
-						<div class="row">
-							<div class="col-8">
-								<div class="numbers">
-									<p class="text-sm mb-0 text-capitalize font-weight-bold">Tổng
-										tiền tháng</p>
-									<h5 class="font-weight-bolder mb-0">
-										$103,430 <span class="text-success text-sm font-weight-bolder">+5%</span>
-									</h5>
-								</div>
-							</div>
-							<div class="col-4 text-end">
-								<div
-									class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-									<i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br> <br> <br>
-
-		<div class="col-lg-7">
-			<div class="card z-index-2">
-				<div class="card-header pb-0">
-					<h6>Tổng quát doanh thu</h6>
-					<p class="text-sm">
-						<i class="fa fa-arrow-up text-success" aria-hidden="true"></i> <span
-							class="font-weight-bold">4% more</span> in 2021
-					</p>
-				</div>
-				<div class="card-body p-3">
-					<div class="chart">
-						<canvas id="chart-line" class="chart-canvas" height="375"
-							width="955"
-							style="display: block; box-sizing: border-box; height: 300px; width: 764px;"></canvas>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 
 
 
