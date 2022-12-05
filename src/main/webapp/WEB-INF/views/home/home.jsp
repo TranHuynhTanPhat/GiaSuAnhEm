@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
 <title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
+
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
@@ -44,20 +44,22 @@
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<script
+<!-- <script
 	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
 	type="text/javascript"></script>
+<script type="module" src="/resources/assets/js/main.js"></script> 
+<script src="./resources/assets/js/bootstrap.min.js"></script>-->
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
-<script src="./resources/assets/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 	<%@include file="/WEB-INF/views/layout/header.jsp"%>
-	<div style="margin-top:60px">
+	<div style="margin-top: 60px">
 		<video autoplay loop muted plays-inline class="back-video"
 			width="100%" height="auto">
 			<source src="<c:url value="resources/assets/images/bn2.mp4"/>"
