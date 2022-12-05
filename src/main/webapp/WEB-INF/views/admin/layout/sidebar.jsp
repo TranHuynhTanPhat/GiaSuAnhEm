@@ -64,12 +64,12 @@
 						class="fa-solid fa-book icon"></i><span class="text nav-text">Quản
 							lý hệ thống</span></a>
 					<ul class="dropdown-menu">
-						<li class="nav-link"><a href="#"> <i
+						<li class="nav-link"><a href="quanlylophoc"> <i
 								class="fa-regular fa-pen-to-square icon"></i> <span
 								class="text nav-text">Quản lý lớp học</span>
 						</a></li>
 
-						<li class="nav-link"><a href="#"> <i
+						<li class="nav-link"><a href="quanlymonhoc"> <i
 								class="fa-regular fa-pen-to-square icon"></i> <span
 								class="text nav-text">Quản lý môn học</span>
 						</a></li>
