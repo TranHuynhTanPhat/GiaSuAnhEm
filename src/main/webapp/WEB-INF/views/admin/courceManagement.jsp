@@ -89,7 +89,7 @@
 				<!-- Content Row -->
 				<div class="row">
 
-					<div id="page-main-Admin">
+					<div id="row">
 
 						<form action="" method="post" name="form1" style="width: 100%">
 							<div class="row">
