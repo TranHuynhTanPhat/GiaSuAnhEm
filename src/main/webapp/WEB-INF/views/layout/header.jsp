@@ -11,7 +11,7 @@
 					<ul class="dropdown-menu">
 						<li class="dropdown-item"><a href="#">Thông tin
 								cá nhân</a></li>
-						<li class="dropdown-item"><a href="#">Đăng nhập</a></li>
+						<li class="dropdown-item"><a href="/TrungTamGiaSu/dang-nhap">Đăng nhập</a></li>
 						<li class="dropdown-item"><a href="#">Đăng xuất</a></li>
 
 					</ul></li>

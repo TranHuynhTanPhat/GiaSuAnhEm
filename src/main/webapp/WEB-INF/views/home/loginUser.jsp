@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="login-box">
-		<h2>Login</h2>
+		<h2>Đăng nhập</h2>
 		<form action="" >
 			<div class="user-box">
 				<input type="text" name="" required="required"/>

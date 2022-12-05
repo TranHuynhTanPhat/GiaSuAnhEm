@@ -120,4 +120,26 @@ public class HomeController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
+	public ModelAndView loginPage() {
+		try {
+			ModelAndView mav = new ModelAndView("home/loginUser");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
+	}
+	
+	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
+	public ModelAndView registerPage() {
+		try {
+			ModelAndView mav = new ModelAndView("home/register");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
+	}
 }
