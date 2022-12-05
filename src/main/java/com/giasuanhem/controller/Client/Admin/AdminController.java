@@ -115,7 +115,6 @@ public class AdminController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
 		try {
-			session.removeAttribute("errorMessage");
 			session.removeAttribute("userName");
 			session.removeAttribute("password");
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -134,6 +133,8 @@ public class AdminController {
 			params.put("password", password);
 			try {
 				commonService.checkLogin(params, session);
+
+				session.removeAttribute("errorMessage");
 				return "redirect:/admin";
 			} catch (Exception e) {
 				e.printStackTrace();
