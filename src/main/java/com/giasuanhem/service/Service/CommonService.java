@@ -551,6 +551,7 @@ public class CommonService {
 			session.setAttribute("accessToken", admin.getAccessToken());
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.print("a");
 		}
 
 	}

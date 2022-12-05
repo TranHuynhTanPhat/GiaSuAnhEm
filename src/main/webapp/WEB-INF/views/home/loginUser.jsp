@@ -44,6 +44,5 @@
 			<p class="register">Chưa có tài khoản? <a href="/TrungTamGiaSu/dang-ky">Đăng ký ngay</a> </p>
 		</form>
 	</div>
-	<script src="./loginUser.js"></script>
 </body>
 </html>
