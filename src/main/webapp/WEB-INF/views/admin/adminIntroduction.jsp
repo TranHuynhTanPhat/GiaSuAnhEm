@@ -79,7 +79,7 @@
 				<div id="page-main-Admin" style="text-align: center;">
 
 
-					<form action="./uploadIntroduction" method="post">
+					<form action="./uploadIntroduction" method="post" >
 						<input type="hidden" name="id"
 							value="${listIntroductionPost[0]._id}">
 						<div class="form-group">
@@ -107,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
 	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+	</section>
 
 </body>

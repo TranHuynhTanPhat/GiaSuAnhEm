@@ -17,6 +17,7 @@ body {
 	min-height: 100vh;
 	font-family: 'Roboto', sans-serif;
 	color:#001c44;
+	background-color:#eef2f8;
 }
 
 ::selection {
