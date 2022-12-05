@@ -9,36 +9,20 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!----======== CSS ======== -->
-<link rel="stylesheet" href="style.css">
-
+<title>Thống kê</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
 
 <!--<title>Dashboard Sidebar Menu</title>-->
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="resources/assets/css/import/footer.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/newclass.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/style.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
 	rel="stylesheet">
@@ -69,9 +53,10 @@
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<script
+<!-- <script
 	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
 	type="text/javascript"></script>
+<script type="module" src="/resources/assets/js/main.js"></script> -->
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>

@@ -18,20 +18,11 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-
-
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="resources/assets/css/import/footer.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/newclass.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
-	rel="stylesheet">
-
 <link
 	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
 	rel="stylesheet">

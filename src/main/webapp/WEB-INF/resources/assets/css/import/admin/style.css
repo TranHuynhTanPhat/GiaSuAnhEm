@@ -10,23 +10,13 @@
 }
 
 :root {
-	/* ===== Colors ===== */ -
-	-body-color: #E4E9F7; -
-	-sidebar-color: #FFF; -
-	-primary-color: #695CFE; -
-	-primary-color-light: #F6F5FF; -
-	-toggle-color: #DDD; -
-	-text-color: #707070;
-	/* ====== Transition ====== */ -
-	-tran-03: all 0.2s ease; -
-	-tran-03: all 0.3s ease; -
-	-tran-04: all 0.3s ease; -
-	-tran-05: all 0.3s ease;
+	/* ====== Transition ====== */ --tran-03: all 0.2s ease; --tran-03: all 0.3s ease; --tran-04: all 0.3s ease; --tran-05: all 0.3s ease;
 }
 
 body {
 	min-height: 100vh;
 	font-family: 'Roboto', sans-serif;
+	color:#001c44;
 }
 
 ::selection {
@@ -136,7 +126,7 @@ header .image-text .profession {
 	transform: translateY(-50%) rotate(180deg);
 	height: 25px;
 	width: 25px;
-	background-color: #55acee;
+	background-color: #0d6efd;
 	color: white;
 	border-radius: 50%;
 	display: flex;
@@ -259,7 +249,7 @@ body.dark .mode .sun-moon i.moon {
 .title {
 	margin-top: 40px;
 	font-size: calc(1.375rem + 1.5vw);
-	color: #55acee;
+	color: #0d6efd;
 }
 
 .dropdown-menu li a {
@@ -272,4 +262,8 @@ body.dark .mode .sun-moon i.moon {
 	color: white !important;
 	background-color: #55acee !important;
 	border-radius: 5px;
+}
+
+.form-control{
+	color: #001c44;
 }

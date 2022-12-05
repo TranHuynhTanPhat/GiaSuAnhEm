@@ -9,36 +9,20 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!----======== CSS ======== -->
-<link rel="stylesheet" href="style.css">
-
+<title>Thống kê</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
 
 <!--<title>Dashboard Sidebar Menu</title>-->
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
-<script type="module" src="/resources/assets/js/main.js"></script>
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="resources/assets/css/import/footer.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/newclass.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/style.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
 	rel="stylesheet">
@@ -69,9 +53,10 @@
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<script
+<!-- <script
 	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
 	type="text/javascript"></script>
+<script type="module" src="/resources/assets/js/main.js"></script> -->
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
@@ -101,13 +86,14 @@
 							<label style="float: left"><strong>Tiêu đề:</strong></label>
 							<div style="width: 100%">
 								<input type="text" name="title" class="form-control"
+									style="border: 2px solid #001c44;"
 									value="${listIntroductionPost[0].title }">
 							</div>
 						</div>
 						<div class="form-group">
 							<label style="float: left"><strong>Nội dung:</strong> </label>
 							<textarea name="content" rows="50"
-								style="width: 100%; height: 500px; display: inline-block;">${listIntroductionPost[0].body }</textarea>
+								style="width: 100%; height: 500px; display: inline-block; border: 2px solid #001c44; border-radius: 5px;padding:10px">${listIntroductionPost[0].body }</textarea>
 						</div>
 
 						<canvas width="1000" height="10"></canvas>
