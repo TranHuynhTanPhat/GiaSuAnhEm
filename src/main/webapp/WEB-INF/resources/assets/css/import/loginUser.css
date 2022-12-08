@@ -7,7 +7,7 @@ body
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background: linear-gradient(#141e30, #243b55);
+	background: linear-gradient(#bad7e3, #10739c);
 }
 .login-box
 {
@@ -24,10 +24,13 @@ body
 }
 .login-box h2
 {
+	font-family: cursive;
 	margin: 0 0 30px;
 	padding: 0;
 	color: #fff;
 	text-align: center;
+	font-size: 28px;
+	font-weight: 600;
 }
 .login-box .user-box
 {
@@ -43,7 +46,7 @@ body
 	border: none;
 	border-bottom: 1px solid #fff;
 	outline: none;
-	background: transparent;
+	background: transparent	;
 }
 .login-box .user-box svg
 {
@@ -186,10 +189,15 @@ body
 	}
 }
 .register {
-  text-align: center;
-  color: #fff;
+	text-align: center;
+	color: #fff;
 }
 .register a
 {
 	color: #03e9f4;
+}
+img {
+    margin-top: 30px;
+    margin-left: 40px;
+    height: 80px;
 }
