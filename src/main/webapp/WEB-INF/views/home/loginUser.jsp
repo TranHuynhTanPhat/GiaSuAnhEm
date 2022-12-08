@@ -10,6 +10,8 @@
 <title>ĐĂNG NHẬP</title>
 <link href="<c:url value="resources/assets/css/import/loginUser.css"/>"
 	rel="stylesheet">
+<script src="<c:url value="resources/assets/js/import/loginUser.js"/>"
+	type="text/javascript"></script>
 </head>
 <body>
 
@@ -53,6 +55,6 @@
 			</p>
 		</form>
 	</div>
-	<script src="./loginUser.js"></script>
+	<script src="resources/assets/js/import/loginUser.js"></script>
 </body>
 </html>

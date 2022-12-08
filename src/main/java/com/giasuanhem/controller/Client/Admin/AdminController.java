@@ -133,10 +133,11 @@ public class AdminController {
 			params.put("password", password);
 			try {
 				commonService.checkLogin(params, session);
+
 				return "redirect:/admin";
 			} catch (Exception e) {
 				e.printStackTrace();
-				session.setAttribute("errorMessage", e.getMessage());
+//				session.setAttribute("errorMessage", "Username hoặc Password không đúng!");
 				return "redirect:/login";
 			}
 		} catch (Exception e) {
@@ -147,6 +148,7 @@ public class AdminController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutAdmin() {
 		try {
+			session.removeAttribute("errorMessage");
 			session.removeAttribute("userName");
 			session.removeAttribute("password");
 			return "redirect:/login";

@@ -3,8 +3,8 @@ package com.giasuanhem.controller.Client;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
-import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
-import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.CommonService;
 
@@ -27,6 +25,7 @@ public class HomeController {
 	private CommonService commonService;
 	@Autowired
 	HttpSession session;
+	
 
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
 	public ModelAndView homePage() {
@@ -120,7 +119,7 @@ public class HomeController {
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		try {
@@ -131,11 +130,12 @@ public class HomeController {
 			return mav;
 		}
 	}
-	
+
 	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
 	public ModelAndView registerPage() {
 		try {
 			ModelAndView mav = new ModelAndView("home/register");
+			Services.sendEmail("trungnghiaazzd@gmail.com", "Verify", "123456");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

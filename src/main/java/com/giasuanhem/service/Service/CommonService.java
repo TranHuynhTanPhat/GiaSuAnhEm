@@ -16,11 +16,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.giasuanhem.model.Models.CategoryModel;
@@ -30,6 +33,7 @@ import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.model.Models.adminModel;
+import com.giasuanhem.model.Models.errorMessage;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ApiConstant;
 import com.google.gson.Gson;
@@ -70,10 +74,16 @@ public class CommonService {
 		headers.set("token", "Bearer " + session.getAttribute("accessToken"));
 
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
-		ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt, HttpMethod.POST,
-				entity, String.class);
-		String jsonResponse = response.getBody();
-		return jsonResponse;
+		try {
+			ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt,
+					HttpMethod.POST, entity, String.class);
+			System.out.println("a");
+			String jsonResponse = response.getBody();
+			return jsonResponse;
+		} catch (HttpClientErrorException e) {
+			return e.getResponseBodyAsString();
+		}
+
 	}
 
 	void postWithJson(String apiUrl, String jsonReq) {
@@ -167,7 +177,7 @@ public class CommonService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void createSalary(SalaryModel model) throws JsonProcessingException {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -539,7 +549,8 @@ public class CommonService {
 		}
 	}
 
-	public void checkLogin(Map<String, Object> params, HttpSession session) {
+	public void checkLogin(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = null;
 
 		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
@@ -550,7 +561,9 @@ public class CommonService {
 			session.setAttribute("userName", admin.getUserName());
 			session.setAttribute("accessToken", admin.getAccessToken());
 		} catch (Exception e) {
-			// TODO: handle exception
+			errorMessage err = objectMapper.readValue(jsonResponse, new TypeReference<errorMessage>() {
+			});
+			session.setAttribute("errorMessage", err.getMessage());
 		}
 
 	}

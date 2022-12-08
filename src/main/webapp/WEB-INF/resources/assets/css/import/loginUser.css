@@ -39,14 +39,14 @@ body
 .login-box .user-box input
 {
 	width: 100%;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #fff;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #fff;
-	outline: none;
-	background: transparent	;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff !important;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
 }
 .login-box .user-box svg
 {
@@ -63,21 +63,21 @@ body
 .login-box .user-box label
 {
 	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #fff;
-	pointer-events: none;
-	transition: 0.5s;
+    top: 0 !important;
+    left: 0 !important;
+    padding: 10px 0;
+    font-size: 16px !important;
+    color: #fff !important;
+    pointer-events: none;
+    transition: 0.5s;
 }
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label
 {
-	top: -20px;
-	left: 0;
-	color: #03e9f4;
-	font-size: 12px;
+	top: -20px !important;
+    left: 0 !important;
+    color: #03e9f4 !important;
+    font-size: 12px !important;
 }
 
 .login-box form button
@@ -200,5 +200,9 @@ img {
     margin-top: -23px;
     margin-left: -16px;
     height: 65px;
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 99c6bb7faddd230756770676aacfc08acf67d2e8
