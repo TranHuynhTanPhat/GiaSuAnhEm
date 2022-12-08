@@ -4,20 +4,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ĐĂNG NHẬP</title>
-	<link href="<c:url value="resources/assets/css/import/loginUser.css"/>"
-=======
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ĐĂNG NHẬP</title>
 <link href="<c:url value="resources/assets/css/import/loginUser.css"/>"
->>>>>>> trungnghia
 	rel="stylesheet">
+<script src="<c:url value="resources/assets/js/import/loginUser.js"/>"
+	type="text/javascript"></script>
 </head>
 <body>
 
@@ -61,5 +55,6 @@
 			</p>
 		</form>
 	</div>
+	<script src="resources/assets/js/import/loginUser.js"></script>
 </body>
 </html>
