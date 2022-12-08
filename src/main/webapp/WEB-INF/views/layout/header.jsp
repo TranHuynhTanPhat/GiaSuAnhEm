@@ -31,7 +31,7 @@
 					class="nav-link dropdown-toggle" href="/TrungTamGiaSu/lop-moi"
 					data-bs-toggle="dropdown">Lớp mới</a>
 					<ul class="dropdown-menu">
-						<li class="dropdown-item"><a href="#"
+						<li class="dropdown-item"><a href="/TrungTamGiaSu/dang-ky-mo-lop"
 							style="width: auto; padding: 10px">Đăng ký mở lớp</a></li>
 						<li class="dropdown-item"><a href="#"
 							style="width: auto; padding: 10px">Quy trình mở lớp</a></li>

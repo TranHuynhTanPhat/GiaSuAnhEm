@@ -1,0 +1,147 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background: url(bg-image.jbg);
+	background-size: cover;
+	background: linear-gradient(#bad7e3, #10739c);
+	color: white;
+}
+
+.container {
+	width: 100%;
+	max-width: 650px;
+	background: rgba(0, 0, 0, 0.34);
+	padding: 28px;
+	margin: 0 28px;
+	border-radius: 10px;
+	box-shadow: inset -2px 2px 2px white;
+}
+
+.form-title {
+	font-family: cursive;
+	font-size: 26px;
+	font-weight: 600;
+	text-align: center;
+	padding-bottom: 6px;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	border-bottom: solid 1px white;
+}
+
+.main-newclass-info {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+
+.user-input-box:nth-child(2n) {
+	justify-content: end;
+}
+
+.user-input-box {
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+	padding-bottom: 15px;
+}
+
+.user-input-box label {
+	width: 95%;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 5px 0;
+	text-shadow: 2px 2px 2px black;
+}
+
+.user-checkbox-box label {
+	width: 95%;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 5px 0;
+	text-shadow: 2px 2px 2px black;
+}
+
+.user-input-box input {
+	height: 40px;
+	width: 95%;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid #03e9f4;
+	padding: 0 10px;
+}
+
+.user-input-box select {
+	eight: 40px;
+	width: 95%;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid #03e9f4;
+	padding: 0 10px;
+}
+
+.user-input-box option {
+	eight: 40px;
+	width: 95%;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid #03e9f4;
+	padding: 0 10px;
+}
+
+.user-checkbox-box input {
+	height: 40px;
+	width: 95%;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid #03e9f4;
+	padding: 0 10px;
+}
+
+.form-submit-btn button {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	font-size: 20px;
+	padding: 10px;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	transition: 0.5s;
+	background: rgba(88, 195, 219, 0.5);
+}
+
+.form-submit-btn button:hover {
+	background: #1bc6cf;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #1bc6cf, 0 0 25px #1bc6cf 0 0 50px #1bc6cf 0 0 100px
+		#1bc6cf;
+}
+
+.user-input-box .tablebox input {
+	color: #03e9f4;
+	width: 19px;
+	height: 24px;
+}
+
+.user-checkbox-box .tablebox input {
+	color: #03e9f4;
+	width: 19px;
+	height: 24px;
+}
+
+img {
+	display: block;
+	height: 78px;
+	margin-top: -2px;
+}
