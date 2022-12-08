@@ -9,6 +9,8 @@
 <title>Đăng ký gia sư</title>
 <link href="<c:url value="resources/assets/css/import/addtutor.css"/>"
 	rel="stylesheet">
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 </head>
 <body>
 	<div id="wrapper">

@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ĐĂNG NHẬP</title>
+<title>Đăng nhập</title>
 <link href="<c:url value="resources/assets/css/import/loginUser.css"/>"
 	rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="resources/assets/images/favicon-96x96.png"/>
 <script src="<c:url value="resources/assets/js/import/loginUser.js"/>"
 	type="text/javascript"></script>
 </head>
@@ -17,7 +18,7 @@
 
 	<div class="login-box">
 		<a href="/TrungTamGiaSu/trang-chu"><img
-			src="resources/assets/images/mortarboard.png"></a>
+			src="resources/assets/images/tot_nghiep.png"></a>
 
 		<h2>Đăng nhập</h2>
 		<form action="">

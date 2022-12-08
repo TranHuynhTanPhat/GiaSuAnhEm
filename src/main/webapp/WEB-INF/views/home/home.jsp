@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>GIA SƯ ANH EM</title>
+<title>Trang chủ</title>
 
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -37,7 +37,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap"
 	rel="stylesheet">
-
+<link rel="shortcut icon" type="image/png" href="resources/assets/images/favicon-96x96.png"/>
 
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>

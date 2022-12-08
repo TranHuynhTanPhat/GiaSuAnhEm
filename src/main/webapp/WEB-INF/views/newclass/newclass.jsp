@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>DANH SÁCH LỚP HỌC</title>
+<title>Danh sách lớp học</title>
 
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -19,13 +19,9 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="resources/assets/css/import/footer.css"/>"
 	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/newclass.css"/>"
-	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/home.css"/>"
 	rel="stylesheet">
@@ -38,7 +34,8 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap"
 	rel="stylesheet">
 
-
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>
 <script
@@ -70,16 +67,18 @@
 			<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
 			<div class="col py-3 main">
 				<div id="page-main">
-					<div class="title">
-						<span class="icon-graduation"></span> <span class="menu-ngang">LỚP
-							MỚI GIA SƯ ANH EM</span>
-					</div>
-					<div class="lop-day">
-						<table border="0" width="100%">
-							<tbody>
+					<div class="row">
+						<div class="title">
+							<span class="icon-graduation"></span> <span class="menu-ngang">LỚP
+								MỚI GIA SƯ ANH EM</span>
+						</div>
+
+						<table width="100%" class="table table-bordered mb-0 bg-white"
+							style="text-align: left; float: left;">
+							<thead>
 								<tr align="center">
-									<td colspan="9"><strong> <font color="red"
-											size="3"><u>LỚP NGÀY 21/10/2022</u></font>
+									<th scope="col" colspan="9"><strong> <font
+											color="red" size="3"><u>LỚP NGÀY 21/10/2022</u></font>
 									</strong> <br>
 										<p>
 											<b><img
@@ -87,19 +86,21 @@
 												Lớp chưa giao - <img
 												src=<c:url value="resources/assets/images/maudo.jpg"/>>Lớp
 												đã giao</b>
-										</p></td>
+										</p></th>
 								</tr>
 								<tr>
-									<td><strong>MS </strong><br></td>
-									<td><strong> Lớp</strong></td>
-									<td><strong>Môn học </strong><br></td>
-									<td><strong>Đường Phường </strong><br></td>
-									<td><strong>Quận </strong><br></td>
-									<td><strong>Buổi</strong></td>
-									<td><strong>Thời gian</strong></td>
-									<td><strong>Lương </strong><br></td>
-									<td><strong>Yêu cầu </strong><br></td>
+									<th scope="col"><strong>MS </strong><br></th>
+									<th scope="col"><strong> Lớp</strong></th>
+									<th scope="col"><strong>Môn học </strong><br></th>
+									<th scope="col"><strong>Đường Phường </strong><br></th>
+									<th scope="col"><strong>Quận </strong><br></th>
+									<th scope="col"><strong>Buổi</strong></th>
+									<th scope="col"><strong>Thời gian</strong></th>
+									<th scope="col"><strong>Lương </strong><br></th>
+									<th scope="col"><strong>Yêu cầu </strong><br></th>
 								</tr>
+							</thead>
+							<tbody class="table-group-divider">
 								<c:forEach var="item" items="${ listNewClass }">
 									<tr class="row0">
 										<td>${ item.id }</td>
@@ -121,13 +122,16 @@
 
 							</tbody>
 						</table>
+					</div>
+					<hr>
+					<div class="row">
 						<p>
 							<font size="2"><em><strong>Đối với Giáo
 										viên, Sinh Viên: Liên hệ 0972.383848 - 0987.927.505 - 0907 750
-										044 - 0919 138 768&nbsp; hoặc <a
-										href="/dang-ky-lam-gia-su.html" title="Đăng ký làm gia sư">Đăng
-											ký</a> <br>Đối với Phụ huynh: Liên hệ tư vấn 0283539 1819 -
-										0972 383848 - 0907 75 00 44
+										044 - 0919 138 768&nbsp; hoặc <a href="./them-gia-su"
+										title="Đăng ký làm gia sư">Đăng ký</a> <br>Đối với Phụ
+										huynh: Liên hệ tư vấn 0283539 1819 - 0972 383848 - 0907 75 00
+										44
 								</strong></em></font>
 						</p>
 						<p>&nbsp;</p>
@@ -153,6 +157,7 @@
 							<strong>NGÕ 22 TÔN THẤT TÙNG ĐỐNG ĐA HÀ NỘI </strong>
 						</p>
 						<p>&nbsp;</p>
+
 					</div>
 				</div>
 			</div>

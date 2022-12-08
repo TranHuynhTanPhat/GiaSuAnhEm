@@ -6,15 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ĐĂNG KÝ</title>
+<title>Đăng ký</title>
 <link href="<c:url value="resources/assets/css/import/register.css"/>"
 	rel="stylesheet">
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
+<script src="<c:url value="resources/assets/js/import/register.js"/>"
+	type="text/javascript"></script>
 </head>
 <body>
-	<a href="/TrungTamGiaSu/trang-chu"><img
-		src="resources/assets/images/mortarboard.png"></a>
+
+
 
 	<div class="login-box">
+		<a href="/TrungTamGiaSu/trang-chu"><img
+			src="resources/assets/images/tot_nghiep.png"></a>
 		<h2>Đăng ký</h2>
 		<form action="">
 			<div class="user-box">
@@ -82,6 +88,6 @@
 			</button>
 		</form>
 	</div>
-	<script src="./register.js"></script>
+	<script src="resources/assets/js/import/register.js"></script>
 </body>
 </html>

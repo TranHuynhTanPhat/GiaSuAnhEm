@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Đăng ký lớp mới</title>
-
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <link
 	href="<c:url value="resources/assets/css/import/addnewclass.css"/>"
 	rel="stylesheet">

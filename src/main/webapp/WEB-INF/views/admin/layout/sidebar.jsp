@@ -51,7 +51,7 @@
 
 				<li class="nav-link"><a href="quanlyluong"> <i
 						class="fa-solid fa-hand-holding-dollar icon"></i> <span
-						class="text nav-text">Quản ly lương</span>
+						class="text nav-text">Quản lý lương</span>
 				</a></li>
 
 				<li class="nav-link"><a href="#"> <i

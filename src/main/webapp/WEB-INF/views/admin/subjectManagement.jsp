@@ -57,6 +57,8 @@
 	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
 	type="text/javascript"></script>
 <script type="module" src="/resources/assets/js/main.js"></script> -->
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
@@ -99,8 +101,8 @@
 						<thead>
 							<tr>
 								<th scope="col"><strong>Tên môn học</strong></th>
-								<th scope="col" width="5%"></th>
-								<th scope="col" width="5%"></th>
+								<th scope="col" width="2%"></th>
+								<th scope="col" width="2%"></th>
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">

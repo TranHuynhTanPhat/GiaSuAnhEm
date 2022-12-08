@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>DANH SÁCH GIA SƯ</title>
+<title>Danh sách gia sư</title>
 
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -19,19 +19,16 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="resources/assets/css/import/footer.css"/>"
 	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/newclass.css"/>"
-	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/home.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/tutor.css"/>"
 	rel="stylesheet">
-
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -59,7 +56,7 @@
 
 <body>
 	<%@include file="/WEB-INF/views/layout/header.jsp"%>
-	<div class="container-fluid" style="margin-top:60px">
+	<div class="container-fluid" style="margin-top: 60px">
 		<div class="row flex-nowrap">
 			<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
 			<div class="col py-3 main">

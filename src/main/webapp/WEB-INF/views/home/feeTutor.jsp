@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>PHÍ GIA SƯ</title>
+<title>Phí gia sư</title>
 
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -49,6 +49,7 @@
 	type="text/javascript"></script>
 <script type="module" src="/resources/assets/js/main.js"></script> 
 <script src="./resources/assets/js/bootstrap.min.js"></script>-->
+<link rel="shortcut icon" type="image/png" href="resources/assets/images/favicon-96x96.png"/>
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
