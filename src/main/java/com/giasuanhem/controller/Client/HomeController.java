@@ -3,6 +3,7 @@ package com.giasuanhem.controller.Client;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,15 @@ import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.CommonService;
+
+import jakarta.mail.Authenticator;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
 @Controller
 public class HomeController {
@@ -135,7 +145,39 @@ public class HomeController {
 	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
 	public ModelAndView registerPage() {
 		try {
+
 			ModelAndView mav = new ModelAndView("home/register");
+			final String username = "thcstrandainghiaphat8a2@gmail.com";
+			final String password = "vrhvmndpzrfvrdwy";
+
+			Properties prop = new Properties();
+			prop.put("mail.smtp.host", "smtp.gmail.com");
+			prop.put("mail.smtp.port", "587");
+			prop.put("mail.smtp.auth", "true");
+			prop.put("mail.smtp.starttls.enable", "true"); // TLS
+
+			Session session = Session.getInstance(prop, new Authenticator() {
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication(username, password);
+				}
+			});
+
+			try {
+
+				Message message = new MimeMessage(session);
+				message.setFrom(new InternetAddress("thcstrandainghiaphat8a2@gmail.com"));
+				message.setRecipients(Message.RecipientType.TO,
+						InternetAddress.parse("trungnghiaazd@gmail.com"));
+				message.setSubject("Con chooo");
+				message.setText("Dear Mail Crawler," + "\n\n mail xác thực!");
+
+				Transport.send(message);
+
+				System.out.println("Done");
+
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
