@@ -37,7 +37,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@200;500;800&display=swap"
 	rel="stylesheet">
-<link rel="shortcut icon" type="image/png" href="resources/assets/images/favicon-96x96.png"/>
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>
@@ -54,11 +55,15 @@
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
-
+<link
+	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
+	rel="stylesheet" type="text/css" />
+<script src="https://kit.fontawesome.com/672e69e895.js"
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<%@include file="/WEB-INF/views/layout/header.jsp"%>
+	<%@include file="/WEB-INF/views/users/layout/header.jsp"%>
 	<div style="margin-top: 60px">
 		<video autoplay loop muted plays-inline class="back-video"
 			width="100%" height="auto">
@@ -68,7 +73,7 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row flex-nowrap">
-			<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
+			<%@include file="/WEB-INF/views/users/layout/sidebar.jsp"%>
 			<div class="col py-3 main">
 				<div class="title">
 					<span class="icon-graduation"></span> <span class="menu-ngang">TRUNG
@@ -87,7 +92,7 @@
 	</div>
 
 
-	<%@include file="/WEB-INF/views/layout/footer.jsp"%>
+	<%@include file="/WEB-INF/views/users/layout/footer.jsp"%>
 </body>
 
 </html>

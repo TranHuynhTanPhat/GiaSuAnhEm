@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trang thêm gia sư</title>
+<title>Trang cập nhật tài khoản</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -54,7 +54,7 @@
 			<div
 				class="d-sm-flex align-items-center justify-content-between mb-4 title"
 				style="float: right">
-				<a href="./quanlygiasu" class="btn btn-danger btn-block mb-4"><i
+				<a href="./quanlytaikhoan" class="btn btn-danger btn-block mb-4"><i
 					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
 			</div>
 			<div class="row">
@@ -62,10 +62,11 @@
 			</div>
 			<div id="wrapperAdmin">
 				<div class="title2">
-					<strong>Thêm gia sư</strong>
+					<strong>Cập nhật tài khoản</strong>
 				</div>
-				<form action="${pageContext.request.contextPath }/createTutor"
+				<form action="${pageContext.request.contextPath }/updateAccount"
 					method="post">
+					<input type="hidden" name="id" value="${model._id }">
 					<div class="form-group">
 						<div class="row">
 							<div class="col-9">
@@ -73,7 +74,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline w-75">
 									<input type="text" id="hoten" name="hoten" class="form-control"
-										value="">
+										value="${model.name }">
 								</div>
 							</div>
 							<div class="col" style="float: right">
@@ -81,7 +82,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="text" name="dienthoai" class="form-control"
-										value="">
+										value="${model.phone }">
 								</div>
 							</div>
 
@@ -91,7 +92,8 @@
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="email" class="form-control" value="">
+									<input type="text" name="email" class="form-control"
+										value="${model.email }">
 								</div>
 							</div>
 							<div class="col">
@@ -99,7 +101,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="text" name="namtotnghiep" id="namtotnghiep"
-										class="form-control" value="">
+										class="form-control" value="${model.graduateYear }">
 								</div>
 							</div>
 						</div>
@@ -110,7 +112,7 @@
 								<div class="col">
 									<select name="gioitinh" id="gioitinh" class="form-control"
 										style="width: 100%; float: left">
-										<option value="Khác">-- Chọn giới tính --</option>
+										<option value="${model.gender }">${model.gender }</option>
 										<option value="Khác">Khác</option>
 										<option value="Nam">Nam</option>
 										<option value="Nữ">Nữ</option>
@@ -121,16 +123,17 @@
 								<label class="control-label">Ngày sinh: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<input type="date" class="form-control" name=ngaysinh value="">
+									<input type="date" class="form-control" name=ngaysinh
+										value="${model.birthYear}">
 								</div>
 							</div>
 							<div class="col-md">
 								<label class="control-label">Hiện là: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="nghenghiep" id="nghenghiep" class="form-control"
-										style="width: 100%; float: left">
-										<option value="Nghề nghiệp">-- Chọn nghề nghiệp --</option>
+									<select name="nghenghiep" id="nghenghiep" class="form-control">
+										<option value="${model.isNow }">${model.isNow }</option>
+
 										<option value="Giáo viên">Giáo viên</option>
 										<option value="Sinh viên">Sinh viên</option>
 										<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
@@ -141,9 +144,8 @@
 								<label class="control-label">Số buổi dạy: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="sobuoiday" id="sobuoiday" class="form-control"
-										style="width: 100%; float: left">
-										<option value="0">-- Chọn số buổi dạy --</option>
+									<select name="sobuoiday" id="sobuoiday" class="form-control">
+										<option value="${model.sobuoi }">${model.sobuoi }</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -161,7 +163,8 @@
 									trường: <span style="color: #FF0000">*</span>
 								</label>
 								<div class="form-outline">
-									<input type="text" name="truong" class="form-control" value="">
+									<input type="text" name="truong" class="form-control"
+										value="${model.school }">
 								</div>
 							</div>
 							<div class="col">
@@ -169,7 +172,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
 									<input type="text" name="chuyennganh" class="form-control"
-										value="">
+										value="${model.department }">
 								</div>
 							</div>
 							<div class="col">
@@ -177,7 +180,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
 									<input type="text" name="phuongtien" id="phuongtien"
-										class="form-control" value="">
+										class="form-control" value="${model.vehicle }">
 								</div>
 							</div>
 						</div>
@@ -185,7 +188,8 @@
 							<label class="control-label">Địa chỉ: <span
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
-								<input type="text" name="diachi" class="form-control" value="">
+								<input type="text" name="diachi" class="form-control"
+									value="${model.address }">
 							</div>
 						</div>
 						<div class="row">
@@ -193,7 +197,7 @@
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
 								<input type="text" name="uudiem" id="uudiem"
-									class="form-control" value="">
+									class="form-control" value="${model.describe }">
 							</div>
 						</div>
 						<div class="row align-middle" style="padding-left: 15%">
@@ -204,10 +208,21 @@
 									<table border="0" class="tablebox">
 										<tbody>
 											<c:forEach var="item" items="${sessionScope.listSubject }">
-												<tr>
-													<td><label><input type="checkbox"
-															name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
-												</tr>
+												<c:choose>
+													<c:when test="${fn:contains(model.subjects, item.name)}">
+														<tr>
+															<td><label><input type="checkbox"
+																	name="monhoc" id="monhoc" value="${ item._id }" checked>${item.name}</label></td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<tr>
+															<td><label><input type="checkbox"
+																	name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
+														</tr>
+													</c:otherwise>
+												</c:choose>
+
 											</c:forEach>
 										</tbody>
 									</table>
@@ -219,11 +234,21 @@
 								<div class="col align-middle">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${ sessionScope.listClass }">
-												<tr>
-													<td><label><input type="checkbox"
-															name="lophoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
-												</tr>
+											<c:forEach var="item" items="${ sessionScope.listClass}">
+												<c:choose>
+													<c:when test="${fn:contains(model.classes, item.name)}">
+														<tr>
+															<td><label><input type="checkbox"
+																	name="lophoc" id="lophoc" value="${ item._id }" checked>${item.name}</label></td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<tr>
+															<td><label><input type="checkbox"
+																	name="lophoc" id="lophoc" value="${ item._id }">${item.name}</label></td>
+														</tr>
+													</c:otherwise>
+												</c:choose>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -237,10 +262,21 @@
 										<tbody>
 											<c:forEach var="item"
 												items="${ sessionScope.listCategoryDistrict }">
-												<tr>
-													<td><label><input type="checkbox"
-															name="khuvuc" id="khuvuc" value="${ item.name }">${ item.name}</label></td>
-												</tr>
+												<c:choose>
+													<c:when test="${fn:contains(model.teachAreas, item.name)}">
+														<tr>
+															<td><label><input type="checkbox"
+																	name="khuvuc" id="khuvuc" value="${ item.name }"
+																	checked>${item.name}</label></td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<tr>
+															<td><label><input type="checkbox"
+																	name="khuvuc" id="khuvuc" value="${ item.name }">${item.name}</label></td>
+														</tr>
+													</c:otherwise>
+												</c:choose>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -249,8 +285,8 @@
 						</div>
 					</div>
 					<div class="row align-middle">
-						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm gia sư
+						<button class="btn btn-warning btn-block mb-4" type="submit">
+							<i class="fa-solid fa-pen icon"></i> Cập nhật
 						</button>
 					</div>
 				</form>

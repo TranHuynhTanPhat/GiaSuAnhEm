@@ -118,11 +118,18 @@
 				</div>
 				<div class="row">
 					<div class="row">
-						<form action="./createNewCource" method="get">
-							<button class="btn btn-primary btn-block mb-4" type="submit">
-								<i class="fa-solid fa-plus icon"></i> Thêm khóa học
-							</button>
-						</form>
+						<div class="col">
+							<form action="./createNewCource" method="get">
+								<button class="btn btn-primary btn-block mb-4" type="submit">
+									<i class="fa-solid fa-plus icon"></i> Thêm khóa học
+								</button>
+							</form>
+						</div>
+						<div class="col" align="right">
+							<a href="#"
+								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+								class="fas fa-download fa-sm text-white-50"></i> Tải file excel</a>
+						</div>
 					</div>
 					<table width="100%" class="table mb-0 bg-white">
 						<thead>

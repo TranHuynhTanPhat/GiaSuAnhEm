@@ -24,7 +24,7 @@ public class TutorController {
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage() {
 		try {
-			ModelAndView mav = new ModelAndView("tutor/tutor");
+			ModelAndView mav = new ModelAndView("users/tutor/tutor");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -35,7 +35,7 @@ public class TutorController {
 	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
 	public ModelAndView addTutorPage() {
 		try {
-			ModelAndView mav = new ModelAndView("tutor/addTutor");
+			ModelAndView mav = new ModelAndView("users/tutor/addTutor");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -46,7 +46,7 @@ public class TutorController {
 	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)
 	public ModelAndView proccessClass() {
 		try {
-			ModelAndView mav = new ModelAndView("tutor/quyTrinhNhanLop");
+			ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

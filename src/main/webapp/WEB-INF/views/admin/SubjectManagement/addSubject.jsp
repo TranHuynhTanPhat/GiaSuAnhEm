@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin</title>
+<title>Trang thêm môn học</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -18,11 +18,12 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
+
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
+	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,16 +31,11 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 	rel="stylesheet">
 
-
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<!-- <script
-	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
-	type="text/javascript"></script>
-<script type="module" src="/resources/assets/js/main.js"></script> -->
 <link rel="shortcut icon" type="image/png"
 	href="resources/assets/images/favicon-96x96.png" />
 <script
@@ -51,60 +47,49 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div id="Custome-div">
-
+	<div class="row">
 		<div class="container-fluid">
-			<header>
-				<div class="image-text">
-					<span class="image"> <img
-						src="resources/assets/images/icon.png" width="50px">
-					</span>
 
-					<div class="text logo-text">
+			<!-- Page Heading -->
+			<div
+				class="d-sm-flex align-items-center justify-content-between mb-4 title"
+				style="float: right">
+				<a href="./quanlymonhoc" class="btn btn-danger btn-block mb-4"><i
+					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
+			</div>
+			<div class="row">
+				<canvas width="100%" height="5px"></canvas>
+			</div>
+			<div id="wrapperAdmin">
+				<div class="title2">
+					<strong>Thêm môn học</strong>
+				</div>
+				<form action="${pageContext.request.contextPath }/addSubject"
+					method="post" name="info_frm" class="form-horizontal" onsubmit="">
+					<div class="form-group">
 						<div class="row">
-							<span class="name">ADMIN</span> <span class="profession">Trang
-								quản lý</span>
+							<label class="control-label">Tên môn: <span
+								style="color: #FF0000">*</span></label>
+							<div class="col">
+								<input type="text" name="tenmon" class="form-control" value="">
+							</div>
 						</div>
-
 					</div>
-				</div>
-				<div class="row" style="margin-top: 5px;">
-					<span class="text" style="color: red"><strong>${sessionScope.errorMessage}</strong></span>
-				</div>
-			</header>
+
+
+					<div class="row">
+						<button class="btn btn-primary btn-block mb-4" type="submit">
+							<i class="fa-solid fa-plus icon"></i> Thêm môn học
+						</button>
+					</div>
+				</form>
+				<div class="clearfix"></div>
+			</div>
 		</div>
-		<form action="./login" method="post" style="padding-top: 30px">
-			<!-- Email input -->
-			<div class="row form-outline mb-4">
-				<input type="text" id="username" class="form-control"
-					name="username" placeholder="Tên đăng nhập" autofocus="1"
-					aria-label="Tên đăng nhập" />
-			</div>
 
-			<!-- Password input -->
-			<div class="row form-outline mb-4">
-				<input type="password" id="password" class="form-control"
-					name="password" placeholder="Mật khẩu" aria-label="Mật khẩu" />
-			</div>
-
-			<!-- 2 column grid layout for inline styling -->
-			<div class="row mb-4">
-
-
-				<div class="col">
-					<!-- Simple link -->
-					<a href="#!"><i>Forgot password?</i></a>
-				</div>
-			</div>
-
-			<!-- Submit button -->
-			<button type="submit" class="btn btn-primary btn-block mb-4">Đăng
-				nhập</button>
-
-			<!-- Register buttons -->
-
-		</form>
-	</div>
+		<div class="row" style="position: fixed; bottom: 0">
+			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
 	</div>
 </body>
 </html>
+

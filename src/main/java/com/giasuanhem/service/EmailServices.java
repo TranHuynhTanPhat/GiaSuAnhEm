@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client;
+package com.giasuanhem.service;
 
 import java.util.Properties;
 
@@ -11,7 +11,7 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
-public class Services {
+public class EmailServices {
 	static public Boolean sendEmail(String email, String subject, String content) {
 		try {
 			final String username = "thcstrandainghiaphat8a2@gmail.com";

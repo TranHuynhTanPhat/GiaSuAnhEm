@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>Phí gia sư</title>
+<title>Trang liên hệ</title>
 
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -55,22 +55,26 @@
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
-
+<link
+	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
+	rel="stylesheet" type="text/css" />
+<script src="https://kit.fontawesome.com/672e69e895.js"
+	crossorigin="anonymous"></script>
 </head>
 
+
 <body>
-	<%@include file="/WEB-INF/views/layout/header.jsp"%>
+	<%@include file="/WEB-INF/views/users/layout/header.jsp"%>
 	<div class="container-fluid" style="margin-top:60px">
 		<div class="row flex-nowrap">
-			<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
+			<%@include file="/WEB-INF/views/users/layout/sidebar.jsp"%>
 			<div class="col py-3 main">
 				<div class="title">
-					<span class="icon-graduation"></span> <span class="menu-ngang">MỨC
-						PHÍ GIA SƯ</span>
+					<span class="icon-graduation"></span> <span class="menu-ngang">THÔNG
+						TIN LIÊN HỆ</span>
 				</div>
 				<div class="content-temp" style="width: 100%;">
 					<h1 class="title" itemprop="name">Mức phí gia sư</h1>
-					<p>&nbsp;</p>
 					<p>
 						<strong> <span style="color: #ff0000;"><span
 								style="text-decoration: underline;">LỆ PHÍ NHẬN LỚP</span></span></strong>
@@ -88,14 +92,11 @@
 							LÀ 30%</strong>
 					</p>
 					<ul>
-						<li><strong>Sinh viên, giáo viên&nbsp; có hoàn cảnh
-								khó khăn:30%</strong></li>
-						<li><strong>Sinh viên, giáo viên&nbsp; có hoàn cảnh
-								rất khó khăn : Miễn phí lớp dạy</strong></li>
+						<li><strong>Sinh viên, giáo viên có hoàn cảnh khó
+								khăn:30%</strong></li>
+						<li><strong>Sinh viên, giáo viên có hoàn cảnh rất
+								khó khăn : Miễn phí lớp dạy</strong></li>
 					</ul>
-					<p>
-						<strong><br></strong>
-					</p>
 					<p>
 						<strong>HOÀN PHÍ 100% KHI KHÔNG NHẬN ĐƯỢC LỚP</strong>
 					</p>
@@ -104,7 +105,6 @@
 							style="text-decoration: underline;"><strong>CHỈ
 									ĐÓNG 1 LẦN TRÊN 1 LỚP DẠY </strong></span></span>
 					</p>
-					<p>&nbsp;</p>
 					<h1 class="title">Quy trình nhận lớp</h1>
 					<p>
 						<span style="font-size: medium;">Giáo viên và sinh viên sau
@@ -113,8 +113,7 @@
 					</p>
 					<ul>
 						<li><span style="font-size: medium;"><strong>Gia
-									sư gọi: 0972383848&nbsp;<span style="color: #ff0000;"> <br>
-								</span>
+									sư gọi: 0972383848<span style="color: #ff0000;"> <br></span>
 							</strong></span></li>
 					</ul>
 					<ul>
@@ -144,9 +143,9 @@
 					</ul>
 					<ul>
 						<li><span style="font-size: medium;">Sinh viên, giáo
-								viên&nbsp; có hoàn cảnh khó khăn:30%</span></li>
+								viên có hoàn cảnh khó khăn:30%</span></li>
 						<li><span style="font-size: medium;">Sinh viên, giáo
-								viên&nbsp; có hoàn cảnh rất khó khăn : Miễn phí lớp dạy</span></li>
+								viên có hoàn cảnh rất khó khăn : Miễn phí lớp dạy</span></li>
 					</ul>
 					<p>
 						<em><span style="color: #ff0000; font-size: medium;">Trung
@@ -154,30 +153,29 @@
 					</p>
 					<p>
 						<span style="color: #ff0000; font-size: small;"><em>TK1
-								: BÙI CÔNG ĐIỆP&nbsp; ngân hàng techcombank chi nhánh tp hcm :
+								: BÙI CÔNG ĐIỆP ngân hàng techcombank chi nhánh tp hcm :
 								19028306383011</em></span>
 					</p>
 					<p>
 						<span style="color: #ff0000; font-size: small;"><em>TK
-								2: BÙI CÔNG ĐIỆP&nbsp; ngân hàng BIDV chi nhánh tp hcm :
+								2: BÙI CÔNG ĐIỆP ngân hàng BIDV chi nhánh tp hcm :
 								31410003332170</em></span>
 					</p>
 					<p>
 						<span style="color: #ff0000; font-size: small;"><em>TK
-								3 : BÙI CÔNG ĐIỆP&nbsp; ngân hàng sacombank chi nhánh tp hcm :
+								3 : BÙI CÔNG ĐIỆPngân hàng sacombank chi nhánh tp hcm :
 								060128731477</em></span>
 					</p>
 					<p>
 						<span style="color: #ff0000; font-size: small;"><em>TK
-								4 : BÙI CÔNG ĐIỆP ngân hàng MB BANK chi nhánh tp hcm&nbsp; :
+								4 : BÙI CÔNG ĐIỆP ngân hàng MB BANK chi nhánh tp hcm&:
 								606668687979</em></span>
 					</p>
 					<p>
 						<span style="color: #ff0000; font-size: small;"><em>TK
-								5: ĐINH THỊ OANH&nbsp; ngân hàng vietinbank chi nhánh tp hcm :
+								5: ĐINH THỊ OANH ngân hàng vietinbank chi nhánh tp hcm :
 								100874769903 </em></span>
 					</p>
-					<p>&nbsp;</p>
 					<p>
 						Xem thêm: <a title="gia sư nhân văn" href="/">gia su</a> , <a
 							title="gia sư nhân văn" href="/">gia sư</a> , <a
@@ -199,9 +197,9 @@
 								<iframe ng-non-bindable="" frameborder="0" hspace="0"
 									marginheight="0" marginwidth="0" scrolling="no"
 									style="position: absolute; top: -10000px; width: 450px; margin: 0px; border-style: none"
-									tabindex="0" vspace="0" width="100%" id="I0_1666447414841"
-									name="I0_1666447414841"
-									src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=https%3A%2F%2Fgiasunhanvan.com&amp;url=http%3A%2F%2Fgiasunhanvan.com%2Fmuc-phi-gia-su.html&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.z9QjrzsHcOc.O%2Fd%3D1%2Frs%3DAHpOoo8359JQqZQ0dzCVJ5Ui3CZcERHEWA%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1666447414841&amp;_gfid=I0_1666447414841&amp;parent=https%3A%2F%2Fgiasunhanvan.com&amp;pfname=&amp;rpctoken=21794179"
+									tabindex="0" vspace="0" width="100%" id="I0_1666447233478"
+									name="I0_1666447233478"
+									src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=https%3A%2F%2Fgiasunhanvan.com&amp;url=http%3A%2F%2Fgiasunhanvan.com%2Fmuc-phi-gia-su.html&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.z9QjrzsHcOc.O%2Fd%3D1%2Frs%3DAHpOoo8359JQqZQ0dzCVJ5Ui3CZcERHEWA%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1666447233478&amp;_gfid=I0_1666447233478&amp;parent=https%3A%2F%2Fgiasunhanvan.com&amp;pfname=&amp;rpctoken=42957224"
 									data-gapiattached="true"></iframe>
 							</div>
 							<g:plusone size="medium"
@@ -235,27 +233,25 @@
 						<strong>VP : HÀ NỘI </strong>
 					</p>
 					<p>
-						<strong>NGÕ 22 TÔN THẤT TÙNG ĐỐNG ĐA HÀ NỘI </strong>
-					</p>
-					<p>&nbsp;</p>
-					<p>
-						<font size="3">Điện Thoại : 028 3539 1819 <br>Di Động
-							: 0987 927 505 - 0907 750 044- 0919 138 768 - 0972 383848<br>
-							<br></font>
-					</p>
-
+						<strong>NGÕ 2
+							<p>
+								<font size="3">Điện Thoại : 028 3539 1819 <br>Di
+									Động : 0987 927 505 - 0907 750 044- 0919 138 768 - 0972 383848<br>
+									<br></font>
+							</p>
+						</strong>
 					<div id="bg_sp" style="display: none;">
 						<div class="homepage"
 							style="border-bottom: 1px solid #e7e7e7; padding-top: 3px; margin-top: 5px;">Tin
 							khác cùng chủ đề</div>
-						<ul>
-						</ul>
-					</div>
-				</div>
 
+					</div>
+
+				</div>
 			</div>
 		</div>
-		<%@include file="/WEB-INF/views/layout/footer.jsp"%>
+
+		<%@include file="/WEB-INF/views/users/layout/footer.jsp"%>
 	</div>
 
 </body>

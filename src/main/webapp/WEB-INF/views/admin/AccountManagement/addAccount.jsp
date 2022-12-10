@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trang thêm gia sư</title>
+<title>Trang thêm tài khoản</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -54,7 +54,7 @@
 			<div
 				class="d-sm-flex align-items-center justify-content-between mb-4 title"
 				style="float: right">
-				<a href="./quanlygiasu" class="btn btn-danger btn-block mb-4"><i
+				<a href="./quanlytaikhoan" class="btn btn-danger btn-block mb-4"><i
 					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
 			</div>
 			<div class="row">
@@ -62,9 +62,9 @@
 			</div>
 			<div id="wrapperAdmin">
 				<div class="title2">
-					<strong>Thêm gia sư</strong>
+					<strong>Thêm tài khoản</strong>
 				</div>
-				<form action="${pageContext.request.contextPath }/createTutor"
+				<form action="${pageContext.request.contextPath }/createAccount"
 					method="post">
 					<div class="form-group">
 						<div class="row">

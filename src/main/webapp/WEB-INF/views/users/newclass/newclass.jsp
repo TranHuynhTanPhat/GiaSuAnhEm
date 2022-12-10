@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>Danh sách lớp học</title>
+<title>Trang thông tin lớp học</title>
 
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
@@ -51,11 +51,15 @@
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
-
+<link
+	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
+	rel="stylesheet" type="text/css" />
+<script src="https://kit.fontawesome.com/672e69e895.js"
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<%@include file="/WEB-INF/views/layout/header.jsp"%>
+	<%@include file="/WEB-INF/views/users/layout/header.jsp"%>
 
 	<script type="text/javascript">
 		function insertText(x, y) {
@@ -64,7 +68,7 @@
 	</script>
 	<div class="container-fluid" style="margin-top: 60px">
 		<div class="row flex-nowrap">
-			<%@include file="/WEB-INF/views/layout/sidebar.jsp"%>
+			<%@include file="/WEB-INF/views/users/layout/sidebar.jsp"%>
 			<div class="col py-3 main">
 				<div id="page-main">
 					<div class="row">
@@ -164,7 +168,7 @@
 		</div>
 
 
-		<%@include file="/WEB-INF/views/layout/footer.jsp"%>
+		<%@include file="/WEB-INF/views/users/layout/footer.jsp"%>
 	</div>
 </body>
 

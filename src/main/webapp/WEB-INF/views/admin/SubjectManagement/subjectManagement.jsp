@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thống kê</title>
+<title>Trang quản lý môn học</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -73,8 +73,7 @@
 
 				<!-- Content Row -->
 				<div class="row">
-					<canvas width="100%" height="5px"></canvas>
-					<div id="row">
+					<div class="row">
 						<form action="./addSubject" method="get">
 							<button class="btn btn-primary btn-block mb-4" type="submit">
 								<i class="fa-solid fa-plus icon"></i> Thêm môn học
@@ -94,10 +93,10 @@
 								<tr>
 									<td>${ item.name }</td>
 									<th><a href="./updateSubject?id=${item._id}"><i
-											class="fa-regular fa-pen-to-square icon"></i></a></th>
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteSubject?id=${item._id }"
 										onclick="return confirmDelete()"><i
-											class="fa-solid fa-trash icon"></i></a></th>
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
 							</c:forEach>
 

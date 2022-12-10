@@ -120,21 +120,11 @@
 								</div>
 							</div>
 							<div class="col-md">
-								<label class="control-label">Năm sinh: <span
+								<label class="control-label">Ngày sinh: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="namsinh" id="namsinh" class="form-select">
-										<c:forEach begin="1952" end="2022" varStatus="loop">
-											<c:choose>
-												<c:when test="${model.birthYear == loop.index}">
-													<option value="${loop.index }" selected="selected">${loop.index }</option>
-												</c:when>
-												<c:otherwise>
-													<option value="${loop.index }">${loop.index }</option>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-									</select>
+									<input type="date" class="form-control" name=ngaysinh
+										value="${model.birthYear}">
 								</div>
 							</div>
 							<div class="col-md">
@@ -296,7 +286,7 @@
 					</div>
 					<div class="row align-middle">
 						<button class="btn btn-warning btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Cập nhật
+							<i class="fa-solid fa-pen icon"></i> Cập nhật
 						</button>
 					</div>
 				</form>

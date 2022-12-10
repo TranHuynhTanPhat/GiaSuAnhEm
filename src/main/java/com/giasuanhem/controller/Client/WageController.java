@@ -30,7 +30,7 @@ public class WageController {
 			paramST.put("style", 1);
 			List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
 
-			ModelAndView mav = new ModelAndView("wage/wage");
+			ModelAndView mav = new ModelAndView("users/wage/wage");
 			mav.addObject("listSST", listSST);
 			mav.addObject("listSTE", listSTE);
 			return mav;

@@ -74,77 +74,75 @@
 				<!-- Content Row -->
 				<div class="row">
 					<div class="row">
-						<div class="row">
-							<form action="./createCategory" method="GET">
-								<button class="btn btn-primary btn-block mb-4" type="submit">
-									<i class="fa-solid fa-plus icon"></i> Thêm phân loại
-								</button>
-							</form>
-
-						</div>
-						<table width="100%" class="table mb-0 bg-white">
-
-							<thead>
-								<tr>
-									<th scope="col" width="76%">Quận</th>
-									<th scope="col" width="20%">Style</th>
-									<th scope="col" width="2%"></th>
-									<th scope="col" width="2%"></th>
-								</tr>
-							</thead>
-							<tbody class="table-group-divider">
-								<c:forEach var="item"
-									items="${ sessionScope.listCategoryDistrict}">
-									<tr>
-										<td>${item.name }</td>
-										<td>${item.style }</td>
-										<th><a href="updateCategory?id=${item._id}"><i
-												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteCategory?id=${item._id }"
-											onclick="return confirmDelete()"><i
-												class="fa-solid fa-trash text-danger icon"></i></a></th>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
+						<form action="./createCategory" method="GET">
+							<button class="btn btn-primary btn-block mb-4" type="submit">
+								<i class="fa-solid fa-plus icon"></i> Thêm phân loại
+							</button>
+						</form>
 
 					</div>
-					<div class="row">
-						<canvas width="100%" height="5px"></canvas>
+					<table width="100%" class="table mb-0 bg-white">
 
-						<table width="100%" class="table mb-0 bg-white">
-							<thead>
+						<thead>
+							<tr>
+								<th scope="col" width="76%">Quận</th>
+								<th scope="col" width="20%">Style</th>
+								<th scope="col" width="2%"></th>
+								<th scope="col" width="2%"></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<c:forEach var="item"
+								items="${ sessionScope.listCategoryDistrict}">
 								<tr>
-									<th scope="col" width="76%">Khối</th>
-									<th scope="col" width="20%">Style</th>
-									<th scope="col" width="2%"></th>
-									<th scope="col" width="2%"></th>
+									<td>${item.name }</td>
+									<td>${item.style }</td>
+									<th><a href="updateCategory?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
+									<th><a href="./deleteCategory?id=${item._id }"
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
-							</thead>
-							<tbody class="table-group-divider">
-								<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
-									<tr>
-										<td>${item.name }</td>
-										<td>${item.style }</td>
-										<th><a href="updateCategory?id=${item._id}"><i
-												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteCategory?id=${item._id }"
-											onclick="return confirmDelete()"><i
-												class="fa-solid fa-trash text-danger icon"></i></a></th>
-									</tr>
-								</c:forEach>
+							</c:forEach>
+
+						</tbody>
+					</table>
+
+				</div>
+				<div class="row">
+					<canvas width="100%" height="5px"></canvas>
+
+					<table width="100%" class="table mb-0 bg-white">
+						<thead>
+							<tr>
+								<th scope="col" width="76%">Khối</th>
+								<th scope="col" width="20%">Style</th>
+								<th scope="col" width="2%"></th>
+								<th scope="col" width="2%"></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
+								<tr>
+									<td>${item.name }</td>
+									<td>${item.style }</td>
+									<th><a href="updateCategory?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
+									<th><a href="./deleteCategory?id=${item._id }"
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
+								</tr>
+							</c:forEach>
 
 
-							</tbody>
-						</table>
-						<canvas width="100%" height="10px"></canvas>
-					</div>
+						</tbody>
+					</table>
+					<canvas width="100%" height="10px"></canvas>
+
 				</div>
 			</div>
 
 			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
-		</div>
 		</div>
 	</section>
 </body>

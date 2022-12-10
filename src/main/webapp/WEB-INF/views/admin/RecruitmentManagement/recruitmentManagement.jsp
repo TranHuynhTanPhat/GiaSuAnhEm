@@ -66,7 +66,7 @@
 					<strong>Quản lý tuyển dụng</strong>
 				</div>
 				<div style="text-align: center;">
-					<table width="100%" class="table table-bordered mb-0 bg-white"
+					<table width="100%" class="table mb-0 bg-white"
 						style="text-align: left; float: left;">
 						<thead class="bg-white">
 							<tr>

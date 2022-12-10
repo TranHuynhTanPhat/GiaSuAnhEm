@@ -6,13 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng ký</title>
+<title>Trang đăng ký</title>
 <link href="<c:url value="resources/assets/css/import/register.css"/>"
 	rel="stylesheet">
 <link rel="shortcut icon" type="image/png"
 	href="resources/assets/images/favicon-96x96.png" />
 <script src="<c:url value="resources/assets/js/import/register.js"/>"
 	type="text/javascript"></script>
+<link
+	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
+	rel="stylesheet" type="text/css" />
+<script src="https://kit.fontawesome.com/672e69e895.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 

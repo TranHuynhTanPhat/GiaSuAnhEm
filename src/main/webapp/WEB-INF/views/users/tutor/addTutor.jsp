@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng ký gia sư</title>
+<title>Trang đăng ký gia sư</title>
 <link href="<c:url value="resources/assets/css/import/addtutor.css"/>"
 	rel="stylesheet">
 <link rel="shortcut icon" type="image/png"
@@ -16,7 +16,7 @@
 	<div id="wrapper">
 		<div class="container">
 			<a href="/TrungTamGiaSu/trang-chu"><img
-				src="resources/assets/images/mortarboard.png"></a>
+				src="resources/assets/images/tot_nghiep.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ LÀM GIA SƯ</h1>
 			<form action="#">

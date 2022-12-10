@@ -199,7 +199,7 @@
             </svg>
 	</div>
 	<div class="text">
-		<h1>404 Error</h1>
+		<h1>404 error</h1>
 		<h2>Có vẻ như hệ thống đang gặp sự cố!</h2>
 		<h3>
 			Page Not Found - lets take you <a href="./trang-chu">Trở về

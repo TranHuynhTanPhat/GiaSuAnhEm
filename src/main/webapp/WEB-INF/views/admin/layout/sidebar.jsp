@@ -56,7 +56,7 @@
 						class="text nav-text">Quản lý lương</span>
 				</a></li>
 
-				<li class="nav-link"><a href="#"> <i
+				<li class="nav-link"><a href="quanlytaikhoan"> <i
 						class="fa-solid fa-users icon"></i><span class="text nav-text">Quản
 							lý tài khoản</span>
 				</a></li>

@@ -81,7 +81,9 @@
 
 						<div id="fixedButtonAdd">
 							<button value="1" class="btn btn-warning btn-block mb-4"
-								type="submit"><i class="fa-solid fa-plus icon"></i> Cập nhật</button>
+								type="submit">
+								<i class="fa-solid fa-pen icon"></i> Cập nhật
+							</button>
 						</div>
 					</form>
 

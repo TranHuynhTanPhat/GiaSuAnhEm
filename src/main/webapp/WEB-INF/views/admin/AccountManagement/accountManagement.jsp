@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trang quản lý gia sư</title>
+<title>Trang quản lý tài khoản</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -71,7 +71,7 @@
 				<!-- Page Heading -->
 				<div
 					class="d-sm-flex align-items-center justify-content-between mb-4 title">
-					<strong>Quản lý gia sư</strong>
+					<strong>Quản lý tài khoản</strong>
 				</div>
 
 				<!-- Content Row -->
@@ -145,9 +145,9 @@
 					<div class="row">
 						<div class="row">
 							<div class="col">
-								<form action="./createTutor" method="get">
+								<form action="./createAccount" method="get">
 									<button class="btn btn-primary btn-block mb-4" type="submit">
-										<i class="fa-solid fa-plus icon"></i> Thêm gia sư
+										<i class="fa-solid fa-plus icon"></i> Thêm tài khoản
 									</button>
 								</form>
 							</div>
@@ -187,9 +187,9 @@
 										<td>${item.isNow }</td>
 										<td>${item.sobuoi }</td>
 										<td>${item.describe }</td>
-										<th><a href="updateTutor?id=${item._id}"><i
+										<th><a href="updateAccount?id=${item._id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteTutor?id=${item._id }"
+										<th><a href="./deleteAccount?id=${item._id }"
 											onclick="return confirmDelete()"><i
 												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>

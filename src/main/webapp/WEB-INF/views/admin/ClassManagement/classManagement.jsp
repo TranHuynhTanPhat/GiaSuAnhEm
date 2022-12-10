@@ -68,37 +68,35 @@
 				<!-- Content Row -->
 				<div class="row">
 					<div class="row">
-						<div class="row">
-							<form action="./addClass" method="get">
-								<button class="btn btn-primary btn-block mb-4" type="submit">
-									<i class="fa-solid fa-plus icon"></i> Thêm lớp học
-								</button>
-							</form>
-						</div>
-						<table width="100%" class="table mb-0 bg-white">
-							<thead>
-								<tr>
-									<th scope="col">Tên lớp học</th>
-									<th scope="col" width="2%"></th>
-									<th scope="col" width="2%"></th>
-								</tr>
-							</thead>
-							<tbody class="table-group-divider">
-								<c:forEach var="item" items="${ sessionScope.listClass }">
-									<tr>
-										<td>${ item.name }</td>
-										<th><a href="updateClass?id=${item._id}"><i
-												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteClass?id=${item._id }"
-											onclick="return confirmDelete()"><i
-												class="fa-solid fa-trash text-danger icon"></i></a></th>
-
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<canvas width="100%" height="10px"></canvas>
+						<form action="./addClass" method="get">
+							<button class="btn btn-primary btn-block mb-4" type="submit">
+								<i class="fa-solid fa-plus icon"></i> Thêm lớp học
+							</button>
+						</form>
 					</div>
+					<table width="100%" class="table mb-0 bg-white">
+						<thead>
+							<tr>
+								<th scope="col">Tên lớp học</th>
+								<th scope="col" width="2%"></th>
+								<th scope="col" width="2%"></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<c:forEach var="item" items="${ sessionScope.listClass }">
+								<tr>
+									<td>${ item.name }</td>
+									<th><a href="updateClass?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
+									<th><a href="./deleteClass?id=${item._id }"
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
+
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<canvas width="100%" height="10px"></canvas>
 				</div>
 			</div>
 			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
