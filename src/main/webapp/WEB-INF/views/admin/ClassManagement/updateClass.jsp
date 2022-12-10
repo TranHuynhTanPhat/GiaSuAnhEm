@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thêm môn học</title>
+<title>Trang cập nhật lớp học</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -62,34 +62,32 @@
 			</div>
 			<div id="wrapperAdmin">
 				<div class="title2">
-					<strong>Thêm lớp học</strong>
+					<strong>Cập nhật lớp học</strong>
 				</div>
-				<form action="${pageContext.request.contextPath }/addSubject"
-					method="post" name="info_frm" class="form-horizontal" onsubmit="">
+				<form action="${pageContext.request.contextPath }/updateClass"
+					method="post">
 					<div class="form-group">
 						<div class="row">
-							<label class="control-label">Tên môn: <span
+							<label class="control-label">Tên lớp: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="text" name="tenmon" class="form-control" value="">
+								<input type="hidden" name="id" value="${Class._id }"> <input
+									type="text" name="tenlop" class="form-control"
+									value="${Class.name }">
 							</div>
 						</div>
 					</div>
-
-
-					<div class="row">
-						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm môn học
+					<div class="row align-middle">
+						<button class="btn btn-warning btn-block mb-4" type="submit">
+							<i class="fa-solid fa-plus icon"></i> Cập nhật
 						</button>
 					</div>
 				</form>
 				<div class="clearfix"></div>
 			</div>
 		</div>
-
 		<div class="row" style="position: fixed; bottom: 0">
 			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
 	</div>
 </body>
 </html>
-

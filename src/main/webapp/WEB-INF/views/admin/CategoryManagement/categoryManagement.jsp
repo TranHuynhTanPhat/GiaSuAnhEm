@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thống kê</title>
+<title>Trang quản lý phân loại</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -18,28 +18,11 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
-	rel="stylesheet">
-<link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,22 +74,22 @@
 				<!-- Content Row -->
 				<div class="row">
 					<div class="row">
-						<canvas width="100%" height="5px"></canvas>
 						<div class="row">
 							<form action="./createCategory" method="GET">
-								<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-									phân loại</button>
+								<button class="btn btn-primary btn-block mb-4" type="submit">
+									<i class="fa-solid fa-plus icon"></i> Thêm phân loại
+								</button>
 							</form>
 
 						</div>
-						<table width="100%" class="table table-bordered mb-0 bg-white">
+						<table width="100%" class="table mb-0 bg-white">
 
 							<thead>
 								<tr>
-									<th scope="col">Quận</th>
+									<th scope="col" width="76%">Quận</th>
 									<th scope="col" width="20%">Style</th>
-									<th scope="col" width="5%"></th>
-									<th scope="col" width="5%"></th>
+									<th scope="col" width="2%"></th>
+									<th scope="col" width="2%"></th>
 								</tr>
 							</thead>
 							<tbody class="table-group-divider">
@@ -115,9 +98,11 @@
 									<tr>
 										<td>${item.name }</td>
 										<td>${item.style }</td>
-										<th><a href="updateCategory?id=${item._id}">Update</a></th>
+										<th><a href="updateCategory?id=${item._id}"><i
+												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 										<th><a href="./deleteCategory?id=${item._id }"
-											onclick="return confirmDelete()">Delete</a></th>
+											onclick="return confirmDelete()"><i
+												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>
 								</c:forEach>
 
@@ -127,17 +112,11 @@
 					</div>
 					<div class="row">
 						<canvas width="100%" height="5px"></canvas>
-						<div class="row">
-							<form action="./createCategory" method="GET">
-								<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-									phân loại</button>
-							</form>
 
-						</div>
-						<table width="100%" class="table table-bordered mb-0 bg-white">
+						<table width="100%" class="table mb-0 bg-white">
 							<thead>
 								<tr>
-									<th scope="col">Khối</th>
+									<th scope="col" width="76%">Khối</th>
 									<th scope="col" width="20%">Style</th>
 									<th scope="col" width="2%"></th>
 									<th scope="col" width="2%"></th>
@@ -148,9 +127,11 @@
 									<tr>
 										<td>${item.name }</td>
 										<td>${item.style }</td>
-										<th><a href="updateCategory?id=${item._id}">Update</a></th>
+										<th><a href="updateCategory?id=${item._id}"><i
+												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 										<th><a href="./deleteCategory?id=${item._id }"
-											onclick="return confirmDelete()">Delete</a></th>
+											onclick="return confirmDelete()"><i
+												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>
 								</c:forEach>
 
@@ -158,12 +139,12 @@
 							</tbody>
 						</table>
 						<canvas width="100%" height="10px"></canvas>
-
 					</div>
 				</div>
-
-				<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 			</div>
+
+			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+		</div>
 		</div>
 	</section>
 </body>

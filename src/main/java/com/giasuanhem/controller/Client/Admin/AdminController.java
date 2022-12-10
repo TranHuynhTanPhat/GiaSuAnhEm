@@ -75,8 +75,8 @@ public class AdminController {
 				Map<String, Object> params = new HashMap<>();
 				params.put("style", 1);
 				List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
-
-				ModelAndView mav = new ModelAndView("admin/adminIntroduction");
+				
+				ModelAndView mav = new ModelAndView("admin/Introduction/adminIntroduction");
 				mav.addObject("listIntroductionPost", listIntroductionPost);
 
 				return mav;
@@ -98,6 +98,7 @@ public class AdminController {
 				PostModel model = new PostModel();
 				model.setTitle(title);
 				model.setBody(content);
+				model.setstyle(1);
 
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);

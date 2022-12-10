@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thêm môn học</title>
+<title>Trang quản lý giới thiệu</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -47,49 +47,48 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="row">
-		<div class="container-fluid">
 
-			<!-- Page Heading -->
-			<div
-				class="d-sm-flex align-items-center justify-content-between mb-4 title"
-				style="float: right">
-				<a href="./quanlylophoc" class="btn btn-danger btn-block mb-4"><i
-					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
-			</div>
-			<div class="row">
-				<canvas width="100%" height="5px"></canvas>
-			</div>
-			<div id="wrapperAdmin">
-				<div class="title2">
-					<strong>Thêm lớp học</strong>
+	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
+	<section class="home">
+		<div class="row">
+			<div class="container-fluid">
+				<!-- Page Heading -->
+				<div
+					class="d-sm-flex align-items-center justify-content-between mb-4 title">
+					<strong>Quản lý bài giới thiệu</strong>
 				</div>
-				<form action="${pageContext.request.contextPath }/addSubject"
-					method="post" name="info_frm" class="form-horizontal" onsubmit="">
-					<div class="form-group">
-						<div class="row">
-							<label class="control-label">Tên môn: <span
-								style="color: #FF0000">*</span></label>
-							<div class="col">
-								<input type="text" name="tenmon" class="form-control" value="">
+				<div style="text-align: center;">
+
+
+					<form action="./uploadIntroduction" method="post">
+						<input type="hidden" name="id"
+							value="${listIntroductionPost[0]._id}">
+						<div class="form-group">
+							<label style="float: left"><strong>Tiêu đề:</strong></label>
+							<div style="width: 100%">
+								<input type="text" name="title" class="form-control"
+									style="border: 2px solid #001c44;"
+									value="${listIntroductionPost[0].title }">
 							</div>
 						</div>
-					</div>
+						<div class="form-group">
+							<label style="float: left"><strong>Nội dung:</strong> </label>
+							<textarea name="content" rows="50"
+								style="width: 100%; height: 500px; display: inline-block; border: 2px solid #001c44; border-radius: 5px; padding: 10px">${listIntroductionPost[0].body }</textarea>
+						</div>
 
+						<canvas width="1000" height="10"></canvas>
 
-					<div class="row">
-						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm môn học
-						</button>
-					</div>
-				</form>
-				<div class="clearfix"></div>
+						<div id="fixedButtonAdd">
+							<button value="1" class="btn btn-warning btn-block mb-4"
+								type="submit"><i class="fa-solid fa-plus icon"></i> Cập nhật</button>
+						</div>
+					</form>
+
+				</div>
 			</div>
 		</div>
+		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+	</section>
 
-		<div class="row" style="position: fixed; bottom: 0">
-			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
-	</div>
 </body>
-</html>
-

@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thống kê</title>
+<title>Trang quản lý lương</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -18,28 +18,11 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
-	rel="stylesheet">
-<link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,7 +60,7 @@
 				<!-- Page Heading -->
 				<div
 					class="d-sm-flex align-items-center justify-content-between mb-4 title">
-					<strong>Lương</strong>
+					<strong>Quản lý lương</strong>
 				</div>
 
 				<!-- Content Row -->
@@ -89,30 +72,29 @@
 						</p>
 					</div>
 					<form action="./addSalary" method="GET">
-						<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-							mức học phí</button>
+						<button class="btn btn-primary btn-block mb-4" type="submit">
+							<i class="fa-solid fa-plus icon"></i> Thêm mức lương
+						</button>
 					</form>
 					<table width="100%" class="table  mb-0 bg-white">
 						<thead>
-							<tr >
+							<tr>
 								<th scope="col" rowspan="2"><span
-									style="color: rgb(255, 0, 0);"><strong>KHỐI LỚP</strong></span></th>
-								<th scope="col" colspan="4" style="text-align: center"><strong>
-										Sinh viên</strong></th>
+									style="color: rgb(255, 0, 0);">KHỐI LỚP</span></th>
+								<th scope="col" colspan="4" style="text-align: center">
+									Sinh viên</th>
 
 							</tr>
 							<tr>
-								<th scope="col"><span><strong>2 buổi 1 tuần</strong></span>
-								</th>
+								<th scope="col"><span>2 buổi 1 tuần</span></th>
 
-								<th scope="col"><span style="color: rgb(255, 0, 0);"><strong>3
-											buổi 1 tuần</strong></span></th>
+								<th scope="col"><span style="color: rgb(255, 0, 0);">3
+										buổi 1 tuần</span></th>
 
-								<th scope="col"><span><strong>4 buổi 1 tuần</strong></span>
-								</th>
+								<th scope="col"><span>4 buổi 1 tuần</span></th>
 
-								<th scope="col"><span style="color: rgb(255, 0, 0);"><strong>5
-											buổi 1 tuần</strong></span></th>
+								<th scope="col"><span style="color: rgb(255, 0, 0);">5
+										buổi 1 tuần</span></th>
 								<th scope="col" width="2%"></th>
 								<th scope="col" width="2%"></th>
 
@@ -126,9 +108,11 @@
 									<td>${item.threeSessions }</td>
 									<td>${item.fourSessions }</td>
 									<td>${item.fiveSessions }</td>
-									<th><a href="./updateSalary?id=${item._id}">Update</a></th>
+									<th><a href="./updateSalary?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteSalary?id=${item._id }"
-										onclick="return confirmDelete()">Delete</a></th>
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
 							</c:forEach>
 
@@ -144,24 +128,25 @@
 						</p>
 					</div>
 					<form action="./addSalary" method="GET">
-						<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-							mức học phí</button>
+						<button class="btn btn-primary btn-block mb-4" type="submit">
+							<i class="fa-solid fa-plus icon"></i> Thêm mức lương
+						</button>
 					</form>
 					<table width="100%" class="table mb-0 bg-white">
 						<thead>
 							<tr>
 								<th scope="col" rowspan="2"><span
-									style="color: rgb(255, 0, 0);"><strong>KHỐI LỚP</strong></span></th>
-								<th scope="col" colspan="4" style="text-align: center"><strong>
-										Giáo viên</strong></th>
+									style="color: rgb(255, 0, 0);">KHỐI LỚP</span></th>
+								<th scope="col" colspan="4" style="text-align: center">
+									Giáo viên</th>
 							</tr>
 							<tr>
-								<th scope="col"><span><strong>2 buổi 1 tuần</strong></span></th>
-								<th scope="col"><span style="color: rgb(255, 0, 0);"><strong>3
-											buổi 1 tuần</strong></span></th>
-								<th scope="col"><span><strong>4 buổi 1 tuần</strong></span></th>
-								<th scope="col"><span style="color: rgb(255, 0, 0);"><strong>5
-											buổi 1 tuần</strong></span></th>
+								<th scope="col"><span><strong>2 buổi 1 tuần</span></th>
+								<th scope="col"><span style="color: rgb(255, 0, 0);">3
+										buổi 1 tuần</span></th>
+								<th scope="col"><span>4 buổi 1 tuần</span></th>
+								<th scope="col"><span style="color: rgb(255, 0, 0);">5
+										buổi 1 tuần</span></th>
 								<th scope="col" width="2%"></th>
 								<th scope="col" width="2%"></th>
 							</tr>
@@ -174,9 +159,11 @@
 									<td>${item.threeSessions }</td>
 									<td>${item.fourSessions }</td>
 									<td>${item.fiveSessions }</td>
-									<th><a href="./updateSalary?id=${item._id}">Update</a></th>
+									<th><a href="./updateSalary?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteSalary?id=${item._id }"
-										onclick="return confirmDelete()">Delete</a></th>
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
 							</c:forEach>
 

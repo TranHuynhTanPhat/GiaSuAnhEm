@@ -39,7 +39,7 @@ public class SalaryManageController {
 				Map<String, Object> paramTE = new HashMap<>();
 				paramTE.put("style", 1);
 				List<SalaryModel> listSTE = commonService.getListSalary(paramTE);
-				ModelAndView mav = new ModelAndView("admin/salaryManagement");
+				ModelAndView mav = new ModelAndView("admin/SalaryManagement/salaryManagement");
 				mav.addObject("listSST", listSST);
 				mav.addObject("listSTE", listSTE);
 				return mav;
@@ -82,7 +82,7 @@ public class SalaryManageController {
 	public ModelAndView addSalary() {
 		try {
 			if (session.getAttribute("userName") != null) {
-				ModelAndView mav = new ModelAndView("admin/addSalary");
+				ModelAndView mav = new ModelAndView("admin/SalaryManagement/addSalary");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -129,7 +129,7 @@ public class SalaryManageController {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				SalaryModel model = commonService.getSalary(param);
-				ModelAndView mav = new ModelAndView("admin/updateSalary");
+				ModelAndView mav = new ModelAndView("admin/SalaryManagement/updateSalary");
 				mav.addObject("model", model);
 				return mav;
 			} else {

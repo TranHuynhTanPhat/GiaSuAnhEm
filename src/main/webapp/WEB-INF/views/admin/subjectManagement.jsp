@@ -18,28 +18,11 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
-	rel="stylesheet">
-<link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,17 +73,18 @@
 
 				<!-- Content Row -->
 				<div class="row">
+					<canvas width="100%" height="5px"></canvas>
 					<div id="row">
-						<canvas width="100%" height="5px"></canvas>
 						<form action="./addSubject" method="get">
-							<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-								môn học</button>
+							<button class="btn btn-primary btn-block mb-4" type="submit">
+								<i class="fa-solid fa-plus icon"></i> Thêm môn học
+							</button>
 						</form>
 					</div>
-					<table width="100%" class="table table-bordered mb-0 bg-white">
+					<table width="100%" class="table mb-0 bg-white">
 						<thead>
 							<tr>
-								<th scope="col"><strong>Tên môn học</strong></th>
+								<th scope="col">Tên môn học</th>
 								<th scope="col" width="2%"></th>
 								<th scope="col" width="2%"></th>
 							</tr>
@@ -109,9 +93,11 @@
 							<c:forEach var="item" items="${sessionScope.listSubject }">
 								<tr>
 									<td>${ item.name }</td>
-									<th><a href="./updateSubject?id=${item._id}">Update</a></th>
+									<th><a href="./updateSubject?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square icon"></i></a></th>
 									<th><a href="./deleteSubject?id=${item._id }"
-										onclick="return confirmDelete()">Delete</a></th>
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash icon"></i></a></th>
 								</tr>
 							</c:forEach>
 

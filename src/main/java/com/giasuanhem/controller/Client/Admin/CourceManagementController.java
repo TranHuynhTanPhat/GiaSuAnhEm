@@ -38,7 +38,7 @@ public class CourceManagementController {
 			if (session.getAttribute("userName") != null) {
 
 				List<NewClassModel> listNewCource = commonService.getListNewClass();
-				ModelAndView mav = new ModelAndView("admin/courceManagement");
+				ModelAndView mav = new ModelAndView("admin/CourceManagement/courceManagement");
 
 				mav.addObject("listNewCource", listNewCource);
 				return mav;
@@ -70,7 +70,7 @@ public class CourceManagementController {
 	public ModelAndView createNewCource() {
 		try {
 			if (session.getAttribute("userName") != null) {
-				ModelAndView mav = new ModelAndView("admin/addNewCource");
+				ModelAndView mav = new ModelAndView("admin/CourceManagement/addNewCource");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -124,7 +124,7 @@ public class CourceManagementController {
 				param.put("_id", id);
 				NewClassModel model = commonService.getNewClass(param);
 
-				ModelAndView mav = new ModelAndView("admin/updateNewCource");
+				ModelAndView mav = new ModelAndView("admin/CourceManagement/updateNewCource");
 				mav.addObject("model", model);
 				return mav;
 			} else {

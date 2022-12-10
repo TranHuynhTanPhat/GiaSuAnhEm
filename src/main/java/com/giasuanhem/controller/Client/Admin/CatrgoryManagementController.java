@@ -42,7 +42,7 @@ public class CatrgoryManagementController {
 				session.setAttribute("listCategoryClass", listCategoryClass);
 				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-				ModelAndView mav = new ModelAndView("admin/categoryManagement");
+				ModelAndView mav = new ModelAndView("admin/CategoryManagement/categoryManagement");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -58,7 +58,7 @@ public class CatrgoryManagementController {
 	public ModelAndView addCategory() {
 		try {
 			if (session.getAttribute("userName") != null) {
-				ModelAndView mav = new ModelAndView("admin/addCategory");
+				ModelAndView mav = new ModelAndView("admin/CategoryManagement/addCategory");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -97,7 +97,7 @@ public class CatrgoryManagementController {
 				param.put("_id", id);
 				CategoryModel category = commonService.getCategory(param);
 
-				ModelAndView mav = new ModelAndView("admin/updateCategory");
+				ModelAndView mav = new ModelAndView("admin/CategoryManagement/updateCategory");
 				mav.addObject("category", category);
 				return mav;
 			} else {

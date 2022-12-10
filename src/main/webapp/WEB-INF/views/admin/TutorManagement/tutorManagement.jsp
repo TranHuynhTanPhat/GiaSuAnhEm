@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thống kê</title>
+<title>Trang quản lý gia sư</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -18,25 +18,11 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
-	rel="stylesheet">
-<link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
 	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
@@ -96,7 +82,7 @@
 
 						<div class="row align-middle">
 							<div class="col-md">
-								<select name="chonlop" id="chonlop" class="form-select">
+								<select name="chonlop" id="chonlop" class="form-select ">
 									<option value="">Chọn Lớp</option>
 									<c:forEach var="item" items="${sessionScope.listClass }">
 										<option value="${item._id }">${item.name}</option>
@@ -144,8 +130,9 @@
 							</div>
 							<div class="col">
 								<div id="fixedButtonSearch">
-									<button class="btn btn-primary btn-block mb-4" type="submit">Tìm
-										kiếm</button>
+									<button class="btn btn-primary btn-block mb-4" type="submit">
+										<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
+									</button>
 								</div>
 							</div>
 
@@ -159,8 +146,9 @@
 						<canvas width="100%" height="5px"></canvas>
 						<div class="row">
 							<form action="./createTutor" method="get">
-								<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-									gia sư</button>
+								<button class="btn btn-primary btn-block mb-4" type="submit">
+									<i class="fa-solid fa-plus icon"></i> Thêm gia sư
+								</button>
 							</form>
 
 						</div>
@@ -168,22 +156,16 @@
 							style="text-align: left; float: left;">
 							<thead>
 								<tr>
-									<th scope="col"><strong>Tên gia sư</strong></th>
-									<th scope="col"><strong>Địa chỉ</strong><br></th>
-									<th scope="col"><strong>Email</strong><br></th>
-									<th scope="col"><strong>Năm sinh</strong><br></th>
-									<th scope="col"><strong>Giới Tính</strong><br></th>
-									<th scope="col"><strong>SĐT</strong><br></th>
-									<th scope="col"><strong>Nghề nghiệp</strong><br></th>
-									<th scope="col"><strong>SĐT</strong><br></th>
-									<th scope="col"><strong>Trường</strong><br></th>
-									<th scope="col"><strong>Chuyên ngành</strong></th>
-									<th scope="col"><strong>Lớp dạy</strong><br></th>
-									<th scope="col"><strong>Các môn</strong><br></th>
-									<th scope="col"><strong>Khu vực</strong><br></th>
-									<th scope="col"><strong>Phương tiện</strong><br></th>
-									<th scope="col"><strong>Số buổi</strong><br></th>
-									<th scope="col"><strong>Thông tin khác</strong><br></th>
+									<th scope="col">Tên gia sư</th>
+									<th scope="col">Email<br></th>
+									<th scope="col">Năm sinh<br></th>
+									<th scope="col">Giới Tính<br></th>
+									<th scope="col">SĐT<br></th>
+									<th scope="col">Nghề nghiệp<br></th>
+									<th scope="col">Lớp dạy<br></th>
+									<th scope="col">Môn dạy<br></th>
+									<th scope="col">Số buổi<br></th>
+									<th scope="col">Thông tin khác<br></th>
 
 									<th scope="col" width="2%"></th>
 									<th scope="col" width="2%"></th>
@@ -193,33 +175,26 @@
 								<c:forEach var="item" items="${ listTutor }">
 									<tr>
 										<td>${item.name }</td>
-										<td>${item.address }</td>
 										<td>${item.email }</td>
 
 										<td>${item.birthYear }</td>
 										<td>${item.gender }</td>
 										<td>${item.phone }</td>
 										<td>${item.isNow }</td>
-
-
-										<td>${item.school }</td>
-										<td>${item.department }</td>
-										<td>${item.graduateYear }</td>
 										<td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
 									</c:forEach></td>
 										<td><c:forEach var="subject" items="${item.subjects }">
 										${ subject.name },
 									</c:forEach></td>
-										<td><c:forEach var="area" items="${item.teachAreas }">
-										${ area },
-									</c:forEach></td>
-										<td>${item.vehicle }</td>
+										
 										<td>${item.sobuoi }</td>
 										<td>${item.describe }</td>
-										<th><a href="updateTutor?id=${item._id}">Update</a></th>
+										<th><a href="updateTutor?id=${item._id}"><i
+												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 										<th><a href="./deleteTutor?id=${item._id }"
-											onclick="return confirmDelete()">Delete</a></th>
+											onclick="return confirmDelete()"><i
+												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>
 								</c:forEach>
 

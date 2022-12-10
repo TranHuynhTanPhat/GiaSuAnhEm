@@ -108,14 +108,7 @@ html, body {
 	background: #FFFFFF;
 }
 
-#wrapperAdmin {
-	text-align: left;
-	margin: 0px auto;
-	padding: 0px 10px;
-	background: #FFFFFF;
-	padding-top: 10px;
-	height: -webkit-fill-available;
-}
+
 
 .space-text-widget {
 	height: 30px;

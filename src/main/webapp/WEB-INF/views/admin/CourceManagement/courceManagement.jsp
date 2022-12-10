@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thống kê</title>
+<title>Trang quản lý khóa học</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -18,28 +18,11 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
-	rel="stylesheet">
-<link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,8 +105,9 @@
 								</div>
 								<div class="col-md">
 									<div id="fixedButtonSearch" style="float: center">
-										<button class="btn btn-primary btn-block mb-4" type="button">Tìm
-											kiếm</button>
+										<button class="btn btn-primary btn-block mb-4" type="button">
+											<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
+										</button>
 									</div>
 								</div>
 							</div>
@@ -133,28 +117,25 @@
 					</div>
 				</div>
 				<div class="row">
-					<canvas width="100%" height="5px"></canvas>
 					<div class="row">
 						<form action="./createNewCource" method="get">
-							<button class="btn btn-primary btn-block mb-4" type="submit">Thêm
-								khóa học</button>
+							<button class="btn btn-primary btn-block mb-4" type="submit">
+								<i class="fa-solid fa-plus icon"></i> Thêm khóa học
+							</button>
 						</form>
 					</div>
-					<table width="100%" class="table table-bordered mb-0 bg-white">
+					<table width="100%" class="table mb-0 bg-white">
 						<thead>
 							<tr>
-								<th scope="col"><strong>Lớp dạy</strong></th>
-								<th scope="col"><strong>Môn học</strong></th>
-								<th scope="col"><strong>Category</strong></th>
-								<th scope="col"><strong>Địa chỉ</strong><br></th>
-								<th scope="col"><strong>Quận</strong></th>
-								<th scope="col"><strong>Mức lương</strong><br></th>
-								<th scope="col"><strong>Số buổi</strong><br></th>
-								<th scope="col"><strong>Thời gian dạy</strong></th>
-								<th scope="col"><strong>Thời gian tạo</strong></th>
-								<th scope="col"><strong>Yêu cầu</strong></th>
-								<th scope="col"><strong>Liên hệ</strong><br></th>
-								<th scope="col"><strong>Trạng thái</strong></th>
+								<th scope="col">Lớp dạy</th>
+								<th scope="col">Môn học</th>
+								<th scope="col">Địa chỉ <br></th>
+								<th scope="col">Mức lương <br></th>
+								<th scope="col">Số buổi <br></th>
+								<th scope="col">Thời gian dạy</th>
+								<th scope="col">Yêu cầu</th>
+								<th scope="col">Liên hệ <br></th>
+								<th scope="col">Trạng thái</th>
 								<th scope="col" width="2%"></th>
 								<th scope="col" width="2%"></th>
 							</tr>
@@ -171,21 +152,18 @@
 										${ subject.name },
 									</c:forEach></td>
 
-									<td><c:forEach var="category" items="${item.categories }">
-										${ category.name },
-									</c:forEach></td>
 									<td>${ item.address }</td>
-									<td>${ item.district }</td>
 									<td>${ item.salary }</td>
 									<td>${ item.sobuoi }</td>
 									<td>${ item.time }</td>
-									<td>${ item.createdAt }</td>
 									<td>${ item.require }</td>
 									<td>${item.contact }</td>
 									<td>${ item.status }</td>
-									<th><a href="updateNewCource?id=${item._id}">Update</a></th>
+									<th><a href="updateNewCource?id=${item._id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteNewCource?id=${item._id }"
-										onclick="return confirmDelete()">Delete</a></th>
+										onclick="return confirmDelete()"><i
+											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
 							</c:forEach>
 

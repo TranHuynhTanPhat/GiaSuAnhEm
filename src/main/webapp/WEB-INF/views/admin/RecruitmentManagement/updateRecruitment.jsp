@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thêm môn học</title>
+<title>Trang cập nhật bài tuyển dụng</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -54,7 +54,7 @@
 			<div
 				class="d-sm-flex align-items-center justify-content-between mb-4 title"
 				style="float: right">
-				<a href="./quanlylophoc" class="btn btn-danger btn-block mb-4"><i
+				<a href="./quanlytuyendung" class="btn btn-danger btn-block mb-4"><i
 					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
 			</div>
 			<div class="row">
@@ -62,34 +62,42 @@
 			</div>
 			<div id="wrapperAdmin">
 				<div class="title2">
-					<strong>Thêm lớp học</strong>
+					<strong>Cập nhật bài tuyển dụng</strong>
 				</div>
-				<form action="${pageContext.request.contextPath }/addSubject"
-					method="post" name="info_frm" class="form-horizontal" onsubmit="">
+				<form action="./updateRecruitment" method="post" n>
+					<input type="hidden" name="id" value="${recruitPost._id }">
 					<div class="form-group">
 						<div class="row">
-							<label class="control-label">Tên môn: <span
+							<label class="control-label"><strong>Tiêu đề:</strong> <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="text" name="tenmon" class="form-control" value="">
+								<textarea rows="5" name="title" class="form-control">${recruitPost.title }</textarea>
+
+							</div>
+						</div>
+
+						<div class="row">
+							<label style="float: left"><strong>Nội dung: </strong><span
+								style="color: #FF0000">*</span></label>
+							<div class="col">
+								<textarea name="content" rows="50" class="form-control"
+									style="height: 500px; display: inline-block;">${recruitPost.body }</textarea>
 							</div>
 						</div>
 					</div>
-
-
-					<div class="row">
-						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm môn học
+					<div class="row align-middle">
+						<button class="btn btn-warning btn-block mb-4" type="submit">
+							<i class="fa-solid fa-plus icon"></i> Cập nhật
 						</button>
 					</div>
 				</form>
 				<div class="clearfix"></div>
 			</div>
+			<div class="row">
+				<canvas width="100%" height="5px"></canvas>
+			</div>
 		</div>
-
-		<div class="row" style="position: fixed; bottom: 0">
-			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
+		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>
 </body>
 </html>
-

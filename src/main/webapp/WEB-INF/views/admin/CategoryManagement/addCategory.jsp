@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thêm môn học</title>
+<title>Trang thêm phân loại</title>
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -54,7 +54,7 @@
 			<div
 				class="d-sm-flex align-items-center justify-content-between mb-4 title"
 				style="float: right">
-				<a href="./quanlylophoc" class="btn btn-danger btn-block mb-4"><i
+				<a href="./quanlydanhmuc" class="btn btn-danger btn-block mb-4"><i
 					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
 			</div>
 			<div class="row">
@@ -62,34 +62,35 @@
 			</div>
 			<div id="wrapperAdmin">
 				<div class="title2">
-					<strong>Thêm lớp học</strong>
+					<strong>Thêm phân loại</strong>
 				</div>
-				<form action="${pageContext.request.contextPath }/addSubject"
-					method="post" name="info_frm" class="form-horizontal" onsubmit="">
+				<form action="./addCategory" method="post">
 					<div class="form-group">
 						<div class="row">
-							<label class="control-label">Tên môn: <span
+							<label class="control-label">Name: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="text" name="tenmon" class="form-control" value="">
+								<input type="text" name="CategoryName" class="form-control"
+									value="">
+							</div>
+							<label class="control-label">Style: <span
+								style="color: #FF0000">*</span></label>
+							<div class="col">
+								<input type="text" name="style" class="form-control" value="">
 							</div>
 						</div>
 					</div>
-
-
-					<div class="row">
+					<div class="row align-middle">
 						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm môn học
+							<i class="fa-solid fa-plus icon"></i> Thêm danh mục
 						</button>
 					</div>
 				</form>
 				<div class="clearfix"></div>
 			</div>
 		</div>
-
 		<div class="row" style="position: fixed; bottom: 0">
 			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
 	</div>
 </body>
 </html>
-

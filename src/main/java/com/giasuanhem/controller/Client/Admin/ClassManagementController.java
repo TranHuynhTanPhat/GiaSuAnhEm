@@ -34,7 +34,7 @@ public class ClassManagementController {
 				List<ClassModel> listClass = commonService.getListClass();
 				session.setAttribute("listClass", listClass);
 
-				ModelAndView mav = new ModelAndView("admin/classManagement");
+				ModelAndView mav = new ModelAndView("admin/ClassManagement/classManagement");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -50,7 +50,7 @@ public class ClassManagementController {
 	public ModelAndView addClass() {
 		try {
 			if (session.getAttribute("userName") != null) {
-				ModelAndView mav = new ModelAndView("admin/addClass");
+				ModelAndView mav = new ModelAndView("admin/ClassManagement/addClass");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -84,7 +84,7 @@ public class ClassManagementController {
 				Map<String, Object> param = new HashMap<>();
 				param.put("_id", id);
 				ClassModel Class = commonService.getClass(param);
-				ModelAndView mav = new ModelAndView("admin/updateClass");
+				ModelAndView mav = new ModelAndView("admin/ClassManagement/updateClass");
 				mav.addObject("Class", Class);
 
 				return mav;

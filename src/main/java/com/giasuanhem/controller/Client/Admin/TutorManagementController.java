@@ -36,7 +36,7 @@ public class TutorManagementController {
 			if (session.getAttribute("userName") != null) {
 				List<TutorModel> listTutor = commonService.getListTutor();
 
-				ModelAndView mav = new ModelAndView("admin/tutorManagement");
+				ModelAndView mav = new ModelAndView("admin/TutorManagement/tutorManagement");
 
 				mav.addObject("listTutor", listTutor);
 				return mav;
@@ -67,7 +67,7 @@ public class TutorManagementController {
 	@RequestMapping(value = "/createTutor", method = RequestMethod.GET)
 	public ModelAndView addTutor() {
 		if (session.getAttribute("userName") != null) {
-			ModelAndView mav = new ModelAndView("admin/addTutor");
+			ModelAndView mav = new ModelAndView("admin/TutorManagement/addTutor");
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
@@ -77,7 +77,7 @@ public class TutorManagementController {
 
 	@RequestMapping(value = "/createTutor", method = RequestMethod.POST)
 	public String addTutor(@RequestParam("hoten") String hoten, @RequestParam("gioitinh") String gioitinh,
-			@RequestParam("namsinh") String namsinh, @RequestParam("diachi") String diachi,
+			@RequestParam("ngaysinh") String namsinh, @RequestParam("diachi") String diachi,
 			@RequestParam("email") String email, @RequestParam("dienthoai") String sdt,
 			@RequestParam("truong") String truong, @RequestParam("chuyennganh") String chuyennghanh,
 			@RequestParam("namtotnghiep") String namtotnghiem, @RequestParam("nghenghiep") String nghenghiep,
@@ -120,7 +120,7 @@ public class TutorManagementController {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				TutorModel model = commonService.getTutor(param);
-				ModelAndView mav = new ModelAndView("admin/updateTutor");
+				ModelAndView mav = new ModelAndView("admin/TutorManagement/updateTutor");
 				mav.addObject("model", model);
 				return mav;
 			} else {
