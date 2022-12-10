@@ -19,9 +19,6 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="resources/assets/css/import/footer.css"/>"
 	rel="stylesheet">
-
-<link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
-	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/style.css"/>"
 	rel="stylesheet">
 
