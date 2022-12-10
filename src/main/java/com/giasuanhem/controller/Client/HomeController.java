@@ -139,8 +139,7 @@ public class HomeController {
 	public ModelAndView registerPage() {
 		try {
 			ModelAndView mav = new ModelAndView("users/home/register");
-			EmailServices.sendEmail("20110695@student.hcmute.edu.vn", "Verify",
-					EmailServices.formInvoice(10, "123", "2/3/2002", "tanphat", "Đăng kí mở lớp", "1234"));
+			EmailServices.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailServices.formOTP("123456"));
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
