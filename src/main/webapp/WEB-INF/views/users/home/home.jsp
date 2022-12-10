@@ -23,8 +23,6 @@
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/style.css"/>"
 	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/home.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/tutor.css"/>"

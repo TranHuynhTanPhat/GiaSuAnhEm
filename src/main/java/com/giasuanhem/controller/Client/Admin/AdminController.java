@@ -89,6 +89,29 @@ public class AdminController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value = "/transaction", method = RequestMethod.GET)
+	public ModelAndView adminTransaction() {
+		try {
+			if (session.getAttribute("userName") != null) {
+
+//				Map<String, Object> params = new HashMap<>();
+//				params.put("style", 1);
+//				List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
+				
+				ModelAndView mav = new ModelAndView("admin/transactionHistory");
+//				mav.addObject("listIntroductionPost", listIntroductionPost);
+
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
+	}
 
 	@RequestMapping(value = "/uploadIntroduction", method = RequestMethod.POST)
 	public String uploadIntroduction(@RequestParam("id") String id, @RequestParam("title") String title,

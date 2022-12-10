@@ -82,7 +82,7 @@
 						</a></li>
 					</ul></li>
 
-				<li class="nav-link"><a href="#"> <i
+				<li class="nav-link"><a href="transaction"> <i
 						class="fa-solid fa-file-invoice icon"></i><span
 						class="text nav-text">Quản lý lịch sử giao dịch</span>
 				</a></li>
