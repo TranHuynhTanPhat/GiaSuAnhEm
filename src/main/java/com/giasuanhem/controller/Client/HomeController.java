@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.giasuanhem.Exception.KeyNotFoundException;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
@@ -66,7 +65,7 @@ public class HomeController {
 		return mav;
 	}
 
-	@ExceptionHandler({ Exception.class, KeyNotFoundException.class })
+	@ExceptionHandler({ Exception.class })
 	public String errorPage() {
 		return "redirect:/error";
 	}
@@ -140,7 +139,20 @@ public class HomeController {
 	public ModelAndView registerPage() {
 		try {
 			ModelAndView mav = new ModelAndView("users/home/register");
-			EmailServices.sendEmail("trungnghiaazzd@gmail.com", "Verify", "123456");
+			EmailServices.sendEmail("20110695@student.hcmute.edu.vn", "Verify",
+					EmailServices.formInvoice(10, "123", "2/3/2002", "tanphat", "Đăng kí mở lớp", "1234"));
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
+	public ModelAndView invoicePage() {
+		try {
+			ModelAndView mav = new ModelAndView("users/formInvoice");
+
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

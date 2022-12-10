@@ -76,72 +76,6 @@
 
 				<!-- Content Row -->
 				<div class="row">
-
-
-					<form action="" method="post" name="form1" style="width: 100%">
-
-						<div class="row align-middle">
-							<div class="col-md">
-								<select name="chonlop" id="chonlop" class="form-select ">
-									<option value="">Chọn Lớp</option>
-									<c:forEach var="item" items="${sessionScope.listClass }">
-										<option value="${item._id }">${item.name}</option>
-									</c:forEach>
-								</select>
-							</div>
-							<div class="col-md">
-								<select name="chonmon" id="chonmon" class="form-select">
-									<option value="">Chọn Môn</option>
-									<c:forEach var="item" items="${sessionScope.listSubject }">
-										<option value="${item._id}">${item.name}</option>
-									</c:forEach>
-								</select>
-							</div>
-							<div class="col-md">
-								<select name="chongioitinh" id="chongioitinh"
-									class="form-select">
-									<option value="0">Giới Tính</option>
-									<option value="1">Nam</option>
-									<option value="2">Nữ</option>
-									<option value="2">Khác</option>
-
-								</select>
-							</div>
-
-							<div class="col-md">
-								<select name="chonnguoiday" id="chonnguoiday"
-									class="form-select">
-									<option value="0">Hiện là</option>
-									<option value="1">Giáo viên</option>
-									<option value="2">Sinh viên</option>
-									<option value="3">Đã tốt nghiệp</option>
-
-								</select>
-							</div>
-
-							<div class="col-md">
-								<select name="quanhuyen" id="quanhuyen" class="form-select">
-									<option value="0">Quận huyện</option>
-									<c:forEach var="item"
-										items="${sessionScope.listCategoryDistrict }">
-										<option value=${item._id }>${item.name }</option>
-									</c:forEach>
-								</select>
-							</div>
-							<div class="col">
-								<div id="fixedButtonSearch">
-									<button class="btn btn-primary btn-block mb-4" type="submit">
-										<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
-									</button>
-								</div>
-							</div>
-
-						</div>
-
-
-
-					</form>
-
 					<div class="row">
 						<div class="row">
 							<div class="col">
@@ -162,31 +96,19 @@
 							style="text-align: left; float: left;">
 							<thead>
 								<tr>
-									<th scope="col">Tên gia sư</th>
-									<th scope="col">Email<br></th>
-									<th scope="col">Năm sinh<br></th>
-									<th scope="col">Giới Tính<br></th>
-									<th scope="col">SĐT<br></th>
-									<th scope="col">Nghề nghiệp<br></th>
-									<th scope="col">Số buổi<br></th>
-									<th scope="col">Ưu điểm<br></th>
-
+									<th scope="col" width="15%">Tên đăng nhập</th>
+									<th scope="col" width="25%">Họ và tên</th>
+									<th scope="col" width="35%">Email</th>
 									<th scope="col" width="2%"></th>
 									<th scope="col" width="2%"></th>
 								</tr>
 							</thead>
 							<tbody class="table-group-divider">
-								<c:forEach var="item" items="${ listTutor }">
+								<c:forEach var="item" items="${ listAccount }">
 									<tr>
+										<td>${item.username }</td>
 										<td>${item.name }</td>
 										<td>${item.email }</td>
-
-										<td>${item.birthYear }</td>
-										<td>${item.gender }</td>
-										<td>${item.phone }</td>
-										<td>${item.isNow }</td>
-										<td>${item.sobuoi }</td>
-										<td>${item.describe }</td>
 										<th><a href="updateAccount?id=${item._id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 										<th><a href="./deleteAccount?id=${item._id }"

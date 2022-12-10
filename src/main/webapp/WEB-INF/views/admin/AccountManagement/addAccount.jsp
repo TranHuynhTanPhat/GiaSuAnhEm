@@ -68,182 +68,63 @@
 					method="post">
 					<div class="form-group">
 						<div class="row">
-							<div class="col-9">
+							<div class="col-7">
 								<label class="control-label">Họ và tên: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline w-75">
-									<input type="text" id="hoten" name="hoten" class="form-control"
+									<input type="text" id="name" name="name" class="form-control"
 										value="">
 								</div>
 							</div>
 							<div class="col" style="float: right">
-								<label class="control-label">Điện thoại: <span
+								<label class="control-label">Tên đăng nhập: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
-									<input type="text" name="dienthoai" class="form-control"
+									<input type="text" name="username" class="form-control"
 										value="">
 								</div>
 							</div>
 
 						</div>
 						<div class="row">
-							<div class="col-9">
+							<div class="col-8">
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="email" class="form-control" value="">
+									<input type="email" name="email" class="form-control" value="">
 								</div>
 							</div>
 							<div class="col">
-								<label class="control-label">Năm tốt nghiệp: <span
+								<label class="control-label">Mật khẩu: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
-									<input type="text" name="namtotnghiep" id="namtotnghiep"
+									<input type="password" name="password" id="password"
 										class="form-control" value="">
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md">
-								<label class="control-label">Giới tính: <span
+								<label class="control-label">Vai trò: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="gioitinh" id="gioitinh" class="form-control"
-										style="width: 100%; float: left">
-										<option value="Khác">-- Chọn giới tính --</option>
-										<option value="Khác">Khác</option>
-										<option value="Nam">Nam</option>
-										<option value="Nữ">Nữ</option>
+									<select name="role" id="role" class="form-control">
+										<option value="0">-- Chọn vai trò --</option>
+										<option value="0">Phụ huynh</option>
+										<option value="1">Gia sư</option>
 									</select>
 								</div>
 							</div>
 							<div class="col-md">
-								<label class="control-label">Ngày sinh: <span
+								<label class="control-label">Trạng thái: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<input type="date" class="form-control" name=ngaysinh value="">
-								</div>
-							</div>
-							<div class="col-md">
-								<label class="control-label">Hiện là: <span
-									style="color: #FF0000">*</span></label>
-								<div class="col">
-									<select name="nghenghiep" id="nghenghiep" class="form-control"
-										style="width: 100%; float: left">
-										<option value="Nghề nghiệp">-- Chọn nghề nghiệp --</option>
-										<option value="Giáo viên">Giáo viên</option>
-										<option value="Sinh viên">Sinh viên</option>
-										<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
+									<select name="state" id="state" class="form-control">
+										<option value="1">-- Chọn trạng thái --</option>
+										<option value="1">Đang hoạt động</option>
+										<option value="0">Ngừng hoạt động</option>
+										<option value="2">Chưa confirm</option>
 									</select>
-								</div>
-							</div>
-							<div class="col-md">
-								<label class="control-label">Số buổi dạy: <span
-									style="color: #FF0000">*</span></label>
-								<div class="col">
-									<select name="sobuoiday" id="sobuoiday" class="form-control"
-										style="width: 100%; float: left">
-										<option value="0">-- Chọn số buổi dạy --</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<label class="control-label">Sinh viên (giáo viên)
-									trường: <span style="color: #FF0000">*</span>
-								</label>
-								<div class="form-outline">
-									<input type="text" name="truong" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col">
-								<label class="control-label">Ngành học: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline">
-									<input type="text" name="chuyennganh" class="form-control"
-										value="">
-								</div>
-							</div>
-							<div class="col">
-								<label class="control-label">Phương tiện: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline">
-									<input type="text" name="phuongtien" id="phuongtien"
-										class="form-control" value="">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<label class="control-label">Địa chỉ: <span
-								style="color: #FF0000">*</span></label>
-							<div class="form-outline">
-								<input type="text" name="diachi" class="form-control" value="">
-							</div>
-						</div>
-						<div class="row">
-							<label class="control-label">Ưu điểm: <span
-								style="color: #FF0000">*</span></label>
-							<div class="form-outline">
-								<input type="text" name="uudiem" id="uudiem"
-									class="form-control" value="">
-							</div>
-						</div>
-						<div class="row align-middle" style="padding-left: 15%">
-							<div class="col">
-								<label class="control-label"><strong>Môn dạy:</strong> <span
-									style="color: #FF0000">*</span></label>
-								<div class="col">
-									<table border="0" class="tablebox">
-										<tbody>
-											<c:forEach var="item" items="${sessionScope.listSubject }">
-												<tr>
-													<td><label><input type="checkbox"
-															name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="col">
-								<label class="control-label"><strong>Lớp dạy:</strong> <span
-									style="color: #FF0000">*</span></label>
-								<div class="col align-middle">
-									<table border="0" class="tablebox">
-										<tbody>
-											<c:forEach var="item" items="${ sessionScope.listClass }">
-												<tr>
-													<td><label><input type="checkbox"
-															name="lophoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="col">
-								<label class="control-label"><strong>Khu vực:</strong>
-									<span style="color: #FF0000">*</span></label>
-								<div class="col">
-									<table border="0" class="tablebox">
-										<tbody>
-											<c:forEach var="item"
-												items="${ sessionScope.listCategoryDistrict }">
-												<tr>
-													<td><label><input type="checkbox"
-															name="khuvuc" id="khuvuc" value="${ item.name }">${ item.name}</label></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
 								</div>
 							</div>
 						</div>
