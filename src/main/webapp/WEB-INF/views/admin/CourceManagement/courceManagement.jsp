@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">

@@ -53,7 +53,6 @@ public class CourceManagementController {
 
 					CourceExcelExporter excelExporter = new CourceExcelExporter(listNewCource);
 					excelExporter.export(response);
-
 					return null;
 				}
 
