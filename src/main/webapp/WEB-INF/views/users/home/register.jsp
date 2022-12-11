@@ -27,19 +27,19 @@
 		<a href="/TrungTamGiaSu/trang-chu"><img
 			src="resources/assets/images/tot_nghiep.png"></a>
 		<h2>Đăng ký</h2>
-		<form action="">
+		<form action="./dang-ky" method="post">
 			<div class="user-box">
-				<input type="text" name="" required="required" /> <label>Tên
-					người dùng</label>
-			</div>
-
-			<div class="user-box">
-				<input type="text" name="" required="required" /> <label>Tên
+				<input type="text" name="username" required="required" /> <label>Tên
 					tài khoản</label>
 			</div>
 
 			<div class="user-box">
-				<input class="input" type="password" name="" required="required" />
+				<input type="text" name="email" required="required" /> <label>Email</label>
+			</div>
+
+			<div class="user-box">
+				<input class="input" type="password" name="password"
+					required="required" />
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none"
 					viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff"
 					class="eye eye-close">
@@ -79,12 +79,12 @@
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="user-type" required="required" /> <label>Gia
+				<input type="radio" name="role" value ="1" required="required" /> <label>Gia
 					sư</label>
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="user-type" required="required" /> <label>Phụ
+				<input type="radio" name="role" value="2" required="required" /> <label>Phụ
 					huynh</label>
 			</div>
 

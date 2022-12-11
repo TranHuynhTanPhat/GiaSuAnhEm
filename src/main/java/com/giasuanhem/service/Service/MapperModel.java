@@ -37,9 +37,8 @@ public class MapperModel {
 		return newItem;
 	}
 
-	public NewClassModel mapNewCource(String address, String district, float sobuoi, String time, float salary,
-			String require, float status, List<Object> categories, List<Object> classes, List<Object> subjects,
-			String contact) {
+	public NewClassModel mapNewCource(String address, String district, int sobuoi, String time, int salary,
+			String require, int status, Object categories, Object classes, Object subjects, String contact) {
 		NewClassModel newItem = new NewClassModel();
 		newItem.setAddress(address);
 		newItem.setDistrict(district);

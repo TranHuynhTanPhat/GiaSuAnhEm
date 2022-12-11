@@ -1,5 +1,6 @@
 package com.giasuanhem.controller.Client;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
@@ -29,45 +34,37 @@ public class HomeController {
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		try {
-
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+//			Map<String, Object> paramsClass = new HashMap<>();
+//			paramsClass.put("tyle", 0);
+//			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+//
+//			Map<String, Object> paramsDistrict = new HashMap<>();
+//			paramsDistrict.put("tyle", 1);
+//			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
 
 			List<ClassModel> listClass = commonService.getListClass();
 			List<SubjectModel> listSubject = commonService.getListSubject();
-//
-//		session.removeAttribute("listCategoryClass");
-//		session.removeAttribute("listCategoryDistrict");
-//		session.removeAttribute("listClass");
-//		session.removeAttribute("listSubject");
 
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+//			session.setAttribute("listCategoryClass", listCategoryClass);
+//			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 			session.setAttribute("listClass", listClass);
 			session.setAttribute("listSubject", listSubject);
 
 			ModelAndView mav = new ModelAndView("users/home/home");
 			return mav;
 		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
+			// TODO: handle exception
+			return null;
 		}
 	}
 
-	@RequestMapping(value = "/error", method = RequestMethod.GET)
+//	@RequestMapping(value = "/error", method = RequestMethod.GET)
+//	
+
+	@ExceptionHandler({ Exception.class, JsonParseException.class, JsonMappingException.class })
 	public ModelAndView errrorPage() {
 		ModelAndView mav = new ModelAndView("404page");
 		return mav;
-	}
-
-	@ExceptionHandler({ Exception.class })
-	public String errorPage() {
-		return "redirect:/error";
 	}
 
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
@@ -124,35 +121,16 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
-	public ModelAndView loginPage() {
-		try {
-			ModelAndView mav = new ModelAndView("users/home/loginUser");
-			return mav;
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
-	public ModelAndView registerPage() {
-		try {
-			ModelAndView mav = new ModelAndView("users/home/register");
-			EmailService.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailService.formOTP("123456"));
-			return mav;
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
-		}
-	}
-
 	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
 	public ModelAndView invoicePage() {
 		try {
-			ModelAndView mav = new ModelAndView("users/formInvoice");
+			if (session.getAttribute("role") != null) {
+				ModelAndView mav = new ModelAndView("users/formInvoice");
 
-			return mav;
+				return mav;
+			} else {
+				return new ModelAndView("404page");
+			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;

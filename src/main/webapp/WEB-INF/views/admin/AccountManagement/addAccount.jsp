@@ -68,30 +68,12 @@
 					method="post">
 					<div class="form-group">
 						<div class="row">
-							<div class="col-7">
-								<label class="control-label">Họ và tên: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline w-75">
-									<input type="text" id="name" name="name" class="form-control"
-										value="">
-								</div>
-							</div>
 							<div class="col" style="float: right">
 								<label class="control-label">Tên đăng nhập: <span
 									style="color: #FF0000">*</span></label>
-								<div class="form-outline ">
+								<div class="form-outline">
 									<input type="text" name="username" class="form-control"
 										value="">
-								</div>
-							</div>
-
-						</div>
-						<div class="row">
-							<div class="col-8">
-								<label class="control-label">Email: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline">
-									<input type="email" name="email" class="form-control" value="">
 								</div>
 							</div>
 							<div class="col">
@@ -104,13 +86,23 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col">
+								<label class="control-label">Email: <span
+									style="color: #FF0000">*</span></label>
+								<div class="form-outline">
+									<input type="email" name="email" class="form-control" value="">
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
 							<div class="col-md">
 								<label class="control-label">Vai trò: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="role" id="role" class="form-control">
-										<option value="0">-- Chọn vai trò --</option>
-										<option value="0">Phụ huynh</option>
+										<option value="">-- Chọn vai trò --</option>
+										<option value="2">Phụ huynh</option>
 										<option value="1">Gia sư</option>
 									</select>
 								</div>
@@ -120,10 +112,10 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="state" id="state" class="form-control">
-										<option value="1">-- Chọn trạng thái --</option>
+										<option value="">-- Chọn trạng thái --</option>
 										<option value="1">Đang hoạt động</option>
 										<option value="0">Ngừng hoạt động</option>
-										<option value="2">Chưa confirm</option>
+										<option value="2">Chưa xác thực</option>
 									</select>
 								</div>
 							</div>

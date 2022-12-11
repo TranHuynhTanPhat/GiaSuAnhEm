@@ -96,10 +96,10 @@
 								items="${ sessionScope.listCategoryDistrict}">
 								<tr>
 									<td>${item.name }</td>
-									<td>${item.style }</td>
-									<th><a href="updateCategory?id=${item._id}"><i
+									<td>${item.tyle }</td>
+									<th><a href="updateCategory?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteCategory?id=${item._id }"
+									<th><a href="./deleteCategory?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

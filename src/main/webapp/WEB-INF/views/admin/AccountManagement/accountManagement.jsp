@@ -96,22 +96,26 @@
 							style="text-align: left; float: left;">
 							<thead>
 								<tr>
-									<th scope="col" width="15%">Tên đăng nhập</th>
-									<th scope="col" width="25%">Họ và tên</th>
-									<th scope="col" width="35%">Email</th>
+									<th scope="col" width="20%">Tên đăng nhập</th>
+									<th scope="col">Email</th>
+									<th scope="col" width="10%"
+										style="text-align: center; float: center;">Trạng thái</th>
+									<th scope="col" width="10%"
+										style="text-align: center; float: center;">Vai trò</th>
 									<th scope="col" width="2%"></th>
 									<th scope="col" width="2%"></th>
 								</tr>
 							</thead>
 							<tbody class="table-group-divider">
-								<c:forEach var="item" items="${ listAccount }">
+								<c:forEach var="item" items="${ listAccounts }">
 									<tr>
 										<td>${item.username }</td>
-										<td>${item.name }</td>
 										<td>${item.email }</td>
-										<th><a href="updateAccount?id=${item._id}"><i
+										<td align="center">${item.state }</td>
+										<td align="center">${item.role }</td>
+										<th><a href="updateAccount?id=${item.id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteAccount?id=${item._id }"
+										<th><a href="./deleteAccount?id=${item.id }"
 											onclick="return confirmDelete()"><i
 												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>

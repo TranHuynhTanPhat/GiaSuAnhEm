@@ -37,7 +37,7 @@ public class TutorManagementController {
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
 	public ModelAndView tutorManagement(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 
 				List<TutorModel> listTutor = commonService.getListTutor();
 
@@ -87,7 +87,7 @@ public class TutorManagementController {
 
 	@RequestMapping(value = "/createTutor", method = RequestMethod.GET)
 	public ModelAndView addTutor() {
-		if (session.getAttribute("userName") != null) {
+		if (session.getAttribute("admin") != null) {
 			ModelAndView mav = new ModelAndView("admin/TutorManagement/addTutor");
 			return mav;
 		} else {
@@ -137,7 +137,7 @@ public class TutorManagementController {
 	@RequestMapping(value = "/updateTutor", method = RequestMethod.GET)
 	public ModelAndView updateTutor(@RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				TutorModel model = commonService.getTutor(param);
@@ -165,7 +165,7 @@ public class TutorManagementController {
 			@RequestParam("khuvuc") String[] khuvucs, @RequestParam("sobuoiday") String sobuoiday,
 			@RequestParam("phuongtien") String phuongtien) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				try {
 					List<Object> classes = new ArrayList<>();
 					List<Object> subjects = new ArrayList<>();

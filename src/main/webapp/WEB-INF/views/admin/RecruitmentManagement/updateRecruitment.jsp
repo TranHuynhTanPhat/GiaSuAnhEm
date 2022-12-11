@@ -65,7 +65,7 @@
 					<strong>Cập nhật bài tuyển dụng</strong>
 				</div>
 				<form action="./updateRecruitment" method="post" n>
-					<input type="hidden" name="id" value="${recruitPost._id }">
+					<input type="hidden" name="id" value="${recruitPost.id }">
 					<div class="form-group">
 						<div class="row">
 							<label class="control-label"><strong>Tiêu đề:</strong> <span

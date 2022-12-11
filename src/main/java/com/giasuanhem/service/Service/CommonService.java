@@ -1,6 +1,7 @@
 package com.giasuanhem.service.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -32,8 +33,9 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
-import com.giasuanhem.model.Models.adminModel;
-import com.giasuanhem.model.Models.errorMessage;
+import com.giasuanhem.controller.Client.Admin.ClassManagementController;
+import com.giasuanhem.model.Models.AccountModel;
+import com.giasuanhem.model.Models.ResponseModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ApiConstant;
 import com.google.gson.Gson;
@@ -44,7 +46,7 @@ public class CommonService {
 	@Autowired
 	HttpSession session;
 
-	private static final String BASE_URL_API = "https://dbgiasuanhem.onrender.com/giasuanhem/v1";
+	private static final String BASE_URL_API = "https://giasuae-api.up.railway.app/v1";
 	static RestTemplate restTemplate = new RestTemplate();
 
 	String takeApiURL(String path) {
@@ -71,13 +73,13 @@ public class CommonService {
 		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		headers.set("token", "Bearer " + session.getAttribute("accessToken"));
+		headers.set("token", "" + session.getAttribute("accessToken"));
 
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 		try {
 			ResponseEntity<String> response = restTemplate.exchange(takeApiURL(apiUrl) + "?" + paramsSrt,
 					HttpMethod.POST, entity, String.class);
-			System.out.println("a");
+
 			String jsonResponse = response.getBody();
 			return jsonResponse;
 		} catch (HttpClientErrorException e) {
@@ -86,12 +88,13 @@ public class CommonService {
 
 	}
 
-	void postWithJson(String apiUrl, String jsonReq) {
+	String postWithJson(String apiUrl, String jsonReq) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.set("token", "Bearer " + session.getAttribute("accessToken"));
+		headers.set("token", "" + session.getAttribute("accessToken"));
 		HttpEntity<String> requestEntity = new HttpEntity<String>(jsonReq, headers);
 		String resString = restTemplate.postForObject(takeApiURL(apiUrl), requestEntity, String.class);
+		return resString;
 	}
 
 	void postWithParamAndJson(String apiUrl, String jsonReq, Map<String, Object> params) {
@@ -142,30 +145,41 @@ public class CommonService {
 		}
 	}
 
-	public void createNewCource(NewClassModel model) throws JsonProcessingException {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			postWithJson(ApiConstant.LIST_NEWCLASS, jsonReq);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void createNewCource(NewClassModel model) throws IOException {
+
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = postWithJson(ApiConstant.LIST_NEWCLASS, jsonReq);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 	}
 
-	public void createClass(ClassModel model) throws JsonProcessingException {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			postWithJson(ApiConstant.LIST_CLASS, jsonReq);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void createClass(ClassModel model) throws IOException {
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = postWithJson(ApiConstant.LIST_CLASS, jsonReq);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 	}
 
-	public void createSubject(SubjectModel model) throws JsonProcessingException {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			postWithJson(ApiConstant.LIST_SUBJECT, jsonReq);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void createSubject(SubjectModel model) throws IOException {
+
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = postWithJson(ApiConstant.LIST_SUBJECT, jsonReq);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 	}
 
@@ -282,52 +296,55 @@ public class CommonService {
 		}
 	}
 
-	public List<ClassModel> getListClass() {
+	public List<ClassModel> getListClass() throws JsonParseException, JsonMappingException, IOException {
+
 		String jsonResponse = get(ApiConstant.LIST_CLASS);
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			List<ClassModel> listClassModels = objectMapper.readValue(jsonResponse,
-					new TypeReference<List<ClassModel>>() {
-					});
-			return listClassModels;
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+
+		List<ClassModel> listClassModels = objectMapper.convertValue(res.getData(),
+				new TypeReference<List<ClassModel>>() {
+				});
+		return listClassModels;
+
 	}
 
-	public List<CategoryModel> getListCategory(Map<String, Object> params) {
-		String jsonResponse = getWithParams(ApiConstant.LIST_CATEGORY, params);
+	public List<CategoryModel> getListCategory(Map<String, Object> params)
+			throws JsonParseException, JsonMappingException, IOException {
+		String jsonResponse = getWithParams(ApiConstant.CATEGORY_FILTER, params);
+
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			List<CategoryModel> listCategoryModel = objectMapper.readValue(jsonResponse,
-					new TypeReference<List<CategoryModel>>() {
-					});
-			return listCategoryModel;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+
+		List<CategoryModel> listCategoryModel = objectMapper.convertValue(res.getData(),
+				new TypeReference<List<CategoryModel>>() {
+				});
+		return listCategoryModel;
 	}
 
 	public List<NewClassModel> getListNewClass() {
-
-		String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
-		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			List<NewClassModel> listNewClassModels = objectMapper.readValue(jsonResponse,
+			String jsonResponse = get(ApiConstant.LIST_NEWCLASS);
+			ObjectMapper objectMapper = new ObjectMapper();
+			ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+			});
+			if (!res.getStatus()) {
+				session.setAttribute("errorMessage", res.getMessage());
+				return null;
+			}
+			List<NewClassModel> listNewClassModels = objectMapper.convertValue(res.getData(),
 					new TypeReference<List<NewClassModel>>() {
 					});
 			return listNewClassModels;
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
 			return null;
+			// TODO: handle exception
 		}
+
 	}
 
 	public List<PostModel> getListPost() {
@@ -348,7 +365,6 @@ public class CommonService {
 
 	public List<PostModel> getListPostWithParams(Map<String, Object> params) {
 		String jsonResponse = getWithParams(ApiConstant.LIST_POST, params);
-		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
@@ -363,21 +379,19 @@ public class CommonService {
 
 	}
 
-	public List<SubjectModel> getListSubject() {
+	public List<SubjectModel> getListSubject() throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = get(ApiConstant.LIST_SUBJECT);
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			List<SubjectModel> listSubject = objectMapper.readValue(jsonResponse,
-					new TypeReference<List<SubjectModel>>() {
-					});
 
-			return listSubject;
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+		List<SubjectModel> listSubject = objectMapper.convertValue(res.getData(),
+				new TypeReference<List<SubjectModel>>() {
+				});
+
+		return listSubject;
+
 	}
 
 	public List<SalaryModel> getListSalary(Map<String, Object> params) {
@@ -386,7 +400,6 @@ public class CommonService {
 		try {
 			List<SalaryModel> listSalary = objectMapper.readValue(jsonResponse, new TypeReference<List<SalaryModel>>() {
 			});
-			System.out.println(jsonResponse);
 			return listSalary;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -420,43 +433,55 @@ public class CommonService {
 		}
 	}
 
-	public ClassModel getClass(Map<String, Object> param) {
+	public ClassModel getClass(Map<String, Object> param) throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = getWithParams(ApiConstant.CLASS_FINDID, param);
+
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			ClassModel model = objectMapper.readValue(jsonResponse, new TypeReference<ClassModel>() {
-			});
-			return model;
-		} catch (IOException e) {
-			e.printStackTrace();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
 			return null;
 		}
+		ClassModel model = objectMapper.convertValue(res.getData(), new TypeReference<ClassModel>() {
+		});
+		return model;
+
 	}
 
-	public SubjectModel getSubject(Map<String, Object> param) {
+	public SubjectModel getSubject(Map<String, Object> param)
+			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = getWithParams(ApiConstant.SUBJECT_FINDID, param);
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			SubjectModel model = objectMapper.readValue(jsonResponse, new TypeReference<SubjectModel>() {
-			});
-			return model;
-		} catch (IOException e) {
-			e.printStackTrace();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
 			return null;
 		}
+
+		SubjectModel model = objectMapper.convertValue(res.getData(), new TypeReference<SubjectModel>() {
+		});
+		return model;
+
 	}
 
-	public NewClassModel getNewClass(Map<String, Object> params) {
+	public NewClassModel getNewClass(Map<String, Object> params)
+			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = getWithParams(ApiConstant.NEWCLASS_FINDID, params);
+
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			NewClassModel model = objectMapper.readValue(jsonResponse, new TypeReference<NewClassModel>() {
-			});
-			return model;
-		} catch (IOException e) {
-			e.printStackTrace();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
 			return null;
 		}
+
+		NewClassModel model = objectMapper.convertValue(res.getData(), new TypeReference<NewClassModel>() {
+		});
+		return model;
+
 	}
 
 	public PostModel getPost(Map<String, Object> params) {
@@ -465,7 +490,6 @@ public class CommonService {
 		try {
 			PostModel model = objectMapper.readValue(jsonResponse, new TypeReference<PostModel>() {
 			});
-			System.out.println(jsonResponse);
 			return model;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -486,6 +510,35 @@ public class CommonService {
 		}
 	}
 
+	public AccountModel getAccount(Map<String, Object> params)
+			throws JsonParseException, JsonMappingException, IOException {
+		String jsonResponse = getWithParams(ApiConstant.ACCOUNT_FINDID, params);
+		System.out.println(jsonResponse);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		AccountModel model = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
+		});
+		return model;
+
+	}
+
+	public List<AccountModel> getListAccount() throws JsonParseException, JsonMappingException, IOException {
+
+		String jsonResponse = get(ApiConstant.LIST_ACCOUNT);
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+
+		List<AccountModel> listAccounts = objectMapper.convertValue(res.getData(),
+				new TypeReference<List<AccountModel>>() {
+				});
+
+		return listAccounts;
+
+	}
+
 	public void updateCategory(CategoryModel model, Map<String, Object> param) {
 		try {
 			String jsonReq = new Gson().toJson(model);
@@ -504,30 +557,44 @@ public class CommonService {
 		}
 	}
 
-	public void updateClass(ClassModel model, Map<String, Object> param) {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			postWithParamAndJson(ApiConstant.CLASS_UPDATE, jsonReq, param);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void updateClass(ClassModel model) throws JsonParseException, JsonMappingException, IOException {
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = postWithJson(ApiConstant.CLASS_UPDATE, jsonReq);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
+		}
+
+	}
+
+	public void updateSubject(SubjectModel model) throws JsonParseException, JsonMappingException, IOException {
+		String jsonReq = new Gson().toJson(model);
+		System.out.println(jsonReq);
+		String jsonResponse = postWithJson(ApiConstant.SUBJECT_UPDATE, jsonReq);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 	}
 
-	public void updateSubject(SubjectModel model, Map<String, Object> param) {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			postWithParamAndJson(ApiConstant.SUBJECT_UPDATE, jsonReq, param);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public void updateNewClass(NewClassModel model) throws JsonParseException, JsonMappingException, IOException {
 
-	public void updateNewClass(NewClassModel model, Map<String, Object> param) {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			postWithParamAndJson(ApiConstant.NEWCLASS_UPDATE, jsonReq, param);
-		} catch (Exception e) {
-			e.printStackTrace();
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = postWithJson(ApiConstant.NEWCLASS_UPDATE, jsonReq);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 	}
 
@@ -549,23 +616,68 @@ public class CommonService {
 		}
 	}
 
-	public void checkLogin(Map<String, Object> params, HttpSession session)
-			throws JsonParseException, JsonMappingException, IOException {
-		String jsonResponse = null;
+	public void updateAccount(AccountModel model) throws JsonParseException, JsonMappingException, IOException {
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = postWithJson(ApiConstant.ACCOUNT_UPDATE, jsonReq);
 
-		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			adminModel admin = objectMapper.readValue(jsonResponse, new TypeReference<adminModel>() {
-			});
-			session.setAttribute("userName", admin.getUserName());
-			session.setAttribute("accessToken", admin.getAccessToken());
-		} catch (Exception e) {
-			errorMessage err = objectMapper.readValue(jsonResponse, new TypeReference<errorMessage>() {
-			});
-			session.setAttribute("errorMessage", err.getMessage());
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 
 	}
 
+	/// Authorization
+	public void checkLogin(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+		String jsonResponse = null;
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		jsonResponse = postWithParams(ApiConstant.CHECK_LOGIN, params);
+
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
+		}
+
+		AccountModel model = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
+		});
+
+		if (model.getRole() == 0) {
+			session.setAttribute("admin", model.getUsername());
+		} else if (model.getRole() == 1) {
+			session.setAttribute("role", "tutor");
+		} else {
+			session.setAttribute("role", "parent");
+		}
+
+		session.setAttribute("accessToken", model.getToken());
+		session.removeAttribute("errMessage");
+	}
+
+	public void register(AccountModel model, HttpSession session) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+
+			ObjectMapper objectMapper = new ObjectMapper();
+
+			String jsonResponse = postWithJson(ApiConstant.REGISTER, jsonReq);
+
+			ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+			});
+
+			if (!res.getStatus()) {
+				session.setAttribute("errorMessage", res.getMessage());
+				return;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

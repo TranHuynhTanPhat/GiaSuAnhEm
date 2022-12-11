@@ -1,47 +1,35 @@
 package com.giasuanhem.model.Models;
 
 public class ClassModel {
-	 private String _id;
-	 private String name;
-	 private String createdAt;
-	 private String updatedAt;
+	private int id;
+	private String name;
+	private String created_at;
 
 	// Getter Methods
 
-	public String getCreatedAt() {
-		return createdAt;
+	public String getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
 	}
 
-	public String getUpdatedAt() {
-		return updatedAt;
+	public String getName() {
+		return name;
 	}
 
-	public void setUpdatedAt(String updatedAt) {
-		this.updatedAt = updatedAt;
+	// Setter Methods
+
+	public int getId() {
+		return id;
 	}
 
-
-	 // Getter Methods 
-
-	 public String get_id() {
-	  return _id;
-	 }
-
-	 public String getName() {
-	  return name;
-	 }
-
-	 // Setter Methods 
-
-	 public void set_id(String _id) {
-	  this._id = _id;
-	 }
-
-	 public void setName(String name) {
-	  this.name = name;
-	 }
+	public void setId(int id) {
+		this.id = id;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}

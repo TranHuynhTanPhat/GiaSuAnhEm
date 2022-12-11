@@ -70,7 +70,8 @@
 							<label class="control-label">Tên môn: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="hidden" name="id" value="${Subject._id }">
+								<input type="hidden" name="id" value="${Subject.id }"> <input
+									type="hidden" name="created" value="${Subject.created_at }">
 								<input type="text" name="tenmon" class="form-control"
 									value="${Subject.name }">
 							</div>
@@ -87,9 +88,6 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
-
-
-
-	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+		<div class="row" style="position: fixed; bottom: 0">
+			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
 	</div>

@@ -108,9 +108,9 @@
 									<td>${item.threeSessions }</td>
 									<td>${item.fourSessions }</td>
 									<td>${item.fiveSessions }</td>
-									<th><a href="./updateSalary?id=${item._id}"><i
+									<th><a href="./updateSalary?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteSalary?id=${item._id }"
+									<th><a href="./deleteSalary?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
@@ -159,9 +159,9 @@
 									<td>${item.threeSessions }</td>
 									<td>${item.fourSessions }</td>
 									<td>${item.fiveSessions }</td>
-									<th><a href="./updateSalary?id=${item._id}"><i
+									<th><a href="./updateSalary?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteSalary?id=${item._id }"
+									<th><a href="./deleteSalary?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

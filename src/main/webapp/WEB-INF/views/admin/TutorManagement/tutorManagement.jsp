@@ -86,7 +86,7 @@
 								<select name="chonlop" id="chonlop" class="form-select ">
 									<option value="">Chọn Lớp</option>
 									<c:forEach var="item" items="${sessionScope.listClass }">
-										<option value="${item._id }">${item.name}</option>
+										<option value="${item.id }">${item.name}</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -94,7 +94,7 @@
 								<select name="chonmon" id="chonmon" class="form-select">
 									<option value="">Chọn Môn</option>
 									<c:forEach var="item" items="${sessionScope.listSubject }">
-										<option value="${item._id}">${item.name}</option>
+										<option value="${item.id}">${item.name}</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -189,9 +189,9 @@
 										<td>${item.isNow }</td>
 										<td>${item.sobuoi }</td>
 										<td>${item.describe }</td>
-										<th><a href="updateTutor?id=${item._id}"><i
+										<th><a href="updateTutor?id=${item.id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteTutor?id=${item._id }"
+										<th><a href="./deleteTutor?id=${item.id }"
 											onclick="return confirmDelete()"><i
 												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>

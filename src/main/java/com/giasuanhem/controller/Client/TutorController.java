@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,8 @@ import com.giasuanhem.service.Service.CommonService;
 public class TutorController {
 	@Autowired
 	CommonService commonService;
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage() {
@@ -35,8 +39,14 @@ public class TutorController {
 	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
 	public ModelAndView addTutorPage() {
 		try {
-			ModelAndView mav = new ModelAndView("users/tutor/addTutor");
-			return mav;
+			String role = String.valueOf(session.getAttribute("role"));
+			System.out.println(role);
+			if (role == "tutor") {
+				ModelAndView mav = new ModelAndView("users/tutor/addTutor");
+				return mav;
+			} else {
+				return new ModelAndView("users/home/loginUser");
+			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
@@ -46,8 +56,12 @@ public class TutorController {
 	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)
 	public ModelAndView proccessClass() {
 		try {
-			ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
-			return mav;
+			if (session.getAttribute("role") != null) {
+				ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
+				return mav;
+			} else {
+				return new ModelAndView("\"404page\"");
+			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;

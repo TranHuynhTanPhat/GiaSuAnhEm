@@ -66,7 +66,9 @@
 				</div>
 				<form action="./updateNewCource" method="post">
 
-					<input type="hidden" name="id" value="${model._id }"> <br>
+					<input type="hidden" name="id" value="${model.id }"> <br>
+					<input type="hidden" name="id" value="${model.created_at }">
+					<br>
 					<div class="form-group">
 						<div class="row">
 							<label class="control-label">Địa chỉ hiện tại: <span

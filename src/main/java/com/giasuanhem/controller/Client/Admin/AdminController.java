@@ -44,23 +44,23 @@ public class AdminController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				List<ClassModel> listClass = commonService.getListClass();
 
 				List<SubjectModel> listSubject = commonService.getListSubject();
-
-				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("style", 1);
-				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-
-				Map<String, Object> paramsClass = new HashMap<>();
-				paramsDistrict.put("style", 0);
-				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
+//
+//				Map<String, Object> paramsDistrict = new HashMap<>();
+//				paramsDistrict.put("style", 1);
+//				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+//
+//				Map<String, Object> paramsClass = new HashMap<>();
+//				paramsDistrict.put("style", 0);
+//				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+//
 				session.setAttribute("listSubject", listSubject);
 				session.setAttribute("listClass", listClass);
-				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-				session.setAttribute("listCategoryClass", listCategoryClass);
+//				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+//				session.setAttribute("listCategoryClass", listCategoryClass);
 
 				ModelAndView mav = new ModelAndView("admin/adminhome");
 				return mav;
@@ -77,8 +77,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
 	public ModelAndView adminIntroduction() {
 		try {
-			if (session.getAttribute("userName") != null) {
-
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> params = new HashMap<>();
 				params.put("style", 1);
 				List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
@@ -100,7 +99,7 @@ public class AdminController {
 	@RequestMapping(value = "/transaction", method = RequestMethod.GET)
 	public ModelAndView adminTransaction() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 
 //				Map<String, Object> params = new HashMap<>();
 //				params.put("style", 1);
@@ -124,7 +123,7 @@ public class AdminController {
 	public String uploadIntroduction(@RequestParam("id") String id, @RequestParam("title") String title,
 			@RequestParam("content") String content) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				PostModel model = new PostModel();
 				model.setTitle(title);
 				model.setBody(content);
@@ -146,8 +145,7 @@ public class AdminController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
 		try {
-			session.removeAttribute("userName");
-			session.removeAttribute("password");
+			session.removeAttribute("admin");
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		} catch (Exception e) {
@@ -160,11 +158,10 @@ public class AdminController {
 	public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
 		try {
 			Map<String, Object> params = new HashMap<>();
-			params.put("userName", username);
+			params.put("username", username);
 			params.put("password", password);
 			try {
 				commonService.checkLogin(params, session);
-
 				return "redirect:/admin";
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -180,8 +177,7 @@ public class AdminController {
 	public String logoutAdmin() {
 		try {
 			session.removeAttribute("errorMessage");
-			session.removeAttribute("userName");
-			session.removeAttribute("password");
+			session.removeAttribute("admin");
 			return "redirect:/login";
 		} catch (Exception e) {
 			return "redirect:error";

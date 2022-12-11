@@ -206,7 +206,7 @@
 											<c:forEach var="item" items="${sessionScope.listSubject }">
 												<tr>
 													<td><label><input type="checkbox"
-															name="monhoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
+															name="monhoc" id="monhoc" value="${ item.id }">${item.name}</label></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -222,7 +222,7 @@
 											<c:forEach var="item" items="${ sessionScope.listClass }">
 												<tr>
 													<td><label><input type="checkbox"
-															name="lophoc" id="monhoc" value="${ item._id }">${item.name}</label></td>
+															name="lophoc" id="monhoc" value="${ item.id }">${item.name}</label></td>
 												</tr>
 											</c:forEach>
 										</tbody>

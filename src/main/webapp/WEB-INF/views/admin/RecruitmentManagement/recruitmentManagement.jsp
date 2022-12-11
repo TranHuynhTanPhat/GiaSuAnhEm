@@ -81,9 +81,9 @@
 								<tr>
 									<td scope="col">${item.title }</td>
 									<td>${item.body }</td>
-									<th><a href="./updateRecruitment?id=${item._id}"><i
+									<th><a href="./updateRecruitment?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteRecruitment?id=${item._id }"
+									<th><a href="./deleteRecruitment?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

@@ -62,7 +62,6 @@ public class CourceExcelExporter {
 		createCell(row, 10, "Môn học", style);
 		createCell(row, 11, "Liên hệ", style);
 		createCell(row, 12, "Ngày tạo", style);
-		createCell(row, 13, "Ngày cập nhật", style);
 
 	}
 
@@ -78,20 +77,19 @@ public class CourceExcelExporter {
 			Row row = sheet.createRow(rowCount++);
 			int columnCount = 0;
 
-			createCell(row, columnCount++, user.get_id(), style);
-			createCell(row, columnCount++, user.getAddress(), style);
-			createCell(row, columnCount++, user.getDistrict(), style);
-			createCell(row, columnCount++, String.valueOf(user.getSobuoi()), style);
-			createCell(row, columnCount++, user.getTime(), style);
-			createCell(row, columnCount++, String.valueOf(user.getSalary()), style);
-			createCell(row, columnCount++, user.getRequire(), style);
-			createCell(row, columnCount++, String.valueOf(user.getStatus()), style);
-			createCell(row, columnCount++, String.valueOf(user.getCategoriesString()), style);
-			createCell(row, columnCount++, String.valueOf(user.getClassesString()), style);
-			createCell(row, columnCount++, String.valueOf(user.getSubjectString()), style);
-			createCell(row, columnCount++, user.getContact(), style);
-			createCell(row, columnCount++, user.getCreatedAt(), style);
-			createCell(row, columnCount++, user.getUpdatedAt(), style);
+			createCell(row, columnCount++, String.valueOf(user.getId()), style);
+//			createCell(row, columnCount++, user.getAddress(), style);
+//			createCell(row, columnCount++, user.getDistrict(), style);
+//			createCell(row, columnCount++, String.valueOf(user.getSobuoi()), style);
+//			createCell(row, columnCount++, user.getTime(), style);
+//			createCell(row, columnCount++, String.valueOf(user.getSalary()), style);
+//			createCell(row, columnCount++, user.getRequire(), style);
+//			createCell(row, columnCount++, String.valueOf(user.getStatus()), style);
+//			createCell(row, columnCount++, String.valueOf(user.getCategories()), style);
+//			createCell(row, columnCount++, String.valueOf(user.getClasses()), style);
+//			createCell(row, columnCount++, String.valueOf(user.getSubjects()), style);
+//			createCell(row, columnCount++, user.getContact(), style);
+//			createCell(row, columnCount++, user.getCreatedAt(), style);
 		}
 	}
 

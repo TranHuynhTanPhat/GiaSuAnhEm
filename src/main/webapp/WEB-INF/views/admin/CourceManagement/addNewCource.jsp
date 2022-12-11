@@ -144,14 +144,14 @@
 												items="${sessionScope.listCategoryDistrict }">
 												<tr>
 													<td><input type="checkbox" name="category"
-														id="category" value="${item._id }">${item.name }</td>
+														id="category" value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
 											<c:forEach var="item"
 												items="${sessionScope.listCategoryClass }">
 												<tr>
 													<td><input type="checkbox" name="category"
-														id="category" value="${item._id }">${item.name }</td>
+														id="category" value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -167,7 +167,7 @@
 											<c:forEach var="item" items="${sessionScope.listSubject }">
 												<tr>
 													<td><input type="checkbox" name="monhoc" id="monhoc"
-														value="${item._id }">${item.name }</td>
+														value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -183,7 +183,7 @@
 											<c:forEach var="item" items="${sessionScope.listClass }">
 												<tr>
 													<td><input type="checkbox" name="lophoc" id="lophoc"
-														value="${item._id }">${item.name }</td>
+														value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
 										</tbody>

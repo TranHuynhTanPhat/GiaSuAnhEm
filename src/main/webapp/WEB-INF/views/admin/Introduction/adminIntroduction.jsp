@@ -62,7 +62,7 @@
 
 					<form action="./uploadIntroduction" method="post">
 						<input type="hidden" name="id"
-							value="${listIntroductionPost[0]._id}">
+							value="${listIntroductionPost[0].id}">
 						<div class="form-group">
 							<label style="float: left"><strong>Tiêu đề:</strong></label>
 							<div style="width: 100%">

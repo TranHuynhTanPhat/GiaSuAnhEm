@@ -21,14 +21,14 @@
 			src="resources/assets/images/tot_nghiep.png"></a>
 
 		<h2>Đăng nhập</h2>
-		<form action="">
+		<form action="./dang-nhap" method="post">
 			<div class="user-box">
-				<input type="text" name="" required="required" /> <label>Tên
+				<input type="text" name="username" required="required" /> <label>Tên
 					tài khoản</label>
 			</div>
 
 			<div class="user-box">
-				<input class="input" type="password" name="" required="required" />
+				<input class="input" type="password" name="password" required="required" />
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none"
 					viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff"
 					class="eye eye-close">

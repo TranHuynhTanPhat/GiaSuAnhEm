@@ -31,7 +31,7 @@ public class SalaryManageController {
 	@RequestMapping(value = "/quanlyluong", method = RequestMethod.GET)
 	public ModelAndView salaryManagement() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> paramST = new HashMap<>();
 				paramST.put("style", 0);
 				List<SalaryModel> listSST = commonService.getListSalary(paramST);
@@ -58,7 +58,7 @@ public class SalaryManageController {
 			@RequestParam("twosession") String twosession, @RequestParam("threesession") String threesession,
 			@RequestParam("foursession") String foursession, @RequestParam("fivesession") String fivesession) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				try {
 					System.out.println(grade);
 					SalaryModel model = commonModel.mapSalary(grade, styleTeacher, twosession, threesession,
@@ -81,7 +81,7 @@ public class SalaryManageController {
 	@RequestMapping(value = "/addSalary", method = RequestMethod.GET)
 	public ModelAndView addSalary() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				ModelAndView mav = new ModelAndView("admin/SalaryManagement/addSalary");
 				return mav;
 			} else {
@@ -100,7 +100,7 @@ public class SalaryManageController {
 			@RequestParam("threesession") String threesession, @RequestParam("foursession") String foursession,
 			@RequestParam("fivesession") String fivesession) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				try {
 					Map<String, Object> param = new HashMap<String, Object>();
 					param.put("_id", id);
@@ -125,7 +125,7 @@ public class SalaryManageController {
 	@RequestMapping(value = "/updateSalary", method = RequestMethod.GET)
 	public ModelAndView updateSalary(@RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				SalaryModel model = commonService.getSalary(param);
@@ -145,7 +145,7 @@ public class SalaryManageController {
 	@RequestMapping(value = "/deleteSalary", method = RequestMethod.GET)
 	public String deleteSalary(@RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				System.out.println(id);

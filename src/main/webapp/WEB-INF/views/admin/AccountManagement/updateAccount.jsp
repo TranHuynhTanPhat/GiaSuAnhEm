@@ -66,17 +66,9 @@
 				</div>
 				<form action="${pageContext.request.contextPath }/updateAccount"
 					method="post">
-					<input type="hidden" name="id" value="${model._id }">
+					<input type="hidden" name="id" value="${model.id }">
 					<div class="form-group">
 						<div class="row">
-							<div class="col-7">
-								<label class="control-label">Họ và tên: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline w-75">
-									<input type="text" id="name" name="name" class="form-control"
-										value="${model.name }">
-								</div>
-							</div>
 							<div class="col" style="float: right">
 								<label class="control-label">Tên đăng nhập: <span
 									style="color: #FF0000">*</span></label>
@@ -85,22 +77,14 @@
 										value="${model.username }">
 								</div>
 							</div>
-
 						</div>
 						<div class="row">
-							<div class="col-8">
+							<div class="col">
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="email" name="email" class="form-control" value="${modle.email }">
-								</div>
-							</div>
-							<div class="col">
-								<label class="control-label">Mật khẩu: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline ">
-									<input type="password" name="password" id="password"
-										class="form-control" value="${model.password }">
+									<input type="email" name="email" class="form-control"
+										value="${model.email }">
 								</div>
 							</div>
 						</div>
@@ -109,11 +93,14 @@
 								<label class="control-label">Vai trò: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="role" id="role" class="form-control">
-										<option value="0">-- Chọn vai trò --</option>
+									<select name="" id="role" class="form-control " disabled>
+										<option value="">-- Chọn trạng thái --</option>
 										<option value="0">Phụ huynh</option>
 										<option value="1">Gia sư</option>
-									</select>
+									</select> <input type="hidden" name="role" value="${model.role }">
+									<input type="hidden" name="created"
+										value="${model.created_at }"> <input type="hidden"
+										name="password" value="${model.password }">
 								</div>
 							</div>
 							<div class="col-md">
@@ -121,10 +108,10 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="state" id="state" class="form-control">
-										<option value="1">-- Chọn trạng thái --</option>
+										<option value="">-- Chọn trạng thái --</option>
 										<option value="1">Đang hoạt động</option>
 										<option value="0">Ngừng hoạt động</option>
-										<option value="2">Chưa confirm</option>
+										<option value="2">Chưa xác thực</option>
 									</select>
 								</div>
 							</div>

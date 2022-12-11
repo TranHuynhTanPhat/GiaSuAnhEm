@@ -30,7 +30,7 @@ public class CatrgoryManagementController {
 	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
 	public ModelAndView categoryManagement() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> paramsClass = new HashMap<>();
 				paramsClass.put("style", 0);
 				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
@@ -57,7 +57,7 @@ public class CatrgoryManagementController {
 	@RequestMapping(value = "/createCategory", method = RequestMethod.GET)
 	public ModelAndView addCategory() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				ModelAndView mav = new ModelAndView("admin/CategoryManagement/addCategory");
 				return mav;
 			} else {
@@ -72,12 +72,12 @@ public class CatrgoryManagementController {
 
 	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
 	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name,
-			@RequestParam("style") float style) throws JsonProcessingException {
+			@RequestParam("style") int tyle) throws JsonProcessingException {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				CategoryModel model = new CategoryModel();
 				model.setName(name);
-				model.setStyle(style);
+				model.setTyle(tyle);
 				commonService.createCategory(model);
 				return "redirect:/quanlydanhmuc";
 			} else {
@@ -91,7 +91,7 @@ public class CatrgoryManagementController {
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.GET)
 	public ModelAndView updateCategory(HttpSession session, @RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
@@ -112,12 +112,12 @@ public class CatrgoryManagementController {
 
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
 	public String updateCategory(HttpSession session, @RequestParam("id") String id,
-			@RequestParam("CategoryName") String name, @RequestParam("style") float style) {
+			@RequestParam("CategoryName") String name, @RequestParam("style") int tyle) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				CategoryModel model = new CategoryModel();
 				model.setName(name);
-				model.setStyle(style);
+				model.setTyle(tyle);
 
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
@@ -135,7 +135,7 @@ public class CatrgoryManagementController {
 	@RequestMapping(value = "/deleteCategory", method = RequestMethod.GET)
 	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				commonService.removeCategory(param);

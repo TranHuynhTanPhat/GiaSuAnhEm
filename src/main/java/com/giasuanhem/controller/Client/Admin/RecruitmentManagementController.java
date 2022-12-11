@@ -30,7 +30,7 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/quanlytuyendung", method = RequestMethod.GET)
 	public ModelAndView recruitmentManagement() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 
 				Map<String, Object> paramsRecruit = new HashMap<>();
 				paramsRecruit.put("style", 0);
@@ -52,7 +52,7 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/updateRecruitment", method = RequestMethod.GET)
 	public ModelAndView updateRecruitment(@RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> paramsRecruit = new HashMap<>();
 				paramsRecruit.put("_id", id);
 				PostModel recruitPost = commonService.getPost(paramsRecruit);
@@ -74,7 +74,7 @@ public class RecruitmentManagementController {
 	public String updateRecruitment(@RequestParam("id") String id, @RequestParam("title") String title,
 			@RequestParam("content") String content) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				PostModel model = new PostModel();
 				model.setTitle(title);
 				model.setBody(content);
@@ -96,7 +96,7 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/createRecruitment", method = RequestMethod.POST)
 	public String createIntroduction(@RequestParam("title") String title, @RequestParam("content") String content)
 			throws JsonProcessingException {
-		if (session.getAttribute("userName") != null) {
+		if (session.getAttribute("admin") != null) {
 
 			PostModel model = new PostModel();
 			model.setBody(content);
@@ -113,7 +113,7 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/deleteRecruitment", method = RequestMethod.GET)
 	public String createIntroduction(@RequestParam("id") String id) {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
 				commonService.removePost(param);

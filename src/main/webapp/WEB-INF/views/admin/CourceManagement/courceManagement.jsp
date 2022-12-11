@@ -84,7 +84,7 @@
 									<select name="chonlop" id="chonlop" class="form-select">
 										<option value="">Chọn Lớp</option>
 										<c:forEach var="item" items="${sessionScope.listClass }">
-											<option value="${item._id }">${item.name}</option>
+											<option value="${item.id }">${item.name}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -92,7 +92,7 @@
 									<select name="chonmon" id="chonmon" class="form-select">
 										<option value="">Chọn Môn</option>
 										<c:forEach var="item" items="${sessionScope.listSubject }">
-											<option value="${item._id}">${item.name}</option>
+											<option value="${item.id}">${item.name}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -101,7 +101,7 @@
 										<option value="0">Quận huyện</option>
 										<c:forEach var="item"
 											items="${sessionScope.listCategoryDistrict }">
-											<option value=${item._id }>${item.name }</option>
+											<option value=${item.id }>${item.name }</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -154,14 +154,15 @@
 							<c:forEach var="item" items="${listNewCource }">
 								<tr>
 
-									<td><c:forEach var="cl" items="${item.classes }">
+									<%-- <td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
-									</c:forEach></td>
+									</c:forEach></td> --%>
+									<td>${item.classes }</td>
 
-									<td><c:forEach var="subject" items="${item.subjects }">
+									<%-- <td><c:forEach var="subject" items="${item.subjects }">
 										${ subject.name },
-									</c:forEach></td>
-
+									</c:forEach></td> --%>
+									<td>${item.subjects }</td>
 									<td>${ item.address }</td>
 									<td>${ item.salary }</td>
 									<td>${ item.sobuoi }</td>
@@ -169,9 +170,9 @@
 									<td>${ item.require }</td>
 									<td>${item.contact }</td>
 									<td>${ item.status }</td>
-									<th><a href="updateNewCource?id=${item._id}"><i
+									<th><a href="updateNewCource?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteNewCource?id=${item._id }"
+									<th><a href="./deleteNewCource?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

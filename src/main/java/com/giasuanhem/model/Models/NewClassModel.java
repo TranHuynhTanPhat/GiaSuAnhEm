@@ -8,21 +8,19 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class NewClassModel {
-	private String _id;
-	private float id;
+	private int id;
 	private String address;
 	private String district;
-	private float sobuoi;
+	private int sobuoi;
 	private String time;
-	private float salary;
+	private int salary;
 	private String require;
-	private float status;
-	List<Object> categories = new ArrayList<Object>();
-	List<Object> classes = new ArrayList<Object>();
-	List<Object> subjects = new ArrayList<Object>();
+	private int status;
+	Object categories;
+	Object classes;
+	Object subjects;
 	private String contact;
 	private String createdAt;
-	private String updatedAt;
 
 	// Getter Methods
 
@@ -34,24 +32,6 @@ public class NewClassModel {
 		this.createdAt = createdAt;
 	}
 
-	public String getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(String updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	// Getter Methods
-
-	public String get_id() {
-		return _id;
-	}
-
-	public float getId() {
-		return id;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -60,7 +40,7 @@ public class NewClassModel {
 		return district;
 	}
 
-	public float getSobuoi() {
+	public int getSobuoi() {
 		return sobuoi;
 	}
 
@@ -68,7 +48,7 @@ public class NewClassModel {
 		return time;
 	}
 
-	public float getSalary() {
+	public int getSalary() {
 		return salary;
 	}
 
@@ -76,22 +56,12 @@ public class NewClassModel {
 		return require;
 	}
 
-	public float getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
 	public String getContact() {
 		return contact;
-	}
-
-	// Setter Methods
-
-	public void set_id(String _id) {
-		this._id = _id;
-	}
-
-	public void setId(float id) {
-		this.id = id;
 	}
 
 	public void setAddress(String address) {
@@ -102,91 +72,99 @@ public class NewClassModel {
 		this.district = district;
 	}
 
-	public void setSobuoi(float sobuoi) {
-		this.sobuoi = sobuoi;
-	}
-
 	public void setTime(String time) {
 		this.time = time;
-	}
-
-	public void setSalary(float salary) {
-		this.salary = salary;
 	}
 
 	public void setRequire(String require) {
 		this.require = require;
 	}
 
-	public void setStatus(float status) {
-		this.status = status;
-	}
-
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
 
-	public List<Object> getCategories() {
+//	public String getCategoriesString() {
+//		String result = "";
+//
+//		ObjectMapper mapper = new ObjectMapper();
+//		List<CategoryModel> listCate = mapper.convertValue(categories, new TypeReference<List<CategoryModel>>() {
+//		});
+//
+//		for (CategoryModel cate : listCate) {
+//			result = result + cate.getName() + ", ";
+//		}
+//		return result;
+//	}
+
+//	public String getClassesString() {
+//		String result = "";
+//
+//		ObjectMapper mapper = new ObjectMapper();
+//		List<ClassModel> listCate = mapper.convertValue(classes, new TypeReference<List<ClassModel>>() {
+//		});
+//
+//		for (ClassModel cate : listCate) {
+//			result = result + cate.getName() + ", ";
+//		}
+//		return result;
+//	}
+
+//	public String getSubjectString() {
+//		String result = "";
+//
+//		ObjectMapper mapper = new ObjectMapper();
+//		List<SubjectModel> listCate = mapper.convertValue(subjects, new TypeReference<List<SubjectModel>>() {
+//		});
+//
+//		for (SubjectModel cate : listCate) {
+//			result = result + cate.getName() + ", ";
+//		}
+//		return result;
+//	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Object getCategories() {
 		return categories;
 	}
 
-	public String getCategoriesString() {
-		String result = "";
-
-		ObjectMapper mapper = new ObjectMapper();
-		List<CategoryModel> listCate = mapper.convertValue(categories, new TypeReference<List<CategoryModel>>() {
-		});
-
-		for (CategoryModel cate : listCate) {
-			result = result + cate.getName() + ", ";
-		}
-		return result;
-	}
-
-	public void setCategories(List<Object> categories) {
+	public void setCategories(Object categories) {
 		this.categories = categories;
 	}
 
-	public List<Object> getClasses() {
+	public Object getClasses() {
 		return classes;
 	}
 
-	public String getClassesString() {
-		String result = "";
-
-		ObjectMapper mapper = new ObjectMapper();
-		List<ClassModel> listCate = mapper.convertValue(classes, new TypeReference<List<ClassModel>>() {
-		});
-
-		for (ClassModel cate : listCate) {
-			result = result + cate.getName() + ", ";
-		}
-		return result;
-	}
-
-	public void setClasses(List<Object> classes) {
+	public void setClasses(Object classes) {
 		this.classes = classes;
 	}
 
-	public List<Object> getSubjects() {
+	public Object getSubjects() {
 		return subjects;
 	}
 
-	public String getSubjectString() {
-		String result = "";
-
-		ObjectMapper mapper = new ObjectMapper();
-		List<SubjectModel> listCate = mapper.convertValue(subjects, new TypeReference<List<SubjectModel>>() {
-		});
-
-		for (SubjectModel cate : listCate) {
-			result = result + cate.getName() + ", ";
-		}
-		return result;
+	public void setSubjects(Object subjects) {
+		this.subjects = subjects;
 	}
 
-	public void setSubjects(List<Object> subjects) {
-		this.subjects = subjects;
+	public void setSobuoi(int sobuoi) {
+		this.sobuoi = sobuoi;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 }

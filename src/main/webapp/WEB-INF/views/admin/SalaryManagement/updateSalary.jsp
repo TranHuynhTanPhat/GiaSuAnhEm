@@ -66,7 +66,7 @@
 				</div>
 				<form action="./updateSalary" method="post">
 
-					<input type="hidden" name="id" value="${model._id }" />
+					<input type="hidden" name="id" value="${model.id }" />
 					<div class="form-group">
 						<div class="row">
 							<div class="col">

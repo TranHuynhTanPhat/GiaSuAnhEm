@@ -66,7 +66,7 @@
 				</div>
 				<form action="./updateCategory" method="post">
 					<input type="hidden" name="id" class="form-control"
-						value="${category._id }">
+						value="${category.id }">
 					<div class="form-group">
 						<div class="row">
 							<label class=" control-label">Name: <span
@@ -81,7 +81,7 @@
 								style="color: #FF0000">*</span></label>
 							<div class="col">
 								<input type="text" name="style" class="form-control"
-									value="${category.style }">
+									value="${category.tyle }">
 							</div>
 						</div>
 					</div>
