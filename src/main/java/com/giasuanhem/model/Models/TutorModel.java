@@ -3,6 +3,9 @@ package com.giasuanhem.model.Models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class TutorModel {
 	private String _id;
 	private String name;
@@ -105,8 +108,34 @@ public class TutorModel {
 		this.subjects = subjects;
 	}
 
+	public String getSubjectString() {
+		String result = "";
+
+		ObjectMapper mapper = new ObjectMapper();
+		List<SubjectModel> listCate = mapper.convertValue(subjects, new TypeReference<List<SubjectModel>>() {
+		});
+
+		for (SubjectModel cate : listCate) {
+			result = result + cate.getName() + ", ";
+		}
+		return result;
+	}
+
 	public List<Object> getClasses() {
 		return classes;
+	}
+
+	public String getClassesString() {
+		String result = "";
+
+		ObjectMapper mapper = new ObjectMapper();
+		List<ClassModel> listCate = mapper.convertValue(classes, new TypeReference<List<ClassModel>>() {
+		});
+
+		for (ClassModel cate : listCate) {
+			result = result + cate.getName() + ", ";
+		}
+		return result;
 	}
 
 	public void setClasses(List<Object> classes) {
@@ -115,6 +144,19 @@ public class TutorModel {
 
 	public List<Object> getTeachAreas() {
 		return teachAreas;
+	}
+
+	public String getTeachAreasString() {
+		String result = "";
+
+		ObjectMapper mapper = new ObjectMapper();
+		List<CategoryModel> listCate = mapper.convertValue(teachAreas, new TypeReference<List<CategoryModel>>() {
+		});
+
+		for (CategoryModel cate : listCate) {
+			result = result + cate.getName() + ", ";
+		}
+		return result;
 	}
 
 	public void setTeachAreas(List<Object> teachAreas) {

@@ -1,10 +1,15 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.TutorModel;
+import com.giasuanhem.service.ExcelExporter.TutorExcelExporter;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.MapperModel;
 
@@ -28,10 +34,27 @@ public class TutorManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
-	public ModelAndView tutorManagement() {
+	public ModelAndView tutorManagement(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			if (session.getAttribute("userName") != null) {
+
 				List<TutorModel> listTutor = commonService.getListTutor();
+
+				String typeRequest = request.getParameter("type");
+				if (typeRequest != null && typeRequest.equals("tutor")) {
+
+					DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+					String currentDateTime = dateFormatter.format(new Date());
+
+					String headerKey = "Content-Disposition";
+					String headerValue = "attachment; filename=Tutors_" + currentDateTime + ".xlsx";
+					response.setHeader(headerKey, headerValue);
+
+					TutorExcelExporter excelExporter = new TutorExcelExporter(listTutor);
+					excelExporter.export(response);
+
+					return null;
+				}
 
 				ModelAndView mav = new ModelAndView("admin/TutorManagement/tutorManagement");
 
@@ -80,7 +103,7 @@ public class TutorManagementController {
 			@RequestParam("namtotnghiep") String namtotnghiem, @RequestParam("nghenghiep") String nghenghiep,
 			@RequestParam("uudiem") String uudiem, @RequestParam("monhoc") String[] monhocs,
 			@RequestParam("lophoc") String[] lophocs, @RequestParam("khuvuc") String[] khuvucs,
-			@RequestParam("sobuoiday") String sobuoiday, @RequestParam("phuongtien") String phuongtien){
+			@RequestParam("sobuoiday") String sobuoiday, @RequestParam("phuongtien") String phuongtien) {
 		try {
 			List<Object> classes = new ArrayList<>();
 			List<Object> subjects = new ArrayList<>();

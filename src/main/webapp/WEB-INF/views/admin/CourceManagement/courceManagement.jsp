@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
@@ -126,7 +128,8 @@
 							</form>
 						</div>
 						<div class="col" align="right">
-							<a href="#"
+							<spring:url value="/quanlykhoahoc/?type=cource" var="xlsxCource" />
+							<a href="${xlsxCource }"
 								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 								class="fas fa-download fa-sm text-white-50"></i> Tải file excel</a>
 						</div>

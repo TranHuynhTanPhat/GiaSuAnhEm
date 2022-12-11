@@ -1,10 +1,15 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.giasuanhem.model.Models.CategoryModel;
-import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
-import com.giasuanhem.model.Models.SubjectModel;
-import com.giasuanhem.model.Models.TutorModel;
+import com.giasuanhem.service.ExcelExporter.CourceExcelExporter;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.MapperModel;
 
@@ -33,11 +35,28 @@ public class CourceManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.GET)
-	public ModelAndView courceManagement() {
+	public ModelAndView courceManagement(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			if (session.getAttribute("userName") != null) {
 
 				List<NewClassModel> listNewCource = commonService.getListNewClass();
+
+				String typeRequest = request.getParameter("type");
+				if (typeRequest != null && typeRequest.equals("cource")) {
+
+					DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+					String currentDateTime = dateFormatter.format(new Date());
+
+					String headerKey = "Content-Disposition";
+					String headerValue = "attachment; filename=Cources_" + currentDateTime + ".xlsx";
+					response.setHeader(headerKey, headerValue);
+
+					CourceExcelExporter excelExporter = new CourceExcelExporter(listNewCource);
+					excelExporter.export(response);
+
+					return null;
+				}
+
 				ModelAndView mav = new ModelAndView("admin/CourceManagement/courceManagement");
 
 				mav.addObject("listNewCource", listNewCource);

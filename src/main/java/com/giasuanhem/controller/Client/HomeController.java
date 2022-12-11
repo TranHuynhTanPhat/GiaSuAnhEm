@@ -16,7 +16,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
-import com.giasuanhem.service.EmailServices;
+import com.giasuanhem.service.Email.EmailService;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -139,7 +139,7 @@ public class HomeController {
 	public ModelAndView registerPage() {
 		try {
 			ModelAndView mav = new ModelAndView("users/home/register");
-			EmailServices.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailServices.formOTP("123456"));
+			EmailService.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailService.formOTP("123456"));
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
