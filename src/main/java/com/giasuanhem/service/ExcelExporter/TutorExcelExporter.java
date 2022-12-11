@@ -92,7 +92,7 @@ public class TutorExcelExporter {
 			createCell(row, columnCount++, user.getDepartment(), style);
 			createCell(row, columnCount++, String.valueOf(user.getSubjectString()), style);
 			createCell(row, columnCount++, String.valueOf(user.getClassesString()), style);
-//			createCell(row, columnCount++, String.valueOf(user.getTeachAreasString()), style);
+			createCell(row, columnCount++, String.valueOf(user.getTeachAreasString()), style);
 			createCell(row, columnCount++, user.getVehicle(), style);
 			createCell(row, columnCount++, String.valueOf(user.getSobuoi()), style);
 			createCell(row, columnCount++, user.getGender(), style);

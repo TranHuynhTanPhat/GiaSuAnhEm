@@ -1,5 +1,6 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class TutorManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlygiasu", method = RequestMethod.GET)
-	public ModelAndView tutorManagement(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView tutorManagement(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			if (session.getAttribute("userName") != null) {
 

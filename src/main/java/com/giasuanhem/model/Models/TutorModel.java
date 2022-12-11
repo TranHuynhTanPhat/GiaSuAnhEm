@@ -150,11 +150,11 @@ public class TutorModel {
 		String result = "";
 
 		ObjectMapper mapper = new ObjectMapper();
-		List<CategoryModel> listCate = mapper.convertValue(teachAreas, new TypeReference<List<CategoryModel>>() {
+		List<String> listCate = mapper.convertValue(teachAreas, new TypeReference<List<String>>() {
 		});
 
-		for (CategoryModel cate : listCate) {
-			result = result + cate.getName() + ", ";
+		for (String cate : listCate) {
+			result = result + cate + ", ";
 		}
 		return result;
 	}
