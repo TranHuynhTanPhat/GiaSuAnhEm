@@ -35,7 +35,7 @@ public class NewClassController {
 		try {
 			List<NewClassModel> listNewClass = commonService.getListNewClass();
 
-			ModelAndView mav = new ModelAndView("newclass/newclass");
+			ModelAndView mav = new ModelAndView("users/newclass/newclass");
 			mav.addObject("listNewClass", listNewClass);
 			return mav;
 		} catch (Exception e) {
@@ -64,7 +64,7 @@ public class NewClassController {
 			session.setAttribute("listClass", listClass);
 			session.setAttribute("listSubject", listSubject);
 			
-			ModelAndView mav = new ModelAndView("newclass/addnewclass");
+			ModelAndView mav = new ModelAndView("users/newclass/addnewclass");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

@@ -36,7 +36,7 @@ public class RecruitmentManagementController {
 				paramsRecruit.put("style", 0);
 				List<PostModel> listRecruitPost = commonService.getListPostWithParams(paramsRecruit);
 
-				ModelAndView mav = new ModelAndView("admin/recruitmentManagement");
+				ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/recruitmentManagement");
 				mav.addObject("listRecruitPost", listRecruitPost);
 				return mav;
 			} else {
@@ -57,7 +57,7 @@ public class RecruitmentManagementController {
 				paramsRecruit.put("_id", id);
 				PostModel recruitPost = commonService.getPost(paramsRecruit);
 
-				ModelAndView mav = new ModelAndView("admin/updateRecruitment");
+				ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/updateRecruitment");
 				mav.addObject("recruitPost", recruitPost);
 				return mav;
 			} else {

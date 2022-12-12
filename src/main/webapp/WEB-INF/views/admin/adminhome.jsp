@@ -18,28 +18,17 @@
 
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<link href="<c:url value="resources/assets/css/import/header.css"/>"
-	rel="stylesheet">
+
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link
-	href="<c:url value="resources/assets/css/import/admin/editor.css"/>"
-	rel="stylesheet">
-<link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
 	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/wage.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/home.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="resources/assets/css/import/tutor.css"/>"
-	rel="stylesheet">
+
+
 <link
 	href="<c:url value="resources/assets/css/import/admin/dashboard.css"/>"
-	rel="stylesheet">
-<link
-	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,16 +36,13 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 	rel="stylesheet">
 
-
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
-<!-- <script
-	src="<c:url value="resources/assets/js/bootstrap/bootstrap.min.js"/>"
-	type="text/javascript"></script>
-<script type="module" src="/resources/assets/js/main.js"></script> -->
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
@@ -91,7 +77,7 @@
 									<div class="col mr-2">
 										<div
 											class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-											Doanh thu (Monthly)</div>
+											Doanh thu (Theo tháng)</div>
 										<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
 									</div>
 									<div class="col-auto">
@@ -110,7 +96,7 @@
 									<div class="col mr-2">
 										<div
 											class="text-xs font-weight-bold text-success text-uppercase mb-1">
-											Doanh thu (Annual)</div>
+											Doanh thu (Theo năm)</div>
 										<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
 									</div>
 									<div class="col-auto">

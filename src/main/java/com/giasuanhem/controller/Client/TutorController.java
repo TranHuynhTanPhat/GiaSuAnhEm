@@ -1,10 +1,7 @@
 package com.giasuanhem.controller.Client;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.giasuanhem.model.Models.CategoryModel;
-import com.giasuanhem.model.Models.ClassModel;
-import com.giasuanhem.model.Models.PostModel;
-import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.MapperModel;
@@ -34,7 +27,7 @@ public class TutorController {
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage() {
 		try {
-			ModelAndView mav = new ModelAndView("tutor/tutor");
+			ModelAndView mav = new ModelAndView("users/tutor/tutor");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -42,33 +35,6 @@ public class TutorController {
 		}
 	}
 	
-	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
-	public ModelAndView registerNewClassPage() {
-		try {
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-			
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			
-			session.setAttribute("listClass", listClass);
-			session.setAttribute("listSubject", listSubject);
-			
-			ModelAndView mav = new ModelAndView("tutor/addTutor");
-			return mav;
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
-		}
-	}
 
 	@RequestMapping(value = "/them-gia-su", method = RequestMethod.POST)
 	public String addTutor(@RequestParam("hoten") String hoten, @RequestParam("gioitinh") String gioitinh,
@@ -111,7 +77,7 @@ public class TutorController {
 	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)
 	public ModelAndView proccessClass() {
 		try {
-			ModelAndView mav = new ModelAndView("tutor/quyTrinhNhanLop");
+			ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

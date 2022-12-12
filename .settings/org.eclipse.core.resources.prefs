@@ -1,10 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/404page.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/adminhome.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/admin/courceManagement.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/admin/tutorManagement.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/home/home.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/layout/footer.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/layout/header.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/layout/sidebar.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8

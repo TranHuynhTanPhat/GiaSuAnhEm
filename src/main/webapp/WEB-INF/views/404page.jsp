@@ -10,7 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>404</title>
-
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <link href="<c:url value="resources/assets/css/import/404page.css"/>"
 	rel="stylesheet">
 
@@ -198,11 +199,11 @@
             </svg>
 	</div>
 	<div class="text">
-		<h1>404 Error</h1>
+		<h1>404 error</h1>
 		<h2>Có vẻ như hệ thống đang gặp sự cố!</h2>
 		<h3>
-			Page Not Found - lets take you <a
-				href="./trang-chu">Trở về trang chủ nhé!</a>
+			Page Not Found - lets take you <a href="./trang-chu">Trở về
+				trang chủ nhé!</a>
 		</h3>
 	</div>
 </body>

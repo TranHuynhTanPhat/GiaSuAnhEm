@@ -33,7 +33,7 @@ public class SubjectManagementController {
 			if (session.getAttribute("userName") != null) {
 				List<SubjectModel> listSubject = commonService.getListSubject();
 				session.setAttribute("listSubject", listSubject);
-				ModelAndView mav = new ModelAndView("admin/subjectManagement");
+				ModelAndView mav = new ModelAndView("admin/SubjectManagement/subjectManagement");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -49,7 +49,7 @@ public class SubjectManagementController {
 	public ModelAndView addSubject() {
 		try {
 			if (session.getAttribute("userName") != null) {
-				ModelAndView mav = new ModelAndView("admin/addSubject");
+				ModelAndView mav = new ModelAndView("admin/SubjectManagement/addSubject");
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -80,7 +80,7 @@ public class SubjectManagementController {
 				Map<String, Object> param = new HashMap<>();
 				param.put("_id", id);
 				SubjectModel Subject = commonService.getSubject(param);
-				ModelAndView mav = new ModelAndView("admin/updateSubject");
+				ModelAndView mav = new ModelAndView("admin/SubjectManagement/updateSubject");
 				mav.addObject("Subject", Subject);
 
 				return mav;

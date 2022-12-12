@@ -3,12 +3,11 @@ package com.giasuanhem.controller.Client;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +16,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.EmailServices;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
@@ -25,7 +25,6 @@ public class HomeController {
 	private CommonService commonService;
 	@Autowired
 	HttpSession session;
-	
 
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
 	public ModelAndView homePage() {
@@ -52,7 +51,7 @@ public class HomeController {
 			session.setAttribute("listClass", listClass);
 			session.setAttribute("listSubject", listSubject);
 
-			ModelAndView mav = new ModelAndView("home/home");
+			ModelAndView mav = new ModelAndView("users/home/home");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -61,9 +60,14 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
-	public ModelAndView springMVCPage() {
+	public ModelAndView errrorPage() {
 		ModelAndView mav = new ModelAndView("404page");
 		return mav;
+	}
+
+	@ExceptionHandler({ Exception.class })
+	public String errorPage() {
+		return "redirect:/error";
 	}
 
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
@@ -73,7 +77,7 @@ public class HomeController {
 			paramsIntroduction.put("style", 1);
 			List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
 
-			ModelAndView mav = new ModelAndView("home/introduce");
+			ModelAndView mav = new ModelAndView("users/home/introduce");
 			mav.addObject("listIntroductionPost", listPost);
 			return mav;
 		} catch (Exception e) {
@@ -89,7 +93,7 @@ public class HomeController {
 			paramsIntroduction.put("style", 0);
 			List<PostModel> listRecruitment = commonService.getListPostWithParams(paramsIntroduction);
 
-			ModelAndView mav = new ModelAndView("home/recruit");
+			ModelAndView mav = new ModelAndView("users/home/recruit");
 			mav.addObject("listRecruitment", listRecruitment);
 			return mav;
 		} catch (Exception e) {
@@ -101,7 +105,7 @@ public class HomeController {
 	@RequestMapping(value = "muc-phi-gia-su", method = RequestMethod.GET)
 	public ModelAndView feeTutorPage() {
 		try {
-			ModelAndView mav = new ModelAndView("home/feeTutor");
+			ModelAndView mav = new ModelAndView("users/home/feeTutor");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -112,7 +116,7 @@ public class HomeController {
 	@RequestMapping(value = "/lien-he", method = RequestMethod.GET)
 	public ModelAndView contactPage() {
 		try {
-			ModelAndView mav = new ModelAndView("home/contact");
+			ModelAndView mav = new ModelAndView("users/home/contact");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -123,7 +127,7 @@ public class HomeController {
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		try {
-			ModelAndView mav = new ModelAndView("home/loginUser");
+			ModelAndView mav = new ModelAndView("users/home/loginUser");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -134,8 +138,20 @@ public class HomeController {
 	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
 	public ModelAndView registerPage() {
 		try {
-			ModelAndView mav = new ModelAndView("home/register");
-			Services.sendEmail("trungnghiaazzd@gmail.com", "Verify", "123456");
+			ModelAndView mav = new ModelAndView("users/home/register");
+			EmailServices.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailServices.formOTP("123456"));
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
+	public ModelAndView invoicePage() {
+		try {
+			ModelAndView mav = new ModelAndView("users/formInvoice");
+
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
