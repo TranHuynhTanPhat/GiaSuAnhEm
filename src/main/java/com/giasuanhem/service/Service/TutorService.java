@@ -79,16 +79,19 @@ public class TutorService {
 
 	}
 
-	static public TutorModel getTutor(Map<String, Object> params) {
+	static public TutorModel getTutor(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = CommonService.getWithParams(ApiConstant.TUTOR_FINDID, params);
 		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			TutorModel model = objectMapper.readValue(jsonResponse, new TypeReference<TutorModel>() {
-			});
-			return model;
-		} catch (IOException e) {
-			e.printStackTrace();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
 			return null;
 		}
+		TutorModel model = objectMapper.convertValue(res.getData(), new TypeReference<TutorModel>() {
+		});
+		return model;
+
 	}
 }

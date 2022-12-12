@@ -160,11 +160,24 @@ public class TutorManagementController {
 	public ModelAndView updateTutor(@RequestParam("id") String id) {
 		try {
 			if (session.getAttribute("admin") != null) {
+
+				List<ClassModel> listClass = ClassService.getListClass(session);
+
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 0);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
 				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				TutorModel model = TutorService.getTutor(param);
+				param.put("id", id);
+				TutorModel model = TutorService.getTutor(param, session);
+
 				ModelAndView mav = new ModelAndView("admin/TutorManagement/updateTutor");
 				mav.addObject("model", model);
+				mav.addObject("listSubject", listSubject);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");

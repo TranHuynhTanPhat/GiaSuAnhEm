@@ -1,8 +1,13 @@
 package com.giasuanhem.controller.Client;
 
+import java.lang.ProcessBuilder.Redirect;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.AccountModel;
+import com.giasuanhem.service.Email.EmailService;
+import com.giasuanhem.service.Email.RandomOTP;
 import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CommonService;
 
@@ -20,6 +27,7 @@ import com.giasuanhem.service.Service.CommonService;
 public class AuthorizationController {
 	@Autowired
 	HttpSession session;
+	private String OTP = "";
 
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
@@ -38,14 +46,12 @@ public class AuthorizationController {
 			Map<String, Object> params = new HashMap<>();
 			params.put("username", username);
 			params.put("password", password);
-			try {
-				AccountService.checkLogin(params, session);
-				return "redirect:/trang-chu";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "redirect:/dang-nhap";
-			}
+
+			AccountService.checkLogin(params, session);
+			return "redirect:/trang-chu";
+
 		} catch (Exception e) {
+			e.printStackTrace();
 			return "redirect:/error";
 		}
 	}
@@ -67,26 +73,49 @@ public class AuthorizationController {
 		try {
 			AccountModel model = new AccountModel();
 			model.setUsername(username);
-			model.setPassword(password);
 			model.setEmail(email);
+			model.setPassword(password);
 			model.setRole(role);
-			try {
-				AccountService.register(model, session);
+			model.setState(2);
 
-				Map<String, Object> params = new HashMap<>();
-				params.put("username", username);
-				params.put("password", password);
+			AccountService.register(model, session);
 
-				AccountService.checkLogin(params, session);
+//			Map<String, Object> params = new HashMap<>();
+//			params.put("username", username);
+//			params.put("password", password);
+//
+//			AccountService.checkLogin(params, session);
 
-				return "redirect:/trang-chu";
+			OTP = RandomOTP.randomOTP();
+			EmailService.sendEmail(email, "verify", EmailService.formOTP(OTP));
+			session.setAttribute("email", email);
+			return "redirect:/verify";
 //			EmailService.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailService.formOTP("123456"));
-			} catch (Exception e) {
-				return "redirect:/dang-ky";
-			}
+
 		} catch (Exception e) {
+			e.printStackTrace();
 			return "redirect:/error";
 		}
+	}
+
+	@RequestMapping(value = "/verify", method = RequestMethod.GET)
+	public ModelAndView verify(HttpServletRequest request, HttpServletResponse response) {
+		String email = request.getParameter("email");
+		if (email != null) {
+			OTP = RandomOTP.randomOTP();
+			EmailService.sendEmail(email, "verify", EmailService.formOTP(OTP));
+			return null;
+		}
+		return new ModelAndView("users/home/verifyForm");
+	}
+
+	@RequestMapping(value = "/verify", method = RequestMethod.POST)
+	public String verify(@RequestParam("verifyCode") String code) {
+		if (code.equals(OTP)) {
+			System.out.println("ok");
+			return "redirect:/trang-chu";
+		}
+		return "redirect:/verify";
 	}
 
 	@RequestMapping(value = "/dang-xuat", method = RequestMethod.GET)
@@ -98,4 +127,5 @@ public class AuthorizationController {
 			return "redirect:/error";
 		}
 	}
+
 }

@@ -64,16 +64,14 @@ public class NewClassController {
 				paramsDistrict.put("type", 1);
 				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-				session.setAttribute("listCategoryClass", listCategoryClass);
-				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-
 				List<ClassModel> listClass = ClassService.getListClass(session);
 				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
-				session.setAttribute("listClass", listClass);
-				session.setAttribute("listSubject", listSubject);
-
 				ModelAndView mav = new ModelAndView("users/newclass/addnewclass");
+				mav.addObject("listCategoryClass", listCategoryClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listSubject", listSubject);
 				return mav;
 			} else {
 				return new ModelAndView("404page");

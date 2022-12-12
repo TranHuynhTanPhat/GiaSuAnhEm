@@ -20,7 +20,7 @@
 				src="resources/assets/images/tot_nghiep.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ MỞ LỚP</h1>
-			<form action="#">
+			<form action="dang-ky-mo-lop" method="POST">
 				<div class="main-newclass-info">
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ hiện tại <span
@@ -69,8 +69,7 @@
 						<label for="luong">Danh mục</label>
 						<table border="0" class="tablebox category">
 							<tbody>
-								<c:forEach var="item"
-									items="${sessionScope.listCategoryDistrict }">
+								<c:forEach var="item" items="${listCategoryDistrict }">
 									<tr>
 										<td><input type="checkbox" name="category" id="category"
 											value="${item.id }">${item.name }</td>
@@ -79,7 +78,7 @@
 						</table>
 
 						<table border="0" class="tablebox category right">
-							<c:forEach var="item" items="${sessionScope.listCategoryClass }">
+							<c:forEach var="item" items="${listCategoryClass }">
 								<tr>
 									<td><input type="checkbox" name="category" id="category"
 										value="${item.id }">${item.name }</td>
@@ -92,7 +91,7 @@
 						<label for="luong">Môn dạy</label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listSubject }">
+								<c:forEach var="item" items="${listSubject }">
 									<tr>
 										<td><input type="checkbox" name="monhoc" id="monhoc"
 											value="${item.id }">${item.name }</td>
@@ -105,7 +104,7 @@
 						<label for="luong">Lớp dạy</label>
 						<table border="0" class="tablebox class">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listClass }">
+								<c:forEach var="item" items="${listClass }">
 									<tr>
 										<td><input type="checkbox" name="lophoc" id="lophoc"
 											value="${item.id }">${item.name }</td>

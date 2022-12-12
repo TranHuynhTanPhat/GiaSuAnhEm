@@ -27,7 +27,9 @@
 		<a href="/TrungTamGiaSu/trang-chu"><img
 			src="resources/assets/images/tot_nghiep.png"></a>
 		<h2>Đăng ký</h2>
-		<form action="./dang-ky" method="post">
+		<form action="dang-ky" method="post">
+
+
 			<div class="user-box">
 				<input type="text" name="username" required="required" /> <label>Tên
 					tài khoản</label>
@@ -39,27 +41,22 @@
 
 			<div class="user-box">
 				<input class="input" type="password" name="password"
-					required="required" />
-				
-
-				
-				<label>Mật khẩu</label>
+					required="required" /> <label>Mật khẩu</label>
 			</div>
 
 			<div class="user-box">
 				<input class="input-cf" type="password" name="" required="required" />
-				
 
 				<label>Nhập lại mật khẩu</label>
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="role" value="1" required="required" /> <label>Gia
+				<input type="radio" name="role" required="required" value="1" /> <label>Gia
 					sư</label>
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="role" value="2" required="required" /> <label>Phụ
+				<input type="radio" name="role" required="required" value="2" /> <label>Phụ
 					huynh</label>
 			</div>
 

@@ -98,7 +98,6 @@ public class AccountService {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonResponse = CommonService.getWithParams(ApiConstant.ACCOUNT_FILTER, params);
-		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
@@ -136,7 +135,9 @@ public class AccountService {
 		AccountModel model = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
 		});
 
+		session.setAttribute("id", model.getId());
 		if (model.getRole() == 0) {
+			session.removeAttribute("id");
 			session.setAttribute("admin", model.getUsername());
 		} else if (model.getRole() == 1) {
 			session.setAttribute("role", "tutor");
@@ -148,21 +149,24 @@ public class AccountService {
 		session.removeAttribute("errMessage");
 	}
 
-	static public void register(AccountModel model, HttpSession session)
-			throws JsonParseException, JsonMappingException, IOException {
+	static public void register(AccountModel model, HttpSession session) {
+		try {
+			String jsonReq = new Gson().toJson(model);
+			System.out.println(jsonReq);
+			ObjectMapper objectMapper = new ObjectMapper();
 
-		String jsonReq = new Gson().toJson(model);
+			String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);
 
-		ObjectMapper objectMapper = new ObjectMapper();
+			ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+			});
 
-		String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);
-
-		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
-		});
-
-		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
-			return;
+			if (!res.getStatus()) {
+				session.setAttribute("errorMessage", res.getMessage());
+				return;
+			}
+		} catch (Exception e) {
+			// : handle exception
+			e.printStackTrace();
 		}
 
 	}

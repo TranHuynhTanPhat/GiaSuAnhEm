@@ -10,16 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.model.Models.TutorModel;
+import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.SubjectService;
+import com.giasuanhem.service.Service.TutorService;
 
 @Controller
 public class TutorController {
@@ -27,6 +31,8 @@ public class TutorController {
 	CommonService commonService;
 	@Autowired
 	HttpSession session;
+	@Autowired
+	MapperModel commonModel;
 
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage() {
@@ -64,15 +70,14 @@ public class TutorController {
 				paramsDistrict.put("type", 1);
 				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-				session.setAttribute("listCategoryClass", listCategoryClass);
-				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-
 				List<ClassModel> listClass = ClassService.getListClass(session);
 				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
-				session.setAttribute("listClass", listClass);
-				session.setAttribute("listSubject", listSubject);
 				ModelAndView mav = new ModelAndView("users/tutor/addTutor");
+				mav.addObject("listCategoryClass", listCategoryClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listSubject", listSubject);
 				return mav;
 			} else {
 				return new ModelAndView("users/home/loginUser");
@@ -80,6 +85,30 @@ public class TutorController {
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/them-gia-su", method = RequestMethod.POST)
+	public String addTutor(@RequestParam("hoten") String hoten, @RequestParam("gioitinh") String gioitinh,
+			@RequestParam("ngaysinh") String ngaysinh, @RequestParam("diachi") String diachi,
+			@RequestParam("email") String email, @RequestParam("dienthoai") String sdt,
+			@RequestParam("truong") String truong, @RequestParam("chuyennganh") String chuyennghanh,
+			@RequestParam("namtotnghiep") String namtotnghiem, @RequestParam("nghenghiep") String nghenghiep,
+			@RequestParam("uudiem") String uudiem, @RequestParam("monhoc") int[] monhocs,
+			@RequestParam("lophoc") int[] lophocs, @RequestParam("khuvuc") int[] khuvucs,
+			@RequestParam("sobuoiday") int sobuoiday) {
+		try {
+
+			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, monhocs, lophocs,
+					khuvucs, sobuoiday, gioitinh, ngaysinh, namtotnghiem, nghenghiep, uudiem,
+					session.getAttribute("id"));
+			TutorService.createTutor(itemAdd, session);
+
+			return "redirect:/gia-su";
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			return "redirect:/error";
 		}
 	}
 

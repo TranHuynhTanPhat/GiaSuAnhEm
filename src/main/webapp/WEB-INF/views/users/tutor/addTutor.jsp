@@ -19,29 +19,30 @@
 				src="resources/assets/images/tot_nghiep.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ LÀM GIA SƯ</h1>
-			<form action="#">
-				<div class="main-newclass-info">
+			<form action="them-gia-su" method="post">
+
+				<div class="main-newclass-info-input">
 					<div class="user-input-box">
 						<label for="diachi">Họ và tên <span style="color: #db1414">*</span></label>
 						<input type="text" id="hoten" name="hoten"
 							placeholder="Nhập Họ và tên">
 					</div>
 					<div class="user-input-box">
-						<label for="time">Địa chỉ <span style="color: #db1414">*</span></label>
+						<label for="diachi">Địa chỉ <span style="color: #db1414">*</span></label>
 						<input type="text" id="diachi" name="diachi"
 							placeholder="Nhập địa chỉ">
 					</div>
 					<div class="user-input-box">
-						<label for="sobuoi">Ngày sinh <span style="color: #db1414">*</span></label>
-						<input type="text" id="ngaysinh" name="ngaysinh"
-							placeholder="Chọn ngày sinh">
+						<label for="ngaysinh">Ngày sinh <span
+							style="color: #db1414">*</span></label> <input type="date" id="ngaysinh"
+							name="ngaysinh" placeholder="Chọn ngày sinh">
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Giới tính <span style="color: #db1414">*</span></label>
 						<select name="gioitinh" id="gioitinh"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Nam</option>
-							<option value="1">Nữ</option>
+							<option value="Nam">Nam</option>
+							<option value="Nữ">Nữ</option>
 						</select>
 					</div>
 					<div class="user-input-box">
@@ -52,7 +53,7 @@
 					<div class="user-input-box">
 						<label for="dienthoai">Điện thoại <span
 							style="color: #db1414">*</span></label> <input type="text" id="dienthoai"
-							name="dienthoai " placeholder="Nhập số điện thoại">
+							name="dienthoai" placeholder="Nhập số điện thoại">
 					</div>
 					<div class="user-input-box">
 						<label for="truong">Sinh viên(giáo viên) trường</label> <input
@@ -61,9 +62,9 @@
 					</div>
 
 					<div class="user-input-box">
-						<label for="nganhhoc">Ngành học <span
+						<label for="chuyennganh">Ngành học <span
 							style="color: #db1414">*</span></label> <input type="text" id="nganhhoc"
-							name="nganhhoc" placeholder="Nhập ngành học">
+							name="chuyennganh" placeholder="Nhập ngành học">
 					</div>
 
 					<div class="user-input-box">
@@ -76,9 +77,9 @@
 							style="color: #db1414">*</span></label> <select name="nghenghiep"
 							id="nghenghiep"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
-							<option value="0">Giáo viên</option>
-							<option value="1">Sinh viên</option>
-							<option value="1">Đã tốt nghiệp</option>
+							<option value="Giáo viên">Giáo viên</option>
+							<option value="Sinh viên">Sinh viên</option>
+							<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
 						</select>
 					</div>
 					<div class="user-input-box">
@@ -95,60 +96,50 @@
 							<option value="7">Bằng cấp khác</option>
 						</select>
 					</div>
-
+					<div class="user-input-box">
+						<label for="sobuoday">Số buổi dạy <span
+							style="color: #db1414">*</span></label> <select name="sobuoiday"
+							id="sobuoiday"
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							<option value="0">Chọn số buổi dạy</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						</select>
+					</div>
 
 					<div class="user-input-box">
 						<label for="uudiem">Ưu điểm</label> <input type="text" id="uudiem"
 							name="uudiem" placeholder="yêu cầu khác">
 					</div>
-					<div class="user-input-box">
-						<label for=""luongyeucau"">Mức lương yêu cầu <span
-							style="color: #db1414">*</span></label> <input type="text" id=""
-							luongyeucau""
-							name="luongyeucau"
-							placeholder="Nhập liên hệ">
-					</div>
-					<div class="user-input-box">
-						<label for="anhthe">Ảnh thẻ <span style="color: #db1414">*</span></label>
-						<input type="file" id="anhthe" name="anhthe"
-							placeholder="Nhập thời gian">
-					</div>
 
+
+				</div>
+				<div class="main-newclass-info-checkbox">
 					<div class="user-checkbox-box">
 						<label for="luong">Khu vực dạy <span
 							style="color: #db1414">*</span></label>
 						<table border="0" class="tablebox category">
 							<tbody class="category">
-								<c:forEach var="item"
-									items="${sessionScope.listCategoryDistrict }">
+								<c:forEach var="item" items="${listCategoryDistrict }">
 									<tr>
-										<td><input type="checkbox" name="category" id="category"
+										<td><input type="checkbox" name="khuvuc" id="khuvuc"
 											value="${item.id }">${item.name }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-					<div class="user-checkbox-box">
-						<label for="luong">Thời gian dạy <span
-							style="color: #db1414">*</span></label>
-						<table border="0" class="tablebox category">
-							<tbody class="category">
-								<c:forEach var="item"
-									items="${sessionScope.listCategoryDistrict }">
-									<tr>
-										<td><input type="checkbox" name="category" id="category"
-											value="${item.id }">${item.name }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
+
 					<div class="user-checkbox-box">
 						<label for="luong">Môn dạy <span style="color: #db1414">*</span></label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listSubject }">
+								<c:forEach var="item" items="${listSubject }">
 									<tr>
 										<td><input type="checkbox" name="monhoc" id="monhoc"
 											value="${item.id }">${item.name }</td>
@@ -161,7 +152,7 @@
 						<label for="luong">Lớp dạy <span style="color: #db1414">*</span></label>
 						<table border="0" class="tablebox class">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listClass }">
+								<c:forEach var="item" items="${listClass }">
 									<tr>
 										<td><input type="checkbox" name="lophoc" id="lophoc"
 											value="${item.id }">${item.name }</td>
@@ -170,7 +161,6 @@
 							</tbody>
 						</table>
 					</div>
-
 				</div>
 				<div class="form-submit-btn">
 					<button type="submit" value="dangky">Đăng ký</button>
