@@ -19,7 +19,7 @@
 				src="resources/assets/images/mortarboard.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ MỞ LỚP</h1>
-			<form action="#">
+			<form action="createNewClass" method="POST">
 				<div class="main-newclass-info">
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ hiện tại <span
