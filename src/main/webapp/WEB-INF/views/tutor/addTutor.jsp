@@ -129,7 +129,7 @@
 									items="${sessionScope.listCategoryDistrict }">
 									<tr>
 										<td><input type="checkbox" name="khuvuc" id="khuvuc"
-											value="${item._id }">${item.name }</td>
+											value="${item.name }">${item.name }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
