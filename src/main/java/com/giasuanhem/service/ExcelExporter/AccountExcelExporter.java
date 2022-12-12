@@ -13,14 +13,14 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.AccountModel;
 
-public class CourceExcelExporter {
+public class AccountExcelExporter {
 	private XSSFWorkbook workbook;
 	private XSSFSheet sheet;
-	private List<NewClassModel> listModel;
+	private List<AccountModel> listModel;
 
-	public CourceExcelExporter(List<NewClassModel> listModel) {
+	public AccountExcelExporter(List<AccountModel> listModel) {
 		this.listModel = listModel;
 		workbook = new XSSFWorkbook();
 	}
@@ -39,7 +39,7 @@ public class CourceExcelExporter {
 	}
 
 	private void writeHeaderLine() {
-		sheet = workbook.createSheet("Khóa học");
+		sheet = workbook.createSheet("Tài khoản");
 
 		Row row = sheet.createRow(0);
 
@@ -49,19 +49,12 @@ public class CourceExcelExporter {
 		font.setFontHeight(16);
 		style.setFont(font);
 
-		createCell(row, 0, "User ID", style);
-		createCell(row, 1, "Địa chỉ", style);
-		createCell(row, 2, "Quận", style);
-		createCell(row, 3, "Số buổi", style);
-		createCell(row, 4, "Thời gian", style);
-		createCell(row, 5, "Lương", style);
-		createCell(row, 6, "Yêu cầu", style);
-		createCell(row, 7, "Trạng thái", style);
-		createCell(row, 8, "Danh mục", style);
-		createCell(row, 9, "Lớp học", style);
-		createCell(row, 10, "Môn học", style);
-		createCell(row, 11, "Liên hệ", style);
-		createCell(row, 12, "Ngày tạo", style);
+		createCell(row, 0, "ID", style);
+		createCell(row, 1, "Email", style);
+		createCell(row, 2, "Tên tài khoản", style);
+		createCell(row, 3, "Vai trò", style);
+		createCell(row, 4, "Trạng thái", style);
+		createCell(row, 5, "Ngày tạo", style);
 
 	}
 
@@ -73,22 +66,15 @@ public class CourceExcelExporter {
 		font.setFontHeight(14);
 		style.setFont(font);
 
-		for (NewClassModel user : listModel) {
+		for (AccountModel user : listModel) {
 			Row row = sheet.createRow(rowCount++);
 			int columnCount = 0;
 
 			createCell(row, columnCount++, String.valueOf(user.getId()), style);
-			createCell(row, columnCount++, user.getAddress(), style);
-			createCell(row, columnCount++, user.getDistrict(), style);
-			createCell(row, columnCount++, String.valueOf(user.getSobuoi()), style);
-			createCell(row, columnCount++, user.getTime(), style);
-			createCell(row, columnCount++, String.valueOf(user.getSalary()), style);
-			createCell(row, columnCount++, user.getRequire(), style);
-			createCell(row, columnCount++, String.valueOf(user.getStatus()), style);
-			createCell(row, columnCount++, String.valueOf(user.getCategories()), style);
-			createCell(row, columnCount++, String.valueOf(user.getClasses()), style);
-			createCell(row, columnCount++, String.valueOf(user.getSubjects()), style);
-			createCell(row, columnCount++, user.getContact(), style);
+			createCell(row, columnCount++, user.getEmail(), style);
+			createCell(row, columnCount++, user.getUsername(), style);
+			createCell(row, columnCount++, String.valueOf(user.getRole()), style);
+			createCell(row, columnCount++, String.valueOf(user.getState()), style);
 			createCell(row, columnCount++, user.getCreated_at(), style);
 		}
 	}

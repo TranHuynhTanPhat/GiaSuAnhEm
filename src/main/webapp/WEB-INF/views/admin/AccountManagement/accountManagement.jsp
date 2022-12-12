@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
@@ -86,7 +88,9 @@
 								</form>
 							</div>
 							<div class="col" align="right">
-								<a href="#"
+								<spring:url value="/quanlytaikhoan/?type=account"
+									var="xlsxAccount" />
+								<a href="${xlsxAccount }"
 									class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 									class="fas fa-download fa-sm text-white-50"></i> Tải file
 									excel</a>
@@ -96,6 +100,7 @@
 							style="text-align: left; float: left;">
 							<thead>
 								<tr>
+									<th scope="col" width="5%">ID</th>
 									<th scope="col" width="20%">Tên đăng nhập</th>
 									<th scope="col">Email</th>
 									<th scope="col" width="10%"
@@ -109,13 +114,15 @@
 							<tbody class="table-group-divider">
 								<c:forEach var="item" items="${ listAccounts }">
 									<tr>
+										<td>${item.id }</td>
 										<td>${item.username }</td>
 										<td>${item.email }</td>
 										<td align="center">${item.state }</td>
 										<td align="center">${item.role }</td>
 										<th><a href="updateAccount?id=${item.id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteAccount?id=${item.id }"
+										<th><a
+											href="./deleteAccount?id=${item.id }&username=${item.username}&email=${item.email}&state=${item.state}&role=${item.role}&created=${item.created_at}&password=${item.password}"
 											onclick="return confirmDelete()"><i
 												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>

@@ -141,14 +141,14 @@
 									<table border="0" class="tablebox">
 										<tbody>
 											<c:forEach var="item"
-												items="${sessionScope.listCategoryDistrict}">
+												items="${listCategoryDistrict}">
 												<tr>
 													<td><input type="checkbox" name="category"
 														id="category" value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
 											<c:forEach var="item"
-												items="${sessionScope.listCategoryClass }">
+												items="${listCategoryClass }">
 												<tr>
 													<td><input type="checkbox" name="category"
 														id="category" value="${item.id }">${item.name }</td>
@@ -164,7 +164,7 @@
 								<div class="col align-middle">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${sessionScope.listSubject }">
+											<c:forEach var="item" items="${listSubject }">
 												<tr>
 													<td><input type="checkbox" name="monhoc" id="monhoc"
 														value="${item.id }">${item.name }</td>
@@ -180,7 +180,7 @@
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${sessionScope.listClass }">
+											<c:forEach var="item" items="${listClass }">
 												<tr>
 													<td><input type="checkbox" name="lophoc" id="lophoc"
 														value="${item.id }">${item.name }</td>

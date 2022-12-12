@@ -81,7 +81,7 @@ public class RecruitmentManagementController {
 				PostModel model = new PostModel();
 				model.setTitle(title);
 				model.setBody(content);
-				model.setType(0);
+				model.setType(1);
 				model.setCreated_at(created);
 				model.setImg(img);
 				model.setId(id);
@@ -99,15 +99,14 @@ public class RecruitmentManagementController {
 
 	@RequestMapping(value = "/createRecruitment", method = RequestMethod.POST)
 	public String createIntroduction(@RequestParam("title") String title, @RequestParam("content") String content,
-			@RequestParam("created") String created, @RequestParam("image") String img) throws IOException {
+			 @RequestParam("image") String img) throws IOException {
 		if (session.getAttribute("admin") != null) {
 
 			PostModel model = new PostModel();
 			model.setTitle(title);
 			model.setBody(content);
-			model.setType(0);
-			model.setCreated_at(created);
-			model.setImg(img);
+			model.setType(1);
+			model.setImg("");
 
 			PostService.createRecruitment(model, session);
 			return "redirect:/quanlytuyendung";
@@ -121,7 +120,7 @@ public class RecruitmentManagementController {
 		try {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
+				param.put("id", id);
 				PostService.removePost(param, session);
 				return "redirect:/quanlytuyendung";
 			} else {

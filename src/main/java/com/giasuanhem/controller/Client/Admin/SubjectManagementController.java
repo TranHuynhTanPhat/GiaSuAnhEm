@@ -34,9 +34,11 @@ public class SubjectManagementController {
 	public ModelAndView subjectManagement() {
 		try {
 			if (session.getAttribute("admin") != null) {
-				List<SubjectModel> listSubject = SubjectService.getListSubject();
-				session.setAttribute("listSubject", listSubject);
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
 				ModelAndView mav = new ModelAndView("admin/SubjectManagement/subjectManagement");
+
+				mav.addObject("listSubject", listSubject);
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -66,7 +68,6 @@ public class SubjectManagementController {
 
 	@RequestMapping(value = "/addSubject", method = RequestMethod.POST)
 	public String addSubject(@RequestParam("tenmon") String tenmon) throws IOException {
-
 		SubjectModel itemAdd = commonModel.mapSubject(tenmon);
 		SubjectService.createSubject(itemAdd, session);
 		return "redirect:/quanlymonhoc";

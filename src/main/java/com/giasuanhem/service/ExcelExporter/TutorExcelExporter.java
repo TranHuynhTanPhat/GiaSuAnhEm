@@ -18,10 +18,10 @@ import com.giasuanhem.model.Models.TutorModel;
 public class TutorExcelExporter {
 	private XSSFWorkbook workbook;
 	private XSSFSheet sheet;
-	private List<TutorModel> listTutor;
+	private List<TutorModel> listModel;
 
-	public TutorExcelExporter(List<TutorModel> listTutor) {
-		this.listTutor = listTutor;
+	public TutorExcelExporter(List<TutorModel> listModel) {
+		this.listModel = listModel;
 		workbook = new XSSFWorkbook();
 	}
 
@@ -39,7 +39,7 @@ public class TutorExcelExporter {
 	}
 
 	private void writeHeaderLine() {
-		sheet = workbook.createSheet("Users");
+		sheet = workbook.createSheet("Gia sư");
 
 		Row row = sheet.createRow(0);
 
@@ -49,25 +49,24 @@ public class TutorExcelExporter {
 		font.setFontHeight(16);
 		style.setFont(font);
 
-		createCell(row, 0, "User ID", style);
+		createCell(row, 0, "ID", style);
 		createCell(row, 1, "Họ và tên", style);
-		createCell(row, 2, "Địa chỉ", style);
+		createCell(row, 2, "Tên tài khoản", style);
 		createCell(row, 3, "Email", style);
 		createCell(row, 4, "Số điện thoại", style);
 		createCell(row, 5, "Trường", style);
 		createCell(row, 6, "Chuyên ngành", style);
-		createCell(row, 7, "Môn dạy", style);
-		createCell(row, 8, "Lớp dạy", style);
-		createCell(row, 9, "Khu vực dạy", style);
-		createCell(row, 10, "Phương tiện", style);
+		createCell(row, 7, "Giới tính", style);
+		createCell(row, 8, "Năm tốt nghiệp", style);
+		createCell(row, 9, "Nghề nghiệp", style);
+		createCell(row, 10, "Mô tả", style);
 		createCell(row, 11, "Số buổi", style);
-		createCell(row, 12, "Giới tính", style);
-		createCell(row, 13, "Ngày sinh", style);
-		createCell(row, 14, "Năm tốt nghiệp", style);
-		createCell(row, 15, "Ngày tạo", style);
-		createCell(row, 16, "Ngày cập nhật", style);
-		createCell(row, 17, "Nghề nghiệp hiện tại", style);
-		createCell(row, 18, "Mô tả", style);
+		createCell(row, 12, "Ngày sinh", style);
+		createCell(row, 13, "Môn học", style);
+		createCell(row, 14, "Lớp học", style);
+		createCell(row, 15, "Khu vực dạy", style);
+		createCell(row, 16, "Ngày tạo", style);
+		createCell(row, 17, "Địa chỉ", style);
 
 	}
 
@@ -79,29 +78,28 @@ public class TutorExcelExporter {
 		font.setFontHeight(14);
 		style.setFont(font);
 
-		for (TutorModel user : listTutor) {
+		for (TutorModel user : listModel) {
 			Row row = sheet.createRow(rowCount++);
 			int columnCount = 0;
 
-			createCell(row, columnCount++, user.get_id(), style);
+			createCell(row, columnCount++, String.valueOf(user.getId()), style);
 			createCell(row, columnCount++, user.getName(), style);
-			createCell(row, columnCount++, user.getAddress(), style);
+			createCell(row, columnCount++, String.valueOf(user.getId_account()), style);
 			createCell(row, columnCount++, user.getEmail(), style);
 			createCell(row, columnCount++, user.getPhone(), style);
 			createCell(row, columnCount++, user.getSchool(), style);
 			createCell(row, columnCount++, user.getDepartment(), style);
-			createCell(row, columnCount++, String.valueOf(user.getSubjectString()), style);
-			createCell(row, columnCount++, String.valueOf(user.getClassesString()), style);
-			createCell(row, columnCount++, String.valueOf(user.getTeachAreasString()), style);
-			createCell(row, columnCount++, user.getVehicle(), style);
-			createCell(row, columnCount++, String.valueOf(user.getSobuoi()), style);
 			createCell(row, columnCount++, user.getGender(), style);
-			createCell(row, columnCount++, user.getBirthYear(), style);
-			createCell(row, columnCount++, user.getGraduateYear(), style);
-			createCell(row, columnCount++, user.getCreatedAt(), style);
-			createCell(row, columnCount++, user.getUpdatedAt(), style);
-			createCell(row, columnCount++, user.getIsNow(), style);
+			createCell(row, columnCount++, user.getGraduate_year(), style);
+			createCell(row, columnCount++, user.getIsnow(), style);
 			createCell(row, columnCount++, user.getDescribe(), style);
+			createCell(row, columnCount++, user.getSobuoi(), style);
+			createCell(row, columnCount++, user.getBirth_year(), style);
+			createCell(row, columnCount++, user.getSubjects(), style);
+			createCell(row, columnCount++, user.getClasses(), style);
+			createCell(row, columnCount++, user.getCategories(), style);
+			createCell(row, columnCount++, user.getCreated_at(), style);
+			createCell(row, columnCount++, user.getAddress(), style);
 		}
 	}
 

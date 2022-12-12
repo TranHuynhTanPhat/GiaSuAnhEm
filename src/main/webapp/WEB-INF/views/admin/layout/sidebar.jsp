@@ -31,7 +31,8 @@
 				</a></li>
 
 				<li class="nav-item dropdown" id="myDropdown"><a
-					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+					href="admin-introduction"><i
 						class="fa-regular fa-newspaper icon"></i><span
 						class="text nav-text">Quản lý bài đăng</span></a>
 					<ul class="dropdown-menu dropdown dropright">
@@ -62,9 +63,9 @@
 				</a></li>
 
 				<li class="nav-item dropdown" id="myDropdown"><a
-					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-						class="fa-solid fa-database icon"></i><span class="text nav-text">Quản
-							lý hệ thống</span></a>
+					href="quanlydanhmuc" class="nav-link dropdown-toggle"
+					data-bs-toggle="dropdown"><i class="fa-solid fa-database icon"></i><span
+						class="text nav-text">Quản lý hệ thống</span></a>
 					<ul class="dropdown-menu">
 						<li class="nav-link"><a href="quanlylophoc"> <i
 								class="fa-solid fa-circle-info icon"></i> <span
@@ -82,7 +83,7 @@
 						</a></li>
 					</ul></li>
 
-				<li class="nav-link"><a href="transaction"> <i
+				<li class="nav-link"><a href="quanlylichsugiaodich"> <i
 						class="fa-solid fa-file-invoice icon"></i><span
 						class="text nav-text">Quản lý lịch sử giao dịch</span>
 				</a></li>

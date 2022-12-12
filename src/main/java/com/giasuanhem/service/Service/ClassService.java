@@ -90,6 +90,7 @@ public class ClassService {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonResponse = CommonService.get(ApiConstant.LIST_CLASS);
+
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {

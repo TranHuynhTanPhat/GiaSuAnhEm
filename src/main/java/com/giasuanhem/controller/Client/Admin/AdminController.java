@@ -1,9 +1,15 @@
 package com.giasuanhem.controller.Client.Admin;
 
 import java.util.List;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +19,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.model.Models.TransactionHistoryModel;
+import com.giasuanhem.service.ExcelExporter.CourceExcelExporter;
+import com.giasuanhem.service.ExcelExporter.TransactionHistoryExcelExporter;
 import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.PostService;
 import com.giasuanhem.service.Service.SubjectService;
+import com.giasuanhem.service.Service.TransactionService;
 
 @Controller
 public class AdminController {
@@ -32,149 +44,51 @@ public class AdminController {
 	HttpSession session;
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
-		try {
-			if (session.getAttribute("admin") != null) {
-				List<ClassModel> listClass = ClassService.getListClass(session);
+	public ModelAndView adminPage() throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
 
-				List<SubjectModel> listSubject = SubjectService.getListSubject();
-
-				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("type", 0);
-				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
-
-				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("type", 1);
-				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
-
-				session.setAttribute("listSubject", listSubject);
-				session.setAttribute("listClass", listClass);
-				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-				session.setAttribute("listCategoryClass", listCategoryClass);
-
-				ModelAndView mav = new ModelAndView("admin/adminhome");
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			ModelAndView mav = new ModelAndView("404page");
+			ModelAndView mav = new ModelAndView("admin/adminhome");
 			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/admin-introduction", method = RequestMethod.GET)
-	public ModelAndView adminIntroduction() {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> params = new HashMap<>();
-				params.put("type", 0);
-				List<PostModel> listIntroductionPost = PostService.getListPostWithParams(params, session);
-
-				ModelAndView mav = new ModelAndView("admin/Introduction/adminIntroduction");
-				mav.addObject("listIntroductionPost", listIntroductionPost);
-
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/transaction", method = RequestMethod.GET)
-	public ModelAndView adminTransaction() {
-		try {
-			if (session.getAttribute("admin") != null) {
-
-//				Map<String, Object> params = new HashMap<>();
-//				params.put("style", 1);
-//				List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
-
-				ModelAndView mav = new ModelAndView("admin/transactionHistory");
-//				mav.addObject("listIntroductionPost", listIntroductionPost);
-
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/uploadIntroduction", method = RequestMethod.POST)
-	public String uploadIntroduction(@RequestParam("id") int id, @RequestParam("title") String title,
-			@RequestParam("content") String content, @RequestParam("created") String created,
-			@RequestParam("image") String img) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				PostModel model = new PostModel();
-				model.setTitle(title);
-				model.setBody(content);
-				model.setType(0);
-				model.setCreated_at(created);
-				model.setImg(img);
-				model.setId(id);
-
-				PostService.updatePost(model, session);
-
-				return "redirect:/admin-introduction";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redrect:/error";
-		}
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login() {
-		try {
-			session.removeAttribute("admin");
+		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
+		}
+
+	}
+
+	@RequestMapping(value = "/quanlylichsugiaodich", method = RequestMethod.GET)
+	public ModelAndView adminTransaction(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			if (session.getAttribute("admin") != null) {
+
+				List<TransactionHistoryModel> listTransaction = TransactionService.getListTransaction(session);
+				
+				
+				String typeRequest = request.getParameter("type");
+				if (typeRequest != null && typeRequest.equals("history")) {
+					DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+					String currentDateTime = dateFormatter.format(new Date());
+
+					String headerKey = "Content-Disposition";
+					String headerValue = "attachment; filename=History_" + currentDateTime + ".xlsx";
+					response.setHeader(headerKey, headerValue);
+
+					TransactionHistoryExcelExporter excelExporter = new TransactionHistoryExcelExporter(listTransaction);
+					excelExporter.export(response);
+					return null;
+				}
+
+				ModelAndView mav = new ModelAndView("admin/transactionHistory");
+				mav.addObject("listTransaction", listTransaction);
+
+				return mav;
+			} else {
+				ModelAndView mav = new ModelAndView("admin/login");
+				return mav;
+			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
-		}
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
-		try {
-			Map<String, Object> params = new HashMap<>();
-			params.put("username", username);
-			params.put("password", password);
-			try {
-				AccountService.checkLogin(params, session);
-				return "redirect:/admin";
-			} catch (Exception e) {
-				e.printStackTrace();
-//				session.setAttribute("errorMessage", "Username hoặc Password không đúng!");
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
-		}
-	}
-
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logoutAdmin() {
-		try {
-			session.removeAttribute("errorMessage");
-			session.removeAttribute("admin");
-			return "redirect:/login";
-		} catch (Exception e) {
-			return "redirect:error";
 		}
 	}
 

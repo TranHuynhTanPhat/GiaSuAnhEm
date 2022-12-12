@@ -89,7 +89,7 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<c:forEach var="item" items="${sessionScope.listSubject }">
+							<c:forEach var="item" items="${listSubject }">
 								<tr>
 									<td>${ item.name }</td>
 									<th><a href="./updateSubject?id=${item.id}"><i

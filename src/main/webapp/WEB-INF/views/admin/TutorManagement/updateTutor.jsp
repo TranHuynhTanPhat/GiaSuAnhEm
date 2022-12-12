@@ -175,14 +175,6 @@
 										value="${model.department }">
 								</div>
 							</div>
-							<div class="col">
-								<label class="control-label">Phương tiện: <span
-									style="color: #FF0000">*</span></label>
-								<div class="form-outline">
-									<input type="text" name="phuongtien" id="phuongtien"
-										class="form-control" value="${model.vehicle }">
-								</div>
-							</div>
 						</div>
 						<div class="row">
 							<label class="control-label">Địa chỉ: <span

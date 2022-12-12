@@ -34,25 +34,26 @@ public class HomeController {
 	HttpSession session;
 
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
-	public ModelAndView homePage() throws JsonParseException, JsonMappingException, IOException {
-		Map<String, Object> paramsClass = new HashMap<>();
-		paramsClass.put("tyle", 0);
-		List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+	public ModelAndView homePage() {
+		try {
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 0);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
-		Map<String, Object> paramsDistrict = new HashMap<>();
-		paramsDistrict.put("tyle", 1);
-		List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 1);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-		List<ClassModel> listClass = ClassService.getListClass(session);
-		List<SubjectModel> listSubject = SubjectService.getListSubject();
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-		session.setAttribute("listCategoryClass", listCategoryClass);
-		session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-		session.setAttribute("listClass", listClass);
-		session.setAttribute("listSubject", listSubject);
-
-		ModelAndView mav = new ModelAndView("users/home/home");
-		return mav;
+			ModelAndView mav = new ModelAndView("users/home/home");
+			return mav;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			// TODO: handle exception
+		}
 
 	}
 
@@ -70,7 +71,7 @@ public class HomeController {
 	public ModelAndView instructionPage(HttpSession session) {
 		try {
 			Map<String, Object> paramsIntroduction = new HashMap<>();
-			paramsIntroduction.put("type", 1);
+			paramsIntroduction.put("type", 0);
 			List<PostModel> listPost = PostService.getListPostWithParams(paramsIntroduction, session);
 
 			ModelAndView mav = new ModelAndView("users/home/introduce");
@@ -86,7 +87,7 @@ public class HomeController {
 	public ModelAndView recruitPage() {
 		try {
 			Map<String, Object> paramsIntroduction = new HashMap<>();
-			paramsIntroduction.put("type", 0);
+			paramsIntroduction.put("type", 1);
 			List<PostModel> listRecruitment = PostService.getListPostWithParams(paramsIntroduction, session);
 
 			ModelAndView mav = new ModelAndView("users/home/recruit");

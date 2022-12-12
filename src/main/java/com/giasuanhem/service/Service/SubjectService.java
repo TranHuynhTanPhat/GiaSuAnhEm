@@ -76,12 +76,16 @@ public class SubjectService {
 		}
 	}
 
-	static public List<SubjectModel> getListSubject() throws JsonParseException, JsonMappingException, IOException {
+	static public List<SubjectModel> getListSubject(HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = CommonService.get(ApiConstant.LIST_SUBJECT);
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+		}
 
 		List<SubjectModel> listSubject = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<SubjectModel>>() {

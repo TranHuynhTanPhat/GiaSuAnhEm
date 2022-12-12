@@ -83,7 +83,7 @@
 								<div class="col-md">
 									<select name="chonlop" id="chonlop" class="form-select">
 										<option value="">Chọn Lớp</option>
-										<c:forEach var="item" items="${sessionScope.listClass }">
+										<c:forEach var="item" items="${listClass }">
 											<option value="${item.id }">${item.name}</option>
 										</c:forEach>
 									</select>
@@ -91,7 +91,7 @@
 								<div class="col-md">
 									<select name="chonmon" id="chonmon" class="form-select">
 										<option value="">Chọn Môn</option>
-										<c:forEach var="item" items="${sessionScope.listSubject }">
+										<c:forEach var="item" items="${listSubject }">
 											<option value="${item.id}">${item.name}</option>
 										</c:forEach>
 									</select>
@@ -100,7 +100,7 @@
 									<select name="quanhuyen" id="quanhuyen" class="form-select">
 										<option value="0">Quận huyện</option>
 										<c:forEach var="item"
-											items="${sessionScope.listCategoryDistrict }">
+											items="${listCategoryDistrict }">
 											<option value=${item.id }>${item.name }</option>
 										</c:forEach>
 									</select>

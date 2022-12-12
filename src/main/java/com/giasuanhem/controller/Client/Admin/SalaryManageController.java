@@ -16,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.SalaryService;
 
@@ -78,7 +80,12 @@ public class SalaryManageController {
 	public ModelAndView addSalary() {
 		try {
 			if (session.getAttribute("admin") != null) {
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 1);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
 				ModelAndView mav = new ModelAndView("admin/SalaryManagement/addSalary");
+				mav.addObject("listCategoryClass", listCategoryClass);
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -127,7 +134,12 @@ public class SalaryManageController {
 				param.put("id", id);
 				SalaryModel model = SalaryService.getSalary(param, session);
 
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 1);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
 				ModelAndView mav = new ModelAndView("admin/SalaryManagement/updateSalary");
+				mav.addObject("listCategoryClass", listCategoryClass);
 				mav.addObject("model", model);
 				return mav;
 			} else {

@@ -15,8 +15,8 @@ import com.giasuanhem.model.Models.TutorModel;
 @Transactional
 public class MapperModel {
 	public TutorModel mapTutor(String name, String address, String email, String phone, String school,
-			String department, List<Object> subjects, List<Object> classes, List<Object> teachAreas, String vehicle,
-			float sobuoi, String gender, String birthYear, String graduateYear, String isNow, String describe) {
+			String department, Object subjects, Object classes, Object categories, int sobuoi, String gender,
+			String birthYear, String graduateYear, String isNow, String describe, Object id_account) {
 		TutorModel newItem = new TutorModel();
 		newItem.setName(name);
 		newItem.setAddress(address);
@@ -26,14 +26,14 @@ public class MapperModel {
 		newItem.setDepartment(department);
 		newItem.setSubjects(subjects);
 		newItem.setClasses(classes);
-		newItem.setTeachAreas(teachAreas);
-		newItem.setVehicle(vehicle);
+		newItem.setCategories(categories);
 		newItem.setSobuoi(sobuoi);
 		newItem.setGender(gender);
-		newItem.setBirthYear(birthYear);
-		newItem.setGraduateYear(graduateYear);
-		newItem.setIsNow(isNow);
+		newItem.setBirth_year(birthYear);
+		newItem.setGraduate_year(graduateYear);
+		newItem.setIsnow(isNow);
 		newItem.setDescribe(describe);
+		newItem.setId_account(id_account);
 		return newItem;
 	}
 

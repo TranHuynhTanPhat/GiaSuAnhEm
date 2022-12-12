@@ -1,5 +1,6 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CategoryService;
@@ -29,30 +32,26 @@ public class CatrgoryManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
-	public ModelAndView categoryManagement() {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("type", 0);
-				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+	public ModelAndView categoryManagement() throws JsonParseException, JsonMappingException, IOException {
 
-				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("type", 1);
-				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+		if (session.getAttribute("admin") != null) {
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 0);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
-				session.setAttribute("listCategoryClass", listCategoryClass);
-				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 1);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-				ModelAndView mav = new ModelAndView("admin/CategoryManagement/categoryManagement");
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			ModelAndView mav = new ModelAndView("admin/CategoryManagement/categoryManagement");
+			mav.addObject("listCategoryClass", listCategoryClass);
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/createCategory", method = RequestMethod.GET)
@@ -73,65 +72,58 @@ public class CatrgoryManagementController {
 
 	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
 	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name,
-			@RequestParam("type") int tyle) throws JsonProcessingException {
-		try {
-			if (session.getAttribute("admin") != null) {
-				CategoryModel model = new CategoryModel();
-				model.setName(name);
-				model.setType(tyle);
-				CategoryService.createCategory(model, session);
-				return "redirect:/quanlydanhmuc";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+			@RequestParam("type") int type) throws IOException {
+
+		if (session.getAttribute("admin") != null) {
+			CategoryModel model = new CategoryModel();
+			model.setName(name);
+			model.setType(type);
+			CategoryService.createCategory(model, session);
+			return "redirect:/quanlydanhmuc";
+		} else {
+			return "redirect:/login";
 		}
 	}
 
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.GET)
-	public ModelAndView updateCategory(HttpSession session, @RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("admin") != null) {
+	public ModelAndView updateCategory(HttpSession session, @RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("id", id);
-				CategoryModel category = CategoryService.getCategory(param, session);
+		if (session.getAttribute("admin") != null) {
 
-				ModelAndView mav = new ModelAndView("admin/CategoryManagement/updateCategory");
-				mav.addObject("category", category);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("id", id);
+			CategoryModel category = CategoryService.getCategory(param, session);
+
+			ModelAndView mav = new ModelAndView("admin/CategoryManagement/updateCategory");
+			mav.addObject("category", category);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
 	public String updateCategory(HttpSession session, @RequestParam("id") int id,
 			@RequestParam("CategoryName") String name, @RequestParam("type") int type,
-			@RequestParam("created") String created) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				CategoryModel model = new CategoryModel();
-				model.setName(name);
-				model.setType(type);
-				model.setCreated_at(created);
-				model.setId(id);
+			@RequestParam("created") String created) throws JsonParseException, JsonMappingException, IOException {
 
-				CategoryService.updateCategory(model, session);
+		if (session.getAttribute("admin") != null) {
+			CategoryModel model = new CategoryModel();
+			model.setName(name);
+			model.setType(type);
+			model.setCreated_at(created);
+			model.setId(id);
 
-				return "redirect:/quanlydanhmuc";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+			CategoryService.updateCategory(model, session);
+
+			return "redirect:/quanlydanhmuc";
+		} else {
+			return "redirect:/login";
 		}
+
 	}
 
 	@RequestMapping(value = "/deleteCategory", method = RequestMethod.GET)

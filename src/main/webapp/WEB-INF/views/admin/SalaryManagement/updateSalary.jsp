@@ -77,7 +77,7 @@
 									<select name="id_category" class="form-select">
 										<option value="${model.id_category.id }]">${model.id_category.name }</option>
 										<c:forEach var="item"
-											items="${sessionScope.listCategoryClass }">
+											items="${listCategoryClass }">
 											<option value="${item.id }">${item.name }</option>
 										</c:forEach>
 									</select>

@@ -26,11 +26,11 @@ public class WageController {
 	public ModelAndView wagePage() {
 		try {
 			Map<String, Object> paramST = new HashMap<>();
-			paramST.put("style", 0);
+			paramST.put("type", 0);
 			List<SalaryModel> listSST = SalaryService.getListSalary(paramST, session);
 
 			Map<String, Object> paramTE = new HashMap<>();
-			paramST.put("style", 1);
+			paramTE.put("type", 1);
 			List<SalaryModel> listSTE = SalaryService.getListSalary(paramTE, session);
 
 			ModelAndView mav = new ModelAndView("users/wage/wage");

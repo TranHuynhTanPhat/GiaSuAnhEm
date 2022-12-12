@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
@@ -71,17 +73,25 @@
 
 					<form action="" method="post" name="form1" style="width: 100%">
 						<div class="row">
-							<div class="col-10">
-								<div class="form-outline w-25" style="float: right">
-									<input type="text" name="username" class="form-control"
-										value="" placeholder="Tên đăng nhập">
+							<div class="col-2">
+								<div class="form-outline">
+									<input type="text" name="search" class="form-control" value=""
+										placeholder="Nhập từ khóa">
 								</div>
 							</div>
-							<div class="col-2">
+							<div class="col-8">
 								<button class="btn btn-primary btn-block mb-4" type="submit">
 									<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
 								</button>
 
+							</div>
+							<div class="col" align="right">
+								<spring:url value="/quanlylichsugiaodich/?type=history"
+									var="xlsxHistory" />
+								<a href="${xlsxHistory }"
+									class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+									class="fas fa-download fa-sm text-white-50"></i> Tải file
+									excel</a>
 							</div>
 						</div>
 					</form>
@@ -92,20 +102,26 @@
 							<thead>
 								<tr>
 									<th scope="col">Mã giao dịch</th>
-									<th scope="col">Mã khóa học</th>
 									<th scope="col">Tên tài khoản</th>
 									<th scope="col">Tổng tiền</th>
-									<th scope="col" width="2%"></th>
-									<th scope="col" width="2%"></th>
+									<th scope="col">Nội dung</th>
+									<th scope="col">Trạng thái</th>
+									<th scope="col">Ngày tạo</th>
+
 								</tr>
 							</thead>
 							<tbody class="table-group-divider">
-								<tr>
-									<td>1</td>
-									<td>23</td>
-									<td>tranphat</td>
-									<td>100000</td>
-								</tr>
+								<c:forEach var="item" items="${ listTransaction}">
+									<tr>
+										<td>${item.id }</td>
+										<td>${item.id_account }</td>
+										<td>${item.amount }</td>
+										<td>${item.content }</td>
+										<td>${item.status }</td>
+										<td>${item.created_at }</td>
+
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<canvas width="100%" height="10px"></canvas>

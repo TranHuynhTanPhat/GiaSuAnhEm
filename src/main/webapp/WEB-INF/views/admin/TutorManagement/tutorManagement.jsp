@@ -85,7 +85,7 @@
 							<div class="col-md">
 								<select name="chonlop" id="chonlop" class="form-select ">
 									<option value="">Chọn Lớp</option>
-									<c:forEach var="item" items="${sessionScope.listClass }">
+									<c:forEach var="item" items="${listClass }">
 										<option value="${item.id }">${item.name}</option>
 									</c:forEach>
 								</select>
@@ -93,7 +93,7 @@
 							<div class="col-md">
 								<select name="chonmon" id="chonmon" class="form-select">
 									<option value="">Chọn Môn</option>
-									<c:forEach var="item" items="${sessionScope.listSubject }">
+									<c:forEach var="item" items="${listSubject }">
 										<option value="${item.id}">${item.name}</option>
 									</c:forEach>
 								</select>
@@ -123,9 +123,8 @@
 							<div class="col-md">
 								<select name="quanhuyen" id="quanhuyen" class="form-select">
 									<option value="0">Quận huyện</option>
-									<c:forEach var="item"
-										items="${sessionScope.listCategoryDistrict }">
-										<option value=${item._id }>${item.name }</option>
+									<c:forEach var="item" items="${listCategoryDistrict }">
+										<option value=${item.id }>${item.name }</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -183,10 +182,10 @@
 										<td>${item.name }</td>
 										<td>${item.email }</td>
 
-										<td>${item.birthYear }</td>
+										<td>${item.birth_year }</td>
 										<td>${item.gender }</td>
 										<td>${item.phone }</td>
-										<td>${item.isNow }</td>
+										<td>${item.isnow }</td>
 										<td>${item.sobuoi }</td>
 										<td>${item.describe }</td>
 										<th><a href="updateTutor?id=${item.id}"><i

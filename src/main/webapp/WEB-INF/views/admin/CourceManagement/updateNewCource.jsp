@@ -159,7 +159,7 @@
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${sessionScope.listCategory }">
+											<c:forEach var="item" items="${listCategoryDistrict }">
 												<c:choose>
 													<c:when test="${fn:contains(model.categories, item.name)}">
 														<tr>
@@ -177,24 +177,23 @@
 												</c:choose>
 
 											</c:forEach>
-											<%-- <c:forEach var="item"
-												items="${sessionScope.listCategoryClass }">
+											<c:forEach var="item" items="${listCategoryClass }">
 												<c:choose>
 													<c:when test="${fn:contains(model.categories, item.name)}">
 														<tr>
 															<td><label><input type="checkbox"
-																	name="category" id="category" value="${ item._id }"
+																	name="category" id="category" value="${ item.id }"
 																	checked>${item.name}</label></td>
 														</tr>
 													</c:when>
 													<c:otherwise>
 														<tr>
 															<td><label><input type="checkbox"
-																	name="category" id="category" value="${ item._id }">${item.name}</label></td>
+																	name="category" id="category" value="${ item.id }">${item.name}</label></td>
 														</tr>
 													</c:otherwise>
 												</c:choose>
-											</c:forEach> --%>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -205,7 +204,7 @@
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${sessionScope.listSubject }">
+											<c:forEach var="item" items="${listSubject }">
 												<c:choose>
 													<c:when test="${fn:contains(model.subjects, item.name)}">
 														<tr>
@@ -232,7 +231,7 @@
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${ sessionScope.listClass}">
+											<c:forEach var="item" items="${ listClass}">
 												<c:choose>
 													<c:when test="${fn:contains(model.classes, item.name)}">
 														<tr>

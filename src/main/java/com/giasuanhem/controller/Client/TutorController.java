@@ -16,7 +16,10 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class TutorController {
@@ -28,6 +31,18 @@ public class TutorController {
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage() {
 		try {
+
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 0);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 1);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+
 			ModelAndView mav = new ModelAndView("users/tutor/tutor");
 			return mav;
 		} catch (Exception e) {
@@ -40,8 +55,23 @@ public class TutorController {
 	public ModelAndView addTutorPage() {
 		try {
 			String role = String.valueOf(session.getAttribute("role"));
-			System.out.println(role);
-			if (role == "tutor") {
+			if (role.equals("tutor")) {
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 0);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 1);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+				session.setAttribute("listCategoryClass", listCategoryClass);
+				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+
+				List<ClassModel> listClass = ClassService.getListClass(session);
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
+				session.setAttribute("listClass", listClass);
+				session.setAttribute("listSubject", listSubject);
 				ModelAndView mav = new ModelAndView("users/tutor/addTutor");
 				return mav;
 			} else {

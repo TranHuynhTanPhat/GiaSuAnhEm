@@ -83,7 +83,7 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<c:forEach var="item" items="${ sessionScope.listClass }">
+							<c:forEach var="item" items="${ listClass }">
 								<tr>
 									<td>${ item.name }</td>
 									<th><a href="updateClass?id=${item.id}"><i

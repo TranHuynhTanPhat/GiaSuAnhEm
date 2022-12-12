@@ -1,13 +1,11 @@
 package com.giasuanhem.controller.Client;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.poi.hssf.record.chart.CategorySeriesAxisRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +18,6 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.ClassService;
-import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.CourceService;
 import com.giasuanhem.service.Service.SubjectService;
 
@@ -32,6 +29,17 @@ public class NewClassController {
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
 		try {
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 0);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 1);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+
 			List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
 
 			ModelAndView mav = new ModelAndView("users/newclass/newclass");
@@ -47,21 +55,20 @@ public class NewClassController {
 	public ModelAndView registerNewClassPage() {
 		try {
 			String role = String.valueOf(session.getAttribute("role"));
-			System.out.println(role);
-			if (role == "parent") {
+			if (role.equals("parent")) {
 				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("style", 0);
+				paramsClass.put("type", 0);
 				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("style", 1);
+				paramsDistrict.put("type", 1);
 				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
 				session.setAttribute("listCategoryClass", listCategoryClass);
 				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
 				List<ClassModel> listClass = ClassService.getListClass(session);
-				List<SubjectModel> listSubject = SubjectService.getListSubject();
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
 				session.setAttribute("listClass", listClass);
 				session.setAttribute("listSubject", listSubject);
@@ -72,6 +79,7 @@ public class NewClassController {
 				return new ModelAndView("404page");
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}

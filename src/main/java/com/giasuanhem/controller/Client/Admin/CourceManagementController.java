@@ -23,11 +23,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.giasuanhem.model.Models.CategoryModel;
+import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
+import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.ExcelExporter.CourceExcelExporter;
 import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.CourceService;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class CourceManagementController {
@@ -43,6 +49,14 @@ public class CourceManagementController {
 	public ModelAndView courceManagement(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			if (session.getAttribute("admin") != null) {
+
+				List<ClassModel> listClass = ClassService.getListClass(session);
+
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 0);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
 				List<NewClassModel> listNewCource = CourceService.getListNewClass(session);
 
@@ -62,8 +76,10 @@ public class CourceManagementController {
 				}
 
 				ModelAndView mav = new ModelAndView("admin/CourceManagement/courceManagement");
-
 				mav.addObject("listNewCource", listNewCource);
+				mav.addObject("listSubject", listSubject);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -93,6 +109,22 @@ public class CourceManagementController {
 	public ModelAndView createNewCource() {
 		try {
 			if (session.getAttribute("admin") != null) {
+				List<ClassModel> listClass = ClassService.getListClass(session);
+
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 0);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 1);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+				session.setAttribute("listSubject", listSubject);
+				session.setAttribute("listClass", listClass);
+				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+				session.setAttribute("listCategoryClass", listCategoryClass);
 				ModelAndView mav = new ModelAndView("admin/CourceManagement/addNewCource");
 				return mav;
 			} else {

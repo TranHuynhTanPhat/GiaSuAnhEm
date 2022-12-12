@@ -75,7 +75,7 @@
 									<select name="id_category" class="form-select">
 										<option value="Chọn khối">-- Chọn khối --</option>
 										<c:forEach var="item"
-											items="${sessionScope.listCategoryClass }">
+											items="${listCategoryClass }">
 											<option value="${item.id }">${item.name }</option>
 										</c:forEach>
 									</select>

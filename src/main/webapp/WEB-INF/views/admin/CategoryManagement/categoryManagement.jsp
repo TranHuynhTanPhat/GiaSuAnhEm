@@ -93,7 +93,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item"
-								items="${ sessionScope.listCategoryDistrict}">
+								items="${ listCategoryDistrict}">
 								<tr>
 									<td>${item.name }</td>
 									<td>${item.type }</td>
@@ -122,7 +122,7 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
+							<c:forEach var="item" items="${ listCategoryClass}">
 								<tr>
 									<td>${item.name }</td>
 									<td>${item.type }</td>

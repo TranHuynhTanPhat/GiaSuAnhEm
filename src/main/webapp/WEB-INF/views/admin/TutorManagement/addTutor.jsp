@@ -173,11 +173,23 @@
 								</div>
 							</div>
 							<div class="col">
-								<label class="control-label">Phương tiện: <span
+								<label class="control-label">Tên tài khoản: <span
 									style="color: #FF0000">*</span></label>
-								<div class="form-outline">
-									<input type="text" name="phuongtien" id="phuongtien"
-										class="form-control" value="">
+								<div class="col">
+									<select name="accId" class="form-control">
+										<option value="0">-- Chọn tài khoản --</option>
+										<c:forEach var="item" items="${listAccount }">
+											<option value="${item.id }">${item.username }</option>
+										</c:forEach>
+										<!-- <option value="0">-- Chọn tài khoản --</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option> -->
+									</select>
 								</div>
 							</div>
 						</div>
@@ -203,7 +215,7 @@
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${sessionScope.listSubject }">
+											<c:forEach var="item" items="${listSubject }">
 												<tr>
 													<td><label><input type="checkbox"
 															name="monhoc" id="monhoc" value="${ item.id }">${item.name}</label></td>
@@ -219,7 +231,7 @@
 								<div class="col align-middle">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item" items="${ sessionScope.listClass }">
+											<c:forEach var="item" items="${ listClass }">
 												<tr>
 													<td><label><input type="checkbox"
 															name="lophoc" id="monhoc" value="${ item.id }">${item.name}</label></td>
@@ -235,11 +247,10 @@
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item"
-												items="${ sessionScope.listCategoryDistrict }">
+											<c:forEach var="item" items="${ listCategoryDistrict }">
 												<tr>
 													<td><label><input type="checkbox"
-															name="khuvuc" id="khuvuc" value="${ item.name }">${ item.name}</label></td>
+															name="khuvuc" id="khuvuc" value="${ item.id }">${ item.name}</label></td>
 												</tr>
 											</c:forEach>
 										</tbody>

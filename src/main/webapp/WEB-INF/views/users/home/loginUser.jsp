@@ -10,7 +10,8 @@
 <title>Trang đăng nhập</title>
 <link href="<c:url value="resources/assets/css/import/loginUser.css"/>"
 	rel="stylesheet">
-<link rel="shortcut icon" type="image/png" href="resources/assets/images/favicon-96x96.png"/>
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <script src="<c:url value="resources/assets/js/import/loginUser.js"/>"
 	type="text/javascript"></script>
 </head>
@@ -28,7 +29,8 @@
 			</div>
 
 			<div class="user-box">
-				<input class="input" type="password" name="password" required="required" />
+				<input class="input" type="password" name="password"
+					required="required" />
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none"
 					viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff"
 					class="eye eye-close">
@@ -56,6 +58,5 @@
 			</p>
 		</form>
 	</div>
-	<script src="resources/assets/js/import/loginUser.js"></script>
 </body>
 </html>

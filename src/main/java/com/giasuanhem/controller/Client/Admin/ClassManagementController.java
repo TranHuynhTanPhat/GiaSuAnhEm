@@ -34,9 +34,10 @@ public class ClassManagementController {
 	public ModelAndView classManagement() throws JsonParseException, JsonMappingException, IOException {
 		if (session.getAttribute("admin") != null) {
 			List<ClassModel> listClass = ClassService.getListClass(session);
-			session.setAttribute("listClass", listClass);
+			
 
 			ModelAndView mav = new ModelAndView("admin/ClassManagement/classManagement");
+			mav.addObject("listClass", listClass);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
