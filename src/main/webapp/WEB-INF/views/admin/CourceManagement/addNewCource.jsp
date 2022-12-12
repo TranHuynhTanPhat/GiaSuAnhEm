@@ -141,19 +141,19 @@
 									<table border="0" class="tablebox">
 										<tbody>
 											<c:forEach var="item"
-												items="${sessionScope.listCategoryDistrict }">
+												items="${sessionScope.listCategory}">
 												<tr>
 													<td><input type="checkbox" name="category"
 														id="category" value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
-											<c:forEach var="item"
+											<%-- <c:forEach var="item"
 												items="${sessionScope.listCategoryClass }">
 												<tr>
 													<td><input type="checkbox" name="category"
 														id="category" value="${item.id }">${item.name }</td>
 												</tr>
-											</c:forEach>
+											</c:forEach> --%>
 										</tbody>
 									</table>
 								</div>

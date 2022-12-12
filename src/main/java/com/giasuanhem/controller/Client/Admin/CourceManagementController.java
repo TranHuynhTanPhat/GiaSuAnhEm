@@ -108,34 +108,29 @@ public class CourceManagementController {
 	public String createNewCource(@RequestParam("diachi") String diachi, @RequestParam("quan") String quan,
 			@RequestParam("sobuoi") int sobuoi, @RequestParam("time") String time,
 			@RequestParam("trangthai") int trangthai, @RequestParam("luong") int luong,
-			@RequestParam("category") String[] categories, @RequestParam("monhoc") String[] monhocs,
-			@RequestParam("lophoc") String[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
+			@RequestParam("category") int[] categories, @RequestParam("monhoc") int[] monhocs,
+			@RequestParam("lophoc") int[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
 			@RequestParam("lienhe") String lienhe) throws IOException {
 
 		NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
-				Arrays.toString(categories), Arrays.toString(lophocs), Arrays.toString(monhocs), lienhe);
+				categories, lophocs, monhocs, lienhe);
 		commonService.createNewCource(model);
 		return "redirect:/quanlykhoahoc";
 
 	}
 
 	@RequestMapping(value = "/updateNewCource", method = RequestMethod.GET)
-	public ModelAndView updateNewCource(@RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("id", id);
-				NewClassModel model = commonService.getNewClass(param);
+	public ModelAndView updateNewCource(@RequestParam("id") String id) throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("id", id);
+			NewClassModel model = commonService.getNewClass(param);
 
-				ModelAndView mav = new ModelAndView("admin/CourceManagement/updateNewCource");
-				mav.addObject("model", model);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			ModelAndView mav = new ModelAndView("admin/CourceManagement/updateNewCource");
+			mav.addObject("model", model);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
 	}
@@ -144,17 +139,17 @@ public class CourceManagementController {
 	public String updateNewCource(@RequestParam("id") int id, @RequestParam("diachi") String diachi,
 			@RequestParam("quan") String quan, @RequestParam("sobuoi") int sobuoi, @RequestParam("time") String time,
 			@RequestParam("trangthai") int trangthai, @RequestParam("luong") int luong,
-			@RequestParam("category") String[] categories, @RequestParam("monhoc") String[] monhocs,
-			@RequestParam("lophoc") String[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
+			@RequestParam("category") int[] categories, @RequestParam("monhoc") int[] monhocs,
+			@RequestParam("lophoc") int[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
 			@RequestParam("lienhe") String lienhe, @RequestParam("created") String created)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		if (session.getAttribute("admin") != null) {
 
 			NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
-					Arrays.toString(categories), Arrays.toString(lophocs), Arrays.toString(monhocs), lienhe);
+					categories, lophocs, monhocs, lienhe);
 			model.setId(id);
-			model.setCreatedAt(created);
+			model.setCreated_at(created);
 
 			commonService.updateNewClass(model);
 

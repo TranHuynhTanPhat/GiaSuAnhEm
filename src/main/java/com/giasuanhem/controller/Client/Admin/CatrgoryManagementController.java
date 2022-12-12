@@ -77,7 +77,7 @@ public class CatrgoryManagementController {
 			if (session.getAttribute("admin") != null) {
 				CategoryModel model = new CategoryModel();
 				model.setName(name);
-				model.setTyle(tyle);
+				model.setType(tyle);
 				commonService.createCategory(model);
 				return "redirect:/quanlydanhmuc";
 			} else {
@@ -117,7 +117,7 @@ public class CatrgoryManagementController {
 			if (session.getAttribute("admin") != null) {
 				CategoryModel model = new CategoryModel();
 				model.setName(name);
-				model.setTyle(tyle);
+				model.setType(tyle);
 
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);

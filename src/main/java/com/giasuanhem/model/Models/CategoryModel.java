@@ -3,15 +3,15 @@ package com.giasuanhem.model.Models;
 public class CategoryModel {
 	private int id;
 	private String name;
-	private int tyle;
+	private int type;
 	private String created_at;
 
 	public String getName() {
 		return name;
 	}
 
-	public float getTyle() {
-		return tyle;
+	public float getType() {
+		return type;
 	}
 
 	public void setName(String name) {
@@ -34,7 +34,7 @@ public class CategoryModel {
 		this.created_at = created_at;
 	}
 
-	public void setTyle(int tyle) {
-		this.tyle = tyle;
+	public void setType(int type) {
+		this.type = type;
 	}
 }

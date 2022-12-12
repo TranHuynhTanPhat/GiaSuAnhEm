@@ -48,7 +48,7 @@ public class AdminController {
 				List<ClassModel> listClass = commonService.getListClass();
 
 				List<SubjectModel> listSubject = commonService.getListSubject();
-//
+
 //				Map<String, Object> paramsDistrict = new HashMap<>();
 //				paramsDistrict.put("style", 1);
 //				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
@@ -56,11 +56,14 @@ public class AdminController {
 //				Map<String, Object> paramsClass = new HashMap<>();
 //				paramsDistrict.put("style", 0);
 //				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+
+				List<CategoryModel> listCategories = commonService.getListCategory();
 //
 				session.setAttribute("listSubject", listSubject);
 				session.setAttribute("listClass", listClass);
 //				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 //				session.setAttribute("listCategoryClass", listCategoryClass);
+				session.setAttribute("listCategory", listCategories);
 
 				ModelAndView mav = new ModelAndView("admin/adminhome");
 				return mav;

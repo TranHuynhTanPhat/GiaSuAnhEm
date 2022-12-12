@@ -20,16 +20,16 @@ public class NewClassModel {
 	Object classes;
 	Object subjects;
 	private String contact;
-	private String createdAt;
+	private String created_at;
 
 	// Getter Methods
 
-	public String getCreatedAt() {
-		return createdAt;
+	public String getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
+	public void setCreated_at(String createdAt) {
+		this.created_at = createdAt;
 	}
 
 	public String getAddress() {

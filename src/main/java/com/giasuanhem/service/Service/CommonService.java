@@ -145,9 +145,10 @@ public class CommonService {
 		}
 	}
 
-	public void createNewCource(NewClassModel model) throws IOException {
+	public void createNewCource(NewClassModel model) throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonReq = new Gson().toJson(model);
+		System.out.println(jsonReq);
 		String jsonResponse = postWithJson(ApiConstant.LIST_NEWCLASS, jsonReq);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
@@ -156,6 +157,7 @@ public class CommonService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+
 	}
 
 	public void createClass(ClassModel model) throws IOException {
@@ -311,6 +313,26 @@ public class CommonService {
 
 	}
 
+	public List<CategoryModel> getListCategory() {
+		try {
+			String jsonResponse = get(ApiConstant.LIST_CATEGORY);
+
+			ObjectMapper objectMapper = new ObjectMapper();
+
+			ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+			});
+
+			List<CategoryModel> listCategoryModel = objectMapper.convertValue(res.getData(),
+					new TypeReference<List<CategoryModel>>() {
+					});
+			return listCategoryModel;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			// TODO: handle exception
+		}
+	}
+
 	public List<CategoryModel> getListCategory(Map<String, Object> params)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = getWithParams(ApiConstant.CATEGORY_FILTER, params);
@@ -341,6 +363,7 @@ public class CommonService {
 					});
 			return listNewClassModels;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 			// TODO: handle exception
 		}
@@ -588,6 +611,7 @@ public class CommonService {
 	public void updateNewClass(NewClassModel model) throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonReq = new Gson().toJson(model);
+		System.out.println(jsonReq);
 		String jsonResponse = postWithJson(ApiConstant.NEWCLASS_UPDATE, jsonReq);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
@@ -596,6 +620,7 @@ public class CommonService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+
 	}
 
 	public void updatePost(PostModel model, Map<String, Object> param) {
