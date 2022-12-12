@@ -73,10 +73,10 @@
 								<input type="text" name="CategoryName" class="form-control"
 									value="">
 							</div>
-							<label class="control-label">Style: <span
+							<label class="control-label">Type: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="text" name="style" class="form-control" value="">
+								<input type="text" name="type" class="form-control" value="">
 							</div>
 						</div>
 					</div>

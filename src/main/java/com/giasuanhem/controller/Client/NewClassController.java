@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.hssf.record.chart.CategorySeriesAxisRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,19 +18,21 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
+import com.giasuanhem.service.Service.CourceService;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class NewClassController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	HttpSession session;
 
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
 		try {
-			List<NewClassModel> listNewClass = commonService.getListNewClass();
+			List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
 
 			ModelAndView mav = new ModelAndView("users/newclass/newclass");
 			mav.addObject("listNewClass", listNewClass);
@@ -48,17 +51,17 @@ public class NewClassController {
 			if (role == "parent") {
 				Map<String, Object> paramsClass = new HashMap<>();
 				paramsClass.put("style", 0);
-				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 				Map<String, Object> paramsDistrict = new HashMap<>();
 				paramsDistrict.put("style", 1);
-				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
 				session.setAttribute("listCategoryClass", listCategoryClass);
 				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-				List<ClassModel> listClass = commonService.getListClass();
-				List<SubjectModel> listSubject = commonService.getListSubject();
+				List<ClassModel> listClass = ClassService.getListClass(session);
+				List<SubjectModel> listSubject = SubjectService.getListSubject();
 
 				session.setAttribute("listClass", listClass);
 				session.setAttribute("listSubject", listSubject);

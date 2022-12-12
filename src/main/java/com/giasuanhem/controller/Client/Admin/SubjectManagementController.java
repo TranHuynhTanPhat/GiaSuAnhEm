@@ -19,13 +19,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class SubjectManagementController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
 	@Autowired
@@ -35,7 +34,7 @@ public class SubjectManagementController {
 	public ModelAndView subjectManagement() {
 		try {
 			if (session.getAttribute("admin") != null) {
-				List<SubjectModel> listSubject = commonService.getListSubject();
+				List<SubjectModel> listSubject = SubjectService.getListSubject();
 				session.setAttribute("listSubject", listSubject);
 				ModelAndView mav = new ModelAndView("admin/SubjectManagement/subjectManagement");
 				return mav;
@@ -69,7 +68,7 @@ public class SubjectManagementController {
 	public String addSubject(@RequestParam("tenmon") String tenmon) throws IOException {
 
 		SubjectModel itemAdd = commonModel.mapSubject(tenmon);
-		commonService.createSubject(itemAdd);
+		SubjectService.createSubject(itemAdd, session);
 		return "redirect:/quanlymonhoc";
 
 	}
@@ -82,7 +81,7 @@ public class SubjectManagementController {
 
 			Map<String, Object> param = new HashMap<>();
 			param.put("id", id);
-			SubjectModel Subject = commonService.getSubject(param);
+			SubjectModel Subject = SubjectService.getSubject(param, session);
 
 			ModelAndView mav = new ModelAndView("admin/SubjectManagement/updateSubject");
 			mav.addObject("Subject", Subject);
@@ -106,7 +105,7 @@ public class SubjectManagementController {
 			model.setName(tenmon);
 			model.setCreated_at(created);
 
-			commonService.updateSubject(model);
+			SubjectService.updateSubject(model, session);
 			return "redirect:/quanlymonhoc";
 		} else {
 			return "redirect:/login";
@@ -118,7 +117,7 @@ public class SubjectManagementController {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
-			commonService.removeSubject(params);
+			SubjectService.removeSubject(params, session);
 
 			return "redirect:/quanlymonhoc";
 		} catch (Exception e) {

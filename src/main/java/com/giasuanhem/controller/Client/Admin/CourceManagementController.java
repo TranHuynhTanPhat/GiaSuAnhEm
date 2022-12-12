@@ -25,8 +25,9 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.service.ExcelExporter.CourceExcelExporter;
+import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
+import com.giasuanhem.service.Service.CourceService;
 
 @Controller
 public class CourceManagementController {
@@ -43,7 +44,7 @@ public class CourceManagementController {
 		try {
 			if (session.getAttribute("admin") != null) {
 
-				List<NewClassModel> listNewCource = commonService.getListNewClass();
+				List<NewClassModel> listNewCource = CourceService.getListNewClass(session);
 
 				String typeRequest = request.getParameter("type");
 				if (typeRequest != null && typeRequest.equals("cource")) {
@@ -79,7 +80,7 @@ public class CourceManagementController {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			params.put("id", id);
-			commonService.removeCource(params);
+			CourceService.removeCource(params, session);
 
 			return "redirect:/quanlykhoahoc";
 		} catch (Exception e) {
@@ -114,17 +115,18 @@ public class CourceManagementController {
 
 		NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
 				categories, lophocs, monhocs, lienhe);
-		commonService.createNewCource(model);
+		CourceService.createNewCource(model, session);
 		return "redirect:/quanlykhoahoc";
 
 	}
 
 	@RequestMapping(value = "/updateNewCource", method = RequestMethod.GET)
-	public ModelAndView updateNewCource(@RequestParam("id") String id) throws JsonParseException, JsonMappingException, IOException {
+	public ModelAndView updateNewCource(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 		if (session.getAttribute("admin") != null) {
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("id", id);
-			NewClassModel model = commonService.getNewClass(param);
+			NewClassModel model = CourceService.getNewClass(param, session);
 
 			ModelAndView mav = new ModelAndView("admin/CourceManagement/updateNewCource");
 			mav.addObject("model", model);
@@ -151,7 +153,7 @@ public class CourceManagementController {
 			model.setId(id);
 			model.setCreated_at(created);
 
-			commonService.updateNewClass(model);
+			CourceService.updateNewClass(model, session);
 
 			return "redirect:/quanlykhoahoc";
 

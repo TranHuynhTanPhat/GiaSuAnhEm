@@ -15,8 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.giasuanhem.model.Models.CategoryModel;
+import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
 
 @Controller
 public class CatrgoryManagementController {
@@ -32,12 +33,12 @@ public class CatrgoryManagementController {
 		try {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("style", 0);
-				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+				paramsClass.put("type", 0);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("style", 1);
-				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+				paramsDistrict.put("type", 1);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
 				session.setAttribute("listCategoryClass", listCategoryClass);
 				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
@@ -72,13 +73,13 @@ public class CatrgoryManagementController {
 
 	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
 	public String addCategory(HttpSession session, @RequestParam("CategoryName") String name,
-			@RequestParam("style") int tyle) throws JsonProcessingException {
+			@RequestParam("type") int tyle) throws JsonProcessingException {
 		try {
 			if (session.getAttribute("admin") != null) {
 				CategoryModel model = new CategoryModel();
 				model.setName(name);
 				model.setType(tyle);
-				commonService.createCategory(model);
+				CategoryService.createCategory(model, session);
 				return "redirect:/quanlydanhmuc";
 			} else {
 				return "redirect:/login";
@@ -94,8 +95,8 @@ public class CatrgoryManagementController {
 			if (session.getAttribute("admin") != null) {
 
 				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				CategoryModel category = commonService.getCategory(param);
+				param.put("id", id);
+				CategoryModel category = CategoryService.getCategory(param, session);
 
 				ModelAndView mav = new ModelAndView("admin/CategoryManagement/updateCategory");
 				mav.addObject("category", category);
@@ -111,17 +112,18 @@ public class CatrgoryManagementController {
 	}
 
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
-	public String updateCategory(HttpSession session, @RequestParam("id") String id,
-			@RequestParam("CategoryName") String name, @RequestParam("style") int tyle) {
+	public String updateCategory(HttpSession session, @RequestParam("id") int id,
+			@RequestParam("CategoryName") String name, @RequestParam("type") int type,
+			@RequestParam("created") String created) {
 		try {
 			if (session.getAttribute("admin") != null) {
 				CategoryModel model = new CategoryModel();
 				model.setName(name);
-				model.setType(tyle);
+				model.setType(type);
+				model.setCreated_at(created);
+				model.setId(id);
 
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				commonService.updateCategory(model, param);
+				CategoryService.updateCategory(model, session);
 
 				return "redirect:/quanlydanhmuc";
 			} else {
@@ -138,7 +140,7 @@ public class CatrgoryManagementController {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
-				commonService.removeCategory(param);
+				CategoryService.removeCategory(param, session);
 
 				return "redirect:/quanlydanhmuc";
 			} else {

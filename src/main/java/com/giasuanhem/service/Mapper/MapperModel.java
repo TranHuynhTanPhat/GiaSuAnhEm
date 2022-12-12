@@ -1,4 +1,4 @@
-package com.giasuanhem.service.Service;
+package com.giasuanhem.service.Mapper;
 
 import java.util.List;
 
@@ -66,15 +66,16 @@ public class MapperModel {
 		return newItem;
 	}
 
-	public SalaryModel mapSalary(String grade, float styleTeacher, String twoSessions, String threeSessions,
-			String fourSessions, String fiveSessions) {
+	public SalaryModel mapSalary(int type_teacher, String two_seesions, String three_sessions, String four_seesions,
+			String five_sessions, Object id_category) {
 		SalaryModel newItem = new SalaryModel();
-		newItem.setGrade(grade);
-		newItem.setStyleTeacher(styleTeacher);
-		newItem.setTwoSessions(twoSessions);
-		newItem.setThreeSessions(threeSessions);
-		newItem.setFourSessions(fourSessions);
-		newItem.setFiveSessions(fiveSessions);
+		newItem.setId_category(id_category);
+		newItem.setType_teacher(type_teacher);
+		newItem.setTwo_sessions(two_seesions);
+		newItem.setThree_sessions(three_sessions);
+		newItem.setFour_sessions(four_seesions);
+		newItem.setFive_sessions(five_sessions);
+
 		return newItem;
 	}
 

@@ -7,7 +7,7 @@ public class ApiConstant {
 	public static final String LIST_CLASS = "/class/index";
 	public static final String LIST_TUTOR = "/tutor/index";
 	public static final String LIST_SUBJECT = "/subject/index";
-	public static final String LIST_SALARY = "/salary_info/index";
+	public static final String LIST_SALARY = "/salaryinfo/index";
 	public static final String LIST_ACCOUNT = "/account/index";
 
 	public static final String CATEGORY_FINDID = "/category/id";
@@ -16,7 +16,7 @@ public class ApiConstant {
 	public static final String CLASS_FINDID = "/class/id";
 	public static final String SUBJECT_FINDID = "/subject/id";
 	public static final String POST_FINDID = "/post/id";
-	public static final String SALARY_FINDID = "/salary_info/id";
+	public static final String SALARY_FINDID = "/salaryinfo/id";
 	public static final String ACCOUNT_FINDID = "/account/id";
 
 	public static final String CATEGORY_UPDATE = "/category/edit";
@@ -25,7 +25,7 @@ public class ApiConstant {
 	public static final String CLASS_UPDATE = "/class/edit";
 	public static final String SUBJECT_UPDATE = "/subject/edit";
 	public static final String POST_UPDATE = "/post/edit";
-	public static final String SALARY_UPDATE = "/salary_info/edit";
+	public static final String SALARY_UPDATE = "/salaryinfo/edit";
 	public static final String ACCOUNT_UPDATE = "/account/edit";
 
 	public static final String CLASS_REMOVE = "/class/remove";
@@ -34,10 +34,12 @@ public class ApiConstant {
 	public static final String SUBJECT_REMOVE = "/subject/remove";
 	public static final String TUTOR_REMOVE = "/tutor/remove";
 	public static final String POST_REMOVE = "/post/remove";
-	public static final String SALARY_REMOVE = "/salary_info/remove";
+	public static final String SALARY_REMOVE = "/salaryinfo/remove";
 
 	public static final String CHECK_LOGIN = "/auth/login";
 	public static final String REGISTER = "/auth/register";
 
 	public static final String CATEGORY_FILTER = "/category/filter";
+	public static final String SALARY_FILTER = "/salaryinfo/filter";
+	public static final String POST_FILTER = "/post/filter";
 }

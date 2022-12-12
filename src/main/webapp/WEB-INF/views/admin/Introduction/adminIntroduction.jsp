@@ -62,7 +62,10 @@
 
 					<form action="./uploadIntroduction" method="post">
 						<input type="hidden" name="id"
-							value="${listIntroductionPost[0].id}">
+							value="${listIntroductionPost[0].id}"> <input
+							type="hidden" name="created"
+							value="${listIntroductionPost[0].created_at}"> <input
+							type="hidden" name="image" value="${listIntroductionPost[0].img}">
 						<div class="form-group">
 							<label style="float: left"><strong>Tiêu đề:</strong></label>
 							<div style="width: 100%">

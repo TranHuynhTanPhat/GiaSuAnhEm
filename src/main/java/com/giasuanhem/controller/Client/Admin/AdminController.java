@@ -1,15 +1,9 @@
 package com.giasuanhem.controller.Client.Admin;
 
 import java.util.List;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.giasuanhem.service.Service.MapperModel;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
-import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
-import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.SubjectModel;
-import com.giasuanhem.model.Models.TutorModel;
-import com.giasuanhem.service.ExcelExporter.CourceExcelExporter;
-import com.giasuanhem.service.ExcelExporter.TutorExcelExporter;
-import com.giasuanhem.service.Service.CommonService;
+import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.AccountService;
+import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.ClassService;
+import com.giasuanhem.service.Service.PostService;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class AdminController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
 	@Autowired
@@ -45,25 +35,22 @@ public class AdminController {
 	public ModelAndView adminPage() {
 		try {
 			if (session.getAttribute("admin") != null) {
-				List<ClassModel> listClass = commonService.getListClass();
+				List<ClassModel> listClass = ClassService.getListClass(session);
 
-				List<SubjectModel> listSubject = commonService.getListSubject();
+				List<SubjectModel> listSubject = SubjectService.getListSubject();
 
-//				Map<String, Object> paramsDistrict = new HashMap<>();
-//				paramsDistrict.put("style", 1);
-//				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-//
-//				Map<String, Object> paramsClass = new HashMap<>();
-//				paramsDistrict.put("style", 0);
-//				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 0);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-				List<CategoryModel> listCategories = commonService.getListCategory();
-//
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 1);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
 				session.setAttribute("listSubject", listSubject);
 				session.setAttribute("listClass", listClass);
-//				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-//				session.setAttribute("listCategoryClass", listCategoryClass);
-				session.setAttribute("listCategory", listCategories);
+				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+				session.setAttribute("listCategoryClass", listCategoryClass);
 
 				ModelAndView mav = new ModelAndView("admin/adminhome");
 				return mav;
@@ -72,6 +59,7 @@ public class AdminController {
 				return mav;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
@@ -82,8 +70,8 @@ public class AdminController {
 		try {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> params = new HashMap<>();
-				params.put("style", 1);
-				List<PostModel> listIntroductionPost = commonService.getListPostWithParams(params);
+				params.put("type", 0);
+				List<PostModel> listIntroductionPost = PostService.getListPostWithParams(params, session);
 
 				ModelAndView mav = new ModelAndView("admin/Introduction/adminIntroduction");
 				mav.addObject("listIntroductionPost", listIntroductionPost);
@@ -94,6 +82,7 @@ public class AdminController {
 				return mav;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
@@ -123,18 +112,20 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/uploadIntroduction", method = RequestMethod.POST)
-	public String uploadIntroduction(@RequestParam("id") String id, @RequestParam("title") String title,
-			@RequestParam("content") String content) {
+	public String uploadIntroduction(@RequestParam("id") int id, @RequestParam("title") String title,
+			@RequestParam("content") String content, @RequestParam("created") String created,
+			@RequestParam("image") String img) {
 		try {
 			if (session.getAttribute("admin") != null) {
 				PostModel model = new PostModel();
 				model.setTitle(title);
 				model.setBody(content);
-				model.setstyle(1);
+				model.setType(0);
+				model.setCreated_at(created);
+				model.setImg(img);
+				model.setId(id);
 
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				commonService.updatePost(model, param);
+				PostService.updatePost(model, session);
 
 				return "redirect:/admin-introduction";
 			} else {
@@ -164,7 +155,7 @@ public class AdminController {
 			params.put("username", username);
 			params.put("password", password);
 			try {
-				commonService.checkLogin(params, session);
+				AccountService.checkLogin(params, session);
 				return "redirect:/admin";
 			} catch (Exception e) {
 				e.printStackTrace();

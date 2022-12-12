@@ -15,12 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.ClassModel;
-import com.giasuanhem.model.Models.TutorModel;
+import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
 
 @Controller
 public class ClassManagementController {
@@ -34,7 +33,7 @@ public class ClassManagementController {
 	@RequestMapping(value = "/quanlylophoc", method = RequestMethod.GET)
 	public ModelAndView classManagement() throws JsonParseException, JsonMappingException, IOException {
 		if (session.getAttribute("admin") != null) {
-			List<ClassModel> listClass = commonService.getListClass();
+			List<ClassModel> listClass = ClassService.getListClass(session);
 			session.setAttribute("listClass", listClass);
 
 			ModelAndView mav = new ModelAndView("admin/ClassManagement/classManagement");
@@ -67,7 +66,7 @@ public class ClassManagementController {
 
 		if (session.getAttribute("admin") != null) {
 			ClassModel itemAdd = commonModel.mapClass(tenlop);
-			commonService.createClass(itemAdd);
+			ClassService.createClass(itemAdd, session);
 			return "redirect:/quanlylophoc";
 		} else {
 			return "redirect:/login";
@@ -81,7 +80,7 @@ public class ClassManagementController {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<>();
 				param.put("id", id);
-				ClassModel Class = commonService.getClass(param);
+				ClassModel Class = ClassService.getClass(param, session);
 				ModelAndView mav = new ModelAndView("admin/ClassManagement/updateClass");
 				mav.addObject("Class", Class);
 				return mav;
@@ -105,7 +104,7 @@ public class ClassManagementController {
 			model.setId(id);
 			model.setName(tenlop);
 			model.setCreated_at(created);
-			commonService.updateClass(model);
+			ClassService.updateClass(model, session);
 
 			return "redirect:/quanlylophoc";
 
@@ -120,7 +119,7 @@ public class ClassManagementController {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
-			commonService.removeClass(params);
+			ClassService.removeClass(params, session);
 
 			return "redirect:/quanlylophoc";
 		} catch (Exception e) {

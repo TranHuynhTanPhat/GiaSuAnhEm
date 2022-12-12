@@ -22,46 +22,45 @@ import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Email.EmailService;
+import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
+import com.giasuanhem.service.Service.PostService;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class HomeController {
 	@Autowired
-	private CommonService commonService;
-	@Autowired
 	HttpSession session;
 
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
-	public ModelAndView homePage() {
-		try {
-//			Map<String, Object> paramsClass = new HashMap<>();
-//			paramsClass.put("tyle", 0);
-//			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-//
-//			Map<String, Object> paramsDistrict = new HashMap<>();
-//			paramsDistrict.put("tyle", 1);
-//			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
+	public ModelAndView homePage() throws JsonParseException, JsonMappingException, IOException {
+		Map<String, Object> paramsClass = new HashMap<>();
+		paramsClass.put("tyle", 0);
+		List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
+		Map<String, Object> paramsDistrict = new HashMap<>();
+		paramsDistrict.put("tyle", 1);
+		List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-//			session.setAttribute("listCategoryClass", listCategoryClass);
-//			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			session.setAttribute("listClass", listClass);
-			session.setAttribute("listSubject", listSubject);
+		List<ClassModel> listClass = ClassService.getListClass(session);
+		List<SubjectModel> listSubject = SubjectService.getListSubject();
 
-			ModelAndView mav = new ModelAndView("users/home/home");
-			return mav;
-		} catch (Exception e) {
-			// TODO: handle exception
-			return null;
-		}
+		session.setAttribute("listCategoryClass", listCategoryClass);
+		session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+		session.setAttribute("listClass", listClass);
+		session.setAttribute("listSubject", listSubject);
+
+		ModelAndView mav = new ModelAndView("users/home/home");
+		return mav;
+
 	}
 
 //	@RequestMapping(value = "/error", method = RequestMethod.GET)
 //	
 
 	@ExceptionHandler({ Exception.class, JsonParseException.class, JsonMappingException.class })
+	@RequestMapping(value = "/error")
 	public ModelAndView errrorPage() {
 		ModelAndView mav = new ModelAndView("404page");
 		return mav;
@@ -71,8 +70,8 @@ public class HomeController {
 	public ModelAndView instructionPage(HttpSession session) {
 		try {
 			Map<String, Object> paramsIntroduction = new HashMap<>();
-			paramsIntroduction.put("style", 1);
-			List<PostModel> listPost = commonService.getListPostWithParams(paramsIntroduction);
+			paramsIntroduction.put("type", 1);
+			List<PostModel> listPost = PostService.getListPostWithParams(paramsIntroduction, session);
 
 			ModelAndView mav = new ModelAndView("users/home/introduce");
 			mav.addObject("listIntroductionPost", listPost);
@@ -87,8 +86,8 @@ public class HomeController {
 	public ModelAndView recruitPage() {
 		try {
 			Map<String, Object> paramsIntroduction = new HashMap<>();
-			paramsIntroduction.put("style", 0);
-			List<PostModel> listRecruitment = commonService.getListPostWithParams(paramsIntroduction);
+			paramsIntroduction.put("type", 0);
+			List<PostModel> listRecruitment = PostService.getListPostWithParams(paramsIntroduction, session);
 
 			ModelAndView mav = new ModelAndView("users/home/recruit");
 			mav.addObject("listRecruitment", listRecruitment);

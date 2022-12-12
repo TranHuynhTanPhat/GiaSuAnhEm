@@ -68,7 +68,7 @@
 					<div style="text-align: center; box-sizing: inherit;">
 						<p>
 							<strong><span style="font-size: 16px;"><span>BẢNG
-										HỌC PHÍ 2 BUỔI 1 TUẦN VÀ 3 BUỔI 1 TUẦN</span></span></strong>
+										LƯƠNG DÀNH CHO SINH VIÊN</span></span></strong>
 						</p>
 					</div>
 					<form action="./addSalary" method="GET">
@@ -103,11 +103,11 @@
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listSST }">
 								<tr>
-									<td>${item.grade }</td>
-									<td>${item.twoSessions }</td>
-									<td>${item.threeSessions }</td>
-									<td>${item.fourSessions }</td>
-									<td>${item.fiveSessions }</td>
+									<td>${item.id_category }</td>
+									<td>${item.two_sessions }</td>
+									<td>${item.three_sessions }</td>
+									<td>${item.four_sessions }</td>
+									<td>${item.five_sessions }</td>
 									<th><a href="./updateSalary?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteSalary?id=${item.id }"
@@ -124,7 +124,7 @@
 					<div style="text-align: center; box-sizing: inherit;">
 						<p>
 							<strong><span style="font-size: 16px;"><span>BẢNG
-										HỌC PHÍ 4 BUỔI 1 TUẦN VÀ 5 BUỔI 1 TUẦN</span></span></strong>
+										LƯƠNG DÀNH CHO GIÁO VIÊN</span></span></strong>
 						</p>
 					</div>
 					<form action="./addSalary" method="GET">
@@ -154,11 +154,11 @@
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listSTE }">
 								<tr>
-									<td>${item.grade }</td>
-									<td>${item.twoSessions }</td>
-									<td>${item.threeSessions }</td>
-									<td>${item.fourSessions }</td>
-									<td>${item.fiveSessions }</td>
+									<td>${item.id_category }</td>
+									<td>${item.two_sessions }</td>
+									<td>${item.three_sessions }</td>
+									<td>${item.four_sessions }</td>
+									<td>${item.five_sessions }</td>
 									<th><a href="./updateSalary?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteSalary?id=${item.id }"

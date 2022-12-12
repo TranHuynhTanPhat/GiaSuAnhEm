@@ -86,7 +86,7 @@
 						<thead>
 							<tr>
 								<th scope="col" width="76%">Quận</th>
-								<th scope="col" width="20%">Style</th>
+								<th scope="col" width="20%">Type</th>
 								<th scope="col" width="2%"></th>
 								<th scope="col" width="2%"></th>
 							</tr>
@@ -96,7 +96,7 @@
 								items="${ sessionScope.listCategoryDistrict}">
 								<tr>
 									<td>${item.name }</td>
-									<td>${item.tyle }</td>
+									<td>${item.type }</td>
 									<th><a href="updateCategory?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									<th><a href="./deleteCategory?id=${item.id }"
@@ -116,7 +116,7 @@
 						<thead>
 							<tr>
 								<th scope="col" width="76%">Khối</th>
-								<th scope="col" width="20%">Style</th>
+								<th scope="col" width="20%">Type</th>
 								<th scope="col" width="2%"></th>
 								<th scope="col" width="2%"></th>
 							</tr>
@@ -125,10 +125,10 @@
 							<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
 								<tr>
 									<td>${item.name }</td>
-									<td>${item.style }</td>
-									<th><a href="updateCategory?id=${item._id}"><i
+									<td>${item.type }</td>
+									<th><a href="updateCategory?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteCategory?id=${item._id }"
+									<th><a href="./deleteCategory?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

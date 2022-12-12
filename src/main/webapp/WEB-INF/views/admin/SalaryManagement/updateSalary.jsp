@@ -66,18 +66,19 @@
 				</div>
 				<form action="./updateSalary" method="post">
 
-					<input type="hidden" name="id" value="${model.id }" />
+					<input type="hidden" name="id" value="${model.id }" /> <input
+						type="hidden" name="created" value="${model.created_at }" />
 					<div class="form-group">
 						<div class="row">
 							<div class="col">
 								<label class=" control-label">Khối lớp: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col-7">
-									<select name="grade" id="typeTeacher" class="form-select">
-										<option value="${model.grade }]">${model.grade }</option>
+									<select name="id_category" class="form-select">
+										<option value="${model.id_category.id }]">${model.id_category.name }</option>
 										<c:forEach var="item"
 											items="${sessionScope.listCategoryClass }">
-											<option value="${item.name }">${item.name }</option>
+											<option value="${item.id }">${item.name }</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -86,24 +87,24 @@
 								<label class=" control-label">Gia sư:<span
 									style="color: #FF0000">*</span></label>
 								<div class="col-7">
-									<select name="styleTeacher" id="styleTeacher"
+									<select name="type_teacher" 
 										class="form-select">
 										<c:choose>
-											<c:when test="${model.styleTeacher == 0.0}">
-												<option value="${model.styleTeacher}" selected="selected">Sinh
+											<c:when test="${model.type_teacher == 0.0}">
+												<option value="${model.type_teacher}" selected="selected">Sinh
 													viên</option>
 											</c:when>
 											<c:otherwise>
-												<option value="${model.styleTeacher}">Sinh viên</option>
+												<option value="${model.type_teacher}">Sinh viên</option>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${model.styleTeacher == 1.0}">
-												<option value="${model.styleTeacher}" selected="selected">Giáo
+											<c:when test="${model.type_teacher == 1.0}">
+												<option value="${model.type_teacher}" selected="selected">Giáo
 													viên</option>
 											</c:when>
 											<c:otherwise>
-												<option value="${model.styleTeacher}">Giáo viên</option>
+												<option value="${model.type_teacher}">Giáo viên</option>
 											</c:otherwise>
 										</c:choose>
 									</select>
@@ -118,7 +119,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<input type="text" name="twosession" class="form-control"
-										value="${model.twoSessions }">
+										value="${model.two_sessions }">
 								</div>
 							</div>
 							<div class="col">
@@ -126,7 +127,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<input type="text" name="threesession" class="form-control"
-										value="${model.threeSessions }">
+										value="${model.three_sessions }">
 								</div>
 							</div>
 							<div class="col">
@@ -134,7 +135,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<input type="text" name="foursession" class="form-control"
-										value="${model.fourSessions }">
+										value="${model.four_sessions }">
 								</div>
 							</div>
 							<div class="col">
@@ -142,7 +143,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<input type="text" name="fivesession" class="form-control"
-										value="${model.fiveSessions }">
+										value="${model.five_sessions }">
 								</div>
 							</div>
 						</div>

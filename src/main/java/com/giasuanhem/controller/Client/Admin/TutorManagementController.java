@@ -22,13 +22,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.service.ExcelExporter.TutorExcelExporter;
-import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
+import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.TutorService;
 
 @Controller
 public class TutorManagementController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
 	@Autowired
@@ -39,7 +37,7 @@ public class TutorManagementController {
 		try {
 			if (session.getAttribute("admin") != null) {
 
-				List<TutorModel> listTutor = commonService.getListTutor();
+				List<TutorModel> listTutor = TutorService.getListTutor();
 
 				String typeRequest = request.getParameter("type");
 				if (typeRequest != null && typeRequest.equals("tutor")) {
@@ -76,7 +74,7 @@ public class TutorManagementController {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
-			commonService.removeTutor(params);
+			TutorService.removeTutor(params, session);
 
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
@@ -124,7 +122,7 @@ public class TutorManagementController {
 			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, subjects,
 					classes, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, ngaysinh, namtotnghiem,
 					nghenghiep, uudiem);
-			commonService.createTutor(itemAdd);
+			TutorService.createTutor(itemAdd, session);
 
 			return "redirect:/quanlygiasu";
 		} catch (Exception e) {
@@ -140,7 +138,7 @@ public class TutorManagementController {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
-				TutorModel model = commonService.getTutor(param);
+				TutorModel model = TutorService.getTutor(param);
 				ModelAndView mav = new ModelAndView("admin/TutorManagement/updateTutor");
 				mav.addObject("model", model);
 				return mav;
@@ -181,14 +179,12 @@ public class TutorManagementController {
 						teachAreas.add(item);
 
 					}
-					Map<String, Object> param = new HashMap<String, Object>();
-					param.put("_id", id);
 
 					TutorModel model = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, classes,
 							subjects, teachAreas, phuongtien, Float.parseFloat(sobuoiday), gioitinh, ngaysinh,
 							namtotnghiem, nghenghiep, uudiem);
 
-					commonService.updateTutor(model, param);
+					TutorService.updateTutor(model, session);
 					return "redirect:/quanlygiasu";
 				} catch (Exception e) {
 					e.printStackTrace();

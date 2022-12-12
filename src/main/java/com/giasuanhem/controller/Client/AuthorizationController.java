@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.AccountModel;
+import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CommonService;
 
 @Controller
 public class AuthorizationController {
-	@Autowired
-	private CommonService commonService;
 	@Autowired
 	HttpSession session;
 
@@ -40,7 +39,7 @@ public class AuthorizationController {
 			params.put("username", username);
 			params.put("password", password);
 			try {
-				commonService.checkLogin(params, session);
+				AccountService.checkLogin(params, session);
 				return "redirect:/trang-chu";
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -72,13 +71,13 @@ public class AuthorizationController {
 			model.setEmail(email);
 			model.setRole(role);
 			try {
-				commonService.register(model, session);
+				AccountService.register(model, session);
 
 				Map<String, Object> params = new HashMap<>();
 				params.put("username", username);
 				params.put("password", password);
 
-				commonService.checkLogin(params, session);
+				AccountService.checkLogin(params, session);
 
 				return "redirect:/trang-chu";
 //			EmailService.sendEmail("20110695@student.hcmute.edu.vn", "Verify", EmailService.formOTP("123456"));

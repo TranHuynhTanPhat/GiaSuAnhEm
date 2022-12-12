@@ -13,16 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.giasuanhem.model.Models.AccountModel;
-import com.giasuanhem.model.Models.CategoryModel;
-import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
+import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.AccountService;
+import com.giasuanhem.service.Service.CategoryService;
 
 @Controller
 public class AccountManagementController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
 	@Autowired
@@ -43,7 +40,7 @@ public class AccountManagementController {
 //				session.setAttribute("listCategoryClass", listCategoryClass);
 //				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-				List<AccountModel> listAccounts = commonService.getListAccount();
+				List<AccountModel> listAccounts = AccountService.getListAccount();
 
 				ModelAndView mav = new ModelAndView("admin/AccountManagement/accountManagement");
 				mav.addObject("listAccounts", listAccounts);
@@ -87,7 +84,7 @@ public class AccountManagementController {
 				model.setRole(role);
 				model.setState(state);
 
-				commonService.register(model, session);
+				AccountService.register(model, session);
 				return "redirect:/quanlytaikhoan";
 			} else {
 				return "redirect:/login";
@@ -104,7 +101,7 @@ public class AccountManagementController {
 
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("id", id);
-				AccountModel account = commonService.getAccount(param);
+				AccountModel account = AccountService.getAccount(param);
 
 				ModelAndView mav = new ModelAndView("admin/AccountManagement/updateAccount");
 				mav.addObject("model", account);
@@ -135,7 +132,7 @@ public class AccountManagementController {
 				model.setPassword(password);
 				model.setCreated_at(created);
 
-				commonService.updateAccount(model);
+				AccountService.updateAccount(model, session);
 
 				return "redirect:/quanlytaikhoan";
 			} else {
@@ -152,7 +149,7 @@ public class AccountManagementController {
 			if (session.getAttribute("admin") != null) {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("_id", id);
-				commonService.removeCategory(param);
+				CategoryService.removeCategory(param, session);
 
 				return "redirect:/quanlydanhmuc";
 			} else {
