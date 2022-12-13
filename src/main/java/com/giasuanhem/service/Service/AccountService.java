@@ -47,6 +47,7 @@ public class AccountService {
 	static public void updateAccount(AccountModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonReq = new Gson().toJson(model);
+		System.out.println(jsonReq);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.ACCOUNT_UPDATE, jsonReq, session);
 
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -136,10 +137,17 @@ public class AccountService {
 		});
 
 		session.setAttribute("id", model.getId());
+		session.setAttribute("state", model.getState());
+		session.setAttribute("newAccount", model);
+		session.setAttribute("emailUser", model.getEmail());
 		if (model.getRole() == 0) {
 			session.removeAttribute("id");
+			session.removeAttribute("state");
+			session.removeAttribute("newAccount");
+			session.removeAttribute("emailUser");
 			session.setAttribute("admin", model.getUsername());
 		} else if (model.getRole() == 1) {
+
 			session.setAttribute("role", "tutor");
 		} else {
 			session.setAttribute("role", "parent");
@@ -149,24 +157,20 @@ public class AccountService {
 		session.removeAttribute("errMessage");
 	}
 
-	static public void register(AccountModel model, HttpSession session) {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			System.out.println(jsonReq);
-			ObjectMapper objectMapper = new ObjectMapper();
+	static public void register(AccountModel model, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
 
-			String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);
+		String jsonReq = new Gson().toJson(model);
+		ObjectMapper objectMapper = new ObjectMapper();
 
-			ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
-			});
+		String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);
+		System.out.println(jsonResponse);
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
 
-			if (!res.getStatus()) {
-				session.setAttribute("errorMessage", res.getMessage());
-				return;
-			}
-		} catch (Exception e) {
-			// : handle exception
-			e.printStackTrace();
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 
 	}
