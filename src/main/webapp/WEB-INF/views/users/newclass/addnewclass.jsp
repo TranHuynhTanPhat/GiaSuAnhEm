@@ -20,7 +20,7 @@
 				src="resources/assets/images/tot_nghiep.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ MỞ LỚP</h1>
-			<form action="createNewClass" method="POST">
+			<form action="dang-ky-mo-lops" method="POST">
 				<div class="main-newclass-info">
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ hiện tại <span

@@ -71,7 +71,7 @@ public class NewClassController {
 			return mav;
 		}
 	}
-	@RequestMapping(value = "/createNewClass", method = RequestMethod.POST)
+	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.POST)
 	public String createNewCource(@RequestParam("diachi") String diachi, @RequestParam("quan") String quan,
 			@RequestParam("sobuoi") float sobuoi, @RequestParam("time") String time,
 			@RequestParam("trangthai") float trangthai, @RequestParam("luong") float luong,
