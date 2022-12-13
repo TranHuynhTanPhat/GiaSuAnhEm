@@ -101,4 +101,22 @@ public class CourceService {
 		});
 		return model;
 	}
+
+	static public List<NewClassModel> search(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+		String jsonResponse = CommonService.getWithParams(ApiConstant.NEWCLASS_FILTER, params);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return null;
+		}
+
+		List<NewClassModel> listNewClassModels = objectMapper.convertValue(res.getData(),
+				new TypeReference<List<NewClassModel>>() {
+				});
+		return listNewClassModels;
+	}
 }

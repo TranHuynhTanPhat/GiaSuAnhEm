@@ -60,6 +60,7 @@ public class CourceManagementController {
 
 				List<NewClassModel> listNewCource = CourceService.getListNewClass(session);
 
+				// excel
 				String typeRequest = request.getParameter("type");
 				if (typeRequest != null && typeRequest.equals("cource")) {
 
@@ -76,16 +77,43 @@ public class CourceManagementController {
 				}
 
 				ModelAndView mav = new ModelAndView("admin/CourceManagement/courceManagement");
-				mav.addObject("listNewCource", listNewCource);
 				mav.addObject("listSubject", listSubject);
 				mav.addObject("listClass", listClass);
 				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+
+				// search
+				String sub = request.getParameter("chonmon");
+				String cla = request.getParameter("chonlop");
+				String dis = request.getParameter("chonquan");
+				if (sub == null && cla == null && dis == null) {
+
+					mav.addObject("listNewCource", listNewCource);
+
+				} else {
+
+					Map<String, Object> params = new HashMap<>();
+					if (sub != "") {
+						params.put("subID", Integer.parseInt(sub));
+					}
+
+					if (cla != "") {
+						params.put("classID", Integer.parseInt(cla));
+					}
+
+					if (dis != "") {
+						params.put("cateID", Integer.parseInt(dis));
+					}
+					listNewCource = CourceService.search(params, session);
+					mav.addObject("listNewCource", listNewCource);
+				}
 				return mav;
+
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
 				return mav;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
@@ -121,11 +149,11 @@ public class CourceManagementController {
 				paramsClass.put("type", 1);
 				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
-				session.setAttribute("listSubject", listSubject);
-				session.setAttribute("listClass", listClass);
-				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-				session.setAttribute("listCategoryClass", listCategoryClass);
 				ModelAndView mav = new ModelAndView("admin/CourceManagement/addNewCource");
+				mav.addObject("listSubject", listSubject);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+				mav.addObject("listCategoryClass", listCategoryClass);
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -160,8 +188,24 @@ public class CourceManagementController {
 			param.put("id", id);
 			NewClassModel model = CourceService.getNewClass(param, session);
 
+			List<ClassModel> listClass = ClassService.getListClass(session);
+
+			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 0);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 1);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
 			ModelAndView mav = new ModelAndView("admin/CourceManagement/updateNewCource");
 			mav.addObject("model", model);
+			mav.addObject("listSubject", listSubject);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+			mav.addObject("listCategoryClass", listCategoryClass);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

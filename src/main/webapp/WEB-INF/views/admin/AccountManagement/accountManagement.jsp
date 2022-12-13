@@ -79,13 +79,27 @@
 				<!-- Content Row -->
 				<div class="row">
 					<div class="row">
+						<div class="col">
+							<form action="./createAccount" method="get">
+								<button class="btn btn-primary btn-block mb-4" type="submit">
+									<i class="fa-solid fa-plus icon"></i> Thêm tài khoản
+								</button>
+							</form>
+						</div>
+					</div>
+					<form action="" method="get" name="form1" style="width: 100%">
 						<div class="row">
-							<div class="col">
-								<form action="./createAccount" method="get">
-									<button class="btn btn-primary btn-block mb-4" type="submit">
-										<i class="fa-solid fa-plus icon"></i> Thêm tài khoản
-									</button>
-								</form>
+							<div class="col-2">
+								<div class="form-outline">
+									<input type="text" name="keys" id="keys" class="form-control"
+										value="" placeholder="Nhập từ khóa">
+								</div>
+							</div>
+							<div class="col-8">
+								<button class="btn btn-primary btn-block mb-4" type="submit">
+									<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
+								</button>
+
 							</div>
 							<div class="col" align="right">
 								<spring:url value="/quanlytaikhoan/?type=account"
@@ -96,6 +110,8 @@
 									excel</a>
 							</div>
 						</div>
+					</form>
+					<div class="row">
 						<table width="100%" class="table mb-0 bg-white"
 							style="text-align: left; float: left;">
 							<thead>
@@ -107,7 +123,6 @@
 										style="text-align: center; float: center;">Trạng thái</th>
 									<th scope="col" width="10%"
 										style="text-align: center; float: center;">Vai trò</th>
-									<th scope="col" width="2%"></th>
 									<th scope="col" width="2%"></th>
 								</tr>
 							</thead>
@@ -121,10 +136,6 @@
 										<td align="center">${item.role }</td>
 										<th><a href="updateAccount?id=${item.id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a
-											href="./deleteAccount?id=${item.id }&username=${item.username}&email=${item.email}&state=${item.state}&role=${item.role}&created=${item.created_at}&password=${item.password}"
-											onclick="return confirmDelete()"><i
-												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>
 								</c:forEach>
 

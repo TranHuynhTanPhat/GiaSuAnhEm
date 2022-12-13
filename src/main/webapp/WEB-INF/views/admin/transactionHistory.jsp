@@ -71,16 +71,17 @@
 				<div class="row">
 
 
-					<form action="" method="post" name="form1" style="width: 100%">
+					<form action="" method="get" name="form1" style="width: 100%">
 						<div class="row">
 							<div class="col-2">
 								<div class="form-outline">
-									<input type="text" name="search" class="form-control" value=""
-										placeholder="Nhập từ khóa">
+									<input type="text" name="keys" id="keys" class="form-control"
+										value="" placeholder="Nhập từ khóa">
 								</div>
 							</div>
 							<div class="col-8">
-								<button class="btn btn-primary btn-block mb-4" type="submit">
+								<button class="btn btn-primary btn-block mb-4" type="submit"
+									>
 									<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
 								</button>
 
@@ -128,6 +129,12 @@
 					</div>
 				</div>
 			</div>
+			<!-- <script>
+				function search() {
+					var keys = document.getElementById("keys").value;
+					return "keys=" + keys;
+				}
+			</script> -->
 			<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 		</div>
 	</section>

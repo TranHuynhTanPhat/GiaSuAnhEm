@@ -60,4 +60,25 @@ public class TransactionService {
 
 	}
 
+	static public List<TransactionHistoryModel> search(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		String jsonResponse = CommonService.getWithParams(ApiConstant.TRANSACTION_FILTER, params);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return null;
+		}
+
+		List<TransactionHistoryModel> listTransaction = objectMapper.convertValue(res.getData(),
+				new TypeReference<List<TransactionHistoryModel>>() {
+				});
+		return listTransaction;
+
+	}
+
 }

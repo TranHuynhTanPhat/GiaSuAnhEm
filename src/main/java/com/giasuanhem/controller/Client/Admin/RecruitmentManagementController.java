@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CommonService;
@@ -99,7 +101,7 @@ public class RecruitmentManagementController {
 
 	@RequestMapping(value = "/createRecruitment", method = RequestMethod.POST)
 	public String createIntroduction(@RequestParam("title") String title, @RequestParam("content") String content,
-			 @RequestParam("image") String img) throws IOException {
+			@RequestParam("image") String img) throws IOException {
 		if (session.getAttribute("admin") != null) {
 
 			PostModel model = new PostModel();
@@ -116,18 +118,17 @@ public class RecruitmentManagementController {
 	}
 
 	@RequestMapping(value = "/deleteRecruitment", method = RequestMethod.GET)
-	public String createIntroduction(@RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("id", id);
-				PostService.removePost(param, session);
-				return "redirect:/quanlytuyendung";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+	public String createIntroduction(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		if (session.getAttribute("admin") != null) {
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("id", id);
+			PostService.removePost(param, session);
+			return "redirect:/quanlytuyendung";
+		} else {
+			return "redirect:/login";
 		}
+
 	}
 }

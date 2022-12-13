@@ -59,6 +59,13 @@ public class TutorManagementController {
 
 				List<TutorModel> listTutor = TutorService.getListTutor(session);
 
+				ModelAndView mav = new ModelAndView("admin/TutorManagement/tutorManagement");
+
+				mav.addObject("listSubject", listSubject);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+
+				// Excel
 				String typeRequest = request.getParameter("type");
 				if (typeRequest != null && typeRequest.equals("tutor")) {
 
@@ -75,12 +82,41 @@ public class TutorManagementController {
 					return null;
 				}
 
-				ModelAndView mav = new ModelAndView("admin/TutorManagement/tutorManagement");
+				// Search
+				String sub = request.getParameter("chonmon");
+				String cla = request.getParameter("chonlop");
+				String dis = request.getParameter("chonquan");
+				String gen = request.getParameter("chongioitinh");
+				String peo = request.getParameter("chonnguoiday");
+				if (sub == null && cla == null && dis == null && gen == null && peo == null) {
 
-				mav.addObject("listSubject", listSubject);
-				mav.addObject("listClass", listClass);
-				mav.addObject("listCategoryDistrict", listCategoryDistrict);
-				mav.addObject("listTutor", listTutor);
+					mav.addObject("listTutor", listTutor);
+
+				} else {
+					Map<String, Object> params = new HashMap<>();
+					if (sub != "") {
+						params.put("subID", Integer.parseInt(sub));
+					}
+
+					if (cla != "") {
+						params.put("classID", Integer.parseInt(cla));
+					}
+
+					if (dis != "") {
+						params.put("cateID", Integer.parseInt(dis));
+					}
+
+					if (gen != "") {
+						params.put("gender", gen);
+					}
+
+					if (peo != "") {
+						params.put("isnow", peo);
+					}
+					listTutor = TutorService.search(params, session);
+					mav.addObject("listTutor", listTutor);
+				}
+
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");

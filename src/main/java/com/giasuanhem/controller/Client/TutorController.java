@@ -46,10 +46,13 @@ public class TutorController {
 			paramsDistrict.put("type", 1);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
+			List<TutorModel> model = TutorService.getListTutor(session);
+
+			ModelAndView mav = new ModelAndView("users/tutor/tutor");
+			mav.addObject("listTutor", model);
 			session.setAttribute("listCategoryClass", listCategoryClass);
 			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-			ModelAndView mav = new ModelAndView("users/tutor/tutor");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

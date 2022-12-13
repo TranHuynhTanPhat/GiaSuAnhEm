@@ -11,7 +11,8 @@
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
 <title>Varify</title>
-
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 <link href="<c:url value="resources/assets/css/import/varifyForm.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
@@ -22,13 +23,14 @@
 		<!-- Instructions -->
 		<div class="row">
 			<div class="alert alert-success col-md-12" role="alert" id="notes">
-				<h4>NOTES</h4>
+				<h4>Lưu ý:</h4>
 				<ul>
 					<li>Vui lòng nhập mã OTP đã được gửi vào Email, mã OTP
-						sẽ được gửi lại tự động sau 60 giây.</li>
+						sẽ được gửi lại tự động sau <span id="countdowntimer">60
+					</span>
+					</li>
 					<li>Nếu bạn chưa nhận được OTP hãy bấm vào đây! <a
-						href="verify/?email=${sessionScope.emailUser }"><i>Gửi
-								lại OTP</i></a>
+						href="verify"><i>Gửi lại OTP</i></a>
 					</li>
 				</ul>
 			</div>
@@ -54,5 +56,14 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		var timeleft = 60;
+		var downloadTimer = setInterval(function() {
+			timeleft--;
+			document.getElementById("countdowntimer").textContent = timeleft+" giây.";
+			if (timeleft <= 0)
+				clearInterval(downloadTimer);
+		}, 1000);
+	</script>
 </body>
 </html>

@@ -119,7 +119,7 @@ public class ClassManagementController {
 	public String deleteClass(@RequestParam("id") String id) {
 		try {
 			Map<String, Object> params = new HashMap<>();
-			params.put("_id", id);
+			params.put("id", id);
 			ClassService.removeClass(params, session);
 
 			return "redirect:/quanlylophoc";

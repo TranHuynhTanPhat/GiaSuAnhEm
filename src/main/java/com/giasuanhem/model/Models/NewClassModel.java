@@ -1,11 +1,5 @@
 package com.giasuanhem.model.Models;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class NewClassModel {
 	private int id;

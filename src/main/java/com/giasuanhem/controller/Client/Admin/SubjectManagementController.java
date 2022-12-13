@@ -31,23 +31,20 @@ public class SubjectManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
-	public ModelAndView subjectManagement() {
-		try {
-			if (session.getAttribute("admin") != null) {
-				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+	public ModelAndView subjectManagement() throws JsonParseException, JsonMappingException, IOException {
 
-				ModelAndView mav = new ModelAndView("admin/SubjectManagement/subjectManagement");
+		if (session.getAttribute("admin") != null) {
+			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
-				mav.addObject("listSubject", listSubject);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			ModelAndView mav = new ModelAndView("admin/SubjectManagement/subjectManagement");
+
+			mav.addObject("listSubject", listSubject);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/addSubject", method = RequestMethod.GET)
@@ -114,17 +111,13 @@ public class SubjectManagementController {
 	}
 
 	@RequestMapping(value = "/deleteSubject", method = RequestMethod.GET)
-	public String deleteSubject(@RequestParam("id") String id) {
-		try {
-			Map<String, Object> params = new HashMap<>();
-			params.put("_id", id);
-			SubjectService.removeSubject(params, session);
+	public String deleteSubject(@RequestParam("id") String id) throws JsonParseException, JsonMappingException, IOException {
 
-			return "redirect:/quanlymonhoc";
-		} catch (Exception e) {
-			e.printStackTrace();
+		Map<String, Object> params = new HashMap<>();
+		params.put("id", id);
+		SubjectService.removeSubject(params, session);
 
-			return "redirect:/error";
-		}
+		return "redirect:/quanlymonhoc";
+
 	}
 }

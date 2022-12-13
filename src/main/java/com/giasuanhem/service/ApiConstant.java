@@ -9,7 +9,7 @@ public class ApiConstant {
 	public static final String LIST_SUBJECT = "/subject/index";
 	public static final String LIST_SALARY = "/salaryinfo/index";
 	public static final String LIST_ACCOUNT = "/account/index";
-	public static final String LIST_TRANSACTION="/trans/index";
+	public static final String LIST_TRANSACTION = "/trans/index";
 
 	public static final String CATEGORY_FINDID = "/category/id";
 	public static final String TUTOR_FINDID = "/tutor/id";
@@ -45,4 +45,7 @@ public class ApiConstant {
 	public static final String SALARY_FILTER = "/salaryinfo/filter";
 	public static final String POST_FILTER = "/post/filter";
 	public static final String ACCOUNT_FILTER = "/account/filter";
+	public static final String NEWCLASS_FILTER = "/new_class/filter";
+	public static final String TRANSACTION_FILTER = "/trans/filter";
+	public static final String TUTOR_FILTER = "/tutor/filter";
 }

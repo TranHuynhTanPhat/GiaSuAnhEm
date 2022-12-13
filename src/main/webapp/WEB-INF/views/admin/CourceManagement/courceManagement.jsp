@@ -26,6 +26,10 @@
 <link
 	href="<c:url value="resources/assets/css/import/admin/style.css"/>"
 	rel="stylesheet">
+<link
+	href="<c:url value="resources/assets/css/import/admin/login.css"/>"
+	rel="stylesheet">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -78,7 +82,7 @@
 
 					<div id="row">
 
-						<form action="" method="post" name="form1" style="width: 100%">
+						<form action="" method="get" name="form1" style="width: 100%">
 							<div class="row">
 								<div class="col-md">
 									<select name="chonlop" id="chonlop" class="form-select">
@@ -97,17 +101,16 @@
 									</select>
 								</div>
 								<div class="col-md">
-									<select name="quanhuyen" id="quanhuyen" class="form-select">
-										<option value="0">Quận huyện</option>
-										<c:forEach var="item"
-											items="${listCategoryDistrict }">
+									<select name="chonquan" id="chonquan" class="form-select">
+										<option value="">Quận huyện</option>
+										<c:forEach var="item" items="${listCategoryDistrict }">
 											<option value=${item.id }>${item.name }</option>
 										</c:forEach>
 									</select>
 								</div>
 								<div class="col-md">
 									<div id="fixedButtonSearch" style="float: center">
-										<button class="btn btn-primary btn-block mb-4" type="button">
+										<button class="btn btn-primary btn-block mb-4" type="submit">
 											<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
 										</button>
 									</div>
@@ -152,39 +155,107 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listNewCource }">
-								<tr>
+								<c:choose>
+									<c:when test="${item.status==1}">
+										<tr style="color: red">
+									</c:when>
+								</c:choose>
 
-									<%-- <td><c:forEach var="cl" items="${item.classes }">
+								<%-- <td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
 									</c:forEach></td> --%>
-									<td>${item.classes }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${item.classes }</td>
 
-									<%-- <td><c:forEach var="subject" items="${item.subjects }">
+								<%-- <td><c:forEach var="subject" items="${item.subjects }">
 										${ subject.name },
 									</c:forEach></td> --%>
-									<td>${item.subjects }</td>
-									<td>${ item.address }</td>
-									<td>${ item.salary }</td>
-									<td>${ item.sobuoi }</td>
-									<td>${ item.time }</td>
-									<td>${ item.require }</td>
-									<td>${item.contact }</td>
-									<td>${ item.status }</td>
-									<th><a href="updateNewCource?id=${item.id}"><i
-											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteNewCource?id=${item.id }"
-										onclick="return confirmDelete()"><i
-											class="fa-solid fa-trash text-danger icon"></i></a></th>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${item.subjects }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.address }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.salary }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.sobuoi }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.time }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.require }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${item.contact }</td>
+								<td
+									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.status }</td>
+								<th><a href="updateNewCource?id=${item.id}"><i
+										class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
+								<th><a href="./deleteNewCource?id=${item.id }"
+									onclick="return confirmDelete()"><i
+										class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
 							</c:forEach>
 
 						</tbody>
 					</table>
-
+					<canvas width="100%" height="1px"></canvas>
+					<div class="row form" id="Custome-div" style="width: 60%;">
+						<div id="divGFG" align=left>
+							<center>
+								<i>Click vào bảng để xem đầy đủ thông tin</i>
+							</center>
+						</div>
+					</div>
 					<canvas width="100%" height="10px"></canvas>
 				</div>
 			</div>
 		</div>
+		<!-- <script>
+			function search() {
+				var cl = document.getElementById("chonlop").value;
+				var su = document.getElementById("chonmon").value;
+				var di = document.getElementById("chonquan").value;
+				return "class=" + cl + "&subject=" + su + "district=" + di;
+			}
+		</script> -->
+
+		<script>
+			function checkRow(id, address, district, sobuoi, time, salary,
+					require, status, categories, classes, subjects, contact,
+					created_at) {
+
+				var p = "<h2>Thông tin cụ thể</h2>";
+				// CREATING DATA TO SHOW ON MODEL
+				p += "<div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Mã khóa học: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+id+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Địa chỉ: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+address+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Quận: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+district+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Số buổi/tuần: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+sobuoi+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Thời gian: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+time+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Lương: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+salary+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Phân loại: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+categories+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Lớp học: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+classes+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Môn học: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+subjects+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Yêu cầu: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+require+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Liên hệ: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+contact+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Ngày tạo: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+created_at+"\"  ></div>"
+				p += "</div>"
+				//CLEARING THE PREFILLED DATA
+				$("#divGFG").empty();
+				//WRITING THE DATA ON MODEL
+				$("#divGFG").append(p);
+			}
+		</script>
+
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 
 	</section>

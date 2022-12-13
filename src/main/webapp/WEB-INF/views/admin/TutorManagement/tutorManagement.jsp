@@ -53,6 +53,10 @@
 	type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/672e69e895.js"
 	crossorigin="anonymous"></script>
+
+<!-- <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
 </head>
 <body>
 	<script type="text/javascript">
@@ -79,7 +83,7 @@
 				<div class="row">
 
 
-					<form action="" method="post" name="form1" style="width: 100%">
+					<form action="" method="get" name="form1" style="width: 100%">
 
 						<div class="row align-middle">
 							<div class="col-md">
@@ -101,10 +105,10 @@
 							<div class="col-md">
 								<select name="chongioitinh" id="chongioitinh"
 									class="form-select">
-									<option value="0">Giới Tính</option>
-									<option value="1">Nam</option>
-									<option value="2">Nữ</option>
-									<option value="2">Khác</option>
+									<option value="">Giới Tính</option>
+									<option value="Nam">Nam</option>
+									<option value="Nữ">Nữ</option>
+									<option value="Khác">Khác</option>
 
 								</select>
 							</div>
@@ -112,17 +116,17 @@
 							<div class="col-md">
 								<select name="chonnguoiday" id="chonnguoiday"
 									class="form-select">
-									<option value="0">Hiện là</option>
-									<option value="1">Giáo viên</option>
-									<option value="2">Sinh viên</option>
-									<option value="3">Đã tốt nghiệp</option>
+									<option value="">Hiện là</option>
+									<option value="Giáo viên">Giáo viên</option>
+									<option value="Sinh viên">Sinh viên</option>
+									<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
 
 								</select>
 							</div>
 
 							<div class="col-md">
-								<select name="quanhuyen" id="quanhuyen" class="form-select">
-									<option value="0">Quận huyện</option>
+								<select name="chonquan" id="chonquan" class="form-select">
+									<option value="">Quận huyện</option>
 									<c:forEach var="item" items="${listCategoryDistrict }">
 										<option value=${item.id }>${item.name }</option>
 									</c:forEach>
@@ -173,36 +177,116 @@
 									<th scope="col">Ưu điểm<br></th>
 
 									<th scope="col" width="2%"></th>
-									<th scope="col" width="2%"></th>
+									<!-- <th scope="col" width="2%"></th> -->
 								</tr>
 							</thead>
 							<tbody class="table-group-divider">
 								<c:forEach var="item" items="${ listTutor }">
 									<tr>
-										<td>${item.name }</td>
-										<td>${item.email }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.name }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.email }</td>
 
-										<td>${item.birth_year }</td>
-										<td>${item.gender }</td>
-										<td>${item.phone }</td>
-										<td>${item.isnow }</td>
-										<td>${item.sobuoi }</td>
-										<td>${item.describe }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.birth_year }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.gender }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.phone }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.isnow }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.sobuoi }</td>
+										<td
+											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.describe }</td>
 										<th><a href="updateTutor?id=${item.id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteTutor?id=${item.id }"
+										<%-- <th><a href="./deleteTutor?id=${item.id }"
 											onclick="return confirmDelete()"><i
-												class="fa-solid fa-trash text-danger icon"></i></a></th>
+												class="fa-solid fa-trash text-danger icon"></i></a></th> --%>
 									</tr>
 								</c:forEach>
 
 							</tbody>
 						</table>
+
+						<canvas width="100%" height="1px"></canvas>
+						<div class="row form" id="Custome-div" style="width: 60%;">
+							<div id="divGFG" align=left>
+								<center>
+									<i>Click vào bảng để xem đầy đủ thông tin</i>
+								</center>
+							</div>
+						</div>
 						<canvas width="100%" height="10px"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
-		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+		<!-- <script>
+			function search() {
+				var cl = document.getElementById("chonlop").value;
+				var su = document.getElementById("chonmon").value;
+				var di = document.getElementById("chonquan").value;
+				var gen = document.getElementById("chongioitinh").value;
+				var peo = document.getElementById("chonnguoiday").value;
+				return "class=" + cl + "subject=" + su + "district=" + di
+						+ "gender=" + gen + "people=" + peo;
+			}
+		</script> -->
+		<script>
+			function checkRow(id, name, address, email, phone, school,
+					department, gender, graduate_year, isnow, describe, sobuoi,
+					birth_year, id_account, created_at, classes, subjects,
+					categories) {
+
+				var p = "<h2>Thông tin cụ thể</h2>";
+				// CREATING DATA TO SHOW ON MODEL
+				p += "<div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Mã gia sư: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+id+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Tên tài khoản: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+id_account+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Tên gia sư: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+name+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Địa chỉ: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+address+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Email: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+email+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Số điện thoại: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+phone+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Trường: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+school+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Chuyên ngành: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+department+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Giới tính: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+gender+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Năm tốt nghiệp: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+graduate_year+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Nghề nghiệp: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+isnow+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Ưu điểm: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+describe+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Số buổi: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+sobuoi+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Ngày sinh: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+birth_year+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Lớp dạy: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+classes+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Môn dạy: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+subjects+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Phân loại: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+categories+"\"  ></div>"
+				p += "</div> <div class=\"row\">"
+				p += "<label class=\"control-label\"><b>Ngày tạo: </b><span style=\"color: #FF0000\">*</span></label><div class=\"form-outline\"><input type=\"text\"  class=\"form-control\"disabled value=\""+created_at+"\"  ></div>"
+				p += "</div>"
+				//CLEARING THE PREFILLED DATA
+				$("#divGFG").empty();
+				//WRITING THE DATA ON MODEL
+				$("#divGFG").append(p);
+			}
+		</script>
+
+
 	</section>
 </body>

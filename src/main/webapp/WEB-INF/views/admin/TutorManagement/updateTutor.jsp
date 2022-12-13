@@ -64,9 +64,13 @@
 				<div class="title2">
 					<strong>Cập nhật gia sư</strong>
 				</div>
+
 				<form action="${pageContext.request.contextPath }/updateTutor"
 					method="post">
-					<input type="hidden" name="id" value="${model.id }">
+					<input type="hidden" name="id" value="${model.id }"> <input
+						type="hidden" name="accId" class="form-control"
+						value="${model.id_account }"> <input type="hidden"
+						name="created" class="form-control" value="${model.created_at }">
 					<div class="form-group">
 						<div class="row">
 							<div class="col-9">

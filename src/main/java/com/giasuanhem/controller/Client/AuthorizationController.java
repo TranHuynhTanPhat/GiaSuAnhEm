@@ -54,9 +54,13 @@ public class AuthorizationController {
 		params.put("password", password);
 
 		AccountService.checkLogin(params, session);
-		if ((int) session.getAttribute("state") == 2) {
-
-			return "redirect:/verify";
+		String temp = (String) session.getAttribute("state");
+		if (temp != null) {
+			if (Integer.parseInt(temp) == 2) {
+				return "redirect:/verify";
+			}
+		} else {
+			return "redirect:/dang-nhap";
 		}
 
 		return "redirect:/trang-chu";

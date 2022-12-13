@@ -130,7 +130,7 @@
 								<div class="col">
 									<select name="nghenghiep" id="nghenghiep" class="form-control"
 										style="width: 100%; float: left">
-										<option value="Nghề nghiệp">-- Chọn nghề nghiệp --</option>
+										<option value="">-- Chọn nghề nghiệp --</option>
 										<option value="Giáo viên">Giáo viên</option>
 										<option value="Sinh viên">Sinh viên</option>
 										<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>

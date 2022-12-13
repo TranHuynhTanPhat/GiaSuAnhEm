@@ -37,12 +37,16 @@ public class PostService {
 		}
 	}
 
-	static public void removePost(Map<String, Object> params, HttpSession session) {
+	static public void removePost(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
 
-		try {
-			String jsonResponse = CommonService.postWithParams(ApiConstant.POST_REMOVE, params, session);
-		} catch (Exception e) {
-			e.printStackTrace();
+		String jsonResponse = CommonService.postWithParams(ApiConstant.POST_REMOVE, params, session);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
 	}
 

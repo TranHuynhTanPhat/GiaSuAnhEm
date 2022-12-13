@@ -100,20 +100,23 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${ listNewClass }">
-								<tr class="row0">
-									<td>${ item.id }</td>
-									<td><c:forEach var="cl" items="${item.classes }">
-											${ cl.name },
-										</c:forEach></td>
-									<td><c:forEach var="subject" items="${item.subjects }">
-											${ subject.name },
-										</c:forEach></td>
-									<td>${ item.address }</td>
-									<td>${ item.district }<br></td>
-									<td>${ item.sobuoi }</td>
-									<td>${ item.time }</td>
-									<td align="right">${item.salary}</td>
-									<td>${ item.require }</td>
+								<c:choose>
+									<c:when test="${item.status==1}">
+										<tr style="background-color: #e17c7c; color: white">
+									</c:when>
+									<c:otherwise>
+										<tr style="background-color: #8fe26b;">
+									</c:otherwise>
+								</c:choose>
+								<td>${ item.id }</td>
+								<td>${ item.classes }</td>
+								<td>${item.subjects }</td>
+								<td>${ item.address }</td>
+								<td>${ item.district }<br></td>
+								<td>${ item.sobuoi }</td>
+								<td>${ item.time }</td>
+								<td align="right">${item.salary}</td>
+								<td>${ item.require }</td>
 								</tr>
 							</c:forEach>
 
