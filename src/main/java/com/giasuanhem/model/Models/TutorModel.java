@@ -1,52 +1,33 @@
 package com.giasuanhem.model.Models;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TutorModel {
-	private String _id;
+	private int id;
 	private String name;
 	private String address;
 	private String email;
 	private String phone;
 	private String school;
 	private String department;
-	List<Object> subjects = new ArrayList<Object>();
-	List<Object> classes = new ArrayList<Object>();
-	List<Object> teachAreas = new ArrayList<Object>();
-	private String vehicle;
-	private float sobuoi;
 	private String gender;
-	private String birthYear;
-	private String graduateYear;
-	private String createdAt;
-	private String updatedAt;
-	private String isNow;
+	private String graduate_year;
+	private String isnow;
 	private String describe;
-	// Getter Methods
+	private int sobuoi;
+	private String birth_year;
+	private Object id_account;
+	private String created_at;
+	Object subjects = new ArrayList<Object>();
+	Object classes = new ArrayList<Object>();
+	Object categories = new ArrayList<Object>();
 
-	public String getCreatedAt() {
-		return createdAt;
+	public int getId() {
+		return id;
 	}
 
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public String getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(String updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	public String get_id() {
-		return _id;
-	}
-
-	public void set_id(String _id) {
-		this._id = _id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -97,46 +78,6 @@ public class TutorModel {
 		this.department = department;
 	}
 
-	public List<Object> getSubjects() {
-		return subjects;
-	}
-
-	public void setSubjects(List<Object> subjects) {
-		this.subjects = subjects;
-	}
-
-	public List<Object> getClasses() {
-		return classes;
-	}
-
-	public void setClasses(List<Object> classes) {
-		this.classes = classes;
-	}
-
-	public List<Object> getTeachAreas() {
-		return teachAreas;
-	}
-
-	public void setTeachAreas(List<Object> teachAreas) {
-		this.teachAreas = teachAreas;
-	}
-
-	public String getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(String vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public float getSobuoi() {
-		return sobuoi;
-	}
-
-	public void setSobuoi(float sobuoi) {
-		this.sobuoi = sobuoi;
-	}
-
 	public String getGender() {
 		return gender;
 	}
@@ -145,28 +86,20 @@ public class TutorModel {
 		this.gender = gender;
 	}
 
-	public String getBirthYear() {
-		return birthYear;
+	public String getGraduate_year() {
+		return graduate_year;
 	}
 
-	public void setBirthYear(String birthYear) {
-		this.birthYear = birthYear;
+	public void setGraduate_year(String graduate_year) {
+		this.graduate_year = graduate_year;
 	}
 
-	public String getGraduateYear() {
-		return graduateYear;
+	public String getIsnow() {
+		return isnow;
 	}
 
-	public void setGraduateYear(String graduateYear) {
-		this.graduateYear = graduateYear;
-	}
-
-	public String getIsNow() {
-		return isNow;
-	}
-
-	public void setIsNow(String isNow) {
-		this.isNow = isNow;
+	public void setIsnow(String isnow) {
+		this.isnow = isnow;
 	}
 
 	public String getDescribe() {
@@ -175,6 +108,62 @@ public class TutorModel {
 
 	public void setDescribe(String describe) {
 		this.describe = describe;
+	}
+
+	public int getSobuoi() {
+		return sobuoi;
+	}
+
+	public void setSobuoi(int sobuoi) {
+		this.sobuoi = sobuoi;
+	}
+
+	public String getBirth_year() {
+		return birth_year;
+	}
+
+	public void setBirth_year(String birth_year) {
+		this.birth_year = birth_year;
+	}
+
+	public Object getId_account() {
+		return id_account;
+	}
+
+	public void setId_account(Object id_account) {
+		this.id_account = id_account;
+	}
+
+	public String getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
+
+	public Object getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(Object subjects) {
+		this.subjects = subjects;
+	}
+
+	public Object getClasses() {
+		return classes;
+	}
+
+	public void setClasses(Object classes) {
+		this.classes = classes;
+	}
+
+	public Object getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Object categories) {
+		this.categories = categories;
 	}
 
 }

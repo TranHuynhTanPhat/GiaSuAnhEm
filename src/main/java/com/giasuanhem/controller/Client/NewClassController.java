@@ -1,6 +1,5 @@
 package com.giasuanhem.controller.Client;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,22 +17,42 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
+<<<<<<< HEAD
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.MapperModel;
+=======
+import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.ClassService;
+import com.giasuanhem.service.Service.CourceService;
+import com.giasuanhem.service.Service.SubjectService;
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 
 @Controller
 public class NewClassController {
 	@Autowired
-	CommonService commonService;
-	@Autowired
 	HttpSession session;
+<<<<<<< HEAD
 	@Autowired
 	MapperModel commonModel;
 	
+=======
+
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() {
 		try {
-			List<NewClassModel> listNewClass = commonService.getListNewClass();
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 0);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 1);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+			session.setAttribute("listCategoryClass", listCategoryClass);
+			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+
+			List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
 
 			ModelAndView mav = new ModelAndView("users/newclass/newclass");
 			mav.addObject("listNewClass", listNewClass);
@@ -43,30 +62,38 @@ public class NewClassController {
 			return mav;
 		}
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.GET)
 	public ModelAndView registerNewClassPage() {
 		try {
-			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("style", 0);
-			List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
+			String role = String.valueOf(session.getAttribute("role"));
+			if (role.equals("parent")) {
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 0);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
-			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("style", 1);
-			List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-			
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-			
-			List<ClassModel> listClass = commonService.getListClass();
-			List<SubjectModel> listSubject = commonService.getListSubject();
-			
-			session.setAttribute("listClass", listClass);
-			session.setAttribute("listSubject", listSubject);
-			
-			ModelAndView mav = new ModelAndView("users/newclass/addnewclass");
-			return mav;
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 1);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+
+				List<ClassModel> listClass = ClassService.getListClass(session);
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
+				ModelAndView mav = new ModelAndView("users/newclass/addnewclass");
+				mav.addObject("listCategoryClass", listCategoryClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+				mav.addObject("listClass", listClass);
+				mav.addObject("listSubject", listSubject);
+				return mav;
+			} else {
+				return new ModelAndView("404page");
+			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}

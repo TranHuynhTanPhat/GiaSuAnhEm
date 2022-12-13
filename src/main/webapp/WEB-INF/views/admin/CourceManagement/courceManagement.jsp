@@ -2,8 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -81,16 +83,16 @@
 								<div class="col-md">
 									<select name="chonlop" id="chonlop" class="form-select">
 										<option value="">Chọn Lớp</option>
-										<c:forEach var="item" items="${sessionScope.listClass }">
-											<option value="${item._id }">${item.name}</option>
+										<c:forEach var="item" items="${listClass }">
+											<option value="${item.id }">${item.name}</option>
 										</c:forEach>
 									</select>
 								</div>
 								<div class="col-md">
 									<select name="chonmon" id="chonmon" class="form-select">
 										<option value="">Chọn Môn</option>
-										<c:forEach var="item" items="${sessionScope.listSubject }">
-											<option value="${item._id}">${item.name}</option>
+										<c:forEach var="item" items="${listSubject }">
+											<option value="${item.id}">${item.name}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -98,8 +100,8 @@
 									<select name="quanhuyen" id="quanhuyen" class="form-select">
 										<option value="0">Quận huyện</option>
 										<c:forEach var="item"
-											items="${sessionScope.listCategoryDistrict }">
-											<option value=${item._id }>${item.name }</option>
+											items="${listCategoryDistrict }">
+											<option value=${item.id }>${item.name }</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -126,7 +128,8 @@
 							</form>
 						</div>
 						<div class="col" align="right">
-							<a href="#"
+							<spring:url value="/quanlykhoahoc/?type=cource" var="xlsxCource" />
+							<a href="${xlsxCource }"
 								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 								class="fas fa-download fa-sm text-white-50"></i> Tải file excel</a>
 						</div>
@@ -151,14 +154,15 @@
 							<c:forEach var="item" items="${listNewCource }">
 								<tr>
 
-									<td><c:forEach var="cl" items="${item.classes }">
+									<%-- <td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
-									</c:forEach></td>
+									</c:forEach></td> --%>
+									<td>${item.classes }</td>
 
-									<td><c:forEach var="subject" items="${item.subjects }">
+									<%-- <td><c:forEach var="subject" items="${item.subjects }">
 										${ subject.name },
-									</c:forEach></td>
-
+									</c:forEach></td> --%>
+									<td>${item.subjects }</td>
 									<td>${ item.address }</td>
 									<td>${ item.salary }</td>
 									<td>${ item.sobuoi }</td>
@@ -166,9 +170,9 @@
 									<td>${ item.require }</td>
 									<td>${item.contact }</td>
 									<td>${ item.status }</td>
-									<th><a href="updateNewCource?id=${item._id}"><i
+									<th><a href="updateNewCource?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteNewCource?id=${item._id }"
+									<th><a href="./deleteNewCource?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

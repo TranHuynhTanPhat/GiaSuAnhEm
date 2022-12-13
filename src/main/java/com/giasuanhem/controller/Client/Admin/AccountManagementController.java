@@ -1,8 +1,15 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,24 +19,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.giasuanhem.model.Models.CategoryModel;
-import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.giasuanhem.model.Models.AccountModel;
+import com.giasuanhem.service.ExcelExporter.AccountExcelExporter;
+import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.AccountService;
+import com.giasuanhem.service.Service.CategoryService;
 
 @Controller
 public class AccountManagementController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
 	@Autowired
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlytaikhoan", method = RequestMethod.GET)
-	public ModelAndView accountManagement() {
-		try {
-			if (session.getAttribute("userName") != null) {
+	public ModelAndView accountManagement(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+		if (session.getAttribute("admin") != null) {
 //				Map<String, Object> paramsClass = new HashMap<>();
 //				paramsClass.put("style", 0);
 //				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
@@ -41,105 +49,130 @@ public class AccountManagementController {
 //				session.setAttribute("listCategoryClass", listCategoryClass);
 //				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
-				ModelAndView mav = new ModelAndView("admin/AccountManagement/accountManagement");
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
+			List<AccountModel> listAccounts = AccountService.getListAccount(session);
+
+			// Xuất excel
+			String typeRequest = request.getParameter("type");
+			if (typeRequest != null && typeRequest.equals("account")) {
+				DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+				String currentDateTime = dateFormatter.format(new Date());
+
+				String headerKey = "Content-Disposition";
+				String headerValue = "attachment; filename=Accounts_" + currentDateTime + ".xlsx";
+				response.setHeader(headerKey, headerValue);
+
+				AccountExcelExporter excelExporter = new AccountExcelExporter(listAccounts);
+				excelExporter.export(response);
+				return null;
 			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+
+			ModelAndView mav = new ModelAndView("admin/AccountManagement/accountManagement");
+			mav.addObject("listAccounts", listAccounts);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/createAccount", method = RequestMethod.GET)
 	public ModelAndView addAccount() {
-		try {
-			if (session.getAttribute("userName") != null) {
-				ModelAndView mav = new ModelAndView("admin/AccountManagement/addAccount");
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+
+		if (session.getAttribute("admin") != null) {
+			ModelAndView mav = new ModelAndView("admin/AccountManagement/addAccount");
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/createAccount", method = RequestMethod.POST)
-	public String addAccount(HttpSession session, @RequestParam("CategoryName") String name,
-			@RequestParam("style") float style) throws JsonProcessingException {
-		try {
-			if (session.getAttribute("userName") != null) {
-				CategoryModel model = new CategoryModel();
-				model.setName(name);
-				model.setStyle(style);
-				commonService.createCategory(model);
-				return "redirect:/quanlydanhmuc";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+	public String addAccount(@RequestParam("username") String name, @RequestParam("email") String email,
+			@RequestParam("password") String password, @RequestParam("role") int role, @RequestParam("state") int state)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		if (session.getAttribute("admin") != null) {
+			AccountModel model = new AccountModel();
+			model.setUsername(name);
+			model.setEmail(email);
+			model.setPassword(password);
+			model.setRole(role);
+			model.setState(state);
+
+			AccountService.register(model, session);
+			return "redirect:/quanlytaikhoan";
+		} else {
+			return "redirect:/login";
 		}
+
 	}
 
 	@RequestMapping(value = "/updateAccount", method = RequestMethod.GET)
-	public ModelAndView updateAccount(HttpSession session, @RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("userName") != null) {
+	public ModelAndView updateAccount(HttpSession session, @RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				CategoryModel category = commonService.getCategory(param);
+		if (session.getAttribute("admin") != null) {
 
-				ModelAndView mav = new ModelAndView("admin/AccountManagement/updateAccount");
-				mav.addObject("category", category);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("id", id);
+			AccountModel account = AccountService.getAccount(param);
+
+			ModelAndView mav = new ModelAndView("admin/AccountManagement/updateAccount");
+			mav.addObject("model", account);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/updateAccount", method = RequestMethod.POST)
-	public String updateAccount(HttpSession session, @RequestParam("id") String id,
-			@RequestParam("CategoryName") String name, @RequestParam("style") float style) {
-		try {
-			if (session.getAttribute("userName") != null) {
-				CategoryModel model = new CategoryModel();
-				model.setName(name);
-				model.setStyle(style);
+	public String updateAccount(@RequestParam("id") int id, @RequestParam("username") String name,
+			@RequestParam("email") String email, @RequestParam("state") int state, @RequestParam("role") int role,
+			@RequestParam("created") String created, @RequestParam("password") String password)
+			throws JsonParseException, JsonMappingException, IOException {
 
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				commonService.updateCategory(model, param);
+		if (session.getAttribute("admin") != null) {
+			AccountModel model = new AccountModel();
+			model.setId(id);
+			model.setUsername(name);
+			model.setEmail(email);
+			model.setState(state);
+			model.setRole(role);
+			model.setPassword(password);
+			model.setCreated_at(created);
 
-				return "redirect:/quanlydanhmuc";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+			AccountService.updateAccount(model, session);
+
+			return "redirect:/quanlytaikhoan";
+		} else {
+			return "redirect:/login";
 		}
+
 	}
 
 	@RequestMapping(value = "/deleteAccount", method = RequestMethod.GET)
-	public String deleteAccount(HttpSession session, @RequestParam("id") String id) {
+	public String deleteAccount(@RequestParam("id") int id, @RequestParam("username") String name,
+			@RequestParam("email") String email, @RequestParam("state") int state, @RequestParam("role") int role,
+			@RequestParam("created") String created, @RequestParam("password") String password) {
 		try {
-			if (session.getAttribute("userName") != null) {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				commonService.removeCategory(param);
+			if (session.getAttribute("admin") != null) {
+				AccountModel model = new AccountModel();
+				model.setId(id);
+				model.setUsername(name);
+				model.setEmail(email);
+				model.setState(0);
+				model.setRole(role);
+				model.setPassword(password);
+				model.setCreated_at(created);
 
-				return "redirect:/quanlydanhmuc";
+				AccountService.updateAccount(model, session);
+
+				return "redirect:/quanlytaikhoan";
 			} else {
 				return "redirect:/login";
 			}

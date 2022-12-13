@@ -19,9 +19,6 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="resources/assets/css/import/footer.css"/>"
 	rel="stylesheet">
-
-<link href="<c:url value="resources/assets/css/import/sidebar.css"/>"
-	rel="stylesheet">
 <link href="<c:url value="resources/assets/css/import/style.css"/>"
 	rel="stylesheet">
 
@@ -94,11 +91,11 @@
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listSST }">
 								<tr>
-									<td>${item.grade }</td>
-									<td>${item.twoSessions }</td>
-									<td>${item.threeSessions }</td>
-									<td>${item.fourSessions }</td>
-									<td>${item.fiveSessions }</td>
+									<td>${item.id_category }</td>
+									<td>${item.two_sessions }</td>
+									<td>${item.three_sessions }</td>
+									<td>${item.four_sessions }</td>
+									<td>${item.five_sessions }</td>
 								</tr>
 							</c:forEach>
 
@@ -134,13 +131,13 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<c:forEach var="item" items="${listSST }">
+							<c:forEach var="item" items="${listSTE }">
 								<tr>
-									<td>${item.grade }</td>
-									<td>${item.twoSessions }</td>
-									<td>${item.threeSessions }</td>
-									<td>${item.fourSessions }</td>
-									<td>${item.fiveSessions }</td>
+									<td>${item.id_category }</td>
+									<td>${item.two_sessions }</td>
+									<td>${item.three_sessions }</td>
+									<td>${item.four_sessions }</td>
+									<td>${item.five_sessions }</td>
 								</tr>
 							</c:forEach>
 						</tbody>

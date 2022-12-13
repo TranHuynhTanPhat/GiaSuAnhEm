@@ -35,7 +35,14 @@ body {
 	border-bottom: solid 1px white;
 }
 
-.main-newclass-info {
+.main-newclass-info-input {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+
+.main-newclass-info-checkbox {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -140,8 +147,8 @@ body {
 	width: 19px;
 	height: 24px;
 }
-img {
-    height: 78px;
-    margin-top: -2px;
-}
 
+img {
+	height: 78px;
+	margin-top: -2px;
+}

@@ -72,11 +72,11 @@
 								<label class="control-label">Khối lớp: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col-7">
-									<select name="grade" id="typeTeacher" class="form-select">
+									<select name="id_category" class="form-select">
 										<option value="Chọn khối">-- Chọn khối --</option>
 										<c:forEach var="item"
-											items="${sessionScope.listCategoryClass }">
-											<option value="${item.name }">${item.name }</option>
+											items="${listCategoryClass }">
+											<option value="${item.id }">${item.name }</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -85,8 +85,7 @@
 								<label class="control-label">Gia sư:<span
 									style="color: #FF0000">*</span></label>
 								<div class="col-7">
-									<select name="styleTeacher" id="typeTeacher"
-										class="form-select">
+									<select name="type_teacher" class="form-select">
 										<option value="1">-- Chọn gia sư --</option>
 										<option value="1">Gia sư là giáo viên</option>
 										<option value="0">Gia sư là sinh viên</option>

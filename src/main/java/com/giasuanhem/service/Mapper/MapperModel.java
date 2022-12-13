@@ -1,4 +1,4 @@
-package com.giasuanhem.service.Service;
+package com.giasuanhem.service.Mapper;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import com.giasuanhem.model.Models.TutorModel;
 @Transactional
 public class MapperModel {
 	public TutorModel mapTutor(String name, String address, String email, String phone, String school,
-			String department, List<Object> subjects, List<Object> classes, List<Object> teachAreas, String vehicle,
-			float sobuoi, String gender, String birthYear, String graduateYear, String isNow, String describe) {
+			String department, Object subjects, Object classes, Object categories, int sobuoi, String gender,
+			String birthYear, String graduateYear, String isNow, String describe, Object id_account) {
 		TutorModel newItem = new TutorModel();
 		newItem.setName(name);
 		newItem.setAddress(address);
@@ -26,20 +26,19 @@ public class MapperModel {
 		newItem.setDepartment(department);
 		newItem.setSubjects(subjects);
 		newItem.setClasses(classes);
-		newItem.setTeachAreas(teachAreas);
-		newItem.setVehicle(vehicle);
+		newItem.setCategories(categories);
 		newItem.setSobuoi(sobuoi);
 		newItem.setGender(gender);
-		newItem.setBirthYear(birthYear);
-		newItem.setGraduateYear(graduateYear);
-		newItem.setIsNow(isNow);
+		newItem.setBirth_year(birthYear);
+		newItem.setGraduate_year(graduateYear);
+		newItem.setIsnow(isNow);
 		newItem.setDescribe(describe);
+		newItem.setId_account(id_account);
 		return newItem;
 	}
 
-	public NewClassModel mapNewCource(String address, String district, float sobuoi, String time, float salary,
-			String require, float status, List<Object> categories, List<Object> classes, List<Object> subjects,
-			String contact) {
+	public NewClassModel mapNewCource(String address, String district, int sobuoi, String time, int salary,
+			String require, int status, Object categories, Object classes, Object subjects, String contact) {
 		NewClassModel newItem = new NewClassModel();
 		newItem.setAddress(address);
 		newItem.setDistrict(district);
@@ -67,15 +66,16 @@ public class MapperModel {
 		return newItem;
 	}
 
-	public SalaryModel mapSalary(String grade, float styleTeacher, String twoSessions, String threeSessions,
-			String fourSessions, String fiveSessions) {
+	public SalaryModel mapSalary(int type_teacher, String two_seesions, String three_sessions, String four_seesions,
+			String five_sessions, Object id_category) {
 		SalaryModel newItem = new SalaryModel();
-		newItem.setGrade(grade);
-		newItem.setStyleTeacher(styleTeacher);
-		newItem.setTwoSessions(twoSessions);
-		newItem.setThreeSessions(threeSessions);
-		newItem.setFourSessions(fourSessions);
-		newItem.setFiveSessions(fiveSessions);
+		newItem.setId_category(id_category);
+		newItem.setType_teacher(type_teacher);
+		newItem.setTwo_sessions(two_seesions);
+		newItem.setThree_sessions(three_sessions);
+		newItem.setFour_sessions(four_seesions);
+		newItem.setFive_sessions(five_sessions);
+
 		return newItem;
 	}
 

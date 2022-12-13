@@ -20,7 +20,12 @@
 
 			<h1 class="form-title">ĐĂNG KÝ LÀM GIA SƯ</h1>
 			<form action="them-gia-su" method="post">
+<<<<<<< HEAD
 				<div class="main-newclass-info">
+=======
+
+				<div class="main-newclass-info-input">
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 					<div class="user-input-box">
 						<label for="diachi">Họ và tên <span style="color: #db1414">*</span></label>
 						<input type="text" id="hoten" name="hoten"
@@ -32,9 +37,15 @@
 							placeholder="Nhập địa chỉ">
 					</div>
 					<div class="user-input-box">
+<<<<<<< HEAD
 						<label for="ngaysinh">Ngày sinh <span style="color: #db1414">*</span></label>
 						<input type="date" id="ngaysinh" name="ngaysinh"
 							placeholder="Chọn ngày sinh">
+=======
+						<label for="ngaysinh">Ngày sinh <span
+							style="color: #db1414">*</span></label> <input type="date" id="ngaysinh"
+							name="ngaysinh" placeholder="Chọn ngày sinh">
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Giới tính <span style="color: #db1414">*</span></label>
@@ -95,12 +106,27 @@
 							<option value="7">Bằng cấp khác</option>
 						</select>
 					</div>
-
+					<div class="user-input-box">
+						<label for="sobuoday">Số buổi dạy <span
+							style="color: #db1414">*</span></label> <select name="sobuoiday"
+							id="sobuoiday"
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							<option value="0">Chọn số buổi dạy</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						</select>
+					</div>
 
 					<div class="user-input-box">
 						<label for="uudiem">Ưu điểm</label> <input type="text" id="uudiem"
 							name="uudiem" placeholder="yêu cầu khác">
 					</div>
+<<<<<<< HEAD
 					<div class="user-input-box">
 						<label for="sobuoday">Số buổi dạy <span
 							style="color: #db1414">*</span></label> <select name="sobuoiday"
@@ -121,31 +147,43 @@
 							style="color: #db1414">*</span></label> <input type="text"
 							id="phuongtien" name="phuongtien" placeholder="Nhập thời gian">
 					</div>
+=======
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 
+
+				</div>
+				<div class="main-newclass-info-checkbox">
 					<div class="user-checkbox-box">
 						<label for="luong">Khu vực dạy <span
 							style="color: #db1414">*</span></label>
 						<table border="0" class="tablebox category">
 							<tbody class="category">
-								<c:forEach var="item"
-									items="${sessionScope.listCategoryDistrict }">
+								<c:forEach var="item" items="${listCategoryDistrict }">
 									<tr>
 										<td><input type="checkbox" name="khuvuc" id="khuvuc"
+<<<<<<< HEAD
 											value="${item.name }">${item.name }</td>
+=======
+											value="${item.id }">${item.name }</td>
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
+<<<<<<< HEAD
 					
+=======
+
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 					<div class="user-checkbox-box">
 						<label for="luong">Môn dạy <span style="color: #db1414">*</span></label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listSubject }">
+								<c:forEach var="item" items="${listSubject }">
 									<tr>
 										<td><input type="checkbox" name="monhoc" id="monhoc"
-											value="${item._id }">${item.name }</td>
+											value="${item.id }">${item.name }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -155,16 +193,15 @@
 						<label for="luong">Lớp dạy <span style="color: #db1414">*</span></label>
 						<table border="0" class="tablebox class">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listClass }">
+								<c:forEach var="item" items="${listClass }">
 									<tr>
 										<td><input type="checkbox" name="lophoc" id="lophoc"
-											value="${item._id }">${item.name }</td>
+											value="${item.id }">${item.name }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-
 				</div>
 				<div class="form-submit-btn">
 					<button type="submit" value="dangky">Đăng ký</button>

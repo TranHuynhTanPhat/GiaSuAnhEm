@@ -81,9 +81,9 @@
 								<tr>
 									<td scope="col">${item.title }</td>
 									<td>${item.body }</td>
-									<th><a href="./updateRecruitment?id=${item._id}"><i
+									<th><a href="./updateRecruitment?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteRecruitment?id=${item._id }"
+									<th><a href="./deleteRecruitment?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>
@@ -103,6 +103,8 @@
 								<label style="float: left"><strong>Tiêu đề:</strong> </label>
 								<div class="col-7" style="width: 100%">
 									<input type="text" name="title" class="form-control"
+										style="border: 2px solid #001c44;" value=""> <input
+										type="hidden" name="image" class="form-control"
 										style="border: 2px solid #001c44;" value="">
 								</div>
 							</div>
@@ -116,8 +118,9 @@
 							<canvas width="1000" height="10"></canvas>
 
 							<div id="fixedButtonAdd">
-								<button class="btn btn-primary btn-block mb-4" type="submit"><i class="fa-solid fa-plus icon"></i> Thêm
-									tin</button>
+								<button class="btn btn-primary btn-block mb-4" type="submit">
+									<i class="fa-solid fa-plus icon"></i> Thêm tin
+								</button>
 							</div>
 
 

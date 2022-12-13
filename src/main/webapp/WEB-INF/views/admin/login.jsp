@@ -56,16 +56,27 @@
 		<div class="container-fluid">
 			<header>
 				<div class="image-text">
-					<span class="image"> <img
-						src="resources/assets/images/icon.png" width="50px">
-					</span>
-
+					<div class="row">
+						<div class="col">
+							<span class="image"> <img
+								src="resources/assets/images/icon.png" width="50px"
+								align="right">
+							</span>
+						</div>
+						<div class="col">
+							<a href="trang-chu"> <span class="image"><img
+									src="resources/assets/images/tot_nghiep.png" width="50px"
+									align="left"></span>
+							</a>
+						</div>
+					</div>
 					<div class="text logo-text">
 						<div class="row">
-							<span class="name">ADMIN</span> <span class="profession">Trang
-								quản lý</span>
+							<span class="name">ADMIN</span>
 						</div>
-
+						<div class="row">
+							<span class="profession">Trung tâm Gia sư Anh Em</span>
+						</div>
 					</div>
 				</div>
 				<div class="row" style="margin-top: 5px;">

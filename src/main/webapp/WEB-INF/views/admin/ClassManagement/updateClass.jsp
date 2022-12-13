@@ -71,8 +71,9 @@
 							<label class="control-label">Tên lớp: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="hidden" name="id" value="${Class._id }"> <input
-									type="text" name="tenlop" class="form-control"
+								<input type="hidden" name="id" value="${Class.id }"><input
+									type="hidden" name="created" value="${Class.created_at }">
+								<input type="text" name="tenlop" class="form-control"
 									value="${Class.name }">
 							</div>
 						</div>

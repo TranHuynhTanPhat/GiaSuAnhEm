@@ -1,57 +1,40 @@
 package com.giasuanhem.model.Models;
 
 public class CategoryModel {
-	 private String _id;
-	 private String name;
-	 private float style;
-	 private String createdAt;
-	 private String updatedAt;
-	 
+	private int id;
+	private String name;
+	private int type;
+	private String created_at;
 
-	// Getter Methods
-
-	public String getCreatedAt() {
-		return createdAt;
+	public String getName() {
+		return name;
 	}
 
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
+	public float getType() {
+		return type;
 	}
 
-	public String getUpdatedAt() {
-		return updatedAt;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setUpdatedAt(String updatedAt) {
-		this.updatedAt = updatedAt;
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 
-	 // Getter Methods 
+	public String getCreated_at() {
+		return created_at;
+	}
 
-	 public String get_id() {
-	  return _id;
-	 }
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
 
-	 public String getName() {
-	  return name;
-	 }
-
-	 public float getStyle() {
-	  return style;
-	 }
-
-	 // Setter Methods 
-
-	 public void set_id(String _id) {
-	  this._id = _id;
+	public void setType(int type) {
+		this.type = type;
+	}
 }
-
-	 public void setName(String name) {
-	  this.name = name;
-	 }
-
-	 public void setStyle(float style) {
-	  this.style = style;
-	 }
-	}

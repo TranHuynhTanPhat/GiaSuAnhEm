@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
@@ -84,16 +85,16 @@
 							<div class="col-md">
 								<select name="chonlop" id="chonlop" class="form-select ">
 									<option value="">Chọn Lớp</option>
-									<c:forEach var="item" items="${sessionScope.listClass }">
-										<option value="${item._id }">${item.name}</option>
+									<c:forEach var="item" items="${listClass }">
+										<option value="${item.id }">${item.name}</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="col-md">
 								<select name="chonmon" id="chonmon" class="form-select">
 									<option value="">Chọn Môn</option>
-									<c:forEach var="item" items="${sessionScope.listSubject }">
-										<option value="${item._id}">${item.name}</option>
+									<c:forEach var="item" items="${listSubject }">
+										<option value="${item.id}">${item.name}</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -122,9 +123,8 @@
 							<div class="col-md">
 								<select name="quanhuyen" id="quanhuyen" class="form-select">
 									<option value="0">Quận huyện</option>
-									<c:forEach var="item"
-										items="${sessionScope.listCategoryDistrict }">
-										<option value=${item._id }>${item.name }</option>
+									<c:forEach var="item" items="${listCategoryDistrict }">
+										<option value=${item.id }>${item.name }</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -152,7 +152,8 @@
 								</form>
 							</div>
 							<div class="col" align="right">
-								<a href="#"
+								<spring:url value="/quanlygiasu/?type=tutor" var="xlsxTutor" />
+								<a href="${xlsxTutor }"
 									class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 									class="fas fa-download fa-sm text-white-50"></i> Tải file
 									excel</a>
@@ -181,15 +182,15 @@
 										<td>${item.name }</td>
 										<td>${item.email }</td>
 
-										<td>${item.birthYear }</td>
+										<td>${item.birth_year }</td>
 										<td>${item.gender }</td>
 										<td>${item.phone }</td>
-										<td>${item.isNow }</td>
+										<td>${item.isnow }</td>
 										<td>${item.sobuoi }</td>
 										<td>${item.describe }</td>
-										<th><a href="updateTutor?id=${item._id}"><i
+										<th><a href="updateTutor?id=${item.id}"><i
 												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<th><a href="./deleteTutor?id=${item._id }"
+										<th><a href="./deleteTutor?id=${item.id }"
 											onclick="return confirmDelete()"><i
 												class="fa-solid fa-trash text-danger icon"></i></a></th>
 									</tr>

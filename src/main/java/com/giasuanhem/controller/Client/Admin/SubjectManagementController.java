@@ -1,5 +1,6 @@
 package com.giasuanhem.controller.Client.Admin;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,15 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CommonService;
-import com.giasuanhem.service.Service.MapperModel;
+import com.giasuanhem.service.Service.SubjectService;
 
 @Controller
 public class SubjectManagementController {
-	@Autowired
-	CommonService commonService;
 	@Autowired
 	MapperModel commonModel;
 	@Autowired
@@ -30,10 +33,12 @@ public class SubjectManagementController {
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement() {
 		try {
-			if (session.getAttribute("userName") != null) {
-				List<SubjectModel> listSubject = commonService.getListSubject();
-				session.setAttribute("listSubject", listSubject);
+			if (session.getAttribute("admin") != null) {
+				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+
 				ModelAndView mav = new ModelAndView("admin/SubjectManagement/subjectManagement");
+
+				mav.addObject("listSubject", listSubject);
 				return mav;
 			} else {
 				ModelAndView mav = new ModelAndView("admin/login");
@@ -48,7 +53,7 @@ public class SubjectManagementController {
 	@RequestMapping(value = "/addSubject", method = RequestMethod.GET)
 	public ModelAndView addSubject() {
 		try {
-			if (session.getAttribute("userName") != null) {
+			if (session.getAttribute("admin") != null) {
 				ModelAndView mav = new ModelAndView("admin/SubjectManagement/addSubject");
 				return mav;
 			} else {
@@ -62,58 +67,49 @@ public class SubjectManagementController {
 	}
 
 	@RequestMapping(value = "/addSubject", method = RequestMethod.POST)
-	public String addSubject(@RequestParam("tenmon") String tenmon) {
-		try {
-			SubjectModel itemAdd = commonModel.mapSubject(tenmon);
-			commonService.createSubject(itemAdd);
-			return "redirect:/quanlymonhoc";
-		} catch (Exception e) {
-			// TODO: handle exception
-			return "redirect:/error";
-		}
+	public String addSubject(@RequestParam("tenmon") String tenmon) throws IOException {
+		SubjectModel itemAdd = commonModel.mapSubject(tenmon);
+		SubjectService.createSubject(itemAdd, session);
+		return "redirect:/quanlymonhoc";
+
 	}
 
 	@RequestMapping(value = "/updateSubject", method = RequestMethod.GET)
-	public ModelAndView updateSubject(@RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("userName") != null) {
-				Map<String, Object> param = new HashMap<>();
-				param.put("_id", id);
-				SubjectModel Subject = commonService.getSubject(param);
-				ModelAndView mav = new ModelAndView("admin/SubjectManagement/updateSubject");
-				mav.addObject("Subject", Subject);
+	public ModelAndView updateSubject(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+		if (session.getAttribute("admin") != null) {
+
+			Map<String, Object> param = new HashMap<>();
+			param.put("id", id);
+			SubjectModel Subject = SubjectService.getSubject(param, session);
+
+			ModelAndView mav = new ModelAndView("admin/SubjectManagement/updateSubject");
+			mav.addObject("Subject", Subject);
+
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/updateSubject", method = RequestMethod.POST)
-	public String updateSubject(@RequestParam("id") String id, @RequestParam("tenmon") String tenmon) {
-		try {
-			if (session.getAttribute("userName") != null) {
-				try {
-					Map<String, Object> param = new HashMap<String, Object>();
-					param.put("_id", id);
-					SubjectModel Subject = commonModel.mapSubject(tenmon);
-					commonService.updateSubject(Subject, param);
+	public String updateSubject(@RequestParam("id") int id, @RequestParam("tenmon") String tenmon,
+			@RequestParam("created") String created) throws JsonParseException, JsonMappingException, IOException {
 
-					return "redirect:/quanlymonhoc";
-				} catch (Exception e) {
-					e.printStackTrace();
-					return "redirect:quanlymonhoc";
-				}
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+		if (session.getAttribute("admin") != null) {
+
+			SubjectModel model = new SubjectModel();
+			model.setId(id);
+			model.setName(tenmon);
+			model.setCreated_at(created);
+
+			SubjectService.updateSubject(model, session);
+			return "redirect:/quanlymonhoc";
+		} else {
+			return "redirect:/login";
 		}
 	}
 
@@ -122,7 +118,7 @@ public class SubjectManagementController {
 		try {
 			Map<String, Object> params = new HashMap<>();
 			params.put("_id", id);
-			commonService.removeSubject(params);
+			SubjectService.removeSubject(params, session);
 
 			return "redirect:/quanlymonhoc";
 		} catch (Exception e) {

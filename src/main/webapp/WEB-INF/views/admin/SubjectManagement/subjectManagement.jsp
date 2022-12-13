@@ -89,12 +89,12 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<c:forEach var="item" items="${sessionScope.listSubject }">
+							<c:forEach var="item" items="${listSubject }">
 								<tr>
 									<td>${ item.name }</td>
-									<th><a href="./updateSubject?id=${item._id}"><i
+									<th><a href="./updateSubject?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-									<th><a href="./deleteSubject?id=${item._id }"
+									<th><a href="./deleteSubject?id=${item.id }"
 										onclick="return confirmDelete()"><i
 											class="fa-solid fa-trash text-danger icon"></i></a></th>
 								</tr>

@@ -20,7 +20,11 @@
 				src="resources/assets/images/tot_nghiep.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ MỞ LỚP</h1>
+<<<<<<< HEAD
 			<form action="dang-ky-mo-lops" method="POST">
+=======
+			<form action="dang-ky-mo-lop" method="POST">
+>>>>>>> 996539b41dbb0f5bc127034b6aa3d9b7eee03a5f
 				<div class="main-newclass-info">
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ hiện tại <span
@@ -69,20 +73,19 @@
 						<label for="luong">Danh mục</label>
 						<table border="0" class="tablebox category">
 							<tbody>
-								<c:forEach var="item"
-									items="${sessionScope.listCategoryDistrict }">
+								<c:forEach var="item" items="${listCategoryDistrict }">
 									<tr>
 										<td><input type="checkbox" name="category" id="category"
-											value="${item._id }">${item.name }</td>
+											value="${item.id }">${item.name }</td>
 									</tr>
 								</c:forEach>
 						</table>
 
 						<table border="0" class="tablebox category right">
-							<c:forEach var="item" items="${sessionScope.listCategoryClass }">
+							<c:forEach var="item" items="${listCategoryClass }">
 								<tr>
 									<td><input type="checkbox" name="category" id="category"
-										value="${item._id }">${item.name }</td>
+										value="${item.id }">${item.name }</td>
 								</tr>
 							</c:forEach>
 							</tbody>
@@ -92,10 +95,10 @@
 						<label for="luong">Môn dạy</label>
 						<table border="0" class="tablebox">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listSubject }">
+								<c:forEach var="item" items="${listSubject }">
 									<tr>
 										<td><input type="checkbox" name="monhoc" id="monhoc"
-											value="${item._id }">${item.name }</td>
+											value="${item.id }">${item.name }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -105,10 +108,10 @@
 						<label for="luong">Lớp dạy</label>
 						<table border="0" class="tablebox class">
 							<tbody>
-								<c:forEach var="item" items="${sessionScope.listClass }">
+								<c:forEach var="item" items="${listClass }">
 									<tr>
 										<td><input type="checkbox" name="lophoc" id="lophoc"
-											value="${item._id }">${item.name }</td>
+											value="${item.id }">${item.name }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
