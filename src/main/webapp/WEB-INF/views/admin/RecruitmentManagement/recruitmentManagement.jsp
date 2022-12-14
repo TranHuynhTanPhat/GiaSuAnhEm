@@ -55,6 +55,10 @@
 			} else
 				return false;
 		}
+		
+		function getPage(page){
+			return ""
+		}
 	</script>
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<section class="home">
@@ -93,7 +97,13 @@
 
 				</div>
 			</div>
-
+				<div id="num-order-wp" style="float:right" >
+					<a title="" href="quanlytuyendung?page=${ page - 1 }" id="minus"><i class="fa fa-minus"></i></a>
+					<input style="width: 30px;"type="button" value="${page}" id="num-order"> 
+					<c:if test="${listRecruitPost.size() == pagesize }">
+						<a title="" href="quanlytuyendung?page=${ page + 1 }" id="plus"><i class="fa fa-plus"></i></a>
+					</c:if>
+				</div>
 			<div class="row">
 				<div class="container-fluid">
 					<div id="page-main-Admin"
