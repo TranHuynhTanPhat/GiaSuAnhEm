@@ -163,8 +163,7 @@
 									excel</a>
 							</div>
 						</div>
-						<table width="100%" class="table mb-0 bg-white"
-							style="text-align: left; float: left;">
+						<table width="100%" class="table mb-0 bg-white">
 							<thead>
 								<tr>
 									<th scope="col">Tên gia sư</th>
@@ -173,7 +172,9 @@
 									<th scope="col">Giới Tính<br></th>
 									<th scope="col">SĐT<br></th>
 									<th scope="col">Nghề nghiệp<br></th>
-									<th scope="col">Số buổi<br></th>
+									<th style="text-align: center; float: center;" scope="col">Số
+										buổi<br>
+									</th>
 									<th scope="col">Ưu điểm<br></th>
 
 									<th scope="col" width="2%"></th>
@@ -196,7 +197,7 @@
 											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.phone }</td>
 										<td
 											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.isnow }</td>
-										<td
+										<td style="text-align: center; float: center;"
 											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.sobuoi }</td>
 										<td
 											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.describe }</td>

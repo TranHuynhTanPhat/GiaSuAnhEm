@@ -37,13 +37,13 @@ public class WageController {
 			ModelAndView mav = new ModelAndView("users/wage/wage");
 			mav.addObject("listSST", listSST);
 			mav.addObject("listSTE", listSTE);
-			
+
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,20 +36,28 @@ public class TutorController {
 	MapperModel commonModel;
 
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
-	public ModelAndView tutorPage() {
+	public ModelAndView tutorPage(HttpServletRequest request) {
 		try {
 
+			ModelAndView mav = new ModelAndView("users/tutor/tutor");
 			List<TutorModel> model = TutorService.getListTutor(session);
 
-			ModelAndView mav = new ModelAndView("users/tutor/tutor");
-			mav.addObject("listTutor", model);
+			String category = request.getParameter("category");
+			if (category != null) {
+				Map<String, Object> params = new HashMap<>();
+				params.put("cateID", Integer.parseInt(category));
+				model = TutorService.search(params, session);
+				mav.addObject("listTutor", model);
 
+			} else {
+				mav.addObject("listTutor", model);
+			}
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);
@@ -66,11 +75,11 @@ public class TutorController {
 			String role = String.valueOf(session.getAttribute("role"));
 			if (role.equals("tutor")) {
 				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("type", 0);
+				paramsClass.put("type", 1);
 				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("type", 1);
+				paramsDistrict.put("type", 0);
 				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
 				List<ClassModel> listClass = ClassService.getListClass(session);
@@ -122,11 +131,11 @@ public class TutorController {
 				ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
 
 				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("type", 0);
+				paramsClass.put("type", 1);
 				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("type", 1);
+				paramsDistrict.put("type", 0);
 				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 				mav.addObject("listCategoryClass", listCategoryClass);
 				mav.addObject("listCategoryDistrict", listCategoryDistrict);

@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thông tin người dùng</title>
-<link href="<c:url value="resources/assets/css/import/user_information.css"/>"
-	rel="stylesheet">>
-
+<link
+	href="<c:url value="resources/assets/css/import/user_information.css"/>"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet">
 </head>
 
 <body>
@@ -75,8 +77,7 @@
 	</div>
 
 
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-		rel="stylesheet">
+
 	<script src="resources/assets/js/import/user_information.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.util.List;
 import java.io.IOException;

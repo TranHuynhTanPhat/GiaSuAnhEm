@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,7 +34,6 @@ public class ClassManagementController {
 	public ModelAndView classManagement() throws JsonParseException, JsonMappingException, IOException {
 		if (session.getAttribute("admin") != null) {
 			List<ClassModel> listClass = ClassService.getListClass(session);
-			
 
 			ModelAndView mav = new ModelAndView("admin/ClassManagement/classManagement");
 			mav.addObject("listClass", listClass);
@@ -64,7 +63,6 @@ public class ClassManagementController {
 
 	@RequestMapping(value = "/addClass", method = RequestMethod.POST)
 	public String addClass(@RequestParam("tenlop") String tenlop) throws IOException {
-
 		if (session.getAttribute("admin") != null) {
 			ClassModel itemAdd = commonModel.mapClass(tenlop);
 			ClassService.createClass(itemAdd, session);
@@ -76,29 +74,25 @@ public class ClassManagementController {
 	}
 
 	@RequestMapping(value = "/updateClass", method = RequestMethod.GET)
-	public ModelAndView updateClass(@RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> param = new HashMap<>();
-				param.put("id", id);
-				ClassModel Class = ClassService.getClass(param, session);
-				ModelAndView mav = new ModelAndView("admin/ClassManagement/updateClass");
-				mav.addObject("Class", Class);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+	public ModelAndView updateClass(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
+			Map<String, Object> param = new HashMap<>();
+			param.put("id", id);
+			ClassModel Class = ClassService.getClass(param, session);
+			ModelAndView mav = new ModelAndView("admin/ClassManagement/updateClass");
+			mav.addObject("Class", Class);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/updateClass", method = RequestMethod.POST)
 	public String updateClass(@RequestParam("id") int id, @RequestParam("tenlop") String tenlop,
 			@RequestParam("created") String created) throws JsonParseException, JsonMappingException, IOException {
-
 		if (session.getAttribute("admin") != null) {
 
 			ClassModel model = new ClassModel();
@@ -116,17 +110,14 @@ public class ClassManagementController {
 	}
 
 	@RequestMapping(value = "/deleteClass", method = RequestMethod.GET)
-	public String deleteClass(@RequestParam("id") String id) {
-		try {
-			Map<String, Object> params = new HashMap<>();
-			params.put("id", id);
-			ClassService.removeClass(params, session);
+	public String deleteClass(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 
-			return "redirect:/quanlylophoc";
-		} catch (Exception e) {
-			e.printStackTrace();
+		Map<String, Object> params = new HashMap<>();
+		params.put("id", id);
+		ClassService.removeClass(params, session);
 
-			return "redirect:/error";
-		}
+		return "redirect:/quanlylophoc";
+
 	}
 }

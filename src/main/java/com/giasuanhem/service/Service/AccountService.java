@@ -33,7 +33,7 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
-import com.giasuanhem.controller.Client.Admin.ClassManagementController;
+import com.giasuanhem.controller.Admin.ClassManagementController;
 import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.ResponseModel;
 import com.giasuanhem.model.Models.SubjectModel;
@@ -47,7 +47,6 @@ public class AccountService {
 	static public void updateAccount(AccountModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonReq = new Gson().toJson(model);
-		System.out.println(jsonReq);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.ACCOUNT_UPDATE, jsonReq, session);
 
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -123,6 +122,14 @@ public class AccountService {
 	/// Authorization
 	static public void checkLogin(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
+
+		session.removeAttribute("role");
+		session.removeAttribute("id");
+		session.removeAttribute("accessToken");
+		session.removeAttribute("state");
+		session.removeAttribute("newAccount");
+		session.removeAttribute("emailUser");
+
 		String jsonResponse = null;
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -168,7 +175,6 @@ public class AccountService {
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);
-		System.out.println(jsonResponse);
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 

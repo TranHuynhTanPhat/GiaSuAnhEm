@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.service.Mapper.MapperModel;
@@ -127,19 +126,18 @@ public class CatrgoryManagementController {
 	}
 
 	@RequestMapping(value = "/deleteCategory", method = RequestMethod.GET)
-	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> param = new HashMap<String, Object>();
-				param.put("_id", id);
-				CategoryService.removeCategory(param, session);
+	public String deleteCategoryClass(HttpSession session, @RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 
-				return "redirect:/quanlydanhmuc";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+		if (session.getAttribute("admin") != null) {
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("id", id);
+			CategoryService.removeCategory(param, session);
+
+			return "redirect:/quanlydanhmuc";
+		} else {
+			return "redirect:/login";
 		}
+
 	}
 }

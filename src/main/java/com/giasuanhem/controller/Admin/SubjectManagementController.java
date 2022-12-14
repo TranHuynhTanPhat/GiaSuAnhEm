@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,7 +32,6 @@ public class SubjectManagementController {
 
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement() throws JsonParseException, JsonMappingException, IOException {
-
 		if (session.getAttribute("admin") != null) {
 			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
@@ -95,7 +94,6 @@ public class SubjectManagementController {
 	@RequestMapping(value = "/updateSubject", method = RequestMethod.POST)
 	public String updateSubject(@RequestParam("id") int id, @RequestParam("tenmon") String tenmon,
 			@RequestParam("created") String created) throws JsonParseException, JsonMappingException, IOException {
-
 		if (session.getAttribute("admin") != null) {
 
 			SubjectModel model = new SubjectModel();
@@ -111,8 +109,8 @@ public class SubjectManagementController {
 	}
 
 	@RequestMapping(value = "/deleteSubject", method = RequestMethod.GET)
-	public String deleteSubject(@RequestParam("id") String id) throws JsonParseException, JsonMappingException, IOException {
-
+	public String deleteSubject(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 		Map<String, Object> params = new HashMap<>();
 		params.put("id", id);
 		SubjectService.removeSubject(params, session);

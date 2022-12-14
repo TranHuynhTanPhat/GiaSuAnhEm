@@ -12,8 +12,6 @@
 	rel="stylesheet">
 <link rel="shortcut icon" type="image/png"
 	href="resources/assets/images/favicon-96x96.png" />
-<script src="<c:url value="resources/assets/js/import/loginUser.js"/>"
-	type="text/javascript"></script>
 </head>
 <body>
 

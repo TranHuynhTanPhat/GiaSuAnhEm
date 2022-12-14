@@ -11,8 +11,9 @@
 	rel="stylesheet">
 <link rel="shortcut icon" type="image/png"
 	href="resources/assets/images/favicon-96x96.png" />
-<script src="<c:url value="resources/assets/js/import/register.js"/>"
-	type="text/javascript"></script>
+<%-- <script src="<c:url value="resources/assets/js/import/register.js"/>"
+	type="text/javascript"></script> --%>
+
 <link
 	href="<c:url value="resources/assets/css/font-awesome/css/font-awesome.min.css" />"
 	rel="stylesheet" type="text/css" />
@@ -50,11 +51,12 @@
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="role" value="1" /> <label>Gia sư</label>
+				<input type="radio" name="role" value="1" required /> <label>Gia
+					sư</label>
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="role" value="2" /> <label>Phụ
+				<input type="radio" name="role" value="2" required /> <label>Phụ
 					huynh</label>
 			</div>
 

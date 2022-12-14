@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -46,123 +46,111 @@ public class CourceManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.GET)
-	public ModelAndView courceManagement(HttpServletRequest request, HttpServletResponse response) {
-		try {
-			if (session.getAttribute("admin") != null) {
+	public ModelAndView courceManagement(HttpServletRequest request, HttpServletResponse response)
+			throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
 
-				List<ClassModel> listClass = ClassService.getListClass(session);
+			List<ClassModel> listClass = ClassService.getListClass(session);
 
-				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
-				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("type", 0);
-				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 0);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-				List<NewClassModel> listNewCource = CourceService.getListNewClass(session);
+			List<NewClassModel> listNewCource = CourceService.getListNewClass(session);
 
-				// excel
-				String typeRequest = request.getParameter("type");
-				if (typeRequest != null && typeRequest.equals("cource")) {
+			// excel
+			String typeRequest = request.getParameter("type");
+			if (typeRequest != null && typeRequest.equals("cource")) {
 
-					DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-					String currentDateTime = dateFormatter.format(new Date());
+				DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+				String currentDateTime = dateFormatter.format(new Date());
 
-					String headerKey = "Content-Disposition";
-					String headerValue = "attachment; filename=Cources_" + currentDateTime + ".xlsx";
-					response.setHeader(headerKey, headerValue);
+				String headerKey = "Content-Disposition";
+				String headerValue = "attachment; filename=Cources_" + currentDateTime + ".xlsx";
+				response.setHeader(headerKey, headerValue);
 
-					CourceExcelExporter excelExporter = new CourceExcelExporter(listNewCource);
-					excelExporter.export(response);
-					return null;
-				}
-
-				ModelAndView mav = new ModelAndView("admin/CourceManagement/courceManagement");
-				mav.addObject("listSubject", listSubject);
-				mav.addObject("listClass", listClass);
-				mav.addObject("listCategoryDistrict", listCategoryDistrict);
-
-				// search
-				String sub = request.getParameter("chonmon");
-				String cla = request.getParameter("chonlop");
-				String dis = request.getParameter("chonquan");
-				if (sub == null && cla == null && dis == null) {
-
-					mav.addObject("listNewCource", listNewCource);
-
-				} else {
-
-					Map<String, Object> params = new HashMap<>();
-					if (sub != "") {
-						params.put("subID", Integer.parseInt(sub));
-					}
-
-					if (cla != "") {
-						params.put("classID", Integer.parseInt(cla));
-					}
-
-					if (dis != "") {
-						params.put("cateID", Integer.parseInt(dis));
-					}
-					listNewCource = CourceService.search(params, session);
-					mav.addObject("listNewCource", listNewCource);
-				}
-				return mav;
-
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
+				CourceExcelExporter excelExporter = new CourceExcelExporter(listNewCource);
+				excelExporter.export(response);
+				return null;
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			ModelAndView mav = new ModelAndView("404page");
+
+			ModelAndView mav = new ModelAndView("admin/CourceManagement/courceManagement");
+			mav.addObject("listSubject", listSubject);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+
+			// search
+			String sub = request.getParameter("chonmon");
+			String cla = request.getParameter("chonlop");
+			String dis = request.getParameter("chonquan");
+			if (sub == null && cla == null && dis == null) {
+				mav.addObject("listNewCource", listNewCource);
+			} else {
+				Map<String, Object> params = new HashMap<>();
+				if (sub != "") {
+					params.put("subID", Integer.parseInt(sub));
+				}
+
+				if (cla != "") {
+					params.put("classID", Integer.parseInt(cla));
+				}
+
+				if (dis != "") {
+					params.put("cateID", Integer.parseInt(dis));
+				}
+				listNewCource = CourceService.search(params, session);
+				mav.addObject("listNewCource", listNewCource);
+			}
+			return mav;
+
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/deleteNewCource", method = RequestMethod.GET)
-	public String removeNewCource(@RequestParam("id") String id) {
-		try {
-			Map<String, Object> params = new HashMap<>();
-			params.put("id", id);
-			CourceService.removeCource(params, session);
+	public String removeNewCource(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
 
-			return "redirect:/quanlykhoahoc";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "redirect:/error";
-		}
+		Map<String, Object> params = new HashMap<>();
+		params.put("id", id);
+		CourceService.removeCource(params, session);
+
+		return "redirect:/quanlykhoahoc";
+
 	}
 
 	@RequestMapping(value = "/createNewCource", method = RequestMethod.GET)
-	public ModelAndView createNewCource() {
-		try {
-			if (session.getAttribute("admin") != null) {
-				List<ClassModel> listClass = ClassService.getListClass(session);
+	public ModelAndView createNewCource() throws JsonParseException, JsonMappingException, IOException {
 
-				List<SubjectModel> listSubject = SubjectService.getListSubject(session);
+		if (session.getAttribute("admin") != null) {
+			List<ClassModel> listClass = ClassService.getListClass(session);
 
-				Map<String, Object> paramsDistrict = new HashMap<>();
-				paramsDistrict.put("type", 0);
-				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
-				Map<String, Object> paramsClass = new HashMap<>();
-				paramsClass.put("type", 1);
-				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 0);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
-				ModelAndView mav = new ModelAndView("admin/CourceManagement/addNewCource");
-				mav.addObject("listSubject", listSubject);
-				mav.addObject("listClass", listClass);
-				mav.addObject("listCategoryDistrict", listCategoryDistrict);
-				mav.addObject("listCategoryClass", listCategoryClass);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 1);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+			ModelAndView mav = new ModelAndView("admin/CourceManagement/addNewCource");
+			mav.addObject("listSubject", listSubject);
+			mav.addObject("listClass", listClass);
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+			mav.addObject("listCategoryClass", listCategoryClass);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
+
 	}
 
 	@RequestMapping(value = "/createNewCource", method = RequestMethod.POST)
@@ -172,11 +160,15 @@ public class CourceManagementController {
 			@RequestParam("category") int[] categories, @RequestParam("monhoc") int[] monhocs,
 			@RequestParam("lophoc") int[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
 			@RequestParam("lienhe") String lienhe) throws IOException {
-
-		NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
-				categories, lophocs, monhocs, lienhe);
-		CourceService.createNewCource(model, session);
-		return "redirect:/quanlykhoahoc";
+		try {
+			NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
+					categories, lophocs, monhocs, lienhe);
+			CourceService.createNewCource(model, session);
+			return "redirect:/quanlykhoahoc";
+		} catch (Exception e) {
+			return "redirect:/error";
+			// TODO: handle exception
+		}
 
 	}
 
@@ -221,7 +213,6 @@ public class CourceManagementController {
 			@RequestParam("lophoc") int[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
 			@RequestParam("lienhe") String lienhe, @RequestParam("created") String created)
 			throws JsonParseException, JsonMappingException, IOException {
-
 		if (session.getAttribute("admin") != null) {
 
 			NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,

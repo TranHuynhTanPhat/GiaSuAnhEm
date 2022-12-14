@@ -32,25 +32,34 @@ public class NewClassController {
 	HttpSession session;
 
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
-	public ModelAndView newClassPage() throws JsonParseException, JsonMappingException, IOException {
-
-
-		List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
+	public ModelAndView newClassPage(HttpServletRequest request)
+			throws JsonParseException, JsonMappingException, IOException {
 
 		ModelAndView mav = new ModelAndView("users/newclass/newclass");
-		mav.addObject("listNewClass", listNewClass);
-		
+		List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
+
+		String category = request.getParameter("category");
+
+		if (category != null) {
+			Map<String, Object> params = new HashMap<>();
+			params.put("cateID", Integer.parseInt(category));
+			listNewClass = CourceService.search(params, session);
+			mav.addObject("listNewClass", listNewClass);
+		} else {
+
+			mav.addObject("listNewClass", listNewClass);
+		}
 		Map<String, Object> paramsClass = new HashMap<>();
-		paramsClass.put("type", 0);
+		paramsClass.put("type", 1);
 		List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 		Map<String, Object> paramsDistrict = new HashMap<>();
-		paramsDistrict.put("type", 1);
+		paramsDistrict.put("type", 0);
 		List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 		mav.addObject("listCategoryClass", listCategoryClass);
 		mav.addObject("listCategoryDistrict", listCategoryDistrict);
-		return mav;
 
+		return mav;
 	}
 
 	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.GET)
@@ -59,11 +68,11 @@ public class NewClassController {
 		String role = String.valueOf(session.getAttribute("role"));
 		if (role.equals("parent")) {
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 
 			List<ClassModel> listClass = ClassService.getListClass(session);

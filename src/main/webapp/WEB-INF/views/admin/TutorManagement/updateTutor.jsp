@@ -78,7 +78,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline w-75">
 									<input type="text" id="hoten" name="hoten" class="form-control"
-										value="${model.name }">
+										value="${model.name }" required>
 								</div>
 							</div>
 							<div class="col" style="float: right">
@@ -86,7 +86,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="text" name="dienthoai" class="form-control"
-										value="${model.phone }">
+										value="${model.phone }" required>
 								</div>
 							</div>
 
@@ -97,7 +97,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
 									<input type="text" name="email" class="form-control"
-										value="${model.email }">
+										value="${model.email }" required>
 								</div>
 							</div>
 							<div class="col">
@@ -105,7 +105,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="text" name="namtotnghiep" id="namtotnghiep"
-										class="form-control" value="${model.graduate_year }">
+										class="form-control" value="${model.graduate_year }" required>
 								</div>
 							</div>
 						</div>
@@ -115,7 +115,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="gioitinh" id="gioitinh" class="form-control"
-										style="width: 100%; float: left">
+										style="width: 100%; float: left" required>
 										<option value="${model.gender }">${model.gender }</option>
 										<option value="Khác">Khác</option>
 										<option value="Nam">Nam</option>
@@ -128,14 +128,14 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<input type="date" class="form-control" name=ngaysinh
-										value="${model.birth_year}">
+										value="${model.birth_year}" required>
 								</div>
 							</div>
 							<div class="col-md">
 								<label class="control-label">Hiện là: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="nghenghiep" id="nghenghiep" class="form-control">
+									<select name="nghenghiep" id="nghenghiep" class="form-control" required>
 										<option value="${model.isnow }">${model.isnow }</option>
 
 										<option value="Giáo viên">Giáo viên</option>
@@ -148,7 +148,7 @@
 								<label class="control-label">Số buổi dạy: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="sobuoiday" id="sobuoiday" class="form-control">
+									<select name="sobuoiday" id="sobuoiday" class="form-control" required>
 										<option value="${model.sobuoi }">${model.sobuoi }</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -168,7 +168,7 @@
 								</label>
 								<div class="form-outline">
 									<input type="text" name="truong" class="form-control"
-										value="${model.school }">
+										value="${model.school }" required>
 								</div>
 							</div>
 							<div class="col">
@@ -176,7 +176,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
 									<input type="text" name="chuyennganh" class="form-control"
-										value="${model.department }">
+										value="${model.department }" required>
 								</div>
 							</div>
 						</div>
@@ -185,7 +185,7 @@
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
 								<input type="text" name="diachi" class="form-control"
-									value="${model.address }">
+									value="${model.address }" required>
 							</div>
 						</div>
 						<div class="row">
@@ -193,7 +193,7 @@
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
 								<input type="text" name="uudiem" id="uudiem"
-									class="form-control" value="${model.describe }">
+									class="form-control" value="${model.describe }" required>
 							</div>
 						</div>
 						<div class="row align-middle" style="padding-left: 15%">

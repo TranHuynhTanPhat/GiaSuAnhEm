@@ -33,7 +33,7 @@ import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SalaryModel;
 import com.giasuanhem.model.Models.TutorModel;
-import com.giasuanhem.controller.Client.Admin.ClassManagementController;
+import com.giasuanhem.controller.Admin.ClassManagementController;
 import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.ResponseModel;
 import com.giasuanhem.model.Models.SubjectModel;
@@ -78,6 +78,7 @@ public class ClassService {
 	static public void updateClass(ClassModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonReq = new Gson().toJson(model);
+
 		String jsonResponse = CommonService.postWithJson(ApiConstant.CLASS_UPDATE, jsonReq, session);
 
 		ObjectMapper objectMapper = new ObjectMapper();

@@ -73,7 +73,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline w-75">
 									<input type="text" id="hoten" name="hoten" class="form-control"
-										value="">
+										value="" required>
 								</div>
 							</div>
 							<div class="col" style="float: right">
@@ -81,7 +81,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="text" name="dienthoai" class="form-control"
-										value="">
+										value="" required>
 								</div>
 							</div>
 
@@ -91,7 +91,7 @@
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="email" class="form-control" value="">
+									<input type="text" name="email" class="form-control" value="" required>
 								</div>
 							</div>
 							<div class="col">
@@ -99,7 +99,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="text" name="namtotnghiep" id="namtotnghiep"
-										class="form-control" value="">
+										class="form-control" value="" required>
 								</div>
 							</div>
 						</div>
@@ -109,7 +109,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="gioitinh" id="gioitinh" class="form-control"
-										style="width: 100%; float: left">
+										style="width: 100%; float: left" required>
 										<option value="Khác">-- Chọn giới tính --</option>
 										<option value="Khác">Khác</option>
 										<option value="Nam">Nam</option>
@@ -121,7 +121,7 @@
 								<label class="control-label">Ngày sinh: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<input type="date" class="form-control" name=ngaysinh value="">
+									<input type="date" class="form-control" name=ngaysinh value="" required>
 								</div>
 							</div>
 							<div class="col-md">
@@ -129,7 +129,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="nghenghiep" id="nghenghiep" class="form-control"
-										style="width: 100%; float: left">
+										style="width: 100%; float: left" required>
 										<option value="">-- Chọn nghề nghiệp --</option>
 										<option value="Giáo viên">Giáo viên</option>
 										<option value="Sinh viên">Sinh viên</option>
@@ -142,8 +142,8 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="sobuoiday" id="sobuoiday" class="form-control"
-										style="width: 100%; float: left">
-										<option value="0">-- Chọn số buổi dạy --</option>
+										style="width: 100%; float: left" required>
+										<option value="">-- Chọn số buổi dạy --</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -161,7 +161,7 @@
 									trường: <span style="color: #FF0000">*</span>
 								</label>
 								<div class="form-outline">
-									<input type="text" name="truong" class="form-control" value="">
+									<input type="text" name="truong" class="form-control" value="" required>
 								</div>
 							</div>
 							<div class="col">
@@ -169,14 +169,14 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
 									<input type="text" name="chuyennganh" class="form-control"
-										value="">
+										value="" required>
 								</div>
 							</div>
 							<div class="col">
 								<label class="control-label">Tên tài khoản: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="accId" class="form-control">
+									<select name="accId" class="form-control" required>
 										<option value="0">-- Chọn tài khoản --</option>
 										<c:forEach var="item" items="${listAccount }">
 											<option value="${item.id }">${item.username }</option>
@@ -197,7 +197,7 @@
 							<label class="control-label">Địa chỉ: <span
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
-								<input type="text" name="diachi" class="form-control" value="">
+								<input type="text" name="diachi" class="form-control" value="" required>
 							</div>
 						</div>
 						<div class="row">
@@ -205,7 +205,7 @@
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
 								<input type="text" name="uudiem" id="uudiem"
-									class="form-control" value="">
+									class="form-control" value="" required>
 							</div>
 						</div>
 						<div class="row align-middle" style="padding-left: 15%">

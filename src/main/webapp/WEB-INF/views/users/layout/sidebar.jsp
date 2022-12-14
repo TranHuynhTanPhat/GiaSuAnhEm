@@ -10,14 +10,16 @@
 		<ul>
 			<li><span>Phân loại lớp theo khối</span></li>
 			<c:forEach var="item" items="${ listCategoryClass}">
-				<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
+				<li><a href="./lop-moi?category=${item.id }"
+					title="Lớp mới theo ${item.name }">${ item.name }</a></li>
 			</c:forEach>
 
 		</ul>
 		<ul>
 			<li><span>Gia sư theo quận</span></li>
 			<c:forEach var="item" items="${ listCategoryDistrict}">
-				<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
+				<li><a href="./gia-su?category=${item.id }"
+					title="Gia sư theo ${item.name }">${ item.name }</a></li>
 			</c:forEach>
 		</ul>
 	</div>

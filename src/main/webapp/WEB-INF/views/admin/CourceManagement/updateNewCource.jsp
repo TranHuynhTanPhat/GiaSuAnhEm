@@ -128,16 +128,24 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="trangthai" id="chonmon" class="form-select">
-										<c:forEach begin="0" end="1" varStatus="loop">
-											<c:choose>
-												<c:when test="${loop.index == model.status}">
-													<option value="${model.status }" selected="selected">${model.status }</option>
-												</c:when>
-												<c:otherwise>
-													<option value="${loop.index }">${loop.index }</option>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
+										<c:choose>
+											<c:when test="${model.status==1}">
+												<option value="${model.status }" selected="selected">Đã
+													nhận</option>
+											</c:when>
+											<c:otherwise>
+												<option value="${model.status }">Đã nhận</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${model.status==0}">
+												<option value="${model.status }" selected="selected">Chưa
+													nhận</option>
+											</c:when>
+											<c:otherwise>
+												<option value="${model.status }">Chưa nhận</option>
+											</c:otherwise>
+										</c:choose>
 									</select>
 								</div>
 							</div>

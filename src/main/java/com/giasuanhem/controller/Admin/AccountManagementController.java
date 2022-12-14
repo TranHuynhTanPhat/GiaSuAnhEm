@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -26,6 +26,7 @@ import com.giasuanhem.service.ExcelExporter.AccountExcelExporter;
 import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CategoryService;
+import com.giasuanhem.service.Service.TutorService;
 
 @Controller
 public class AccountManagementController {
@@ -38,16 +39,6 @@ public class AccountManagementController {
 	public ModelAndView accountManagement(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		if (session.getAttribute("admin") != null) {
-//				Map<String, Object> paramsClass = new HashMap<>();
-//				paramsClass.put("style", 0);
-//				List<CategoryModel> listCategoryClass = commonService.getListCategory(paramsClass);
-//
-//				Map<String, Object> paramsDistrict = new HashMap<>();
-//				paramsDistrict.put("style", 1);
-//				List<CategoryModel> listCategoryDistrict = commonService.getListCategory(paramsDistrict);
-//
-//				session.setAttribute("listCategoryClass", listCategoryClass);
-//				session.setAttribute("listCategoryDistrict", listCategoryDistrict);
 
 			List<AccountModel> listAccounts = AccountService.getListAccount(session);
 
@@ -67,7 +58,23 @@ public class AccountManagementController {
 			}
 
 			ModelAndView mav = new ModelAndView("admin/AccountManagement/accountManagement");
-			mav.addObject("listAccounts", listAccounts);
+			// Search
+			String keys = request.getParameter("keys");
+			if (keys == null) {
+
+				mav.addObject("listAccounts", listAccounts);
+
+			} else {
+				Map<String, Object> params = new HashMap<>();
+				if (keys != "") {
+					params.put("username", keys);
+					params.put("isTutor", 0);
+				}
+
+				listAccounts = AccountService.getListAccount(params, session);
+				mav.addObject("listAccounts", listAccounts);
+			}
+
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");

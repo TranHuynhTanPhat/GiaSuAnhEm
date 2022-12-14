@@ -1,4 +1,4 @@
-package com.giasuanhem.controller.Client.Admin;
+package com.giasuanhem.controller.Admin;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,44 +32,35 @@ public class RecruitmentManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlytuyendung", method = RequestMethod.GET)
-	public ModelAndView recruitmentManagement() {
-		try {
-			if (session.getAttribute("admin") != null) {
+	public ModelAndView recruitmentManagement() throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
 
-				Map<String, Object> paramsRecruit = new HashMap<>();
-				paramsRecruit.put("type", 1);
-				List<PostModel> listRecruitPost = PostService.getListPostWithParams(paramsRecruit, session);
+			Map<String, Object> paramsRecruit = new HashMap<>();
+			paramsRecruit.put("type", 1);
+			List<PostModel> listRecruitPost = PostService.getListPostWithParams(paramsRecruit, session);
 
-				ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/recruitmentManagement");
-				mav.addObject("listRecruitPost", listRecruitPost);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/recruitmentManagement");
+			mav.addObject("listRecruitPost", listRecruitPost);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
 	}
 
 	@RequestMapping(value = "/updateRecruitment", method = RequestMethod.GET)
-	public ModelAndView updateRecruitment(@RequestParam("id") String id) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				Map<String, Object> paramsRecruit = new HashMap<>();
-				paramsRecruit.put("id", id);
-				PostModel recruitPost = PostService.getPost(paramsRecruit, session);
+	public ModelAndView updateRecruitment(@RequestParam("id") String id)
+			throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
+			Map<String, Object> paramsRecruit = new HashMap<>();
+			paramsRecruit.put("id", id);
+			PostModel recruitPost = PostService.getPost(paramsRecruit, session);
 
-				ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/updateRecruitment");
-				mav.addObject("recruitPost", recruitPost);
-				return mav;
-			} else {
-				ModelAndView mav = new ModelAndView("admin/login");
-				return mav;
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
+			ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/updateRecruitment");
+			mav.addObject("recruitPost", recruitPost);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("admin/login");
 			return mav;
 		}
 	}
@@ -77,25 +68,21 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/updateRecruitment", method = RequestMethod.POST)
 	public String updateRecruitment(@RequestParam("id") int id, @RequestParam("title") String title,
 			@RequestParam("content") String content, @RequestParam("created") String created,
-			@RequestParam("image") String img) {
-		try {
-			if (session.getAttribute("admin") != null) {
-				PostModel model = new PostModel();
-				model.setTitle(title);
-				model.setBody(content);
-				model.setType(1);
-				model.setCreated_at(created);
-				model.setImg(img);
-				model.setId(id);
+			@RequestParam("image") String img) throws JsonParseException, JsonMappingException, IOException {
+		if (session.getAttribute("admin") != null) {
+			PostModel model = new PostModel();
+			model.setTitle(title);
+			model.setBody(content);
+			model.setType(1);
+			model.setCreated_at(created);
+			model.setImg(img);
+			model.setId(id);
 
-				PostService.updatePost(model, session);
+			PostService.updatePost(model, session);
 
-				return "redirect:/quanlytuyendung";
-			} else {
-				return "redirect:/login";
-			}
-		} catch (Exception e) {
-			return "redirect:/error";
+			return "redirect:/quanlytuyendung";
+		} else {
+			return "redirect:/login";
 		}
 	}
 
@@ -120,7 +107,6 @@ public class RecruitmentManagementController {
 	@RequestMapping(value = "/deleteRecruitment", method = RequestMethod.GET)
 	public String createIntroduction(@RequestParam("id") String id)
 			throws JsonParseException, JsonMappingException, IOException {
-
 		if (session.getAttribute("admin") != null) {
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("id", id);

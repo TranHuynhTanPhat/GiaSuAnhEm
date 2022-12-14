@@ -155,37 +155,42 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listNewCource }">
+
 								<c:choose>
-									<c:when test="${item.status==1}">
-										<tr style="color: red">
+									<c:when test="${item.status==0 }">
+										<tr style="background-color: #53d2dc"
+											onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">
 									</c:when>
+									<c:otherwise>
+										<tr style="background-color: #ffe3b3"
+											onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">
+									</c:otherwise>
 								</c:choose>
 
 								<%-- <td><c:forEach var="cl" items="${item.classes }">
 										${ cl.name },
 									</c:forEach></td> --%>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${item.classes }</td>
+								<td>${item.classes }</td>
 
 								<%-- <td><c:forEach var="subject" items="${item.subjects }">
 										${ subject.name },
 									</c:forEach></td> --%>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${item.subjects }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.address }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.salary }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.sobuoi }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.time }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.require }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${item.contact }</td>
-								<td
-									onclick="checkRow('${item.id}', '${item.address }','${item.district }', '${item.sobuoi }','${item.time }','${item.salary }','${item.require }','${item.status }','${item.categories }','${item.classes }','${item.subjects }','${item.contact }','${item.created_at }')">${ item.status }</td>
+								<td>${item.subjects }</td>
+								<td>${ item.address }</td>
+								<td>${ item.salary }</td>
+								<td>${ item.sobuoi }</td>
+								<td>${ item.time }</td>
+								<td>${ item.require }</td>
+								<td>${item.contact }</td>
+								<c:choose>
+									<c:when test="${item.status==1 }">
+										<td class="text-danger"><b>Đã được nhận</b></td>
+									</c:when>
+									<c:otherwise>
+										<td><b>Chưa được nhận</b></td>
+									</c:otherwise>
+								</c:choose>
+
 								<th><a href="updateNewCource?id=${item.id}"><i
 										class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 								<th><a href="./deleteNewCource?id=${item.id }"

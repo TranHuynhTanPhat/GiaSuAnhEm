@@ -67,7 +67,6 @@ public class CourceService {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonReq = new Gson().toJson(model);
-		System.out.println(jsonReq);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.NEWCLASS_UPDATE, jsonReq, session);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {

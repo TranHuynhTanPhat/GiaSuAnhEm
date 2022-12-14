@@ -31,11 +31,11 @@ public class HomeController {
 			ModelAndView mav = new ModelAndView("users/home/home");
 
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);
@@ -70,11 +70,11 @@ public class HomeController {
 			mav.addObject("listIntroductionPost", listPost);
 
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);
@@ -97,11 +97,11 @@ public class HomeController {
 			mav.addObject("listRecruitment", listRecruitment);
 
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);
@@ -119,11 +119,11 @@ public class HomeController {
 			ModelAndView mav = new ModelAndView("users/home/feeTutor");
 
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);
@@ -141,11 +141,11 @@ public class HomeController {
 			ModelAndView mav = new ModelAndView("users/home/contact");
 
 			Map<String, Object> paramsClass = new HashMap<>();
-			paramsClass.put("type", 0);
+			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
 
 			Map<String, Object> paramsDistrict = new HashMap<>();
-			paramsDistrict.put("type", 1);
+			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
 			mav.addObject("listCategoryClass", listCategoryClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);

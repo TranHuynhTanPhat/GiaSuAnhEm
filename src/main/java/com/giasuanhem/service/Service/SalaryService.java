@@ -41,7 +41,6 @@ public class SalaryService {
 	static public void createSalary(SalaryModel model, HttpSession session) throws IOException {
 
 		String jsonReq = new Gson().toJson(model);
-		System.out.println(jsonReq);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.LIST_SALARY, jsonReq, session);
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -53,22 +52,35 @@ public class SalaryService {
 		}
 	}
 
-	static public void removeSalary(Map<String, Object> params, HttpSession session) {
+	static public void removeSalary(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
 
-		try {
-			String jsonResponse = CommonService.postWithParams(ApiConstant.SALARY_REMOVE, params, session);
-		} catch (Exception e) {
-			e.printStackTrace();
+		String jsonResponse = CommonService.postWithParams(ApiConstant.SALARY_REMOVE, params, session);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
+		session.removeAttribute("errorMessage");
 	}
 
-	static public void updateSalary(SalaryModel model, HttpSession session) {
-		try {
-			String jsonReq = new Gson().toJson(model);
-			String jsonResponse = CommonService.postWithJson(ApiConstant.SALARY_UPDATE, jsonReq, session);
-		} catch (Exception e) {
-			e.printStackTrace();
+	static public void updateSalary(SalaryModel model, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		String jsonReq = new Gson().toJson(model);
+		String jsonResponse = CommonService.postWithJson(ApiConstant.SALARY_UPDATE, jsonReq, session);
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
+		session.removeAttribute("errorMessage");
 	}
 
 	static public List<SalaryModel> getListSalary(Map<String, Object> params, HttpSession session)

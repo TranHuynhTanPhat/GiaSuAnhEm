@@ -75,11 +75,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col-7">
 									<select name="id_category" class="form-select">
-										<option value="${model.id_category.id }]">${model.id_category.name }</option>
-										<c:forEach var="item"
-											items="${listCategoryClass }">
-											<option value="${item.id }">${item.name }</option>
-										</c:forEach>
+										<option value="${model.id_category.id }" selected="selected">${model.id_category.name }</option>
 									</select>
 								</div>
 							</div>
@@ -87,24 +83,15 @@
 								<label class=" control-label">Gia sư:<span
 									style="color: #FF0000">*</span></label>
 								<div class="col-7">
-									<select name="type_teacher" 
-										class="form-select">
+									<select name="type_teacher" class="form-select">
 										<c:choose>
 											<c:when test="${model.type_teacher == 0.0}">
 												<option value="${model.type_teacher}" selected="selected">Sinh
 													viên</option>
 											</c:when>
 											<c:otherwise>
-												<option value="${model.type_teacher}">Sinh viên</option>
-											</c:otherwise>
-										</c:choose>
-										<c:choose>
-											<c:when test="${model.type_teacher == 1.0}">
 												<option value="${model.type_teacher}" selected="selected">Giáo
 													viên</option>
-											</c:when>
-											<c:otherwise>
-												<option value="${model.type_teacher}">Giáo viên</option>
 											</c:otherwise>
 										</c:choose>
 									</select>

@@ -119,23 +119,44 @@
 									<th scope="col" width="5%">ID</th>
 									<th scope="col" width="20%">Tên đăng nhập</th>
 									<th scope="col">Email</th>
-									<th scope="col" width="10%"
-										style="text-align: center; float: center;">Trạng thái</th>
-									<th scope="col" width="10%"
-										style="text-align: center; float: center;">Vai trò</th>
+									<th scope="col" width="15%">Trạng thái</th>
+									<th scope="col" width="10%">Vai trò</th>
 									<th scope="col" width="2%"></th>
 								</tr>
 							</thead>
 							<tbody class="table-group-divider">
 								<c:forEach var="item" items="${ listAccounts }">
-									<tr>
-										<td>${item.id }</td>
-										<td>${item.username }</td>
-										<td>${item.email }</td>
-										<td align="center">${item.state }</td>
-										<td align="center">${item.role }</td>
-										<th><a href="updateAccount?id=${item.id}"><i
-												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
+									<c:choose>
+										<c:when test="${item.role==1 }">
+											<tr style="background-color: #53d2dc">
+										</c:when>
+										<c:otherwise>
+											<tr style="background-color: #ffe3b3">
+										</c:otherwise>
+									</c:choose>
+									<td>${item.id }</td>
+									<td>${item.username }</td>
+									<td>${item.email }</td>
+									<!--  Trạng thái  -->
+									<c:if test="${item.state == 1}">
+										<td class="text-success"><b>Đang hoạt động</b></td>
+									</c:if>
+									<c:if test="${item.state == 0}">
+										<td class="text-danger"><b>Ngừng hoạt động</b></td>
+									</c:if>
+									<c:if test="${item.state == 2}">
+										<td><b>Chưa xác thực</b></td>
+									</c:if>
+
+									<!-- Vai trò -->
+									<c:if test="${item.role == 1}">
+										<td>Gia sư</td>
+									</c:if>
+									<c:if test="${item.role == 2}">
+										<td>Phụ huynh</td>
+									</c:if>
+									<th><a href="updateAccount?id=${item.id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
 									</tr>
 								</c:forEach>
 

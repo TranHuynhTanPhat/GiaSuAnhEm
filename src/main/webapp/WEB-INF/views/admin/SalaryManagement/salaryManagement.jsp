@@ -65,17 +65,17 @@
 
 				<!-- Content Row -->
 				<div class="row">
+					<form action="./addSalary" method="GET">
+						<button class="btn btn-primary btn-block mb-4" type="submit">
+							<i class="fa-solid fa-plus icon"></i> Thêm mức lương
+						</button>
+					</form>
 					<div style="text-align: center; box-sizing: inherit;">
 						<p>
 							<strong><span style="font-size: 16px;"><span>BẢNG
 										LƯƠNG DÀNH CHO SINH VIÊN</span></span></strong>
 						</p>
 					</div>
-					<form action="./addSalary" method="GET">
-						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm mức lương
-						</button>
-					</form>
 					<table width="100%" class="table  mb-0 bg-white">
 						<thead>
 							<tr>
@@ -127,11 +127,6 @@
 										LƯƠNG DÀNH CHO GIÁO VIÊN</span></span></strong>
 						</p>
 					</div>
-					<form action="./addSalary" method="GET">
-						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm mức lương
-						</button>
-					</form>
 					<table width="100%" class="table mb-0 bg-white">
 						<thead>
 							<tr>

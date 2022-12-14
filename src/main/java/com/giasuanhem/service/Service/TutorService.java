@@ -36,15 +36,17 @@ public class TutorService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+
+		session.removeAttribute("errorMessage");
 	}
 
-	static public void removeTutor(Map<String, Object> params, HttpSession session) {
-		try {
-			String jsonResponse = CommonService.postWithParams(ApiConstant.TUTOR_REMOVE, params, session);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	static public void removeTutor(Map<String, Object> params, HttpSession session) {
+//		try {
+//			String jsonResponse = CommonService.postWithParams(ApiConstant.TUTOR_REMOVE, params, session);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	static public void updateTutor(TutorModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
@@ -59,13 +61,14 @@ public class TutorService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
 	}
 
 	static public List<TutorModel> getListTutor(HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = CommonService.get(ApiConstant.LIST_TUTOR);
-		ObjectMapper objectMapper = new ObjectMapper();
 
+		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {

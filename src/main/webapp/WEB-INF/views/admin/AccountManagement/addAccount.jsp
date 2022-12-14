@@ -73,7 +73,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
 									<input type="text" name="username" class="form-control"
-										value="">
+										value="" required>
 								</div>
 							</div>
 							<div class="col">
@@ -81,7 +81,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
 									<input type="password" name="password" id="password"
-										class="form-control" value="">
+										class="form-control" value="" required>
 								</div>
 							</div>
 						</div>
@@ -90,7 +90,8 @@
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="email" name="email" class="form-control" value="">
+									<input type="email" name="email" class="form-control" value=""
+										required>
 								</div>
 							</div>
 
@@ -100,7 +101,7 @@
 								<label class="control-label">Vai trò: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="role" id="role" class="form-control">
+									<select name="role" id="role" class="form-control" required>
 										<option value="">-- Chọn vai trò --</option>
 										<option value="2">Phụ huynh</option>
 										<option value="1">Gia sư</option>
@@ -111,7 +112,7 @@
 								<label class="control-label">Trạng thái: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="state" id="state" class="form-control">
+									<select name="state" id="state" class="form-control" required>
 										<option value="">-- Chọn trạng thái --</option>
 										<option value="1">Đang hoạt động</option>
 										<option value="0">Ngừng hoạt động</option>

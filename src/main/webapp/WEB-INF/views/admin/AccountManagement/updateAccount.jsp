@@ -73,8 +73,8 @@
 								<label class="control-label">Tên đăng nhập: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
-									<input type="text" name="username" class="form-control"
-										value="${model.username }">
+									<input type="text" name="" class="form-control"
+										value="${model.username }" disabled>
 								</div>
 							</div>
 						</div>
@@ -83,8 +83,8 @@
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="email" name="email" class="form-control"
-										value="${model.email }">
+									<input type="email" name="" class="form-control"
+										value="${model.email }" disabled>
 								</div>
 							</div>
 						</div>
@@ -94,13 +94,17 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="" id="role" class="form-control " disabled>
-										<option value="">-- Chọn trạng thái --</option>
-										<option value="0">Phụ huynh</option>
-										<option value="1">Gia sư</option>
-									</select> <input type="hidden" name="role" value="${model.role }">
-									<input type="hidden" name="created"
-										value="${model.created_at }"> <input type="hidden"
-										name="password" value="${model.password }">
+										<c:choose>
+											<c:when test="${model.role==1 }">
+												<option value="1" selected="selected">Gia sư</option>
+											</c:when>
+											<c:otherwise>
+												<option value="2" selected="selected">Phụ huynh</option>
+											</c:otherwise>
+										</c:choose>
+
+									</select>
+
 								</div>
 							</div>
 							<div class="col-md">
@@ -108,15 +112,47 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<select name="state" id="state" class="form-control">
-										<option value="">-- Chọn trạng thái --</option>
-										<option value="1">Đang hoạt động</option>
-										<option value="0">Ngừng hoạt động</option>
-										<option value="2">Chưa xác thực</option>
+
+										<c:choose>
+											<c:when test="${model.state==0 }">
+												<option value="0" selected="selected">Ngừng hoạt
+													động</option>
+											</c:when>
+											<c:otherwise>
+												<option value="0">Ngừng hoạt động</option>
+											</c:otherwise>
+										</c:choose>
+
+										<c:choose>
+											<c:when test="${model.state==1 }">
+												<option value="1" selected="selected">Đang hoạt
+													động</option>
+											</c:when>
+											<c:otherwise>
+												<option value="1">Đang hoạt động</option>
+											</c:otherwise>
+										</c:choose>
+
+										<c:choose>
+											<c:when test="${model.state==2 }">
+												<option value="2" selected="selected">Chưa xác
+													thực</option>
+											</c:when>
+											<c:otherwise>
+												<option value="2">Chưa xác thực</option>
+											</c:otherwise>
+										</c:choose>
+
 									</select>
 								</div>
 							</div>
 						</div>
 					</div>
+					<input type="hidden" name="username" value="${model.username }">
+					<input type="hidden" name="created" value="${model.created_at }">
+					<input type="hidden" name="password" value="${model.password }">
+					<input type="hidden" name="email" value="${model.email }">
+					<input type="hidden" name="role" value="${model.role }">
 					<div class="row align-middle">
 						<button class="btn btn-warning btn-block mb-4" type="submit">
 							<i class="fa-solid fa-pen icon"></i> Cập nhật

@@ -120,13 +120,13 @@
 								<c:if test="${sessionScope.role=='tutor' }">
 									<c:choose>
 										<c:when test="${item.status==1}">
-											<td width="9%"><a href="#" style="color: white"><i><u>Đã
-															được nhận</u></i></a></td>
+											<td width="9%"><d style="color: white">Đã được
+												nhận</d></td>
 										</c:when>
 										<c:otherwise>
 											<td width="9%"><a
 												href="dang-ky-day?id=${item.id }&salary=${item.salary}"
-												style="color: red"><i><u>Đăng kí dạy</u></i></a></td>
+												style="color: red"><i><u>Đăng kí dạy<u></u></i></a></td>
 
 										</c:otherwise>
 									</c:choose>
