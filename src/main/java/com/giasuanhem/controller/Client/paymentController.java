@@ -23,11 +23,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.AccountModel;
+import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.TransactionHistoryModel;
 import com.giasuanhem.service.Email.EmailService;
 import com.giasuanhem.service.Email.RandomOTP;
 import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CommonService;
+import com.giasuanhem.service.Service.CourceService;
 import com.giasuanhem.service.Service.TransactionService;
 
 @Controller
@@ -39,26 +41,40 @@ public class paymentController {
 	public ModelAndView invoicePage(HttpServletRequest request) {
 		try {
 			if (session.getAttribute("role") != null) {
-				System.out.println("abc");
 				ObjectMapper objectMapper = new ObjectMapper();
 
 				AccountModel model = objectMapper.convertValue(session.getAttribute("newAccount"),
 						new TypeReference<AccountModel>() {
 						});
 
-				int total = (int) (Integer.parseInt(request.getParameter("salary")) * 0.4);
+				Map<String, Object> params = new HashMap<>();
+				params.put("id", request.getParameter("id"));
+				NewClassModel classModel = CourceService.getNewClass(params, session);
+
+				int total = (int) (classModel.getSalary() * 0.4);
+
 				TransactionHistoryModel newModel = new TransactionHistoryModel();
 				newModel.setAmount(total);
-				newModel.setContent("Đăng kí dạy lớp: " + request.getParameter("id"));
+				newModel.setContent("Đăng kí dạy lớp: " + (String) request.getParameter("id"));
 				newModel.setId_account(model.getId());
 				newModel.setStatus(1);
-				TransactionService.createTransaction(newModel, session);
+				TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
+
+				Map<String, Object> paramStatus = new HashMap<>();
+				paramStatus.put("id", classModel.getId());
+				paramStatus.put("status", 1);
+				CourceService.updateStatus(paramStatus, session);
 
 				EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
-						EmailService.formInvoice(total, "", "", "", "", ""));
+						EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
+								history.getCreated_at(), model.getUsername(), "Thanh toán phí đăng ký nhận lớp.",
+								String.valueOf(classModel.getId())));
 
 				ModelAndView mav = new ModelAndView("users/formInvoice");
 				mav.addObject("username", model.getUsername());
+				mav.addObject("id", classModel.getId());
+				mav.addObject("salary", classModel.getSalary());
+				mav.addObject("idInvoice", history.getId());
 				return mav;
 			} else {
 				return new ModelAndView("404page");

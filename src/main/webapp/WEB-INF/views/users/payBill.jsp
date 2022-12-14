@@ -25,6 +25,12 @@
 <body>
 	<div class="container">
 		<div class="row">
+			<div
+				class="d-sm-flex align-items-center justify-content-between mb-4 title"
+				style="float: right">
+				<a href="./lop-moi" class="btn btn-danger btn-block mb-4"><i
+					class="fas fa-arrow-left fa-sm text-white-50"></i> Trở về</a>
+			</div>
 			<div class="col-lg-4 mb-lg-0 mb-3">
 				<div class="card p-3">
 					<div class="img-box">
@@ -143,7 +149,7 @@
 				</div>
 			</div>
 			<div class="col-12" style="margin-top: 20px">
-				<a href=" ./invoice?id=${id } &salary=${salary}"
+				<a href=" ./invoice?id=${id }"
 					class="btn btn-primary btn-block mb-4" type="submit">Thanh
 					toán thành công</a>
 

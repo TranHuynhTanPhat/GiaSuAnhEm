@@ -23,6 +23,18 @@ import com.google.gson.Gson;
 @Transactional
 public class CourceService {
 
+	static public void updateStatus(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+		String jsonResponse = CommonService.postWithParams(ApiConstant.NEWCLASS_STATUS, params, session);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
+		}
+	}
+
 	static public void removeCource(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 

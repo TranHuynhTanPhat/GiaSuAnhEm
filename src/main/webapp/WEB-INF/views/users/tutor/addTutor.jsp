@@ -25,22 +25,23 @@
 					<div class="user-input-box">
 						<label for="diachi">Họ và tên <span style="color: #db1414">*</span></label>
 						<input type="text" id="hoten" name="hoten"
-							placeholder="Nhập Họ và tên">
+							placeholder="Nhập Họ và tên" required>
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ <span style="color: #db1414">*</span></label>
 						<input type="text" id="diachi" name="diachi"
-							placeholder="Nhập địa chỉ">
+							placeholder="Nhập địa chỉ" required>
 					</div>
 					<div class="user-input-box">
 						<label for="ngaysinh">Ngày sinh <span
 							style="color: #db1414">*</span></label> <input type="date" id="ngaysinh"
-							name="ngaysinh" placeholder="Chọn ngày sinh">
+							name="ngaysinh" placeholder="Chọn ngày sinh" required>
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Giới tính <span style="color: #db1414">*</span></label>
 						<select name="gioitinh" id="gioitinh"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
+							required>
 							<option value="Nam">Nam</option>
 							<option value="Nữ">Nữ</option>
 						</select>
@@ -48,35 +49,36 @@
 					<div class="user-input-box">
 						<label for="time">Email <span style="color: #db1414">*</span></label>
 						<input type="text" id="email" name="email"
-							placeholder="Nhập Email">
+							placeholder="Nhập Email" required>
 					</div>
 					<div class="user-input-box">
 						<label for="dienthoai">Điện thoại <span
 							style="color: #db1414">*</span></label> <input type="text" id="dienthoai"
-							name="dienthoai" placeholder="Nhập số điện thoại">
+							name="dienthoai" placeholder="Nhập số điện thoại" required>
 					</div>
 					<div class="user-input-box">
 						<label for="truong">Sinh viên(giáo viên) trường</label> <input
 							type="text" id="truong" name="truong"
-							placeholder="VD: Đại học Sư Phạm Kĩ Thuật">
+							placeholder="VD: Đại học Sư Phạm Kĩ Thuật" required>
 					</div>
 
 					<div class="user-input-box">
 						<label for="chuyennganh">Ngành học <span
 							style="color: #db1414">*</span></label> <input type="text" id="nganhhoc"
-							name="chuyennganh" placeholder="Nhập ngành học">
+							name="chuyennganh" placeholder="Nhập ngành học" required>
 					</div>
 
 					<div class="user-input-box">
 						<label for="namtotnghiep">Năm tốt nghiệp</label> <input
 							type="text" id="namtotnghiep" name="namtotnghiep"
-							placeholder="năm tốt nghiệp">
+							placeholder="năm tốt nghiệp" required>
 					</div>
 					<div class="user-input-box">
 						<label for="nghenghiep">Hiện là <span
 							style="color: #db1414">*</span></label> <select name="nghenghiep"
 							id="nghenghiep"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
+							required>
 							<option value="Giáo viên">Giáo viên</option>
 							<option value="Sinh viên">Sinh viên</option>
 							<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
@@ -85,7 +87,8 @@
 					<div class="user-input-box">
 						<label for="trinhdo">Trình độ <span style="color: #db1414">*</span></label>
 						<select name="trinhdo" id="trinhdo"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
+							required>
 							<option value="0">Trình độ</option>
 							<option value="1">Cao Đẳng</option>
 							<option value="2">Đại Học</option>
@@ -100,7 +103,8 @@
 						<label for="sobuoday">Số buổi dạy <span
 							style="color: #db1414">*</span></label> <select name="sobuoiday"
 							id="sobuoiday"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
+							required>
 							<option value="0">Chọn số buổi dạy</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -114,7 +118,7 @@
 
 					<div class="user-input-box">
 						<label for="uudiem">Ưu điểm</label> <input type="text" id="uudiem"
-							name="uudiem" placeholder="yêu cầu khác">
+							name="uudiem" placeholder="yêu cầu khác" required>
 					</div>
 
 

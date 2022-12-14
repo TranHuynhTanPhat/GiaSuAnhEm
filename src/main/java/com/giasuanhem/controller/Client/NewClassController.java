@@ -34,6 +34,12 @@ public class NewClassController {
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage() throws JsonParseException, JsonMappingException, IOException {
 
+
+		List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
+
+		ModelAndView mav = new ModelAndView("users/newclass/newclass");
+		mav.addObject("listNewClass", listNewClass);
+		
 		Map<String, Object> paramsClass = new HashMap<>();
 		paramsClass.put("type", 0);
 		List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
@@ -41,14 +47,8 @@ public class NewClassController {
 		Map<String, Object> paramsDistrict = new HashMap<>();
 		paramsDistrict.put("type", 1);
 		List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
-
-		session.setAttribute("listCategoryClass", listCategoryClass);
-		session.setAttribute("listCategoryDistrict", listCategoryDistrict);
-
-		List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
-
-		ModelAndView mav = new ModelAndView("users/newclass/newclass");
-		mav.addObject("listNewClass", listNewClass);
+		mav.addObject("listCategoryClass", listCategoryClass);
+		mav.addObject("listCategoryDistrict", listCategoryDistrict);
 		return mav;
 
 	}

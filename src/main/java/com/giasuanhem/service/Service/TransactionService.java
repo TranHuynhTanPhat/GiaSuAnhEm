@@ -24,19 +24,22 @@ import com.google.gson.Gson;
 @Service
 @Transactional
 public class TransactionService {
-	static public void createTransaction(TransactionHistoryModel model, HttpSession session) throws IOException {
+	static public TransactionHistoryModel createTransaction(TransactionHistoryModel model, HttpSession session)
+			throws IOException {
 
 		String jsonReq = new Gson().toJson(model);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.LIST_TRANSACTION, jsonReq, session);
-
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
 			session.setAttribute("errorMessage", res.getMessage());
-			return;
+			return null;
 		}
+
+		return objectMapper.convertValue(res.getData(), new TypeReference<TransactionHistoryModel>() {
+		});
 	}
 
 	static public List<TransactionHistoryModel> getListTransaction(HttpSession session)

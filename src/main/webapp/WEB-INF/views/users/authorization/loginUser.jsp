@@ -23,15 +23,17 @@
 
 		<h2>Đăng nhập</h2>
 		<form action="dang-nhap" method="post">
+			<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+				<span class="text" style="color: red"><strong>${sessionScope.errorMessage}</strong></span>
+			</div>
 			<div class="user-box">
 				<input type="text" name="username" required="required" /> <label>Tên
 					tài khoản</label>
 			</div>
 
 			<div class="user-box">
-				<input class="input" type="password" name="password" required="required" />
-
-				<label>Mật khẩu</label>
+				<input class="input" type="password" name="password"
+					required="required" /> <label>Mật khẩu</label>
 			</div>
 
 			<button class="submit">

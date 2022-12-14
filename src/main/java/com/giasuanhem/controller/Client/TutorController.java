@@ -38,6 +38,11 @@ public class TutorController {
 	public ModelAndView tutorPage() {
 		try {
 
+			List<TutorModel> model = TutorService.getListTutor(session);
+
+			ModelAndView mav = new ModelAndView("users/tutor/tutor");
+			mav.addObject("listTutor", model);
+
 			Map<String, Object> paramsClass = new HashMap<>();
 			paramsClass.put("type", 0);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
@@ -45,13 +50,8 @@ public class TutorController {
 			Map<String, Object> paramsDistrict = new HashMap<>();
 			paramsDistrict.put("type", 1);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
-
-			List<TutorModel> model = TutorService.getListTutor(session);
-
-			ModelAndView mav = new ModelAndView("users/tutor/tutor");
-			mav.addObject("listTutor", model);
-			session.setAttribute("listCategoryClass", listCategoryClass);
-			session.setAttribute("listCategoryDistrict", listCategoryDistrict);
+			mav.addObject("listCategoryClass", listCategoryClass);
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
 
 			return mav;
 		} catch (Exception e) {
@@ -120,6 +120,17 @@ public class TutorController {
 		try {
 			if (session.getAttribute("role") != null) {
 				ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
+
+				Map<String, Object> paramsClass = new HashMap<>();
+				paramsClass.put("type", 0);
+				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+				Map<String, Object> paramsDistrict = new HashMap<>();
+				paramsDistrict.put("type", 1);
+				List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+				mav.addObject("listCategoryClass", listCategoryClass);
+				mav.addObject("listCategoryDistrict", listCategoryDistrict);
+
 				return mav;
 			} else {
 				return new ModelAndView("404page");

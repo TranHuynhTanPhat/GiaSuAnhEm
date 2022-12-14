@@ -25,27 +25,29 @@
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ hiện tại <span
 							style="color: #db1414">*</span></label> <input type="text" id="diachi"
-							name="diachi" placeholder="Nhập địa chỉ hiện tại">
+							name="diachi" placeholder="Nhập địa chỉ hiện tại" required>
 					</div>
 					<div class="user-input-box">
 						<label for="quan">Quận<span style="color: #db1414">*</span></label>
-						<input type="text" id="quan" name="quan" placeholder="Nhập quận">
+						<input type="text" id="quan" name="quan" placeholder="Nhập quận"
+							required>
 					</div>
 					<div class="user-input-box">
 						<label for="sobuoi">Số buổi<span style="color: #db1414">*</span></label>
 						<input type="text" id="sobuoi" name="sobuoi"
-							placeholder="Nhập số buổi">
+							placeholder="Nhập số buổi" required>
 					</div>
 					<div class="user-input-box">
 						<label for="time">Thời gian<span style="color: #db1414">*</span></label>
 						<input type="text" id="time" name="time"
-							placeholder="Nhập thời gian">
+							placeholder="Nhập thời gian" required>
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Trạng thái:<span
 							style="color: #db1414">*</span></label> <select name="trangthai"
 							id="trangthai"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
+							required>
 							<option value="0">Chọn trạng thái</option>
 							<option value="1">Đã nhận</option>
 							<option value="0">Chưa nhận</option>
@@ -54,16 +56,17 @@
 					<div class="user-input-box">
 						<label for="luong">Lương<span style="color: #db1414">*</span></label>
 						<input type="text" id="luong" name="luong"
-							placeholder="Nhập lương">
+							placeholder="Nhập lương" required>
 					</div>
 					<div class="user-input-box">
 						<label for="yeucaukhac">Yêu cầu khác</label> <input type="text"
-							id="yeucaukhac" name="yeucaukhac" placeholder="yêu cầu khác">
+							id="yeucaukhac" name="yeucaukhac" placeholder="yêu cầu khác"
+							required>
 					</div>
 					<div class="user-input-box">
 						<label for="lienhe">Liên hệ<span style="color: #db1414">*</span></label>
 						<input type="text" id="lienhe" name="lienhe"
-							placeholder="Nhập liên hệ">
+							placeholder="Nhập liên hệ" required>
 					</div>
 					<div class="user-checkbox-box">
 						<label for="luong">Danh mục</label>

@@ -57,6 +57,7 @@ public class AccountService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
 
 	}
 
@@ -90,6 +91,7 @@ public class AccountService {
 		List<AccountModel> listAccounts = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<AccountModel>>() {
 				});
+		session.removeAttribute("errorMessage");
 
 		return listAccounts;
 
@@ -112,6 +114,7 @@ public class AccountService {
 		List<AccountModel> listAccounts = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<AccountModel>>() {
 				});
+		session.removeAttribute("errorMessage");
 
 		return listAccounts;
 
@@ -140,6 +143,8 @@ public class AccountService {
 		session.setAttribute("state", model.getState());
 		session.setAttribute("newAccount", model);
 		session.setAttribute("emailUser", model.getEmail());
+		session.setAttribute("accessToken", model.getToken());
+
 		if (model.getRole() == 0) {
 			session.removeAttribute("id");
 			session.removeAttribute("state");
@@ -153,7 +158,6 @@ public class AccountService {
 			session.setAttribute("role", "parent");
 		}
 
-		session.setAttribute("accessToken", model.getToken());
 		session.removeAttribute("errMessage");
 	}
 
@@ -172,6 +176,7 @@ public class AccountService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
 
 	}
 }

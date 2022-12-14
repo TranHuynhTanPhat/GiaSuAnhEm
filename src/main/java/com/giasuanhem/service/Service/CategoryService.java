@@ -39,6 +39,8 @@ public class CategoryService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
+
 	}
 
 	static public void removeCategory(Map<String, Object> params, HttpSession session)
@@ -53,6 +55,8 @@ public class CategoryService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
+
 	}
 
 	static public void updateCategory(CategoryModel model, HttpSession session)
@@ -68,6 +72,8 @@ public class CategoryService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
+
 	}
 
 //	public List<CategoryModel> getListQuan() {
@@ -104,6 +110,8 @@ public class CategoryService {
 		List<CategoryModel> listCategoryModel = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<CategoryModel>>() {
 				});
+		session.removeAttribute("errorMessage");
+
 		return listCategoryModel;
 
 	}
@@ -124,6 +132,7 @@ public class CategoryService {
 		List<CategoryModel> listCategoryModel = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<CategoryModel>>() {
 				});
+		session.removeAttribute("errorMessage");
 		return listCategoryModel;
 	}
 
@@ -141,6 +150,8 @@ public class CategoryService {
 
 		CategoryModel category = objectMapper.convertValue(res.getData(), new TypeReference<CategoryModel>() {
 		});
+		session.removeAttribute("errorMessage");
+
 		return category;
 
 	}

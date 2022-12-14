@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.SalaryModel;
+import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.CommonService;
 import com.giasuanhem.service.Service.SalaryService;
 
@@ -36,6 +37,16 @@ public class WageController {
 			ModelAndView mav = new ModelAndView("users/wage/wage");
 			mav.addObject("listSST", listSST);
 			mav.addObject("listSTE", listSTE);
+			
+			Map<String, Object> paramsClass = new HashMap<>();
+			paramsClass.put("type", 0);
+			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
+
+			Map<String, Object> paramsDistrict = new HashMap<>();
+			paramsDistrict.put("type", 1);
+			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
+			mav.addObject("listCategoryClass", listCategoryClass);
+			mav.addObject("listCategoryDistrict", listCategoryDistrict);
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");

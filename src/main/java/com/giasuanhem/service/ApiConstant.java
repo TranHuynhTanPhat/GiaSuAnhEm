@@ -48,4 +48,6 @@ public class ApiConstant {
 	public static final String NEWCLASS_FILTER = "/new_class/filter";
 	public static final String TRANSACTION_FILTER = "/trans/filter";
 	public static final String TUTOR_FILTER = "/tutor/filter";
+
+	public static final String NEWCLASS_STATUS = "/new_class/status";
 }

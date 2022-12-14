@@ -9,14 +9,14 @@
 		class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100 ">
 		<ul>
 			<li><span>Phân loại lớp theo khối</span></li>
-			<c:forEach var="item" items="${ sessionScope.listCategoryClass}">
+			<c:forEach var="item" items="${ listCategoryClass}">
 				<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
 			</c:forEach>
 
 		</ul>
 		<ul>
 			<li><span>Gia sư theo quận</span></li>
-			<c:forEach var="item" items="${ sessionScope.listCategoryDistrict}">
+			<c:forEach var="item" items="${ listCategoryDistrict}">
 				<li><a href="#" title="Gia sư cấp 1">${ item.name }</a></li>
 			</c:forEach>
 		</ul>

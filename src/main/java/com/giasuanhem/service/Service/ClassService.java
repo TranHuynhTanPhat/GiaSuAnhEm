@@ -55,7 +55,9 @@ public class ClassService {
 
 		if (!res.getStatus()) {
 			session.setAttribute("errorMessage", res.getMessage());
+			return;
 		}
+		session.removeAttribute("errorMessage");
 
 	}
 
@@ -69,6 +71,8 @@ public class ClassService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
+
 	}
 
 	static public void updateClass(ClassModel model, HttpSession session)
@@ -83,6 +87,7 @@ public class ClassService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorMessage");
 
 	}
 
@@ -98,11 +103,14 @@ public class ClassService {
 
 		if (!res.getStatus()) {
 			session.setAttribute("errorMessage", res.getMessage());
+			return null;
 		}
 
 		List<ClassModel> listClassModels = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<ClassModel>>() {
 				});
+		session.removeAttribute("errorMessage");
+
 		return listClassModels;
 
 	}
@@ -120,6 +128,8 @@ public class ClassService {
 		}
 		ClassModel model = objectMapper.convertValue(res.getData(), new TypeReference<ClassModel>() {
 		});
+		session.removeAttribute("errorMessage");
+
 		return model;
 
 	}

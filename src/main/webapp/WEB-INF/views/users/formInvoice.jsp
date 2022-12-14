@@ -64,6 +64,12 @@
 	<div class="container-fluid"
 		style="margin-top: 100px; background-color: #eef2f8;">
 		<div class="container">
+			<div
+				class="d-sm-flex align-items-center justify-content-between mb-4 title"
+				style="float: right">
+				<a href="./lop-moi" class="btn btn-danger btn-block mb-4"><i
+					class="fas fa-arrow-left fa-sm text-white-50"></i> Home</a>
+			</div>
 			<div class="card">
 				<div class="card-body">
 					<div id="invoice">
@@ -83,6 +89,10 @@
 												<a href="mailto:thcstrandainghiaphat8a2@gmail.com">thcstrandainghiaphat8a2@gmail.com
 
 
+
+
+
+
 												
 											</div>
 										</div>
@@ -98,7 +108,7 @@
 											</div>
 										</div>
 										<div class="col invoice-details">
-											<h1 class="invoice-id">HÓA ĐƠN 3-2-1</h1>
+											<h1 class="invoice-id">HÓA ĐƠN ${idInvoice }</h1>
 											<div class="date">Ngày xuất: 01/10/2018</div>
 											<div class="date">Thời gian phản hồi: 30/10/2018</div>
 										</div>
@@ -116,67 +126,37 @@
 												<td class="no">04</td>
 												<td class="text-left">
 													<h3>
-														<a target="_blank" href="javascript:;"> Youtube
-															channel </a>
-													</h3> <a target="_blank" href="javascript:;"> Useful videos
-												</a> to improve your Javascript skills. Subscribe and stay tuned
-													:)
+														<a target="_blank" href="javascript:;"> ${username } }
+														</a>
+													</h3> <a target="_blank" href="javascript:;"> Mã lớp: </a>
+													${id }
 												</td>
-												<td class="unit">$0.00</td>
-												<td class="qty">100</td>
-												<td class="total">$0.00</td>
+												<td class="unit">${salary*0.4 }VNĐ</td>
+												<td class="qty">1</td>
+												<td class="total">${salary*0.4 }VNĐ</td>
 											</tr>
-											<tr>
-												<td class="no">01</td>
-												<td class="text-left">
-													<h3>Website Design</h3>Creating a recognizable design
-													solution based on the company's existing visual identity
-												</td>
-												<td class="unit">$40.00</td>
-												<td class="qty">30</td>
-												<td class="total">$1,200.00</td>
-											</tr>
-											<tr>
-												<td class="no">02</td>
-												<td class="text-left">
-													<h3>Website Development</h3>Developing a Content Management
-													System-based Website
-												</td>
-												<td class="unit">$40.00</td>
-												<td class="qty">80</td>
-												<td class="total">$3,200.00</td>
-											</tr>
-											<tr>
-												<td class="no">03</td>
-												<td class="text-left">
-													<h3>Search Engines Optimization</h3>Optimize the site for
-													search engines (SEO)
-												</td>
-												<td class="unit">$40.00</td>
-												<td class="qty">20</td>
-												<td class="total">$800.00</td>
-											</tr>
+
 										</tbody>
 										<tfoot>
 											<tr>
 												<td colspan="2"></td>
 												<td colspan="2">Tổng tiền</td>
-												<td>$5,200.00</td>
+												<td>${salary*0.4 }VNĐ</td>
 											</tr>
 											<tr>
 												<td colspan="2"></td>
-												<td colspan="2">Thuế 25%</td>
-												<td>$1,300.00</td>
+												<td colspan="2">Thuế 0%</td>
+												<td>0 VNĐ</td>
 											</tr>
 											<tr>
 												<td colspan="2"></td>
-												<td colspan="2">Khuyến mãi 25%</td>
-												<td>$1,300.00</td>
+												<td colspan="2">Khuyến mãi 0%</td>
+												<td>0 VNĐ</td>
 											</tr>
 											<tr>
 												<td colspan="2"></td>
-												<td colspan="2">GRAND TOTAL</td>
-												<td>$6,500.00</td>
+												<td colspan="2">Số tiền phải thanh toán</td>
+												<td>${salary*0.4 }VNĐ</td>
 											</tr>
 										</tfoot>
 									</table>
