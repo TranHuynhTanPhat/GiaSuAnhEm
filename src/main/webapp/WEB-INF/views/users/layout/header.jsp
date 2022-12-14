@@ -14,7 +14,7 @@
 						<c:choose>
 							<c:when
 								test="${(sessionScope.role=='tutor' or sessionScope.role=='parent') and sessionScope.state==1}">
-								<li class="dropdown-item"><a href="#">Thông tin cá
+								<li class="dropdown-item"><a href="./thong-tin-ca-nhan">Thông tin cá
 										nhân</a></li>
 
 								<li class="dropdown-item"><a href="./dang-xuat">Đăng

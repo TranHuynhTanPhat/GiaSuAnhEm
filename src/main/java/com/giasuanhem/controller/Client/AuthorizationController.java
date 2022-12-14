@@ -153,4 +153,14 @@ public class AuthorizationController {
 		}
 	}
 
+	@RequestMapping(value = "/thong-tin-ca-nhan", method = RequestMethod.GET)
+	public ModelAndView xemThongTin() {
+		try {
+			ModelAndView mav = new ModelAndView("users/home/user_information");
+			return mav;
+		} catch (Exception e) {
+			ModelAndView mav = new ModelAndView("404page");
+			return mav;
+		}
+	}
 }

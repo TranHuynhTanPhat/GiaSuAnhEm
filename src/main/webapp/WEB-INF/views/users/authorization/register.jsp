@@ -31,32 +31,30 @@
 
 
 			<div class="user-box">
-				<input type="text" name="username" required="required" /> <label>Tên
-					tài khoản</label>
+				<input id="username" type="text" name="username" /> <small></small>
+				<span></span> <label>Tên tài khoản</label>
 			</div>
 
 			<div class="user-box">
-				<input type="text" name="email" required="required" /> <label>Email</label>
+				<input id="email" type="text" name="email" /> <small></small> <span></span><label>Email</label>
 			</div>
 
 			<div class="user-box">
-				<input class="input" type="password" name="password"
-					required="required" /> <label>Mật khẩu</label>
+				<input id="password" class="input" type="password" name="password" /><small></small>
+				<span></span> <label>Mật khẩu</label>
 			</div>
 
 			<div class="user-box">
-				<input class="input-cf" type="password" name="" required="required" />
-
-				<label>Nhập lại mật khẩu</label>
+				<input id="cfpassword" class="input-cf" type="password" name="" />
+				<small></small> <span></span> <label>Nhập lại mật khẩu</label>
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="role" required="required" value="1" /> <label>Gia
-					sư</label>
+				<input type="radio" name="role" value="1" /> <label>Gia sư</label>
 			</div>
 
 			<div class="user-checkbox">
-				<input type="radio" name="role" required="required" value="2" /> <label>Phụ
+				<input type="radio" name="role" value="2" /> <label>Phụ
 					huynh</label>
 			</div>
 
@@ -65,5 +63,7 @@
 			</button>
 		</form>
 	</div>
+	<script src="resources/assets/js/import/register.js"></script>
+
 </body>
 </html>
