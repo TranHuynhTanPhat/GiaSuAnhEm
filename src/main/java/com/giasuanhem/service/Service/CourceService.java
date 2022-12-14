@@ -78,10 +78,10 @@ public class CourceService {
 
 	}
 
-	static public List<NewClassModel> getListNewClass(HttpSession session)
+	static public List<NewClassModel> getListNewClass(Map<String, Object>params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		String jsonResponse = CommonService.get(ApiConstant.LIST_NEWCLASS);
+		String jsonResponse = CommonService.getWithParams(ApiConstant.LIST_NEWCLASS, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});

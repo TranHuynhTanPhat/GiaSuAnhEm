@@ -48,8 +48,15 @@ public class CourceManagementController {
 	@RequestMapping(value = "/quanlykhoahoc", method = RequestMethod.GET)
 	public ModelAndView courceManagement(HttpServletRequest request, HttpServletResponse response)
 			throws JsonParseException, JsonMappingException, IOException {
+		String pageStr = request.getParameter("page");
+		int page = 0;
+		int pagesize = 5;
 		if (session.getAttribute("admin") != null) {
-
+			if (pageStr == null) {
+				page = 1;
+			} else {
+				page = Integer.parseInt(pageStr);
+			}
 			List<ClassModel> listClass = ClassService.getListClass(session);
 
 			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
@@ -57,8 +64,12 @@ public class CourceManagementController {
 			Map<String, Object> paramsDistrict = new HashMap<>();
 			paramsDistrict.put("type", 0);
 			List<CategoryModel> listCategoryDistrict = CategoryService.getListCategory(paramsDistrict, session);
-
-			List<NewClassModel> listNewCource = CourceService.getListNewClass(session);
+			
+			Map<String, Object> paramsNewClass = new HashMap<>();
+			paramsNewClass.put("page", page);
+			paramsNewClass.put("pagesize", pagesize);
+			List<NewClassModel> listNewCource = CourceService.getListNewClass(paramsNewClass,session);
+			System.out.print(listNewCource.size());
 
 			// excel
 			String typeRequest = request.getParameter("type");
@@ -80,6 +91,8 @@ public class CourceManagementController {
 			mav.addObject("listSubject", listSubject);
 			mav.addObject("listClass", listClass);
 			mav.addObject("listCategoryDistrict", listCategoryDistrict);
+			mav.addObject("page", page);
+			mav.addObject("pagesize", pagesize);
 
 			// search
 			String sub = request.getParameter("chonmon");

@@ -97,7 +97,7 @@
 
 				</div>
 			</div>
-				<div id="num-order-wp" style="float:right" >
+				<div id="num-order-wp" style="float:right">
 					<a title="" href="quanlytuyendung?page=${ page - 1 }" id="minus"><i class="fa fa-minus"></i></a>
 					<input style="width: 30px;"type="button" value="${page}" id="num-order"> 
 					<c:if test="${listRecruitPost.size() == pagesize }">

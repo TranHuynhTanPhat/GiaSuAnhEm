@@ -36,7 +36,8 @@ public class NewClassController {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		ModelAndView mav = new ModelAndView("users/newclass/newclass");
-		List<NewClassModel> listNewClass = CourceService.getListNewClass(session);
+		Map<String, Object> paramsNewClass = new HashMap<>();
+		List<NewClassModel> listNewClass = CourceService.getListNewClass(paramsNewClass,session);
 
 		String category = request.getParameter("category");
 
