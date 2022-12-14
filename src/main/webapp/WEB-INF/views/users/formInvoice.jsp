@@ -8,10 +8,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
+<title>Hóa đơn</title>
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>Trang liên hệ</title>
-
 <link href="<c:url value="resources/assets/css/import/header.css"/>"
 	rel="stylesheet">
 <link
@@ -72,14 +73,16 @@
 									<div class="row">
 										<div class="col company-details">
 											<h2 class="name">
-												<a target="_blank" href="javascript:;"> Trung tâm gia sư
-													Anh Em </a>
+												<a target="" href="javascript:;"> Trung tâm gia sư Anh
+													Em </a>
 											</h2>
 											<div>Đại học Sư phạm kỹ thuật thành phố Hồ Chí
 												Minh</div>
 											<div>(+84) 389052819</div>
 											<div class="email">
 												<a href="mailto:thcstrandainghiaphat8a2@gmail.com">thcstrandainghiaphat8a2@gmail.com
+
+
 												
 											</div>
 										</div>
@@ -89,9 +92,9 @@
 									<div class="row contacts">
 										<div class="col invoice-to">
 											<div class="text-gray-light">Hóa đơn được gửi đến:</div>
-											<h2 class="to">John Doe</h2>
+											<h2 class="to">${username }</h2>
 											<div class="email">
-												<a href="mailto:john@example.com">john@example.com</a>
+												<a href="mailto:${sessionScope.emailUser }">${sessionScope.emailUser }</a>
 											</div>
 										</div>
 										<div class="col invoice-details">

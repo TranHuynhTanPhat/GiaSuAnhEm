@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
@@ -121,19 +123,5 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
-	public ModelAndView invoicePage() {
-		try {
-			if (session.getAttribute("role") != null) {
-				ModelAndView mav = new ModelAndView("users/formInvoice");
-
-				return mav;
-			} else {
-				return new ModelAndView("404page");
-			}
-		} catch (Exception e) {
-			ModelAndView mav = new ModelAndView("404page");
-			return mav;
-		}
-	}
+	
 }

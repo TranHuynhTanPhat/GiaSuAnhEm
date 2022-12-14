@@ -89,7 +89,6 @@ public class TutorManagementController {
 				String gen = request.getParameter("chongioitinh");
 				String peo = request.getParameter("chonnguoiday");
 				if (sub == null && cla == null && dis == null && gen == null && peo == null) {
-
 					mav.addObject("listTutor", listTutor);
 
 				} else {

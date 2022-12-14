@@ -29,8 +29,8 @@
 							class="fa-solid fa-database"></i> MySql</a>
 					</p>
 					<p>
-						<a href="https://render.com/" class="text-reset"><i
-							class="fa-solid fa-server"></i> Render</a>
+						<a href="https://railway.app/" class="text-reset"><i
+							class="fa-solid fa-server"></i> Railway</a>
 					</p>
 					<p>...</p>
 				</div>

@@ -37,7 +37,7 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		try {
-			ModelAndView mav = new ModelAndView("users/home/loginUser");
+			ModelAndView mav = new ModelAndView("users/authorization/loginUser");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -48,15 +48,13 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.POST)
 	public String loginPage(@RequestParam("username") String username, @RequestParam("password") String password)
 			throws JsonParseException, JsonMappingException, IOException {
-
 		Map<String, Object> params = new HashMap<>();
 		params.put("username", username);
 		params.put("password", password);
 
 		AccountService.checkLogin(params, session);
-		String temp = (String) session.getAttribute("state");
-		if (temp != null) {
-			if (Integer.parseInt(temp) == 2) {
+		if (session.getAttribute("state") != null) {
+			if ((int) session.getAttribute("state") == 2) {
 				return "redirect:/verify";
 			}
 		} else {
@@ -70,7 +68,7 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
 	public ModelAndView registerPage() {
 		try {
-			ModelAndView mav = new ModelAndView("users/home/register");
+			ModelAndView mav = new ModelAndView("users/authorization/register");
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -109,7 +107,7 @@ public class AuthorizationController {
 			OTP = RandomOTP.randomOTP();
 			EmailService.sendEmail(String.valueOf(session.getAttribute("emailUser")), "verify",
 					EmailService.formOTP(OTP));
-			return new ModelAndView("users/home/verifyForm");
+			return new ModelAndView("users/authorization/verifyForm");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -134,8 +132,6 @@ public class AuthorizationController {
 
 			AccountService.checkLogin(params, session);
 
-			session.removeAttribute("newAccount");
-			session.removeAttribute("emailUser");
 			return "redirect:/trang-chu";
 		}
 		return "redirect:/verify";
@@ -148,6 +144,9 @@ public class AuthorizationController {
 			session.removeAttribute("id");
 			session.removeAttribute("accessToken");
 			session.removeAttribute("state");
+
+			session.removeAttribute("newAccount");
+			session.removeAttribute("emailUser");
 			return "redirect:/trang-chu";
 		} catch (Exception e) {
 			return "redirect:/error";

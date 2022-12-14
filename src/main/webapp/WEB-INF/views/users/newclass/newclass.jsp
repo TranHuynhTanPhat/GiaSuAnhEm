@@ -75,7 +75,7 @@
 						style="text-align: left; float: left;">
 						<thead>
 							<tr align="center">
-								<th scope="col" colspan="9"><strong> <font
+								<th scope="col" colspan="10"><strong> <font
 										color="red" size="3"><u>LỚP NGÀY 21/10/2022</u></font>
 								</strong> <br>
 									<p>
@@ -87,15 +87,15 @@
 									</p></th>
 							</tr>
 							<tr>
-								<th scope="col"><strong>MS </strong><br></th>
+								<th scope="col"><strong>MS </strong></th>
 								<th scope="col"><strong> Lớp</strong></th>
-								<th scope="col"><strong>Môn học </strong><br></th>
-								<th scope="col"><strong>Đường Phường </strong><br></th>
-								<th scope="col"><strong>Quận </strong><br></th>
+								<th scope="col"><strong>Môn học </strong></th>
+								<th scope="col"><strong>Đường Phường </strong></th>
+								<th scope="col"><strong>Quận </strong></th>
 								<th scope="col"><strong>Buổi</strong></th>
 								<th scope="col"><strong>Thời gian</strong></th>
-								<th scope="col"><strong>Lương </strong><br></th>
-								<th scope="col"><strong>Yêu cầu </strong><br></th>
+								<th scope="col"><strong>Lương </strong></th>
+								<th scope="col"><strong>Yêu cầu </strong></th>
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
@@ -117,6 +117,20 @@
 								<td>${ item.time }</td>
 								<td align="right">${item.salary}</td>
 								<td>${ item.require }</td>
+								<c:if test="${sessionScope.role=='tutor' }">
+									<c:choose>
+										<c:when test="${item.status==1}">
+											<td width="9%"><a href="" style="color: white"><i><u>Đã
+															được nhận</u></i></a></td>
+										</c:when>
+										<c:otherwise>
+											<td width="9%"><a
+												href="dang-ky-day?id=${item.id }&salary=${item.salary}"
+												style="color: red"><i><u>Đăng kí dạy</u></i></a></td>
+
+										</c:otherwise>
+									</c:choose>
+								</c:if>
 								</tr>
 							</c:forEach>
 

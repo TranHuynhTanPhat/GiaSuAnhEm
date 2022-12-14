@@ -83,7 +83,7 @@ public class TutorController {
 				mav.addObject("listSubject", listSubject);
 				return mav;
 			} else {
-				return new ModelAndView("users/home/loginUser");
+				return new ModelAndView("users/authorization/loginUser");
 			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
@@ -122,7 +122,7 @@ public class TutorController {
 				ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
 				return mav;
 			} else {
-				return new ModelAndView("\"404page\"");
+				return new ModelAndView("404page");
 			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
