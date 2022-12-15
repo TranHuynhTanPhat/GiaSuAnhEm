@@ -183,27 +183,28 @@
 							</thead>
 							<tbody class="table-group-divider">
 								<c:forEach var="item" items="${ listTutor }">
-									<tr>
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.name }</td>
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.email }</td>
+									<c:choose>
+										<c:when test="${item.gender=='Nam' }">
+											<tr style="background-color: #53d2dc"
+												onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">
+										</c:when>
+										<c:otherwise>
+											<tr style="background-color: #ffe3b3"
+												onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">
+										</c:otherwise>
+									</c:choose>
+									<td>${item.name }</td>
+									<td>${item.email }</td>
 
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.birth_year }</td>
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.gender }</td>
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.phone }</td>
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.isnow }</td>
-										<td style="text-align: center; float: center;"
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.sobuoi }</td>
-										<td
-											onclick="checkRow('${item.id}', '${item.name }',' ${item.address }', '${item.email }', '${item.phone }', '${item.school }', '${item.department }', '${item.gender }',' ${item.graduate_year }',' ${item.isnow }',' ${item.describe }',' ${item.sobuoi }', '${item.birth_year }', '${item.id_account }', '${item.created_at}', '${item.classes }', '${item.subjects }', '${item.categories }')">${item.describe }</td>
-										<th><a href="updateTutor?id=${item.id}"><i
-												class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-										<%-- <th><a href="./deleteTutor?id=${item.id }"
+									<td>${item.birth_year }</td>
+									<td>${item.gender }</td>
+									<td>${item.phone }</td>
+									<td>${item.isnow }</td>
+									<td style="text-align: center; float: center;">${item.sobuoi }</td>
+									<td>${item.describe }</td>
+									<th><a href="updateTutor?id=${item.id}"><i
+											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
+									<%-- <th><a href="./deleteTutor?id=${item.id }"
 											onclick="return confirmDelete()"><i
 												class="fa-solid fa-trash text-danger icon"></i></a></th> --%>
 									</tr>
@@ -211,7 +212,24 @@
 
 							</tbody>
 						</table>
+						<div class="row" style="margin-top: 5px">
 
+							<div class="note">
+								<p>
+									<strong>Note:</strong>
+								</p>
+								<p>
+									<h class="btn"
+										style="background-color: #ffe3b3; border-radius:0px; width:200px">
+									<b>Nữ</b></h>
+								</p>
+								<p>
+									<h class="btn "
+										style="background-color: #53d2dc; border-radius:0px; width:200px">
+									<b>Nam</b></h>
+								</p>
+							</div>
+						</div>
 						<canvas width="100%" height="1px"></canvas>
 						<div class="row form" id="Custome-div" style="width: 60%;">
 							<div id="divGFG" align=left>

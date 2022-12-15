@@ -55,8 +55,8 @@
 			} else
 				return false;
 		}
-		
-		function getPage(page){
+
+		function getPage(page) {
 			return ""
 		}
 	</script>
@@ -82,7 +82,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${ listRecruitPost }">
-								<tr>
+								<tr style="background-color: #53d2dc">
 									<td scope="col">${item.title }</td>
 									<td>${item.body }</td>
 									<th><a href="./updateRecruitment?id=${item.id}"><i
@@ -97,13 +97,26 @@
 
 				</div>
 			</div>
-				<div id="num-order-wp" style="float:right">
-					<a title="" href="quanlytuyendung?page=${ page - 1 }" id="minus"><i class="fa fa-minus"></i></a>
-					<input style="width: 30px;"type="button" value="${page}" id="num-order"> 
+			<div class="row" style="margin-top: 10px">
+				<div id="num-order-wp" style="text-align: right">
+					<c:if test="${page > 1 }">
+						<a title="" href="quanlytuyendung?page=${ page - 1 }" id="minus"
+							style="text-decoration: none !important;"> <i
+							class="fa-solid fa-angle-left" style="font-size: 15px !important"></i>
+							Trang trước
+						</a>
+					</c:if>
+					<h disabled id="num-order" class="btn bg-white"
+						style="width: 35px; height:35px;align:center, color:black; border:solid 1px black">${page}</h>
 					<c:if test="${listRecruitPost.size() == pagesize }">
-						<a title="" href="quanlytuyendung?page=${ page + 1 }" id="plus"><i class="fa fa-plus"></i></a>
+						<a title="" href="quanlytuyendung?page=${ page + 1 }" id="plus"
+							style="text-decoration: none !important;">Trang kế <i
+							class="fa-solid fa-chevron-right"
+							style="font-size: 15px !important"></i>
+						</a>
 					</c:if>
 				</div>
+			</div>
 			<div class="row">
 				<div class="container-fluid">
 					<div id="page-main-Admin"

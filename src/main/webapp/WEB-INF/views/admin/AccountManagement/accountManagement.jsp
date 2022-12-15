@@ -162,6 +162,23 @@
 
 							</tbody>
 						</table>
+						<div class="row" style="margin-top: 5px">
+							<div class="note">
+								<p>
+									<strong>Note:</strong>
+								</p>
+								<p>
+									<h class=" btn"
+										style="background-color: #ffe3b3; border-radius:0px; width:200px">
+									<b>Phụ huynh</b></h>
+								</p>
+								<p>
+									<h class="btn "
+										style="background-color: #53d2dc; border-radius:0px; width:200px">
+									<b>Gia sư</b></h>
+								</p>
+							</div>
+						</div>
 						<canvas width="100%" height="10px"></canvas>
 					</div>
 				</div>

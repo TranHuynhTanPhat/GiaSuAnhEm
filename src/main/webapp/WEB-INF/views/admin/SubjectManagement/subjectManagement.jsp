@@ -90,7 +90,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listSubject }">
-								<tr>
+								<tr style="background-color: #53d2dc">
 									<td>${ item.name }</td>
 									<th><a href="./updateSubject?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>

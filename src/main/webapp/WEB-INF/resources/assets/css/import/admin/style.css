@@ -352,3 +352,9 @@ input::placeholder {
 .form-select {
 	color: #001c44;
 }
+
+/*note*/
+.note {
+  background-color: #fff9e9;
+  border-left: 6px solid #ffc107;
+}

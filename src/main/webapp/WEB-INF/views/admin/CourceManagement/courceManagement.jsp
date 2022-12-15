@@ -137,6 +137,7 @@
 								class="fas fa-download fa-sm text-white-50"></i> Tải file excel</a>
 						</div>
 					</div>
+
 					<table width="100%" class="table mb-0 bg-white">
 						<thead>
 							<tr>
@@ -200,16 +201,43 @@
 
 						</tbody>
 					</table>
-					<canvas width="100%" height="1px"></canvas>
-					<div id="num-order-wp" style="float: right">
-						<a title="" href="quanlykhoahoc?page=${ page - 1 }" id="minus"><i
-							class="fa fa-minus"></i></a> <input style="width: 30px;"
-							type="button" value="${page}" id="num-order">
-						<c:if test="${listNewCource.size() == pagesize }">
-							<a title="" href="quanlykhoahoc?page=${ page + 1 }" id="plus"><i
-								class="fa fa-plus"></i></a>
-						</c:if>
+					<div class="row" style="margin-top: 10px">
+						<div id="num-order-wp" style="text-align: right">
+							<c:if test="${page > 1 }">
+								<a title="" href="quanlykhoahoc?page=${ page - 1 }" id="minus"
+									style="text-decoration: none !important;"><i
+									class="fa-solid fa-angle-left"
+									style="font-size: 15px !important"></i> Trang trước</a>
+							</c:if>
+							<h disabled id="num-order" class="btn bg-white"
+								style="width: 35px; height:35px;align:center, color:black; border:solid 1px black">${page}</h>
+							<c:if test="${listNewCource.size() == pagesize }">
+								<a title="" href="quanlykhoahoc?page=${ page + 1 }" id="plus"
+									style="text-decoration: none !important;">Trang kế <i
+									class="fa-solid fa-chevron-right"
+									style="font-size: 15px !important"></i>
+								</a>
+							</c:if>
+						</div>
 					</div>
+					<div class="row" style="margin-top: 5px">
+						<div class="note">
+							<p>
+								<strong>Note:</strong>
+							</p>
+							<p>
+								<h class="text-danger btn"
+									style="background-color: #ffe3b3; border-radius:0px; width:200px">
+								<b>Đã được nhận</b></h>
+							</p>
+							<p>
+								<h class="btn "
+									style="background-color: #53d2dc; border-radius:0px; width:200px">
+								<b>Chưa được nhận</b></h>
+							</p>
+						</div>
+					</div>
+					<canvas width="100%" height="1px"></canvas>
 					<div class="row form" id="Custome-div" style="width: 60%;">
 						<div id="divGFG" align=left>
 							<center>

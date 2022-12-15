@@ -92,9 +92,8 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<c:forEach var="item"
-								items="${ listCategoryDistrict}">
-								<tr>
+							<c:forEach var="item" items="${ listCategoryDistrict}">
+								<tr style="background-color: #53d2dc">
 									<td>${item.name }</td>
 									<td>${item.type }</td>
 									<th><a href="updateCategory?id=${item.id}"><i
@@ -123,7 +122,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${ listCategoryClass}">
-								<tr>
+								<tr style="background-color: #53d2dc">
 									<td>${item.name }</td>
 									<td>${item.type }</td>
 									<th><a href="updateCategory?id=${item.id}"><i

@@ -33,14 +33,14 @@
 	href="resources/assets/images/favicon-96x96.png" />
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>
-	<script src="https://kit.fontawesome.com/672e69e895.js"
+<script src="https://kit.fontawesome.com/672e69e895.js"
 	crossorigin="anonymous"></script>
-	<script
+<script
 	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
 	type="text/javascript"></script>
 <script src="<c:url value="resources/assets/js/main.js"/>"
 	type="text/javascript"></script>
-	<script
+<script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
 <script
@@ -147,15 +147,25 @@
 
 						</tbody>
 					</table>
-					<div id="num-order-wp" style="float: right">
-				<a title="" href="lop-moi?page=${ page - 1 }" id="minus"><i
-					class="fa fa-minus"></i></a> <input style="width: 30px;" type="button"
-					value="${page}" id="num-order">
-				<c:if test="${listNewClass.size() == pagesize }">
-					<a title="" href="lop-moi?page=${ page + 1 }" id="plus"><i
-						class="fa fa-plus"></i></a>
-				</c:if>
-			</div>
+					<div class="row" style="margin-top: 10px">
+						<div id="num-order-wp" style="text-align: right;">
+							<c:if test="${page > 1 }">
+								<a title="" href="lop-moi?page=${ page - 1 }" id="minus"> <i
+									class="fa-solid fa-angle-left"
+									style="font-size: 15px !important"></i> Trang trước
+								</a>
+							</c:if>
+							<h disabled id="num-order" class="btn bg-white"
+								style="width: 35px; height:35px;align:center, color:black; border:solid 1px black">${page}</h>
+							<c:if test="${listNewClass.size() == pagesize }">
+								<a title="" href="lop-moi?page=${ page + 1 }" id="plus">Trang
+									kế <i class="fa-solid fa-chevron-right"
+									style="font-size: 15px !important"></i>
+								</a>
+							</c:if>
+
+						</div>
+					</div>
 				</div>
 				<hr>
 				<div class="row">

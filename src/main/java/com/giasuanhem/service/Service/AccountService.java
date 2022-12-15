@@ -60,6 +60,21 @@ public class AccountService {
 
 	}
 
+	static public void updatePasword(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+		String jsonResponse = CommonService.postWithParams(ApiConstant.ACCOUNT_UPDATE, params, session);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return;
+		}
+		session.removeAttribute("errorMessage");
+
+	}
+
 	static public AccountModel getAccount(Map<String, Object> params)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = CommonService.getWithParams(ApiConstant.ACCOUNT_FINDID, params);

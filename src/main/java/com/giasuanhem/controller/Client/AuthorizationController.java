@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.AccountModel;
+import com.giasuanhem.model.Models.ResponseModel;
 import com.giasuanhem.service.Email.EmailService;
 import com.giasuanhem.service.Email.RandomOTP;
 import com.giasuanhem.service.Service.AccountService;
@@ -156,11 +157,29 @@ public class AuthorizationController {
 	@RequestMapping(value = "/thong-tin-ca-nhan", method = RequestMethod.GET)
 	public ModelAndView xemThongTin() {
 		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			AccountModel model = objectMapper.convertValue(session.getAttribute("newAccount"),
+					new TypeReference<AccountModel>() {
+					});
 			ModelAndView mav = new ModelAndView("users/home/user_information");
+			mav.addObject("model", model);
 			return mav;
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
+		}
+	}
+
+	@RequestMapping(value = "/thong-tin-ca-nhan", method = RequestMethod.POST)
+	public String udpatePassword(@RequestParam("password") String pw, @RequestParam("id") String id) {
+		try {
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("id", id);
+			params.put("password", pw);
+			AccountService.updatePasword(params, session);
+			return "redirect:/thong-tin-ca-nhan";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 }

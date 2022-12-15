@@ -69,7 +69,6 @@ public class CourceManagementController {
 			paramsNewClass.put("page", page);
 			paramsNewClass.put("pagesize", pagesize);
 			List<NewClassModel> listNewCource = CourceService.getListNewClass(paramsNewClass,session);
-			System.out.print(listNewCource.size());
 
 			// excel
 			String typeRequest = request.getParameter("type");

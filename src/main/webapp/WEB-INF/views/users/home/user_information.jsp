@@ -14,6 +14,8 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet">
+<link rel="shortcut icon" type="image/png"
+	href="resources/assets/images/favicon-96x96.png" />
 </head>
 
 <body>
@@ -24,9 +26,10 @@
 
 					<div class="shadow"></div>
 					<div class="wrapper-1">
-
-						<h1 class="title">giasuanhem</h1>
-						<div class="slogan">Trung Tâm gia sư</div>
+						<a href="./trang-chu"  style="text-decoration: none !important;">
+							<h1 class="title">giasuanhem</h1>
+							<div class="slogan">Trung Tâm gia sư</div>
+						</a>
 					</div>
 
 				</div>
@@ -34,19 +37,20 @@
 					<div class="wrapper-2">
 						<div class="form-title">Thông tin tài khoản</div>
 						<div class="form">
-							<form action="#">
+							<form action="thong-tin-ca-nhan" method="post">
+								<input type="hidden" name="id" value="${model.id }">
 								<p class="content-item">
-									<label>Tên tài khoản </label> <label class="content">nghia</label>
+									<label>Tên tài khoản </label> <label class="content">${model.username}</label>
 								</p>
 
 								<p class="content-item">
-									<label>Email </label> <label class="content">trungnghiaazd@gmail.com</label>
+									<label>Email </label> <label class="content">${model.email}</label>
 								</p>
 
 								<p class="content-item password disable">
 
 									<label>Mật khẩu </label> <input class="content input-password "
-										type="password" value="****" name="psw" required>
+										type="password" value="****" name="password" required>
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none"
 										viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
 										class="edit">
