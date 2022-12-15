@@ -68,9 +68,11 @@ public class ClassService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
+			session.removeAttribute("alertA");
 			session.setAttribute("errorMessage", res.getMessage());
 			return;
 		}
+		session.setAttribute("alertA", "true");
 		session.removeAttribute("errorMessage");
 
 	}

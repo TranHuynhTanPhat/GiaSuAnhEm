@@ -29,10 +29,18 @@
 							class="fa-solid fa-database"></i> MySql</a>
 					</p>
 					<p>
+						<a href="https://go.dev/" class="text-reset"><i
+							class="fa-brands fa-golang"></i> GoLang</a>
+					</p>
+					<p>
 						<a href="https://railway.app/" class="text-reset"><i
 							class="fa-solid fa-server"></i> Railway</a>
 					</p>
-					<p>...</p>
+
+					<p>
+						<a href="https://www.heroku.com/" class="text-reset"><i
+							class="fa-solid fa-server"></i> Heroku</a>
+					</p>
 				</div>
 				<div class="col">
 					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
