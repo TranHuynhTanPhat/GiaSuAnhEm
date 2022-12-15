@@ -150,7 +150,6 @@
 								<th scope="col">Liên hệ <br></th>
 								<th scope="col">Trạng thái</th>
 								<th scope="col" width="2%"></th>
-								<th scope="col" width="2%"></th>
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
@@ -193,9 +192,9 @@
 
 								<th><a href="updateNewCource?id=${item.id}"><i
 										class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>
-								<th><a href="./deleteNewCource?id=${item.id }"
+								<%-- <th><a href="./deleteNewCource?id=${item.id }"
 									onclick="return confirmDelete()"><i
-										class="fa-solid fa-trash text-danger icon"></i></a></th>
+										class="fa-solid fa-trash text-danger icon"></i></a></th> --%>
 								</tr>
 							</c:forEach>
 

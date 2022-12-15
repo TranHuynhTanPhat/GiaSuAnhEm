@@ -181,14 +181,7 @@
 								100874769903 </em></span>
 					</p>
 					<p>&nbsp;</p>
-					<p>
-						Xem thêm: <a title="gia sư nhân văn" href="/">gia su</a> , <a
-							title="gia sư nhân văn" href="/">gia sư</a> , <a
-							title="gia su nhan van" href="/">trung tam gia su</a> , <a
-							title="gia sư nhân văn" href="/">trung tâm gia sư</a> , <a
-							title="gia su nhan van" href="/">gia sư uy tin</a> , <a
-							title="gia sư nhân văn" href="/">gia sư uy tín </a>
-					</p>
+
 					<div class="clearb"></div>
 					<div class="mxh clearfix">
 						<div style="float: left; margin-left: 20px;">
@@ -217,7 +210,7 @@
 					<hr>
 					<p>
 						<font size="3"><font color="#FF0000"><strong>Trung
-									tâm gia sư Nhân Văn</strong></font></font>
+									tâm gia sư Anh Em</strong></font></font>
 					</p>
 					<p>
 						<font size="3">VP : THÀNH PHỐ HỒ CHÍ MINH</font>

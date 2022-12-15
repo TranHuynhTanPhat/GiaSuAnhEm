@@ -86,14 +86,7 @@
 												Minh</div>
 											<div>(+84) 389052819</div>
 											<div class="email">
-												<a href="mailto:thcstrandainghiaphat8a2@gmail.com">thcstrandainghiaphat8a2@gmail.com
-
-
-
-
-
-
-												
+												<a href="mailto:thcstrandainghiaphat8a2@gmail.com">thcstrandainghiaphat8a2@gmail.com></a>
 											</div>
 										</div>
 									</div>
@@ -123,11 +116,9 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td class="no">04</td>
 												<td class="text-left">
 													<h3>
-														<a target="_blank" href="javascript:;"> ${username } }
-														</a>
+														<a target="_blank" href="javascript:;"> ${username } </a>
 													</h3> <a target="_blank" href="javascript:;"> Mã lớp: </a>
 													${id }
 												</td>

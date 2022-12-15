@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="./resources/assets/css/bootstrap/bootstrap.min.css">
-<title>Varify</title>
+<title>Verify</title>
 <link rel="shortcut icon" type="image/png"
 	href="resources/assets/images/favicon-96x96.png" />
 <link href="<c:url value="resources/assets/css/import/varifyForm.css"/>"

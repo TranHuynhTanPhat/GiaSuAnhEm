@@ -14,8 +14,8 @@
 						<c:choose>
 							<c:when
 								test="${(sessionScope.role=='tutor' or sessionScope.role=='parent') and sessionScope.state==1}">
-								<li class="dropdown-item"><a href="./thong-tin-ca-nhan">Thông tin cá
-										nhân</a></li>
+								<li class="dropdown-item"><a href="./thong-tin-ca-nhan">Thông
+										tin cá nhân</a></li>
 
 								<li class="dropdown-item"><a href="./dang-xuat">Đăng
 										xuất</a></li>
@@ -51,9 +51,6 @@
 								<li class="dropdown-item"><a
 									href="/TrungTamGiaSu/dang-ky-mo-lop"
 									style="width: auto; padding: 10px">Đăng ký mở lớp</a></li>
-								<li class="dropdown-item"><a href="#"
-									style="width: auto; padding: 10px">Quy trình mở lớp</a></li>
-
 							</ul></li>
 					</c:when>
 					<c:otherwise>
