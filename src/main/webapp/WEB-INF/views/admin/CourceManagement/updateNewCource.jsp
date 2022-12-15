@@ -130,22 +130,15 @@
 									<select name="trangthai" id="chonmon" class="form-select">
 										<c:choose>
 											<c:when test="${model.status==1}">
-												<option value="${model.status }" selected="selected">Đã
-													nhận</option>
+												<option value="1">Đã nhận</option>
+												<option value="0">Chưa nhận</option>
 											</c:when>
 											<c:otherwise>
-												<option value="${model.status }">Đã nhận</option>
+												<option value="0">Chưa nhận</option>
+												<option value="1">Đã nhận</option>
 											</c:otherwise>
 										</c:choose>
-										<c:choose>
-											<c:when test="${model.status==0}">
-												<option value="${model.status }" selected="selected">Chưa
-													nhận</option>
-											</c:when>
-											<c:otherwise>
-												<option value="${model.status }">Chưa nhận</option>
-											</c:otherwise>
-										</c:choose>
+
 									</select>
 								</div>
 							</div>

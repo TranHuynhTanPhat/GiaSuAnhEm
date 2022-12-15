@@ -88,12 +88,7 @@ public class paymentController {
 					newModel.setId_account(model.getId());
 					newModel.setStatus(1);
 					TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
-
-					Map<String, Object> paramStatus = new HashMap<>();
-					paramStatus.put("id", classModel.getId());
-					paramStatus.put("status", 1);
-					CourceService.updateStatus(paramStatus, session);
-
+					
 					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
 							EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
 									history.getCreated_at(), model.getUsername(), "Thanh toán phí đăng ký mở lớp.",

@@ -76,7 +76,8 @@
 										<div
 											class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 											Doanh thu (Theo tháng)</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">${model.budget_month }
+											VNĐ</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -95,7 +96,8 @@
 										<div
 											class="text-xs font-weight-bold text-success text-uppercase mb-1">
 											Doanh thu (Theo năm)</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">${model.budget_year }
+											VNĐ</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -116,13 +118,13 @@
 											thái lớp</div>
 										<div class="row no-gutters align-items-center">
 											<div class="col-auto">
-												<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20%</div>
+												<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${model.status_newclass }%</div>
 											</div>
 											<div class="col">
 												<div class="progress progress-sm mr-2">
 													<div class="progress-bar bg-info" role="progressbar"
-														style="width: 20%" aria-valuenow="50" aria-valuemin="0"
-														aria-valuemax="100"></div>
+														style="width: ${model.status_newclass}%"
+														aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 												</div>
 											</div>
 										</div>
@@ -144,7 +146,7 @@
 										<div
 											class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 											Tổng số giao dịch trong ngày</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">${model.count_trans }</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -157,7 +159,7 @@
 
 				<!-- Content Row -->
 
-				<div class="row">
+				<%-- <div class="row">
 
 					<!-- Area Chart -->
 					<div class="col-xl-8 col-lg-7">
@@ -190,9 +192,10 @@
 
 				</div>
 			</div>
-
-		</div>
-		<div><%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
+ --%>
+			</div>
+			<div class="row" style="position: fixed; bottom: 0">
+				<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%></div>
 	</section>
 
 

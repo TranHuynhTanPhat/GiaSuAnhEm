@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.giasuanhem.service.Email.EmailService;
+import com.giasuanhem.service.Email.RandomPassword;
 import com.giasuanhem.service.Service.AccountService;
 
 @Controller
@@ -56,6 +58,27 @@ public class AuthorizationAdminController {
 			return "redirect:/login";
 		} catch (Exception e) {
 			return "redirect:error";
+		}
+	}
+
+	@RequestMapping(value = "/forget-password", method = RequestMethod.GET)
+	public String forgetPassword() {
+		try {
+			if (session.getAttribute("admin") == null) {
+				String pw = RandomPassword.generateRandomPassword(8);
+
+				Map<String, Object> params = new HashMap<String, Object>();
+				params.put("id", 1);
+				params.put("password", pw);
+				AccountService.updatePasword(params, session);
+				EmailService.sendEmail("thcstrandainghiaphat8a2@gmail.com", "Thay đổi mật khẩu",
+						EmailService.formSendPassWord(pw));
+				return "redirect:/login";
+			}
+			return "redirect:/admin";
+
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
 	}
 }

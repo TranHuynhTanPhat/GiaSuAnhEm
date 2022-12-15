@@ -124,7 +124,7 @@
 					</div>
 					<div class="row align-middle">
 						<button class="btn btn-primary btn-block mb-4" type="submit">
-							<i class="fa-solid fa-plus icon"></i> Thêm gia sư
+							<i class="fa-solid fa-plus icon"></i> Thêm tài khoản
 						</button>
 					</div>
 				</form>

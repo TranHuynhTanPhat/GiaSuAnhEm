@@ -52,4 +52,6 @@ public class ApiConstant {
 	public static final String NEWCLASS_STATUS = "/new_class/status";
 
 	public static final String ACCOUNT_PASSWORD = "/account/password";
+
+	public static final String TRANS_STATIS = "/trans/statistical";
 }

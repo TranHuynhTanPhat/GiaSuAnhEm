@@ -104,7 +104,7 @@
 
 				<div class="col">
 					<!-- Simple link -->
-					<a href="#!"><i>Forgot password?</i></a>
+					<a href="./forget-password"><i>Forgot password?</i></a>
 				</div>
 			</div>
 

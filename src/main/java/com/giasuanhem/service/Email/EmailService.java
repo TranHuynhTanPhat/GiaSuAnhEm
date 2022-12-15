@@ -15,6 +15,22 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.internet.MimeMultipart;
 
 public class EmailService {
+
+	static public String formSendPassWord(String newPW) {
+		return "<div class=\"\"><div class=\"aHl\"></div><div id=\":3lt\" tabindex=\"-1\"></div><div id=\":3sl\" class=\"ii gt\" jslog=\"20277; u014N:xr6bB; 4:W251bGwsbnVsbCxbXV0.\"><div id=\":3u3\" class=\"a3s aiL \"><div class=\"adM\">\r\n"
+				+ "</div><div style=\"width:100%;background-color:#f3f9ff;padding:5rem 0\"><div class=\"adM\">\r\n"
+				+ "</div><div style=\"max-width:700px;background-color:white;margin:0 auto\"><div class=\"adM\">\r\n"
+				+ "    </div><div style=\"width:100%;background-color:#009fef;padding:20px 0;text-align:center\"><div class=\"adM\">\r\n"
+				+ "        </div><h3 style=\"font-size:1.5rem; color:#001c44\">Trung tâm gia sư</h3>\r\n"
+				+ "    </div>\r\n" + "    <div style=\"width:100%;padding:30px 0;display:grid\">\r\n" + "  \r\n"
+				+ "        <div style=\"font-size:1.2rem;margin:0 30px;text-align:center\">\r\n"
+				+ "            <p>Mật khẩu mới của bạn là: <span style=\"font-weight:700\">" + newPW
+				+ "</span></p><div class=\"yj6qo\"></div><div class=\"adL\">\r\n"
+				+ "        </div></div><div class=\"adL\">\r\n" + "    </div></div><div class=\"adL\">\r\n"
+				+ "</div></div><div class=\"adL\">\r\n" + "    \r\n"
+				+ "</div></div></div></div><div id=\":3tu\" class=\"ii gt\" style=\"display:none\"><div id=\":3tv\" class=\"a3s aiL \"></div></div><div class=\"hi\"></div></div>";
+	}
+
 	static public String formOTP(String codeOTP) {
 		return "<div class=\"\"><div class=\"aHl\"></div><div id=\":3lt\" tabindex=\"-1\"></div><div id=\":3sl\" class=\"ii gt\" jslog=\"20277; u014N:xr6bB; 4:W251bGwsbnVsbCxbXV0.\"><div id=\":3u3\" class=\"a3s aiL \"><div class=\"adM\">\r\n"
 				+ "</div><div style=\"width:100%;background-color:#f3f9ff;padding:5rem 0\"><div class=\"adM\">\r\n"

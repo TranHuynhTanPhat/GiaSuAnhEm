@@ -52,8 +52,7 @@ public class CourceService {
 	static public NewClassModel createNewCource(NewClassModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		String jsonReq = new Gson().toJson(model); 
-		System.out.println(jsonReq);
+		String jsonReq = new Gson().toJson(model);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.LIST_NEWCLASS, jsonReq, session);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
@@ -62,9 +61,8 @@ public class CourceService {
 			session.setAttribute("errorMessage", res.getMessage());
 			return null;
 		}
-		NewClassModel newClass = objectMapper.convertValue(res.getData(),
-				new TypeReference<NewClassModel>() {
-				});
+		NewClassModel newClass = objectMapper.convertValue(res.getData(), new TypeReference<NewClassModel>() {
+		});
 		return newClass;
 
 	}
@@ -84,7 +82,7 @@ public class CourceService {
 
 	}
 
-	static public List<NewClassModel> getListNewClass(Map<String, Object>params, HttpSession session)
+	static public List<NewClassModel> getListNewClass(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonResponse = CommonService.getWithParams(ApiConstant.LIST_NEWCLASS, params);

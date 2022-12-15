@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.ResponseModel;
+import com.giasuanhem.model.Models.StatisticalModel;
 import com.giasuanhem.model.Models.TransactionHistoryModel;
 import com.giasuanhem.service.ApiConstant;
 import com.google.gson.Gson;
@@ -82,6 +83,23 @@ public class TransactionService {
 				});
 		return listTransaction;
 
+	}
+
+	static public StatisticalModel statistical(Map<String, Object> params, HttpSession session)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		String jsonResponse = CommonService.getWithParams(ApiConstant.TRANS_STATIS, params);
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
+		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorMessage", res.getMessage());
+			return null;
+		}
+		session.removeAttribute("errorMessage");
+		return objectMapper.convertValue(res.getData(), new TypeReference<StatisticalModel>() {
+		});
 	}
 
 }
