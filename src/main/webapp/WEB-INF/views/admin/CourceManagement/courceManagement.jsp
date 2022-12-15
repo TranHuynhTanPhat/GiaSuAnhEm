@@ -201,6 +201,15 @@
 						</tbody>
 					</table>
 					<canvas width="100%" height="1px"></canvas>
+					<div id="num-order-wp" style="float: right">
+						<a title="" href="quanlykhoahoc?page=${ page - 1 }" id="minus"><i
+							class="fa fa-minus"></i></a> <input style="width: 30px;"
+							type="button" value="${page}" id="num-order">
+						<c:if test="${listNewCource.size() == pagesize }">
+							<a title="" href="quanlykhoahoc?page=${ page + 1 }" id="plus"><i
+								class="fa fa-plus"></i></a>
+						</c:if>
+					</div>
 					<div class="row form" id="Custome-div" style="width: 60%;">
 						<div id="divGFG" align=left>
 							<center>

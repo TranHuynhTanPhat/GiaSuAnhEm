@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +33,25 @@ public class RecruitmentManagementController {
 	HttpSession session;
 
 	@RequestMapping(value = "/quanlytuyendung", method = RequestMethod.GET)
-	public ModelAndView recruitmentManagement() throws JsonParseException, JsonMappingException, IOException {
+	public ModelAndView recruitmentManagement(HttpServletRequest request) throws JsonParseException, JsonMappingException, IOException {
+		String pageStr = request.getParameter("page");
+		int page = 0;
+		int pagesize = 3;
 		if (session.getAttribute("admin") != null) {
-
+			if (pageStr==null) {
+				page = 1;
+			} else {
+				page = Integer.parseInt(pageStr);
+			}
 			Map<String, Object> paramsRecruit = new HashMap<>();
 			paramsRecruit.put("type", 1);
+			paramsRecruit.put("page", page);
+			paramsRecruit.put("pagesize", pagesize);
 			List<PostModel> listRecruitPost = PostService.getListPostWithParams(paramsRecruit, session);
-
 			ModelAndView mav = new ModelAndView("admin/RecruitmentManagement/recruitmentManagement");
 			mav.addObject("listRecruitPost", listRecruitPost);
+			mav.addObject("page", page);
+			mav.addObject("pagesize", pagesize);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("admin/login");
