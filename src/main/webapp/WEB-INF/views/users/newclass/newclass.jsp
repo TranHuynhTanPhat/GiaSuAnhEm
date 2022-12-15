@@ -33,6 +33,16 @@
 	href="resources/assets/images/favicon-96x96.png" />
 <script src="<c:url value="resources/assets/js/jquery-2.2.4.min.js"/>"
 	type="text/javascript"></script>
+	<script src="https://kit.fontawesome.com/672e69e895.js"
+	crossorigin="anonymous"></script>
+	<script
+	src="<c:url value="resources/assets/js/carousel/owl.carousel.js"/>"
+	type="text/javascript"></script>
+<script src="<c:url value="resources/assets/js/main.js"/>"
+	type="text/javascript"></script>
+	<script
+	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
+	type="text/javascript"></script>
 <script
 	src="<c:url value="resources/assets/js/elevatezoom-master/jquery.elevatezoom.js"/>"
 	type="text/javascript"></script>
@@ -137,6 +147,15 @@
 
 						</tbody>
 					</table>
+					<div id="num-order-wp" style="float: right">
+				<a title="" href="lop-moi?page=${ page - 1 }" id="minus"><i
+					class="fa fa-minus"></i></a> <input style="width: 30px;" type="button"
+					value="${page}" id="num-order">
+				<c:if test="${listNewClass.size() == pagesize }">
+					<a title="" href="lop-moi?page=${ page + 1 }" id="plus"><i
+						class="fa fa-plus"></i></a>
+				</c:if>
+			</div>
 				</div>
 				<hr>
 				<div class="row">
