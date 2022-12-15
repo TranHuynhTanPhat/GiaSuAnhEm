@@ -125,7 +125,7 @@
 										</c:when>
 										<c:otherwise>
 											<td width="9%"><a
-												href="dang-ky-day?id=${item.id }&salary=${item.salary}"
+												href="thanh-toan-dang-ky-day?id=${item.id }&salary=${item.salary}"
 												style="color: red"><i><u>Đăng kí dạy<u></u></i></a></td>
 
 										</c:otherwise>

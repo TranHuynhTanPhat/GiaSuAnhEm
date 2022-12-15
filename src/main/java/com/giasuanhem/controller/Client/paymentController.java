@@ -55,7 +55,12 @@ public class paymentController {
 
 				TransactionHistoryModel newModel = new TransactionHistoryModel();
 				newModel.setAmount(total);
-				newModel.setContent("Đăng kí dạy lớp: " + (String) request.getParameter("id"));
+				if(String.valueOf(session.getAttribute("role")).equals("tutor")){
+					newModel.setContent("Dang ky day lop: " + (String) request.getParameter("id"));
+				}
+				else {
+					newModel.setContent("Dang ky mo lop: " + (String) request.getParameter("id"));
+				}
 				newModel.setId_account(model.getId());
 				newModel.setStatus(1);
 				TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
@@ -86,7 +91,7 @@ public class paymentController {
 		}
 	}
 
-	@RequestMapping(value = "/dang-ky-day", method = RequestMethod.GET)
+	@RequestMapping(value = "/thanh-toan-dang-ky-day", method = RequestMethod.GET)
 	public ModelAndView registerForTutor(HttpServletRequest request, HttpServletResponse response) {
 		String role = String.valueOf(session.getAttribute("role"));
 
@@ -96,6 +101,22 @@ public class paymentController {
 			ModelAndView mav = new ModelAndView("users/payBill");
 			mav.addObject("id", classID);
 			mav.addObject("salary", Integer.parseInt(salary));
+			return mav;
+		} else {
+			return new ModelAndView("404page");
+		}
+	}
+	
+	@RequestMapping(value = "/thanh-toan-mo-lop", method = RequestMethod.GET)
+	public ModelAndView registerForParent(HttpServletRequest request, HttpServletResponse response) {
+		String role = String.valueOf(session.getAttribute("role"));
+
+		if (role.equals("parent")) {
+			//String classID = String.valueOf(request.getParameter("id"));
+			//String salary = String.valueOf(request.getParameter("salary"));
+			ModelAndView mav = new ModelAndView("users/payBill");
+			//mav.addObject("id", classID);
+			//mav.addObject("salary", Integer.parseInt(salary));
 			return mav;
 		} else {
 			return new ModelAndView("404page");
