@@ -46,41 +46,71 @@ public class paymentController {
 				AccountModel model = objectMapper.convertValue(session.getAttribute("newAccount"),
 						new TypeReference<AccountModel>() {
 						});
+				if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
+					Map<String, Object> params = new HashMap<>();
+					params.put("id", request.getParameter("id"));
+					NewClassModel classModel = CourceService.getNewClass(params, session);
 
-				Map<String, Object> params = new HashMap<>();
-				params.put("id", request.getParameter("id"));
-				NewClassModel classModel = CourceService.getNewClass(params, session);
+					int total = (int) (classModel.getSalary() * 0.4);
 
-				int total = (int) (classModel.getSalary() * 0.4);
+					TransactionHistoryModel newModel = new TransactionHistoryModel();
+					newModel.setAmount(total);
 
-				TransactionHistoryModel newModel = new TransactionHistoryModel();
-				newModel.setAmount(total);
-				if(String.valueOf(session.getAttribute("role")).equals("tutor")){
 					newModel.setContent("Dang ky day lop: " + (String) request.getParameter("id"));
+
+					newModel.setId_account(model.getId());
+					newModel.setStatus(1);
+					TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
+
+					Map<String, Object> paramStatus = new HashMap<>();
+					paramStatus.put("id", classModel.getId());
+					paramStatus.put("status", 1);
+					CourceService.updateStatus(paramStatus, session);
+
+					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
+							EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
+									history.getCreated_at(), model.getUsername(),
+									"Thanh toán phí đăng ký nhận lớp.", String.valueOf(classModel.getId())));
+					ModelAndView mav = new ModelAndView("users/formInvoice");
+					mav.addObject("username", model.getUsername());
+					mav.addObject("id", classModel.getId());
+					mav.addObject("salary", classModel.getSalary());
+					mav.addObject("idInvoice", history.getId());
+					return mav;
 				}
 				else {
-					newModel.setContent("Dang ky mo lop: " + (String) request.getParameter("id"));
+					Map<String, Object> params = new HashMap<>();
+					params.put("id", request.getParameter("id"));
+					NewClassModel classModel = CourceService.getNewClass(params, session);
+
+					int total = (int) (classModel.getSalary());
+
+					TransactionHistoryModel newModel = new TransactionHistoryModel();
+					newModel.setAmount(total);
+
+					newModel.setContent("Dang ky day lop: " + (String) request.getParameter("id"));
+
+					newModel.setId_account(model.getId());
+					newModel.setStatus(1);
+					TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
+
+					Map<String, Object> paramStatus = new HashMap<>();
+					paramStatus.put("id", classModel.getId());
+					paramStatus.put("status", 1);
+					CourceService.updateStatus(paramStatus, session);
+
+					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
+							EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
+									history.getCreated_at(), model.getUsername(),
+									"Thanh toán phí đăng ký mở lớp.", String.valueOf(classModel.getId())));
+					ModelAndView mav = new ModelAndView("users/formInvoice");
+					mav.addObject("username", model.getUsername());
+					mav.addObject("id", classModel.getId());
+					mav.addObject("salary", classModel.getSalary());
+					mav.addObject("idInvoice", history.getId());
+					return mav;
 				}
-				newModel.setId_account(model.getId());
-				newModel.setStatus(1);
-				TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
-
-				Map<String, Object> paramStatus = new HashMap<>();
-				paramStatus.put("id", classModel.getId());
-				paramStatus.put("status", 1);
-				CourceService.updateStatus(paramStatus, session);
-
-				EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
-						EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
-								history.getCreated_at(), model.getUsername(), "Thanh toán phí đăng ký nhận lớp.",
-								String.valueOf(classModel.getId())));
-
-				ModelAndView mav = new ModelAndView("users/formInvoice");
-				mav.addObject("username", model.getUsername());
-				mav.addObject("id", classModel.getId());
-				mav.addObject("salary", classModel.getSalary());
-				mav.addObject("idInvoice", history.getId());
-				return mav;
+				
 			} else {
 				return new ModelAndView("404page");
 			}
@@ -106,17 +136,17 @@ public class paymentController {
 			return new ModelAndView("404page");
 		}
 	}
-	
+
 	@RequestMapping(value = "/thanh-toan-mo-lop", method = RequestMethod.GET)
 	public ModelAndView registerForParent(HttpServletRequest request, HttpServletResponse response) {
 		String role = String.valueOf(session.getAttribute("role"));
 
 		if (role.equals("parent")) {
-			//String classID = String.valueOf(request.getParameter("id"));
-			//String salary = String.valueOf(request.getParameter("salary"));
+			// String classID = String.valueOf(request.getParameter("id"));
+			// String salary = String.valueOf(request.getParameter("salary"));
 			ModelAndView mav = new ModelAndView("users/payBill");
-			//mav.addObject("id", classID);
-			//mav.addObject("salary", Integer.parseInt(salary));
+			// mav.addObject("id", classID);
+			// mav.addObject("salary", Integer.parseInt(salary));
 			return mav;
 		} else {
 			return new ModelAndView("404page");

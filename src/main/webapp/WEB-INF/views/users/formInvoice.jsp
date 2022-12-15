@@ -123,16 +123,14 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td class="no">04</td>
 												<td class="text-left">
 													<h3>
 														<a target="_blank" href="javascript:;"> ${username } 
 														</a>
-													</h3> <a target="_blank" href="javascript:;"> Mã lớp: </a>
-													${id }
+													
 												</td>
-												<td class="unit">${salary }VNĐ</td>
-												<td class="qty">1</td>
+												<td></h3> <a target="_blank" href="javascript:;"> Mã lớp: </a>
+													${id }</td>
 												<td class="total">${salary }VNĐ</td>
 											</tr>
 

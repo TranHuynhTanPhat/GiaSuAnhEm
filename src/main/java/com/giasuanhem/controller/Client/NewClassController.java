@@ -104,8 +104,11 @@ public class NewClassController {
 		try {
 			NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
 					categories, lophocs, monhocs, lienhe);
-			CourceService.createNewCource(model, session);
-			
+			NewClassModel newClass = CourceService.createNewCource(model, session);
+
+			session.setAttribute("id", newClass.getId());
+			session.setAttribute("salary", newClass.getSalary());
+
 			return "redirect:/thanh-toan-mo-lop";
 		} catch (Exception e) {
 			return "redirect:/error";
