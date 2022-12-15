@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.TransactionHistoryModel;
+import com.giasuanhem.service.Currency.ConvertCurrency;
 import com.giasuanhem.service.Email.EmailService;
 import com.giasuanhem.service.Email.RandomOTP;
 import com.giasuanhem.service.Service.AccountService;
@@ -41,14 +42,12 @@ public class paymentController {
 	public ModelAndView invoicePage(HttpServletRequest request) {
 		try {
 			if (session.getAttribute("role") != null) {
-				ObjectMapper objectMapper = new ObjectMapper();
 
-				AccountModel model =AccountService.modelAccount;
+				AccountModel model = AccountService.modelAccount;
 				if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
 					Map<String, Object> params = new HashMap<>();
 					params.put("id", request.getParameter("id"));
 					NewClassModel classModel = CourceService.getNewClass(params, session);
-
 
 					TransactionHistoryModel newModel = new TransactionHistoryModel();
 					newModel.setAmount((int) (classModel.getSalary() * 0.4));
@@ -65,20 +64,19 @@ public class paymentController {
 					CourceService.updateStatus(paramStatus, session);
 
 					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
-							EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
-									history.getCreated_at(), model.getUsername(),
+							EmailService.formInvoice(ConvertCurrency.convertCurrency(history.getAmount()),
+									String.valueOf(history.getId()), history.getCreated_at(), model.getUsername(),
 									"Thanh toán phí đăng ký nhận lớp.", String.valueOf(classModel.getId())));
 					ModelAndView mav = new ModelAndView("users/formInvoice");
 					mav.addObject("username", model.getUsername());
 					mav.addObject("id", classModel.getId());
-					mav.addObject("salary", classModel.getSalary() * 0.4);
+					mav.addObject("salary", ConvertCurrency.convertCurrency((int) (classModel.getSalary() * 0.4)));
 					mav.addObject("idInvoice", history.getId());
 					return mav;
 				} else {
 					Map<String, Object> params = new HashMap<>();
 					params.put("id", request.getParameter("id"));
 					NewClassModel classModel = CourceService.getNewClass(params, session);
-
 
 					TransactionHistoryModel newModel = new TransactionHistoryModel();
 					newModel.setAmount(500000);
@@ -88,15 +86,15 @@ public class paymentController {
 					newModel.setId_account(model.getId());
 					newModel.setStatus(1);
 					TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
-					
+
 					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
-							EmailService.formInvoice(history.getAmount(), String.valueOf(history.getId()),
-									history.getCreated_at(), model.getUsername(), "Thanh toán phí đăng ký mở lớp.",
-									String.valueOf(classModel.getId())));
+							EmailService.formInvoice(ConvertCurrency.convertCurrency(history.getAmount()),
+									String.valueOf(history.getId()), history.getCreated_at(), model.getUsername(),
+									"Thanh toán phí đăng ký mở lớp.", String.valueOf(classModel.getId())));
 					ModelAndView mav = new ModelAndView("users/formInvoice");
 					mav.addObject("username", model.getUsername());
 					mav.addObject("id", classModel.getId());
-					mav.addObject("salary", 500000);
+					mav.addObject("salary", ConvertCurrency.convertCurrency(500000));
 					mav.addObject("idInvoice", history.getId());
 					return mav;
 				}
@@ -117,10 +115,10 @@ public class paymentController {
 
 		if (role.equals("tutor")) {
 			String classID = String.valueOf(request.getParameter("id"));
-			String salary = String.valueOf(request.getParameter("salary"));
+			int salary = Integer.parseInt(request.getParameter("salary"));
 			ModelAndView mav = new ModelAndView("users/payBill");
 			mav.addObject("id", classID);
-			mav.addObject("salary", Integer.parseInt(salary));
+			mav.addObject("salary", ConvertCurrency.convertCurrency((int)(salary*0.4)));
 			return mav;
 		} else {
 			return new ModelAndView("404page");

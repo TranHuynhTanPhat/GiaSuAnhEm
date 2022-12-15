@@ -46,7 +46,7 @@ public class EmailService {
 				+ "</div></div></div></div><div id=\":3tu\" class=\"ii gt\" style=\"display:none\"><div id=\":3tv\" class=\"a3s aiL \"></div></div><div class=\"hi\"></div></div>";
 	}
 
-	static public String formInvoice(double total, String idInvoice, String date, String username, String subject,
+	static public String formInvoice(String total, String idInvoice, String date, String username, String subject,
 			String idCource) {
 		return "\r\n"
 				+ "<div bgcolor=\"#f6f6f6\" style=\"color: #333; height: 100%; width: 100%;\" height=\"100%\" width=\"100%\">\r\n"

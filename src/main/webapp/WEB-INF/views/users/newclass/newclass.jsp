@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,12 +66,20 @@
 
 <body>
 	<%@include file="/WEB-INF/views/users/layout/header.jsp"%>
-
+	<jsp:useBean id="convert"
+		class="com.giasuanhem.service.Currency.ConvertCurrency" />
 	<script type="text/javascript">
 		function insertText(x, y) {
 			document.getElementById(x).innerHTML = "0";
 		}
+
+		function showCurrency(x) {
+			return {
+				result : com.giasuanhem.service.Currency.convertCurrency(x)
+			};
+		}
 	</script>
+
 	<div class="container-fluid" style="margin-top: 60px">
 		<div class="row flex-nowrap">
 			<%@include file="/WEB-INF/views/users/layout/sidebar.jsp"%>
@@ -125,7 +134,8 @@
 								<td>${ item.district }<br></td>
 								<td>${ item.sobuoi }</td>
 								<td>${ item.time }</td>
-								<td align="right">${item.salary}</td>
+								<td align="right">${convert.convertCurrency(item.salary) }
+									VNĐ</td>
 								<td>${ item.require }</td>
 								<c:if test="${sessionScope.role=='tutor' }">
 									<c:choose>

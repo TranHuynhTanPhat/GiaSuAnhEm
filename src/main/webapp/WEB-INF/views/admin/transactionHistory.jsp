@@ -105,7 +105,6 @@
 									<th scope="col">Tên tài khoản</th>
 									<th scope="col">Tổng tiền</th>
 									<th scope="col">Nội dung</th>
-									<th scope="col">Trạng thái</th>
 									<th scope="col">Ngày tạo</th>
 
 								</tr>
@@ -117,7 +116,6 @@
 										<td>${item.id_account }</td>
 										<td>${item.amount }</td>
 										<td>${item.content }</td>
-										<td>${item.status }</td>
 										<td>${item.created_at }</td>
 
 									</tr>

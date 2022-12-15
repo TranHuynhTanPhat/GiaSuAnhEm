@@ -57,6 +57,8 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+	<jsp:useBean id="convert"
+		class="com.giasuanhem.service.Currency.ConvertCurrency" />
 	<script type="text/javascript">
 		function confirmDelete() {
 			var result = confirm("Bạn chắc chưa?");
@@ -177,7 +179,7 @@
 									</c:forEach></td> --%>
 								<td>${item.subjects }</td>
 								<td>${ item.address }</td>
-								<td>${ item.salary }</td>
+								<td>${convert.convertCurrency(item.salary) } VNĐ</td>
 								<td>${ item.sobuoi }</td>
 								<td>${ item.time }</td>
 								<td>${ item.require }</td>
