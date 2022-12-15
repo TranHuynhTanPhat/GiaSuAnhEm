@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -21,6 +22,7 @@ import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
+import com.giasuanhem.service.Mapper.MapperModel;
 import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CourceService;
@@ -30,7 +32,9 @@ import com.giasuanhem.service.Service.SubjectService;
 public class NewClassController {
 	@Autowired
 	HttpSession session;
-
+	@Autowired
+	MapperModel commonModel;
+	
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage(HttpServletRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
@@ -100,4 +104,28 @@ public class NewClassController {
 		}
 
 	}
+	
+	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.POST)
+	public String createNewCource(@RequestParam("diachi") String diachi, @RequestParam("quan") String quan,
+			@RequestParam("sobuoi") int sobuoi, @RequestParam("time") String time,
+			@RequestParam("trangthai") int trangthai, @RequestParam("luong") int luong,
+			@RequestParam("category") int[] categories, @RequestParam("monhoc") int[] monhocs,
+			@RequestParam("lophoc") int[] lophocs, @RequestParam("yeucaukhac") String yeucaukhac,
+			@RequestParam("lienhe") String lienhe) throws IOException {
+		try {
+			NewClassModel model = commonModel.mapNewCource(diachi, quan, sobuoi, time, luong, yeucaukhac, trangthai,
+					categories, lophocs, monhocs, lienhe);
+			NewClassModel newClass = CourceService.createNewCource(model, session);
+
+			session.setAttribute("id", newClass.getId());
+			session.setAttribute("salary", newClass.getSalary());
+
+			return "redirect:/thanh-toan-mo-lop";
+		} catch (Exception e) {
+			return "redirect:/error";
+			// TODO: handle exception
+		}
+
+	}
+	
 }

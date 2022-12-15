@@ -118,13 +118,13 @@
 											<tr>
 												<td class="text-left">
 													<h3>
+
 														<a target="_blank" href="javascript:;"> ${username } </a>
-													</h3> <a target="_blank" href="javascript:;"> Mã lớp: </a>
-													${id }
+													</h3>
 												</td>
-												<td class="unit">${salary*0.4 }VNĐ</td>
-												<td class="qty">1</td>
-												<td class="total">${salary*0.4 }VNĐ</td>
+												<td><a target="_blank" href="javascript:;"> Mã
+														lớp: </a> ${id }</td>
+												<td class="total">${salary }VNĐ</td>
 											</tr>
 
 										</tbody>
@@ -132,7 +132,7 @@
 											<tr>
 												<td colspan="2"></td>
 												<td colspan="2">Tổng tiền</td>
-												<td>${salary*0.4 }VNĐ</td>
+												<td>${salary }VNĐ</td>
 											</tr>
 											<tr>
 												<td colspan="2"></td>
@@ -147,7 +147,7 @@
 											<tr>
 												<td colspan="2"></td>
 												<td colspan="2">Số tiền phải thanh toán</td>
-												<td>${salary*0.4 }VNĐ</td>
+												<td>${salary }VNĐ</td>
 											</tr>
 										</tfoot>
 									</table>

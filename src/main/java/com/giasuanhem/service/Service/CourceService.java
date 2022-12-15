@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.ResponseModel;
+import com.giasuanhem.model.Models.TransactionHistoryModel;
 import com.giasuanhem.service.ApiConstant;
 import com.google.gson.Gson;
 
@@ -48,18 +49,23 @@ public class CourceService {
 		}
 	}
 
-	static public void createNewCource(NewClassModel model, HttpSession session)
+	static public NewClassModel createNewCource(NewClassModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		String jsonReq = new Gson().toJson(model);
+		String jsonReq = new Gson().toJson(model); 
+		System.out.println(jsonReq);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.LIST_NEWCLASS, jsonReq, session);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
 			session.setAttribute("errorMessage", res.getMessage());
-			return;
+			return null;
 		}
+		NewClassModel newClass = objectMapper.convertValue(res.getData(),
+				new TypeReference<NewClassModel>() {
+				});
+		return newClass;
 
 	}
 

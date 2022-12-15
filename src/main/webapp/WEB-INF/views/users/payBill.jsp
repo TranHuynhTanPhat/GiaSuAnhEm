@@ -101,11 +101,19 @@
 								<div class="col-8">
 									<p class="h4 mb-0">Tóm tắt</p>
 									<p class="mb-0">
-										<span class="fw-bold">Sản phẩm:</span><span class="c-green">:
-											Đăng kí dạy khóa học mã ${id }</span>
+										<span class="fw-bold">Sản phẩm:</span>
+										<c:choose>
+											<c:when test="${sessionScope.role=='tutor'}">
+												<span class="c-green">: Đăng kí dạy khóa học mã ${id }</span>
+											</c:when>
+											<c:otherwise>
+												<span class="c-green">: Đăng kí mở lớp học mã ${id }</span>
+											</c:otherwise>
+										</c:choose>
+
 									</p>
 									<p class="mb-0">
-										<span class="fw-bold">Tổng tiền:</span><span class="c-green">:${salary*0.4 }
+										<span class="fw-bold">Tổng tiền:</span><span class="c-green">:${salary }
 											VNĐ</span>
 									</p>
 								</div>
@@ -130,12 +138,21 @@
 								<div class="col-lg-5 mb-lg-0 mb-3">
 									<p class="h4 mb-0">Tóm tắt</p>
 									<p class="mb-0">
-										<span class="fw-bold">Sản phẩm:</span><span class="c-green">:
-											Đăng kí dạy khóa học mã ${id }</span>
+										<span class="fw-bold">Sản phẩm:</span>
+										<c:choose>
+											<c:when test="${sessionScope.role=='tutor'}">
+												<span class="c-green">: Đăng kí dạy khóa học mã
+													${id }</span>
+											</c:when>
+											<c:otherwise>
+												<span class="c-green">: Đăng kí mở lớp học mã ${id }</span>
+											</c:otherwise>
+										</c:choose>
+
 									</p>
 									<p class="mb-0">
 										<span class="fw-bold">Tổng tiền:</span> <span
-											class="c-green">:${salary*0.4 } VNĐ</span>
+											class="c-green">:${salary} VNĐ</span>
 									</p>
 
 								</div>
