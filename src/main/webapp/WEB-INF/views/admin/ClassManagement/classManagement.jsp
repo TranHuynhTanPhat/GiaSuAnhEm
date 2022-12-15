@@ -84,7 +84,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${ listClass }">
-								<tr style="background-color: #53d2dc">
+								<tr style="background-color: #ffe3b3">
 									<td>${ item.name }</td>
 									<th><a href="updateClass?id=${item.id}"><i
 											class="fa-regular fa-pen-to-square text-warning icon"></i></a></th>

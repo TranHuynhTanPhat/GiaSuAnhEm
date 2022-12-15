@@ -102,7 +102,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listSST }">
-								<tr style="background-color: #53d2dc">
+								<tr style="background-color: #ffe3b3">
 									<td>${item.id_category }</td>
 									<td>${item.two_sessions }</td>
 									<td>${item.three_sessions }</td>
@@ -148,7 +148,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${listSTE }">
-								<tr style="background-color: #53d2dc">
+								<tr style="background-color: #ffe3b3">
 									<td>${item.id_category }</td>
 									<td>${item.two_sessions }</td>
 									<td>${item.three_sessions }</td>
@@ -165,7 +165,7 @@
 						</tbody>
 					</table>
 				</div>
-				
+
 				<div class="row">
 
 					<canvas width="100%" height="5px"></canvas>

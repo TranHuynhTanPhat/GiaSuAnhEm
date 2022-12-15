@@ -34,14 +34,14 @@ public class NewClassController {
 	HttpSession session;
 	@Autowired
 	MapperModel commonModel;
-	
+
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage(HttpServletRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
 		String pageStr = request.getParameter("page");
 		int page = 0;
 		int pagesize = 10;
-		if (pageStr==null) {
+		if (pageStr == null) {
 			page = 1;
 		} else {
 			page = Integer.parseInt(pageStr);
@@ -50,7 +50,7 @@ public class NewClassController {
 		Map<String, Object> paramsNewClass = new HashMap<>();
 		paramsNewClass.put("page", page);
 		paramsNewClass.put("pagesize", pagesize);
-		List<NewClassModel> listNewClass = CourceService.getListNewClass(paramsNewClass,session);
+		List<NewClassModel> listNewClass = CourceService.getListNewClass(paramsNewClass, session);
 
 		String category = request.getParameter("category");
 
@@ -104,7 +104,7 @@ public class NewClassController {
 		}
 
 	}
-	
+
 	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.POST)
 	public String createNewCource(@RequestParam("diachi") String diachi, @RequestParam("quan") String quan,
 			@RequestParam("sobuoi") int sobuoi, @RequestParam("time") String time,
@@ -118,7 +118,7 @@ public class NewClassController {
 			NewClassModel newClass = CourceService.createNewCource(model, session);
 
 			session.setAttribute("id", newClass.getId());
-			session.setAttribute("salary", newClass.getSalary());
+			session.setAttribute("salary", 500000);
 
 			return "redirect:/thanh-toan-mo-lop";
 		} catch (Exception e) {
@@ -127,5 +127,5 @@ public class NewClassController {
 		}
 
 	}
-	
+
 }

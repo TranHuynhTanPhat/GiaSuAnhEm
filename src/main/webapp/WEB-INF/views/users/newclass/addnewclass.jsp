@@ -44,14 +44,10 @@
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Trạng thái:<span
-							style="color: #db1414">*</span></label> <select name="trangthai"
-							id="trangthai"
+							style="color: #db1414">*</span></label> <input id="trangthai"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							required>
-							<option value="0">Chọn trạng thái</option>
-							<option value="1">Đã nhận</option>
-							<option value="0">Chưa nhận</option>
-						</select>
+							disabled value="Chưa nhận"> <input name="trangthai"
+							type="hidden" id="trangthai" value="0">
 					</div>
 					<div class="user-input-box">
 						<label for="luong">Lương<span style="color: #db1414">*</span></label>

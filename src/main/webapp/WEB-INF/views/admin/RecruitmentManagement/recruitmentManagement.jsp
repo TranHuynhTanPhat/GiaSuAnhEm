@@ -82,7 +82,7 @@
 						</thead>
 						<tbody class="table-group-divider">
 							<c:forEach var="item" items="${ listRecruitPost }">
-								<tr style="background-color: #53d2dc">
+								<tr style="background-color: #ffe3b3">
 									<td scope="col">${item.title }</td>
 									<td>${item.body }</td>
 									<th><a href="./updateRecruitment?id=${item.id}"><i

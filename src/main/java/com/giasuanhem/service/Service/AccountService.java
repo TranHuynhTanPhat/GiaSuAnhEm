@@ -44,6 +44,8 @@ import com.google.gson.Gson;
 @Transactional
 public class AccountService {
 
+	static public AccountModel modelAccount = new AccountModel();
+
 	static public void updateAccount(AccountModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonReq = new Gson().toJson(model);
@@ -158,22 +160,17 @@ public class AccountService {
 			return;
 		}
 
-		AccountModel model = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
+		modelAccount = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
 		});
 
-		session.setAttribute("id", model.getId());
-		session.setAttribute("state", model.getState());
-		session.setAttribute("newAccount", model);
-		session.setAttribute("emailUser", model.getEmail());
-		session.setAttribute("accessToken", model.getToken());
+		session.setAttribute("id", modelAccount.getId());
+		session.setAttribute("state", modelAccount.getState());
+		session.setAttribute("emailUser", modelAccount.getEmail());
+		session.setAttribute("accessToken", modelAccount.getToken());
 
-		if (model.getRole() == 0) {
-			session.removeAttribute("id");
-			session.removeAttribute("state");
-			session.removeAttribute("newAccount");
-			session.removeAttribute("emailUser");
-			session.setAttribute("admin", model.getUsername());
-		} else if (model.getRole() == 1) {
+		if (modelAccount.getRole() == 0) {
+			session.setAttribute("admin", modelAccount.getUsername());
+		} else if (modelAccount.getRole() == 1) {
 
 			session.setAttribute("role", "tutor");
 		} else {

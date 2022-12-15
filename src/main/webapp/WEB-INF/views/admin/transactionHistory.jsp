@@ -80,8 +80,7 @@
 								</div>
 							</div>
 							<div class="col-8">
-								<button class="btn btn-primary btn-block mb-4" type="submit"
-									>
+								<button class="btn btn-primary btn-block mb-4" type="submit">
 									<i class="fa-solid fa-magnifying-glass icon"></i> Tìm kiếm
 								</button>
 
@@ -113,7 +112,7 @@
 							</thead>
 							<tbody class="table-group-divider">
 								<c:forEach var="item" items="${ listTransaction}">
-									<tr>
+									<tr style="background-color: #ffe3b3">
 										<td>${item.id }</td>
 										<td>${item.id_account }</td>
 										<td>${item.amount }</td>
