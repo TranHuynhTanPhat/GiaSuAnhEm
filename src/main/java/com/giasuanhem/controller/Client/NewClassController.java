@@ -118,7 +118,7 @@ public class NewClassController {
 			NewClassModel newClass = CourceService.createNewCource(model, session);
 
 			session.setAttribute("id", newClass.getId());
-			session.setAttribute("salary", 500000);
+			session.setAttribute("salary", 500000	);
 
 			return "redirect:/thanh-toan-mo-lop";
 		} catch (Exception e) {

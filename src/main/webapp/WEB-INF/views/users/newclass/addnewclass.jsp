@@ -25,47 +25,48 @@
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ hiện tại <span
 							style="color: #db1414">*</span></label> <input type="text" id="diachi"
-							name="diachi" placeholder="Nhập địa chỉ hiện tại" required>
+							name="diachi" placeholder="Nhập địa chỉ hiện tại"  >
+						<small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="quan">Quận<span style="color: #db1414">*</span></label>
 						<input type="text" id="quan" name="quan" placeholder="Nhập quận"
-							required>
+							 > <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="sobuoi">Số buổi<span style="color: #db1414">*</span></label>
 						<input type="text" id="sobuoi" name="sobuoi"
-							placeholder="Nhập số buổi" required>
+							placeholder="Nhập số buổi"  > <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="time">Thời gian<span style="color: #db1414">*</span></label>
 						<input type="text" id="time" name="time"
-							placeholder="Nhập thời gian" required>
+							placeholder="Nhập thời gian"  > <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Trạng thái:<span
 							style="color: #db1414">*</span></label> <input id="trangthai"
 							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
 							disabled value="Chưa nhận"> <input name="trangthai"
-							type="hidden" id="trangthai" value="0">
+							type="hidden" id="trangthai" value="0"> <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="luong">Lương<span style="color: #db1414">*</span></label>
 						<input type="text" id="luong" name="luong"
-							placeholder="Nhập lương" required>
+							placeholder="Nhập lương"  ><small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="yeucaukhac">Yêu cầu khác</label> <input type="text"
 							id="yeucaukhac" name="yeucaukhac" placeholder="yêu cầu khác"
-							required>
+							 > <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="lienhe">Liên hệ<span style="color: #db1414">*</span></label>
 						<input type="text" id="lienhe" name="lienhe"
-							placeholder="Nhập liên hệ" required>
+							placeholder="Nhập liên hệ"  > <small></small>
 					</div>
 					<div class="user-checkbox-box">
-						<label for="luong">Danh mục</label>
+						<label for="luong">Danh mục</label><br> <small></small>
 						<table border="0" class="tablebox category">
 							<tbody>
 								<c:forEach var="item" items="${listCategoryDistrict }">
@@ -87,8 +88,8 @@
 						</table>
 					</div>
 					<div class="user-checkbox-box">
-						<label for="luong">Môn dạy</label>
-						<table border="0" class="tablebox">
+						<label for="luong">Môn dạy</label><br> <small></small>
+						<table border="0" class="tablebox monhoc">
 							<tbody>
 								<c:forEach var="item" items="${listSubject }">
 									<tr>
@@ -100,8 +101,8 @@
 						</table>
 					</div>
 					<div class="user-checkbox-box">
-						<label for="luong">Lớp dạy</label>
-						<table border="0" class="tablebox class">
+						<label for="luong">Lớp dạy</label> <br><small></small>
+						<table border="0" class="tablebox lophoc">
 							<tbody>
 								<c:forEach var="item" items="${listClass }">
 									<tr>
@@ -120,5 +121,6 @@
 			</form>
 		</div>
 	</div>
+	<script src="resources/assets/js/import/addnewclass.js"></script>
 </body>
 </html>

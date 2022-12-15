@@ -73,7 +73,7 @@
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline w-75">
 									<input type="text" id="hoten" name="hoten" class="form-control"
-										value="" required>
+										value="" required>zzz
 								</div>
 							</div>
 							<div class="col" style="float: right">

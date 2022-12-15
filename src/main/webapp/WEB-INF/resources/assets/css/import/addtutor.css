@@ -5,7 +5,10 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 }
-
+:root
+{
+	--error-color:#e74c3c;
+}
 body {
 	display: flex;
 	justify-content: center;
@@ -152,4 +155,15 @@ body {
 img {
 	height: 78px;
 	margin-top: -2px;
+}
+.user-input-box small{
+	margin-top: 2px;
+}
+
+.user-input-box.error small{
+	color: var(--error-color);
+}
+
+.user-checkbox-box small{
+	color: var(--error-color);
 }
