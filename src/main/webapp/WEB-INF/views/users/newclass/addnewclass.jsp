@@ -16,7 +16,7 @@
 <body>
 	<div id="wrapper">
 		<div class="container">
-			<a href="/TrungTamGiaSu/trang-chu"><img
+			<a href="./trang-chu"><img
 				src="resources/assets/images/tot_nghiep.png"></a>
 
 			<h1 class="form-title">ĐĂNG KÝ MỞ LỚP</h1>

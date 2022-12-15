@@ -16,7 +16,7 @@
 <body>
 
 	<div class="login-box">
-		<a href="/TrungTamGiaSu/trang-chu"><img
+		<a href="./trang-chu"><img
 			src="resources/assets/images/tot_nghiep.png"></a>
 
 		<h2>Đăng nhập</h2>
@@ -38,7 +38,7 @@
 				<span></span> <span></span> <span></span> <span></span> Đăng nhập
 			</button>
 			<p class="register">
-				Chưa có tài khoản? <a href="/TrungTamGiaSu/dang-ky">Đăng ký ngay</a>
+				Chưa có tài khoản? <a href="./dang-ky">Đăng ký ngay</a>
 			</p>
 		</form>
 	</div>

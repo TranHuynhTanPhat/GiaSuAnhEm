@@ -25,7 +25,7 @@
 
 
 	<div class="login-box">
-		<a href="/TrungTamGiaSu/trang-chu"><img
+		<a href="./trang-chu"><img
 			src="resources/assets/images/tot_nghiep.png"></a>
 		<h2>Đăng ký</h2>
 		<form action="dang-ky" method="post">

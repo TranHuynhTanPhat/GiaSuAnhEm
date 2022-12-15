@@ -36,36 +36,35 @@
 		</div>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="navbar-item active"><a
-					href="/TrungTamGiaSu/trang-chu" class="nav-link">Trang chủ</a></li>
-				<li class="navbar-item"><a href="/TrungTamGiaSu/gioi-thieu"
-					class="nav-link">Giới thiệu</a></li>
+				<li class="navbar-item active"><a href="./trang-chu"
+					class="nav-link">Trang chủ</a></li>
+				<li class="navbar-item"><a href="./gioi-thieu" class="nav-link">Giới
+						thiệu</a></li>
 				<c:choose>
 					<c:when
 						test="${sessionScope.role=='parent' and sessionScope.state==1}">
 						<li class="nav-item dropdown" id="myDropdown"><a
-							class="nav-link dropdown-toggle" href="/TrungTamGiaSu/lop-moi"
+							class="nav-link dropdown-toggle" href="./lop-moi"
 							data-bs-toggle="dropdown">Lớp mới</a>
 
 							<ul class="dropdown-menu">
-								<li class="dropdown-item"><a
-									href="/TrungTamGiaSu/dang-ky-mo-lop"
+								<li class="dropdown-item"><a href="./dang-ky-mo-lop"
 									style="width: auto; padding: 10px">Đăng ký mở lớp</a></li>
 							</ul></li>
 					</c:when>
 					<c:otherwise>
-						<li class="nav-item"><a class="nav-link "
-							href="/TrungTamGiaSu/lop-moi">Lớp mới</a>
+						<li class="nav-item"><a class="nav-link " href="./lop-moi">Lớp
+								mới</a>
 					</c:otherwise>
 				</c:choose>
-				<li class="navbar-item"><a href="/TrungTamGiaSu/bang-luong"
-					class="nav-link">Bảng lương</a></li>
+				<li class="navbar-item"><a href="./bang-luong" class="nav-link">Bảng
+						lương</a></li>
 
 				<c:choose>
 					<c:when
 						test="${sessionScope.role=='tutor' and sessionScope.state==1}">
 						<li class="nav-item dropdown" id="myDropdown"><a
-							class="nav-link dropdown-toggle" href="/TrungTamGiaSu/gia-su"
+							class="nav-link dropdown-toggle" href="./gia-su"
 							data-bs-toggle="dropdown"> Gia sư </a>
 							<ul class="dropdown-menu">
 								<li class="dropdown-item"><a href="them-gia-su"
@@ -78,15 +77,15 @@
 					</c:when>
 					<c:otherwise>
 						<li class="nav-item dropdown"><a class="nav-link"
-							href="/TrungTamGiaSu/gia-su"> Gia sư </a>
+							href="./gia-su"> Gia sư </a>
 					</c:otherwise>
 				</c:choose>
-				<li class="navbar-item"><a href="/TrungTamGiaSu/tuyen-dung"
-					class="nav-link">Tuyển dụng</a></li>
-				<li class="navbar-item"><a href="/TrungTamGiaSu/muc-phi-gia-su"
+				<li class="navbar-item"><a href="./tuyen-dung" class="nav-link">Tuyển
+						dụng</a></li>
+				<li class="navbar-item"><a href="./muc-phi-gia-su"
 					class="nav-link">Mức phí gia sư</a></li>
-				<li class="navbar-item"><a href="/TrungTamGiaSu/lien-he"
-					class="nav-link">Liên hệ</a></li>
+				<li class="navbar-item"><a href="./lien-he" class="nav-link">Liên
+						hệ</a></li>
 			</ul>
 		</div>
 	</nav>
