@@ -26,7 +26,7 @@
 
 					<div class="shadow"></div>
 					<div class="wrapper-1">
-						<a href="./trang-chu"  style="text-decoration: none !important;">
+						<a href="./trang-chu" style="text-decoration: none !important;">
 							<h1 class="title">giasuanhem</h1>
 							<div class="slogan">Trung Tâm gia sư</div>
 						</a>
@@ -70,6 +70,13 @@
 
 
 								<button type="submit" class="save">Lưu thay đổi</button>
+
+								<p style="margin-top:25px">
+									<a href="delete-myaccount" class="save"
+										style="background-color: white; border: none; color: #D60CA7; font-size: 14px;padding:5px">
+										<u>Xóa tài khoản</u>
+									</a>
+								</p>
 							</form>
 						</div>
 					</div>

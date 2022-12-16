@@ -34,6 +34,7 @@ public class AuthorizationController {
 	@Autowired
 	HttpSession session;
 	private String OTP = "";
+	private AccountModel model = new AccountModel();
 
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
@@ -120,10 +121,7 @@ public class AuthorizationController {
 	public String verify(@RequestParam("verifyCode") String code)
 			throws JsonParseException, JsonMappingException, IOException {
 		if (code.equals(OTP)) {
-			ObjectMapper objectMapper = new ObjectMapper();
-			AccountModel model = objectMapper.convertValue(session.getAttribute("newAccount"),
-					new TypeReference<AccountModel>() {
-					});
+			AccountModel model = AccountService.modelAccount;
 			model.setState(1);
 			AccountService.updateAccount(model, session);
 
@@ -145,8 +143,6 @@ public class AuthorizationController {
 			session.removeAttribute("id");
 			session.removeAttribute("accessToken");
 			session.removeAttribute("state");
-
-			session.removeAttribute("newAccount");
 			session.removeAttribute("emailUser");
 			return "redirect:/trang-chu";
 		} catch (Exception e) {
@@ -157,10 +153,7 @@ public class AuthorizationController {
 	@RequestMapping(value = "/thong-tin-ca-nhan", method = RequestMethod.GET)
 	public ModelAndView xemThongTin() {
 		try {
-			ObjectMapper objectMapper = new ObjectMapper();
-			AccountModel model = objectMapper.convertValue(session.getAttribute("newAccount"),
-					new TypeReference<AccountModel>() {
-					});
+			AccountModel model = AccountService.modelAccount;
 			ModelAndView mav = new ModelAndView("users/home/user_information");
 			mav.addObject("model", model);
 			return mav;
@@ -180,6 +173,21 @@ public class AuthorizationController {
 			return "redirect:/thong-tin-ca-nhan";
 		} catch (Exception e) {
 			return "redirect:/error";
+		}
+	}
+
+	@RequestMapping(value = "/delete-myaccount", method = RequestMethod.GET)
+	public String deleteAccount() {
+		try {
+			if (session.getAttribute("role") != null) {
+				model.setState(0);
+				AccountService.updateAccount(model, session);
+				return "redirect:/trang-chu";
+			} else
+				return "redirect:/thong-tin-ca-nhan";
+		} catch (Exception e) {
+			return "redirect:/error";
+			// TODO: handle exception
 		}
 	}
 }

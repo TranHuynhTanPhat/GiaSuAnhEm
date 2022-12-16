@@ -143,7 +143,6 @@ public class AccountService {
 		session.removeAttribute("id");
 		session.removeAttribute("accessToken");
 		session.removeAttribute("state");
-		session.removeAttribute("newAccount");
 		session.removeAttribute("emailUser");
 
 		String jsonResponse = null;
