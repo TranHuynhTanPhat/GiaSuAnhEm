@@ -69,14 +69,14 @@
 						<div class="form-group">
 							<label style="float: left"><strong>Tiêu đề:</strong></label>
 							<div style="width: 100%">
-								<input type="text" name="title" class="form-control"
+								<input required="required" type="text" name="title" class="form-control"
 									style="border: 2px solid #001c44;"
 									value="${listIntroductionPost[0].title }">
 							</div>
 						</div>
 						<div class="form-group">
 							<label style="float: left"><strong>Nội dung:</strong> </label>
-							<textarea name="content" rows="50"
+							<textarea required="required" name="content" rows="50"
 								style="width: 100%; height: 500px; display: inline-block; border: 2px solid #001c44; border-radius: 5px; padding: 10px">${listIntroductionPost[0].body }</textarea>
 						</div>
 

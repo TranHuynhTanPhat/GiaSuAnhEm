@@ -74,7 +74,7 @@
 								<input type="hidden" name="id" value="${Class.id }"><input
 									type="hidden" name="created" value="${Class.created_at }">
 								<input type="text" name="tenlop" class="form-control"
-									value="${Class.name }">
+									value="${Class.name }" required="required">
 							</div>
 						</div>
 					</div>

@@ -36,7 +36,7 @@ public class TutorController {
 	HttpSession session;
 	@Autowired
 	MapperModel commonModel;
-	AccountModel model = AccountService.modelAccount;
+	AccountModel model = new AccountModel();
 
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage(HttpServletRequest request) {
@@ -75,8 +75,8 @@ public class TutorController {
 	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
 	public ModelAndView addTutorPage() {
 		try {
-//			model=AccountService.modelAccount;
-			if (model.getRole() == 1) {
+			if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
+
 				Map<String, Object> paramsClass = new HashMap<>();
 				paramsClass.put("type", 1);
 				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
@@ -98,6 +98,7 @@ public class TutorController {
 				return new ModelAndView("users/authorization/loginUser");
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
 		}
@@ -114,9 +115,9 @@ public class TutorController {
 			@RequestParam("sobuoiday") int sobuoiday) {
 		try {
 
+			model = AccountService.modelAccount;
 			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, monhocs, lophocs,
-					khuvucs, sobuoiday, gioitinh, ngaysinh, namtotnghiem, nghenghiep, uudiem,
-					model.getId());
+					khuvucs, sobuoiday, gioitinh, ngaysinh, namtotnghiem, nghenghiep, uudiem, model.getId());
 			TutorService.createTutor(itemAdd, session);
 
 			return "redirect:/gia-su";
@@ -130,7 +131,7 @@ public class TutorController {
 	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)
 	public ModelAndView proccessClass() {
 		try {
-			if (model != null) {
+			if (String.valueOf("role").equals("tutor")) {
 				ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
 
 				Map<String, Object> paramsClass = new HashMap<>();

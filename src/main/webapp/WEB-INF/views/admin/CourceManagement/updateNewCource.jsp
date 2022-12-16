@@ -91,7 +91,7 @@
 								<label class="control-label">Số buổi: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="sobuoi" class="form-control"
+									<input type="number" name="sobuoi" class="form-control"
 										value="${model.sobuoi }">
 								</div>
 							</div>
@@ -127,19 +127,22 @@
 								<label class="col-7control-label">Trạng thái: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="trangthai" id="chonmon" class="form-select">
-										<c:choose>
-											<c:when test="${model.status==1}">
-												<option value="1">Đã nhận</option>
-												<option value="0">Chưa nhận</option>
-											</c:when>
-											<c:otherwise>
-												<option value="0">Chưa nhận</option>
-												<option value="1">Đã nhận</option>
-											</c:otherwise>
-										</c:choose>
 
-									</select>
+									<c:choose>
+										<c:when test="${model.status==1}">
+											<input type="text" class="form-control" value="Đã nhận"
+												disabled="disabled">
+											<input name="trangthai" type="hidden" class="form-control"
+												value="${model.status }">
+										</c:when>
+										<c:otherwise>
+											<input type="text" class="form-control" value="Chưa nhận"
+												disabled="disabled">
+											<input name="trangthai" type="hidden" class="form-control"
+												value="${model.status }">
+										</c:otherwise>
+									</c:choose>
+
 								</div>
 							</div>
 						</div>

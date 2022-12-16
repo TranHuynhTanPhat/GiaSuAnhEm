@@ -157,6 +157,7 @@ public class AccountService {
 		modelAccount = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
 		});
 
+		session.setAttribute("id", modelAccount.getId());
 		session.setAttribute("state", modelAccount.getState());
 		session.setAttribute("accessToken", modelAccount.getToken());
 
@@ -178,7 +179,6 @@ public class AccountService {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonReq = new Gson().toJson(model);
-		System.out.println(jsonReq);
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);

@@ -66,6 +66,9 @@
 				</div>
 				<form action="${pageContext.request.contextPath }/createAccount"
 					method="post">
+					<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+						<small class="text" style="color: red">${sessionScope.errorRegister}</small>
+					</div>
 					<div class="form-group">
 						<div class="row">
 							<div class="col" style="float: right">

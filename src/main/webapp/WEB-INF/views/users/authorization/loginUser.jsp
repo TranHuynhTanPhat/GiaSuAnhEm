@@ -20,10 +20,11 @@
 			src="resources/assets/images/tot_nghiep.png"></a>
 
 		<h2>Đăng nhập</h2>
+		<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+			<small class="text" style="color: red">${sessionScope.errorLogin}</small>
+		</div>
 		<form action="dang-nhap" method="post">
-			<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
-				<span class="text" style="color: red"><strong>${sessionScope.errorLogin}</strong></span>
-			</div>
+
 			<div class="user-box">
 				<input type="text" name="username" required="required" /> <label>Tên
 					tài khoản</label>

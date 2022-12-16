@@ -28,6 +28,9 @@
 		<a href="./trang-chu"><img
 			src="resources/assets/images/tot_nghiep.png"></a>
 		<h2>Đăng ký</h2>
+		<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+			<small class="text" style="color: red">${sessionScope.errorRegister}</small>
+		</div>
 		<form action="dang-ky" method="post">
 
 			<div class="user-box">

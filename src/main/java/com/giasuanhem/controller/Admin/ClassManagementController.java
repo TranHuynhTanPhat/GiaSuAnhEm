@@ -32,6 +32,7 @@ public class ClassManagementController {
 
 	@RequestMapping(value = "/quanlylophoc", method = RequestMethod.GET)
 	public ModelAndView classManagement() throws JsonParseException, JsonMappingException, IOException {
+		session.removeAttribute("errorCreateClass");
 		if (session.getAttribute("admin") != null) {
 			List<ClassModel> listClass = ClassService.getListClass(session);
 
@@ -66,7 +67,12 @@ public class ClassManagementController {
 		if (session.getAttribute("admin") != null) {
 			ClassModel itemAdd = commonModel.mapClass(tenlop);
 			ClassService.createClass(itemAdd, session);
-			return "redirect:/quanlylophoc";
+			if (session.getAttribute("errorCreateClass") == null) {
+				return "redirect:/quanlylophoc";
+			} else {
+				return "redirect:/addClass";
+			}
+
 		} else {
 			return "redirect:/login";
 		}

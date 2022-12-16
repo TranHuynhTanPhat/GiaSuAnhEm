@@ -126,9 +126,10 @@
 								<label style="float: left"><strong>Tiêu đề:</strong> </label>
 								<div class="col-7" style="width: 100%">
 									<input type="text" name="title" class="form-control"
-										style="border: 2px solid #001c44;" value=""> <input
-										type="hidden" name="image" class="form-control"
-										style="border: 2px solid #001c44;" value="">
+										style="border: 2px solid #001c44;" value=""
+										required="required"> <input type="hidden" name="image"
+										class="form-control" style="border: 2px solid #001c44;"
+										value="">
 								</div>
 							</div>
 
@@ -136,7 +137,8 @@
 								<label style="float: left"><strong>Nội dung: </strong></label>
 
 								<textarea name="content" rows="50"
-									style="width: 100%; height: 500px; display: inline-block; border: 2px solid #001c44; border-radius: 5px; padding: 10px">${listIntroductionPost[0].body }</textarea>
+									style="width: 100%; height: 500px; display: inline-block; border: 2px solid #001c44; border-radius: 5px; padding: 10px"
+									required="required">${listIntroductionPost[0].body }</textarea>
 							</div>
 							<canvas width="1000" height="10"></canvas>
 

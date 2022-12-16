@@ -66,13 +66,16 @@
 				</div>
 				<form action="${pageContext.request.contextPath }/addClass"
 					method="post">
+					<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+						<small class="text" style="color: red">${sessionScope.errorCreateClass}</small>
+					</div>
 					<div class="form-group">
 						<div class="row">
 							<label class="control-label">Tên lớp: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
 								<input type="text" name="tenlop" id="tenlop"
-									class="form-control" value="">
+									class="form-control" value="" required="required">
 							</div>
 						</div>
 					</div>

@@ -32,6 +32,7 @@ public class SubjectManagementController {
 
 	@RequestMapping(value = "/quanlymonhoc", method = RequestMethod.GET)
 	public ModelAndView subjectManagement() throws JsonParseException, JsonMappingException, IOException {
+		session.removeAttribute("errorCreateSubject");
 		if (session.getAttribute("admin") != null) {
 			List<SubjectModel> listSubject = SubjectService.getListSubject(session);
 
@@ -66,7 +67,11 @@ public class SubjectManagementController {
 	public String addSubject(@RequestParam("tenmon") String tenmon) throws IOException {
 		SubjectModel itemAdd = commonModel.mapSubject(tenmon);
 		SubjectService.createSubject(itemAdd, session);
-		return "redirect:/quanlymonhoc";
+		if (session.getAttribute("errorCreateSubject") == null) {
+			return "redirect:/quanlymonhoc";
+		} else {
+			return "redirect:/addSubject";
+		}
 
 	}
 

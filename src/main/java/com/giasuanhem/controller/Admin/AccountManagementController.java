@@ -37,7 +37,7 @@ public class AccountManagementController {
 
 	@RequestMapping(value = "/quanlytaikhoan", method = RequestMethod.GET)
 	public ModelAndView accountManagement(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+		session.removeAttribute("errorRegister");
 		if (session.getAttribute("admin") != null) {
 
 			List<AccountModel> listAccounts = AccountService.getListAccount(session);
@@ -110,7 +110,12 @@ public class AccountManagementController {
 			model.setState(state);
 
 			AccountService.register(model, session);
-			return "redirect:/quanlytaikhoan";
+			if (session.getAttribute("errorRegister") == null) {
+				return "redirect:/quanlytaikhoan";
+			} else {
+				return "redirect:/createAccount";
+			}
+
 		} else {
 			return "redirect:/login";
 		}

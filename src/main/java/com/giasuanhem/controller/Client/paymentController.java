@@ -45,13 +45,7 @@ public class paymentController {
 
 			if (session.getAttribute("role") != null) {
 
-				String tutorContent = "Đăng ký dạy lớp:";
-				byte[] bytes1 = tutorContent.getBytes(StandardCharsets.ISO_8859_1);
-				tutorContent = new String(bytes1, StandardCharsets.UTF_8);
-
-				String parentContent = "Đăng ký mở lớp:";
-				byte[] bytes2 = parentContent.getBytes(StandardCharsets.ISO_8859_1);
-				parentContent = new String(bytes2, StandardCharsets.UTF_8);
+				
 				AccountModel modelA = AccountService.modelAccount;
 				if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
 
@@ -62,7 +56,7 @@ public class paymentController {
 					TransactionHistoryModel newModel = new TransactionHistoryModel();
 					newModel.setAmount((int) (classModel.getSalary() * 0.4));
 
-					newModel.setContent(tutorContent + (String) request.getParameter("id"));
+					newModel.setContent("DKDL:" + (String) request.getParameter("id"));
 
 					newModel.setId_account(modelA.getId());
 					newModel.setStatus(1);
@@ -91,7 +85,7 @@ public class paymentController {
 					TransactionHistoryModel newModel = new TransactionHistoryModel();
 					newModel.setAmount(500000);
 
-					newModel.setContent(parentContent + (String) request.getParameter("id"));
+					newModel.setContent("DKML:" + (String) request.getParameter("id"));
 
 					newModel.setId_account(modelA.getId());
 					newModel.setStatus(1);

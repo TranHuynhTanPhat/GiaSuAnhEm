@@ -75,15 +75,15 @@
 								style="color: #FF0000">*</span></label>
 							<div class="col">
 								<input type="text" name="CategoryName" class="form-control"
-									value="${category.name }">
+									value="${category.name }" required="required">
 							</div>
 						</div>
 						<div class="row">
 							<label class=" control-label">Type: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="text" name="type" class="form-control"
-									value="${category.type }">
+								<input type="number" name="type" class="form-control"
+									value="${category.type }" required="required" min="0" max="1">
 							</div>
 						</div>
 					</div>

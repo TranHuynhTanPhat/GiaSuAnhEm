@@ -39,7 +39,6 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		try {
-			model = AccountService.modelAccount;
 			ModelAndView mav = new ModelAndView("users/authorization/loginUser");
 			return mav;
 		} catch (Exception e) {
@@ -56,10 +55,10 @@ public class AuthorizationController {
 		params.put("password", password);
 		AccountService.checkLogin(params, session);
 		model = AccountService.modelAccount;
-		if (model == null) {
+		if (session.getAttribute("role") == null) {
 			return "redirect:/dang-nhap";
 		}
-		if (model.getState() == 2) {
+		if ((int) session.getAttribute("state") == 2) {
 			return "redirect:/verify";
 		} else {
 			return "redirect:/trang-chu";
@@ -91,11 +90,14 @@ public class AuthorizationController {
 		modelA.setState(2);
 
 		AccountService.register(modelA, session);
+		if (session.getAttribute("errorRegister") != null)
+			return "redirect:/dang-ky";
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("username", modelA.getUsername());
 		params.put("password", modelA.getPassword());
 		AccountService.checkLogin(params, session);
+		session.removeAttribute("errorLogin");
 		return "redirect:/verify";
 
 	}
@@ -130,8 +132,6 @@ public class AuthorizationController {
 			Map<String, Object> params = new HashMap<>();
 			params.put("username", model.getUsername());
 			params.put("password", model.getPassword());
-			AccountService.checkLogin(params, session);
-			model = AccountService.modelAccount;
 			return "redirect:/trang-chu";
 		}
 		return "redirect:/verify";
@@ -144,6 +144,7 @@ public class AuthorizationController {
 			session.removeAttribute("accessToken");
 			session.removeAttribute("role");
 			session.removeAttribute("state");
+			session.removeAttribute("id");
 			return "redirect:/trang-chu";
 		} catch (Exception e) {
 			return "redirect:/error";

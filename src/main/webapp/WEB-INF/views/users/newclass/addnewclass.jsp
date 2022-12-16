@@ -35,7 +35,7 @@
 					</div>
 					<div class="user-input-box">
 						<label for="sobuoi">Số buổi<span style="color: #db1414">*</span></label>
-						<input type="text" id="sobuoi" name="sobuoi"
+						<input type="number" id="sobuoi" name="sobuoi"
 							placeholder="Nhập số buổi"  > <small></small>
 					</div>
 					<div class="user-input-box">

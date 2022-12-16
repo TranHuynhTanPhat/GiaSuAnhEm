@@ -65,18 +65,22 @@
 					<strong>Thêm phân loại</strong>
 				</div>
 				<form action="./createCategory" method="post">
+					<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+						<small class="text" style="color: red">${sessionScope.errorCreateCategory}</small>
+					</div>
 					<div class="form-group">
 						<div class="row">
 							<label class="control-label">Name: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
 								<input type="text" name="CategoryName" class="form-control"
-									value="">
+									value="" required="required">
 							</div>
 							<label class="control-label">Type: <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<input type="text" name="type" class="form-control" value="">
+								<input type="number" name="type" class="form-control" value=""
+									required="required" min="0" max="1">
 							</div>
 						</div>
 					</div>

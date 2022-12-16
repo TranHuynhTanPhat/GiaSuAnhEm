@@ -74,7 +74,7 @@
 							<label class="control-label"><strong>Tiêu đề:</strong> <span
 								style="color: #FF0000">*</span></label>
 							<div class="col">
-								<textarea rows="5" name="title" class="form-control">${recruitPost.title }</textarea>
+								<textarea rows="5" name="title" class="form-control" required="required">${recruitPost.title }</textarea>
 
 							</div>
 						</div>
@@ -84,7 +84,7 @@
 								style="color: #FF0000">*</span></label>
 							<div class="col">
 								<textarea name="content" rows="50" class="form-control"
-									style="height: 500px; display: inline-block;">${recruitPost.body }</textarea>
+									style="height: 500px; display: inline-block;" required="required">${recruitPost.body }</textarea>
 							</div>
 						</div>
 					</div>

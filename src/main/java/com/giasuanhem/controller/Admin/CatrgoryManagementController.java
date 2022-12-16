@@ -32,7 +32,7 @@ public class CatrgoryManagementController {
 
 	@RequestMapping(value = "/quanlydanhmuc", method = RequestMethod.GET)
 	public ModelAndView categoryManagement() throws JsonParseException, JsonMappingException, IOException {
-
+		session.removeAttribute("errorCreateCategory");
 		if (session.getAttribute("admin") != null) {
 			Map<String, Object> paramsClass = new HashMap<>();
 			paramsClass.put("type", 0);
@@ -78,7 +78,10 @@ public class CatrgoryManagementController {
 			model.setName(name);
 			model.setType(type);
 			CategoryService.createCategory(model, session);
-			return "redirect:/quanlydanhmuc";
+			if (session.getAttribute("errorCreateCategory") == null) {
+				return "redirect:/quanlydanhmuc";
+			}
+			return "redirect:/createCategory";
 		} else {
 			return "redirect:/login";
 		}
