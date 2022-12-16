@@ -22,7 +22,7 @@
 		<h2>Đăng nhập</h2>
 		<form action="dang-nhap" method="post">
 			<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
-				<span class="text" style="color: red"><strong>${sessionScope.errorMessage}</strong></span>
+				<span class="text" style="color: red"><strong>${sessionScope.errorLogin}</strong></span>
 			</div>
 			<div class="user-box">
 				<input type="text" name="username" required="required" /> <label>Tên

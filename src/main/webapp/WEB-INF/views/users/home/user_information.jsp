@@ -37,6 +37,10 @@
 					<div class="wrapper-2">
 						<div class="form-title">Thông tin tài khoản</div>
 						<div class="form">
+							<div class="user-box"
+								style="margin-top: 5px; margin-bottom: 15px;">
+								<span class="text" style="color: red"><strong>${sessionScope.errorUpdatePassword}</strong></span>
+							</div>
 							<form action="thong-tin-ca-nhan" method="post">
 								<input type="hidden" name="id" value="${model.id }">
 								<p class="content-item">
@@ -71,9 +75,9 @@
 
 								<button type="submit" class="save">Lưu thay đổi</button>
 
-								<p style="margin-top:25px">
+								<p style="margin-top: 25px">
 									<a href="delete-myaccount" class="save"
-										style="background-color: white; border: none; color: #D60CA7; font-size: 14px;padding:5px">
+										style="background-color: white; border: none; color: #D60CA7; font-size: 14px; padding: 5px">
 										<u>Xóa tài khoản</u>
 									</a>
 								</p>

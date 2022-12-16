@@ -80,7 +80,7 @@
 					</div>
 				</div>
 				<div class="row" style="margin-top: 5px;">
-					<span class="text" style="color: red"><strong>${sessionScope.errorMessage}</strong></span>
+					<span class="text" style="color: red"><strong>${sessionScope.errorLogin}</strong></span>
 				</div>
 			</header>
 		</div>

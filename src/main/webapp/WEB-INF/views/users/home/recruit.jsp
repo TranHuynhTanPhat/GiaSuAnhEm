@@ -72,6 +72,9 @@
 						DỤNG GIA SƯ ANH EM</span>
 				</div>
 				<div class="content-temp" style="width: 100%;">
+					<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+						<span class="text" style="color: red"><strong>${sessionScope.errorGetListPost}</strong></span>
+					</div>
 					<c:forEach var="item" items="${listRecruitment}">
 						<h1 class="title highlight" itemprop="name">${item.title}</h1>
 						<h3>${item.body }</h3>

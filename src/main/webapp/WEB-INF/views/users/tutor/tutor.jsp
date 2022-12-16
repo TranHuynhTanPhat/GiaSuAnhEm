@@ -70,13 +70,15 @@
 						<span class="icon-graduation"></span> <span class="menu-ngang">LỚP
 							MỚI GIA SƯ ANH EM</span>
 					</div>
-
+					<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+						<span class="text" style="color: red"><strong>${sessionScope.errorGetListTutor}</strong></span>
+					</div>
 					<table width="100%" class="table table-bordered mb-0 bg-white"
 						style="text-align: left; float: left;">
 						<thead>
 							<tr align="center">
 								<th scope="col" colspan="9"><strong> <font
-										color="red" size="3"><u>LỚP NGÀY 21/10/2022</u></font>
+										color="red" size="3"><u>GIA SƯ</u></font>
 								</strong>
 							</tr>
 							<tr>

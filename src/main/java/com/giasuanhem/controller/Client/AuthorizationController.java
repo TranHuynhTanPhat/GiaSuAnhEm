@@ -39,6 +39,7 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		try {
+			model=AccountService.modelAccount;
 			ModelAndView mav = new ModelAndView("users/authorization/loginUser");
 			return mav;
 		} catch (Exception e) {
@@ -53,10 +54,10 @@ public class AuthorizationController {
 		Map<String, Object> params = new HashMap<>();
 		params.put("username", username);
 		params.put("password", password);
-
 		AccountService.checkLogin(params, session);
-		if (session.getAttribute("state") != null) {
-			if ((int) session.getAttribute("state") == 2) {
+
+		if (model != null) {
+			if (model.getState() == 2) {
 				return "redirect:/verify";
 			}
 		} else {
@@ -83,20 +84,19 @@ public class AuthorizationController {
 			@RequestParam("password") String password, @RequestParam("role") int role)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		AccountModel model = new AccountModel();
-		model.setUsername(username);
-		model.setEmail(email);
-		model.setPassword(password);
-		model.setRole(role);
-		model.setState(2);
+		AccountModel modelA = new AccountModel();
+		modelA.setUsername(username);
+		modelA.setEmail(email);
+		modelA.setPassword(password);
+		modelA.setRole(role);
+		modelA.setState(2);
 
-		AccountService.register(model, session);
+		AccountService.register(modelA, session);
 
 		Map<String, Object> params = new HashMap<>();
-		params.put("username", model.getUsername());
-		params.put("password", model.getPassword());
+		params.put("username", modelA.getUsername());
+		params.put("password", modelA.getPassword());
 		AccountService.checkLogin(params, session);
-
 		return "redirect:/verify";
 
 	}
@@ -104,12 +104,16 @@ public class AuthorizationController {
 	@RequestMapping(value = "/verify", method = RequestMethod.GET)
 	public ModelAndView verify(HttpServletResponse response) {
 		try {
-			response.setIntHeader("Refresh", 60);
+			if (AccountService.modelAccount != null) {
+				response.setIntHeader("Refresh", 60);
 
-			OTP = RandomOTP.randomOTP();
-			EmailService.sendEmail(String.valueOf(session.getAttribute("emailUser")), "verify",
-					EmailService.formOTP(OTP));
-			return new ModelAndView("users/authorization/verifyForm");
+				OTP = RandomOTP.randomOTP();
+				EmailService.sendEmail(String.valueOf(model.getEmail()), "verify",
+						EmailService.formOTP(OTP));
+				return new ModelAndView("users/authorization/verifyForm");
+			} else {
+				return new ModelAndView("users/authorization/loginUser");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -121,15 +125,14 @@ public class AuthorizationController {
 	public String verify(@RequestParam("verifyCode") String code)
 			throws JsonParseException, JsonMappingException, IOException {
 		if (code.equals(OTP)) {
-			AccountModel model = AccountService.modelAccount;
 			model.setState(1);
 			AccountService.updateAccount(model, session);
-			
+
 			Map<String, Object> params = new HashMap<>();
 			params.put("username", model.getUsername());
 			params.put("password", model.getPassword());
 			AccountService.checkLogin(params, session);
-
+			model=AccountService.modelAccount;
 			return "redirect:/trang-chu";
 		}
 		return "redirect:/verify";
@@ -138,11 +141,8 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-xuat", method = RequestMethod.GET)
 	public String logOut() {
 		try {
-			session.removeAttribute("role");
-			session.removeAttribute("id");
+			model = null;
 			session.removeAttribute("accessToken");
-			session.removeAttribute("state");
-			session.removeAttribute("emailUser");
 			return "redirect:/trang-chu";
 		} catch (Exception e) {
 			return "redirect:/error";
@@ -152,10 +152,14 @@ public class AuthorizationController {
 	@RequestMapping(value = "/thong-tin-ca-nhan", method = RequestMethod.GET)
 	public ModelAndView xemThongTin() {
 		try {
-			AccountModel model = AccountService.modelAccount;
-			ModelAndView mav = new ModelAndView("users/home/user_information");
-			mav.addObject("model", model);
-			return mav;
+			if (AccountService.modelAccount != null) {
+				AccountModel model = AccountService.modelAccount;
+				ModelAndView mav = new ModelAndView("users/home/user_information");
+				mav.addObject("model", model);
+				return mav;
+			} else {
+				return new ModelAndView("users/authorization/loginUser");
+			}
 		} catch (Exception e) {
 			ModelAndView mav = new ModelAndView("404page");
 			return mav;
@@ -178,8 +182,8 @@ public class AuthorizationController {
 	@RequestMapping(value = "/delete-myaccount", method = RequestMethod.GET)
 	public String deleteAccount() {
 		try {
-			if (session.getAttribute("role") != null) {
-				model=AccountService.modelAccount;
+			if (AccountService.modelAccount != null) {
+				model = AccountService.modelAccount;
 				model.setState(0);
 				AccountService.updateAccount(model, session);
 				return "redirect:/dang-xuat";

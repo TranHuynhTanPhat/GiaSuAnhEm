@@ -33,11 +33,11 @@ public class TutorService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCreateTutor", res.getMessage());
 			return;
 		}
 
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorCreateTutor");
 	}
 
 //	static public void removeTutor(Map<String, Object> params, HttpSession session) {
@@ -58,10 +58,10 @@ public class TutorService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdateTutor", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorUpdateTutor");
 	}
 
 	static public List<TutorModel> getListTutor(HttpSession session)
@@ -72,9 +72,11 @@ public class TutorService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListTutor", res.getMessage());
 			return null;
 		}
+
+		session.removeAttribute("errorGetListTutor");
 		List<TutorModel> listTutorModels = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<TutorModel>>() {
 				});
@@ -89,9 +91,10 @@ public class TutorService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetTutor", res.getMessage());
 			return null;
 		}
+		session.removeAttribute("errorGetTutor");
 		TutorModel model = objectMapper.convertValue(res.getData(), new TypeReference<TutorModel>() {
 		});
 		return model;
@@ -106,9 +109,10 @@ public class TutorService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetTutor", res.getMessage());
 			return null;
 		}
+		session.removeAttribute("errorGetTutor");
 		List<TutorModel> listTutorModels = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<TutorModel>>() {
 				});

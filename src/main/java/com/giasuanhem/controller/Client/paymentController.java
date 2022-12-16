@@ -38,13 +38,15 @@ public class paymentController {
 	@Autowired
 	HttpSession session;
 
+	AccountModel model = AccountService.modelAccount;
+
 	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
 	public ModelAndView invoicePage(HttpServletRequest request) {
 		try {
-			if (session.getAttribute("role") != null) {
+//			model = AccountService.modelAccount;
+			if (model != null) {
 
-				AccountModel model = AccountService.modelAccount;
-				if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
+				if (model.getRole() == 1) {
 					Map<String, Object> params = new HashMap<>();
 					params.put("id", request.getParameter("id"));
 					NewClassModel classModel = CourceService.getNewClass(params, session);
@@ -96,6 +98,7 @@ public class paymentController {
 					mav.addObject("id", classModel.getId());
 					mav.addObject("salary", ConvertCurrency.convertCurrency(500000));
 					mav.addObject("idInvoice", history.getId());
+					mav.addObject("emailUser", model.getEmail());
 					return mav;
 				}
 
@@ -111,14 +114,16 @@ public class paymentController {
 
 	@RequestMapping(value = "/thanh-toan-dang-ky-day", method = RequestMethod.GET)
 	public ModelAndView registerForTutor(HttpServletRequest request, HttpServletResponse response) {
-		String role = String.valueOf(session.getAttribute("role"));
+//		model = AccountService.modelAccount;
 
-		if (role.equals("tutor")) {
+		if (model.getRole() == 1) {
 			String classID = String.valueOf(request.getParameter("id"));
 			int salary = Integer.parseInt(request.getParameter("salary"));
+
 			ModelAndView mav = new ModelAndView("users/payBill");
 			mav.addObject("id", classID);
-			mav.addObject("salary", ConvertCurrency.convertCurrency((int)(salary*0.4)));
+			mav.addObject("salary", ConvertCurrency.convertCurrency((int) (salary * 0.4)));
+			mav.addObject("role", model.getRole());
 			return mav;
 		} else {
 			return new ModelAndView("404page");
@@ -127,9 +132,9 @@ public class paymentController {
 
 	@RequestMapping(value = "/thanh-toan-mo-lop", method = RequestMethod.GET)
 	public ModelAndView registerForParent(HttpServletRequest request, HttpServletResponse response) {
-		String role = String.valueOf(session.getAttribute("role"));
+//		model = AccountService.modelAccount;
 
-		if (role.equals("parent")) {
+		if (model.getRole() == 1) {
 			// String classID = String.valueOf(request.getParameter("id"));
 			// String salary = String.valueOf(request.getParameter("salary"));
 			ModelAndView mav = new ModelAndView("users/payBill");

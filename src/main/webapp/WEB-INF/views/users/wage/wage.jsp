@@ -68,7 +68,9 @@
 						<span class="icon-graduation"></span> <span class="menu-ngang">BẢNG
 							LƯƠNG CHO SINH VIÊN</span>
 					</div>
-
+					<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+						<span class="text" style="color: red"><strong>${sessionScope.errorGetListSalary}</strong></span>
+					</div>
 					<table width="100%" class="table table-bordered mb-0 bg-white"
 						style="text-align: left; float: left;">
 						<thead>

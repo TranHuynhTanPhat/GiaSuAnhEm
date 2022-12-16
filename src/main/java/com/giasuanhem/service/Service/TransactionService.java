@@ -35,10 +35,10 @@ public class TransactionService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCreateTransaction", res.getMessage());
 			return null;
 		}
-
+		session.removeAttribute("errorCreateTransaction");
 		return objectMapper.convertValue(res.getData(), new TypeReference<TransactionHistoryModel>() {
 		});
 	}
@@ -53,10 +53,10 @@ public class TransactionService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListTransaction", res.getMessage());
 			return null;
 		}
-
+		session.removeAttribute("errorGetListTransaction");
 		List<TransactionHistoryModel> listTransaction = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<TransactionHistoryModel>>() {
 				});
@@ -74,10 +74,10 @@ public class TransactionService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorSearchTransaction", res.getMessage());
 			return null;
 		}
-
+		session.removeAttribute("errorSearchTransaction");
 		List<TransactionHistoryModel> listTransaction = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<TransactionHistoryModel>>() {
 				});
@@ -94,10 +94,10 @@ public class TransactionService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorStatisticalTransaction", res.getMessage());
 			return null;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorStatisticalTransaction");
 		return objectMapper.convertValue(res.getData(), new TypeReference<StatisticalModel>() {
 		});
 	}

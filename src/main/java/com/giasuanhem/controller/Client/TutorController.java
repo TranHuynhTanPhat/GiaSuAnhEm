@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.PostModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.model.Models.TutorModel;
 import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CommonService;
@@ -34,23 +36,24 @@ public class TutorController {
 	HttpSession session;
 	@Autowired
 	MapperModel commonModel;
+	AccountModel model = AccountService.modelAccount;
 
 	@RequestMapping(value = "/gia-su", method = RequestMethod.GET)
 	public ModelAndView tutorPage(HttpServletRequest request) {
 		try {
 
 			ModelAndView mav = new ModelAndView("users/tutor/tutor");
-			List<TutorModel> model = TutorService.getListTutor(session);
+			List<TutorModel> modelList = TutorService.getListTutor(session);
 
 			String category = request.getParameter("category");
 			if (category != null) {
 				Map<String, Object> params = new HashMap<>();
 				params.put("cateID", Integer.parseInt(category));
-				model = TutorService.search(params, session);
-				mav.addObject("listTutor", model);
+				modelList = TutorService.search(params, session);
+				mav.addObject("listTutor", modelList);
 
 			} else {
-				mav.addObject("listTutor", model);
+				mav.addObject("listTutor", modelList);
 			}
 			Map<String, Object> paramsClass = new HashMap<>();
 			paramsClass.put("type", 1);
@@ -72,8 +75,8 @@ public class TutorController {
 	@RequestMapping(value = "/them-gia-su", method = RequestMethod.GET)
 	public ModelAndView addTutorPage() {
 		try {
-			String role = String.valueOf(session.getAttribute("role"));
-			if (role.equals("tutor")) {
+//			model=AccountService.modelAccount;
+			if (model.getRole() == 1) {
 				Map<String, Object> paramsClass = new HashMap<>();
 				paramsClass.put("type", 1);
 				List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
@@ -113,7 +116,7 @@ public class TutorController {
 
 			TutorModel itemAdd = commonModel.mapTutor(hoten, diachi, email, sdt, truong, chuyennghanh, monhocs, lophocs,
 					khuvucs, sobuoiday, gioitinh, ngaysinh, namtotnghiem, nghenghiep, uudiem,
-					session.getAttribute("id"));
+					model.getId());
 			TutorService.createTutor(itemAdd, session);
 
 			return "redirect:/gia-su";
@@ -127,7 +130,7 @@ public class TutorController {
 	@RequestMapping(value = "/quy-trinh-nhan-lop", method = RequestMethod.GET)
 	public ModelAndView proccessClass() {
 		try {
-			if (session.getAttribute("role") != null) {
+			if (model != null) {
 				ModelAndView mav = new ModelAndView("users/tutor/quyTrinhNhanLop");
 
 				Map<String, Object> paramsClass = new HashMap<>();

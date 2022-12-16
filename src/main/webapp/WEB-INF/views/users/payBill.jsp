@@ -103,7 +103,7 @@
 									<p class="mb-0">
 										<span class="fw-bold">Sản phẩm:</span>
 										<c:choose>
-											<c:when test="${sessionScope.role=='tutor'}">
+											<c:when test="${role==1">
 												<span class="c-green">: Đăng kí dạy khóa học mã ${id }</span>
 											</c:when>
 											<c:otherwise>
@@ -140,7 +140,7 @@
 									<p class="mb-0">
 										<span class="fw-bold">Sản phẩm:</span>
 										<c:choose>
-											<c:when test="${sessionScope.role=='tutor'}">
+											<c:when test="${role==1}">
 												<span class="c-green">: Đăng kí dạy khóa học mã
 													${id }</span>
 											</c:when>

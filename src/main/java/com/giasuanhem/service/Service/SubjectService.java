@@ -61,7 +61,7 @@ public class SubjectService {
 			session.setAttribute("errorRemoveSubject", res.getMessage());
 			return;
 		}
-		session.getAttribute("errorRemoveSubject");
+		session.removeAttribute("errorRemoveSubject");
 	}
 
 	static public void updateSubject(SubjectModel model, HttpSession session)
@@ -87,9 +87,9 @@ public class SubjectService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListSubject", res.getMessage());
 		}
-
+		session.removeAttribute("errorGetListSubject");
 		List<SubjectModel> listSubject = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<SubjectModel>>() {
 				});
@@ -105,10 +105,10 @@ public class SubjectService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetSubject", res.getMessage());
 			return null;
 		}
-
+		session.removeAttribute("errorGetSubject");
 		SubjectModel model = objectMapper.convertValue(res.getData(), new TypeReference<SubjectModel>() {
 		});
 		return model;

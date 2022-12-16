@@ -97,7 +97,7 @@
 											<div class="text-gray-light">Hóa đơn được gửi đến:</div>
 											<h2 class="to">${username }</h2>
 											<div class="email">
-												<a href="mailto:${sessionScope.emailUser }">${sessionScope.emailUser }</a>
+												<a href="mailto:${emailUser }">${emailUser }</a>
 											</div>
 										</div>
 										<div class="col invoice-details">

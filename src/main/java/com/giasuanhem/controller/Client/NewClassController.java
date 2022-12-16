@@ -18,11 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.giasuanhem.model.Models.AccountModel;
 import com.giasuanhem.model.Models.CategoryModel;
 import com.giasuanhem.model.Models.ClassModel;
 import com.giasuanhem.model.Models.NewClassModel;
 import com.giasuanhem.model.Models.SubjectModel;
 import com.giasuanhem.service.Mapper.MapperModel;
+import com.giasuanhem.service.Service.AccountService;
 import com.giasuanhem.service.Service.CategoryService;
 import com.giasuanhem.service.Service.ClassService;
 import com.giasuanhem.service.Service.CourceService;
@@ -34,6 +36,7 @@ public class NewClassController {
 	HttpSession session;
 	@Autowired
 	MapperModel commonModel;
+	AccountModel model = AccountService.modelAccount;
 
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage(HttpServletRequest request)
@@ -80,8 +83,7 @@ public class NewClassController {
 	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.GET)
 	public ModelAndView registerNewClassPage() throws JsonParseException, JsonMappingException, IOException {
 
-		String role = String.valueOf(session.getAttribute("role"));
-		if (role.equals("parent")) {
+		if (model.getRole()==2) {
 			Map<String, Object> paramsClass = new HashMap<>();
 			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
