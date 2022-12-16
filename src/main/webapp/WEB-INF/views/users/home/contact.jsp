@@ -75,25 +75,25 @@
 				<div class="content-temp" style="width: 100%;">
 					<div class="row" style="margin-top: 10px">
 						<h2>
-							<a href="https://www.facebook.com/tranhuynhtanphat.852"><i
-								class="fa-brands fa-facebook"></i> Trần Huỳnh Tấn Phát</a>
+							<a href="https://www.facebook.com/tranhuynhtanphat.852" target="_blank"><i
+								class="fa-brands fa-facebook" ></i> Trần Huỳnh Tấn Phát</a>
 						</h2>
 					</div>
 					<div class="row" style="margin-top: 10px">
 						<h2>
-							<a href="https://www.facebook.com/mch1en"><i
+							<a href="https://www.facebook.com/mch1en" target="_blank"><i
 								class="fa-brands fa-facebook"></i> Nguyên Minh Chiến</a>
 						</h2>
 					</div>
 					<div class="row" style="margin-top: 10px">
 						<h2>
-							<a href="https://www.facebook.com/phamtrungnghia23"><i
+							<a href="https://www.facebook.com/phamtrungnghia23" target="_blank"><i
 								class="fa-brands fa-facebook"></i> Phạm Trung Nghĩa</a>
 						</h2>
 					</div>
 					<div class="row" style="margin-top: 10px">
 						<h2>
-							<a href="https://www.facebook.com/haidang210202"><i
+							<a href="https://www.facebook.com/haidang210202" target="_blank"><i
 								class="fa-brands fa-facebook"></i> Mai Hải Đăng</a>
 						</h2>
 					</div>

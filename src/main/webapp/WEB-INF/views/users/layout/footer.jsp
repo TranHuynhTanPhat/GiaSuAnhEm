@@ -15,30 +15,30 @@
 						<h6 class="text-uppercase fw-bold mb-4">Công nghệ</h6>
 					</div>
 					<p>
-						<a href="https://www.java.com/en/" class="text-reset"><i
+						<a href="https://www.java.com/en/" target="_blank" class="text-reset"><i
 							class="fa-brands fa-java"></i> Java</a>
 					</p>
 					<p>
 						<a
-							href="https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html"
+							href="https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html" target="_blank"
 							class="text-reset"><i class="fa-solid fa-leaf"></i> Spring
 							MVC</a>
 					</p>
 					<p>
-						<a href="https://www.mysql.com/" class="text-reset"><i
+						<a href="https://www.mysql.com/" target="_blank" class="text-reset"><i
 							class="fa-solid fa-database"></i> MySql</a>
 					</p>
 					<p>
-						<a href="https://go.dev/" class="text-reset"><i
+						<a href="https://go.dev/" target="_blank" class="text-reset"><i
 							class="fa-brands fa-golang"></i> GoLang</a>
 					</p>
 					<p>
-						<a href="https://railway.app/" class="text-reset"><i
+						<a href="https://railway.app/" target="_blank" class="text-reset"><i
 							class="fa-solid fa-server"></i> Railway</a>
 					</p>
 
 					<p>
-						<a href="https://www.heroku.com/" class="text-reset"><i
+						<a href="https://www.heroku.com/" target="_blank" class="text-reset"><i
 							class="fa-solid fa-server"></i> Heroku</a>
 					</p>
 				</div>
