@@ -45,7 +45,6 @@ public class paymentController {
 
 			if (session.getAttribute("role") != null) {
 
-				
 				AccountModel modelA = AccountService.modelAccount;
 				if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
 
@@ -67,15 +66,19 @@ public class paymentController {
 					paramStatus.put("status", 1);
 					CourceService.updateStatus(paramStatus, session);
 
-					EmailService.sendEmail(modelA.getEmail(), "Hóa đơn thanh toán",
-							EmailService.formInvoice(ConvertCurrency.convertCurrency(history.getAmount()),
-									String.valueOf(history.getId()), history.getCreated_at(), modelA.getUsername(),
-									"Thanh toán phí đăng ký nhận lớp.", String.valueOf(classModel.getId())));
+					EmailService.sendEmail(modelA.getEmail(), "Hóa đơn thanh toán", EmailService.formInvoice(
+							ConvertCurrency.convertCurrency(history.getAmount()), String.valueOf(history.getId()),
+							history.getCreated_at(), modelA.getUsername(),
+							"Thanh toán phí đăng ký nhận lớp. Thông tin liên lạc phụ huynh: "
+									+ classModel.getContact()
+									+ " NẾU CÓ VẤN ĐỀ TRONG VIỆC LIÊN HỆ VỚI PHỤ HUYNH HÃY LIÊN HỆ VỚI CHÚNG TÔI QUA SỐ ĐIỆN THOẠI 0389 052 819.",
+							String.valueOf(classModel.getId())));
 					ModelAndView mav = new ModelAndView("users/formInvoice");
 					mav.addObject("username", modelA.getUsername());
 					mav.addObject("id", classModel.getId());
 					mav.addObject("salary", ConvertCurrency.convertCurrency((int) (classModel.getSalary() * 0.4)));
 					mav.addObject("idInvoice", history.getId());
+					mav.addObject("emailUser", modelA.getEmail());
 					return mav;
 				} else {
 					Map<String, Object> params = new HashMap<>();
