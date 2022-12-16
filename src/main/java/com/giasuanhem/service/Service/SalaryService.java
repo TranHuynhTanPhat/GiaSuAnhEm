@@ -47,9 +47,10 @@ public class SalaryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCreateSalary", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorCreateSalary");
 	}
 
 	static public void removeSalary(Map<String, Object> params, HttpSession session)
@@ -61,10 +62,10 @@ public class SalaryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorRemoveSalary", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorRemoveSalary");
 	}
 
 	static public void updateSalary(SalaryModel model, HttpSession session)
@@ -77,10 +78,10 @@ public class SalaryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdateSalary", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorUpdateSalary");
 	}
 
 	static public List<SalaryModel> getListSalary(Map<String, Object> params, HttpSession session)
@@ -92,9 +93,10 @@ public class SalaryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListSalary", res.getMessage());
 			return null;
 		}
+		session.removeAttribute("errorGetListSalary");
 		List<SalaryModel> listSalary = objectMapper.convertValue(res.getData(), new TypeReference<List<SalaryModel>>() {
 		});
 		return listSalary;
@@ -109,10 +111,10 @@ public class SalaryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetSalary", res.getMessage());
 			return null;
 		}
-
+		session.removeAttribute("errorGetSalary");
 		SalaryModel model = objectMapper.convertValue(res.getData(), new TypeReference<SalaryModel>() {
 		});
 

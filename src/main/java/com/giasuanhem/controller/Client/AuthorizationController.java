@@ -124,11 +124,10 @@ public class AuthorizationController {
 			AccountModel model = AccountService.modelAccount;
 			model.setState(1);
 			AccountService.updateAccount(model, session);
-
+			
 			Map<String, Object> params = new HashMap<>();
 			params.put("username", model.getUsername());
 			params.put("password", model.getPassword());
-
 			AccountService.checkLogin(params, session);
 
 			return "redirect:/trang-chu";
@@ -180,9 +179,10 @@ public class AuthorizationController {
 	public String deleteAccount() {
 		try {
 			if (session.getAttribute("role") != null) {
+				model=AccountService.modelAccount;
 				model.setState(0);
 				AccountService.updateAccount(model, session);
-				return "redirect:/trang-chu";
+				return "redirect:/dang-xuat";
 			} else
 				return "redirect:/thong-tin-ca-nhan";
 		} catch (Exception e) {

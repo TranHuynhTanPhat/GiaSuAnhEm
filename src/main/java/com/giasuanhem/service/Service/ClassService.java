@@ -54,10 +54,10 @@ public class ClassService {
 		});
 
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorRemoveClass", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorRemoveClass");
 
 	}
 
@@ -68,12 +68,10 @@ public class ClassService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.removeAttribute("alertA");
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCreateClass", res.getMessage());
 			return;
 		}
-		session.setAttribute("alertA", "true");
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorCreateClass");
 
 	}
 
@@ -87,10 +85,10 @@ public class ClassService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdateClass", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorUpdateClass");
 
 	}
 
@@ -105,14 +103,14 @@ public class ClassService {
 		});
 
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListClass", res.getMessage());
 			return null;
 		}
 
 		List<ClassModel> listClassModels = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<ClassModel>>() {
 				});
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorGetListClass");
 
 		return listClassModels;
 
@@ -126,12 +124,12 @@ public class ClassService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetClass", res.getMessage());
 			return null;
 		}
 		ClassModel model = objectMapper.convertValue(res.getData(), new TypeReference<ClassModel>() {
 		});
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorGetClass");
 
 		return model;
 

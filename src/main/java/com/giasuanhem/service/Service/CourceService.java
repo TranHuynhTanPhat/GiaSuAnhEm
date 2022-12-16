@@ -31,9 +31,10 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUNLS", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorUNLS");
 	}
 
 	static public void removeCource(Map<String, Object> params, HttpSession session)
@@ -44,9 +45,10 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorRNL", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorRNL");
 	}
 
 	static public NewClassModel createNewCource(NewClassModel model, HttpSession session)
@@ -58,11 +60,12 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCNL", res.getMessage());
 			return null;
 		}
 		NewClassModel newClass = objectMapper.convertValue(res.getData(), new TypeReference<NewClassModel>() {
 		});
+		session.removeAttribute("errorCNL");
 		return newClass;
 
 	}
@@ -76,9 +79,10 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUNL", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorUNL");
 
 	}
 
@@ -90,12 +94,13 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGLNL", res.getMessage());
 			return null;
 		}
 		List<NewClassModel> listNewClassModels = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<NewClassModel>>() {
 				});
+		session.removeAttribute("errorGLNL");
 		return listNewClassModels;
 
 	}
@@ -108,10 +113,11 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorNL", res.getMessage());
 			return null;
 		}
 
+		session.removeAttribute("errorNL");
 		NewClassModel model = objectMapper.convertValue(res.getData(), new TypeReference<NewClassModel>() {
 		});
 		return model;
@@ -125,10 +131,11 @@ public class CourceService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorSNL", res.getMessage());
 			return null;
 		}
 
+		session.removeAttribute("errorSNL");
 		List<NewClassModel> listNewClassModels = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<NewClassModel>>() {
 				});

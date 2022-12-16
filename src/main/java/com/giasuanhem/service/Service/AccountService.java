@@ -49,40 +49,46 @@ public class AccountService {
 	static public void updateAccount(AccountModel model, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonReq = new Gson().toJson(model);
+		System.out.println(jsonReq);
 		String jsonResponse = CommonService.postWithJson(ApiConstant.ACCOUNT_UPDATE, jsonReq, session);
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdateAccount", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorUpdateAccount");
 
 	}
 
 	static public void updatePasword(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
-		String jsonResponse = CommonService.postWithParams(ApiConstant.ACCOUNT_UPDATE, params, session);
+		String jsonResponse = CommonService.postWithParams(ApiConstant.ACCOUNT_PASSWORD, params, session);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdatePassword", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorUpdatePassword");
 
 	}
 
-	static public AccountModel getAccount(Map<String, Object> params)
+	static public AccountModel getAccount(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
 		String jsonResponse = CommonService.getWithParams(ApiConstant.ACCOUNT_FINDID, params);
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
+		if (!res.getStatus()) {
+			session.setAttribute("errorGetAccount", res.getMessage());
+		}
+
+		session.removeAttribute("errorGetAccount");
 		AccountModel model = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
 		});
 		return model;
@@ -99,22 +105,19 @@ public class AccountService {
 		});
 
 		if (!res.getStatus()) {
-			session.setAttribute("errMessage", res.getMessage());
+			session.setAttribute("errorGetListAccount", res.getMessage());
 			return null;
 		}
 
 		List<AccountModel> listAccounts = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<AccountModel>>() {
 				});
-		session.removeAttribute("errorMessage");
-
+		session.removeAttribute("errorGetListAccount");
 		return listAccounts;
-
 	}
 
 	static public List<AccountModel> getListAccount(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
-
 		String jsonResponse = CommonService.getWithParams(ApiConstant.ACCOUNT_FILTER, params);
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -122,14 +125,14 @@ public class AccountService {
 		});
 
 		if (!res.getStatus()) {
-			session.setAttribute("errMessage", res.getMessage());
+			session.setAttribute("errorGetListAccount", res.getMessage());
 			return null;
 		}
 
 		List<AccountModel> listAccounts = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<AccountModel>>() {
 				});
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorGetListAccount");
 
 		return listAccounts;
 
@@ -138,7 +141,6 @@ public class AccountService {
 	/// Authorization
 	static public void checkLogin(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
-
 		session.removeAttribute("role");
 		session.removeAttribute("id");
 		session.removeAttribute("accessToken");
@@ -154,7 +156,7 @@ public class AccountService {
 		});
 
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorLogin", res.getMessage());
 			return;
 		}
 
@@ -175,7 +177,7 @@ public class AccountService {
 			session.setAttribute("role", "parent");
 		}
 
-		session.removeAttribute("errMessage");
+		session.removeAttribute("errorLogin");
 	}
 
 	static public void register(AccountModel model, HttpSession session)
@@ -189,10 +191,10 @@ public class AccountService {
 		});
 
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorRegister", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorRegister");
 
 	}
 }

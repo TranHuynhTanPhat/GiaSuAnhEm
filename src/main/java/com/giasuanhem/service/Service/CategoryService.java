@@ -36,10 +36,10 @@ public class CategoryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCreateCategory", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorCreateCategory");
 
 	}
 
@@ -52,10 +52,10 @@ public class CategoryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorRemoveCategory", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorRemoveCategory");
 
 	}
 
@@ -69,10 +69,10 @@ public class CategoryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdateCategory", res.getMessage());
 			return;
 		}
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorUpdateCategory");
 
 	}
 
@@ -103,14 +103,14 @@ public class CategoryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListCategory", res.getMessage());
 			return null;
 		}
 
 		List<CategoryModel> listCategoryModel = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<CategoryModel>>() {
 				});
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorGetListCategory");
 
 		return listCategoryModel;
 
@@ -125,14 +125,14 @@ public class CategoryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListCategory", res.getMessage());
 			return null;
 		}
 
 		List<CategoryModel> listCategoryModel = objectMapper.convertValue(res.getData(),
 				new TypeReference<List<CategoryModel>>() {
 				});
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorGetListCategory");
 		return listCategoryModel;
 	}
 
@@ -144,13 +144,13 @@ public class CategoryService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetCategory", res.getMessage());
 			return null;
 		}
 
 		CategoryModel category = objectMapper.convertValue(res.getData(), new TypeReference<CategoryModel>() {
 		});
-		session.removeAttribute("errorMessage");
+		session.removeAttribute("errorGetCategory");
 
 		return category;
 

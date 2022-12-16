@@ -125,7 +125,7 @@ public class AccountManagementController {
 
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("id", id);
-			AccountModel account = AccountService.getAccount(param);
+			AccountModel account = AccountService.getAccount(param, session);
 
 			ModelAndView mav = new ModelAndView("admin/AccountManagement/updateAccount");
 			mav.addObject("model", account);

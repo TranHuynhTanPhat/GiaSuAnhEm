@@ -32,9 +32,10 @@ public class PostService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorCreateRecruitment", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorCreateRecruitment");
 	}
 
 	static public void removePost(Map<String, Object> params, HttpSession session)
@@ -45,9 +46,10 @@ public class PostService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorRemovePost", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorRemovePost");
 	}
 
 	static public void updatePost(PostModel model, HttpSession session)
@@ -59,26 +61,28 @@ public class PostService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorUpdatePost", res.getMessage());
 			return;
 		}
+		session.removeAttribute("errorUpdatePost");
 	}
 
-	static public List<PostModel> getListPost() {
-		String jsonResponse = CommonService.get(ApiConstant.LIST_POST);
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
-			});
-			return listPost;
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-
-	}
+//	static public List<PostModel> getListPost() {
+//		String jsonResponse = CommonService.get(ApiConstant.LIST_POST);
+//		System.out.println(jsonResponse);
+//		ObjectMapper objectMapper = new ObjectMapper();
+//		try {
+//			List<PostModel> listPost = objectMapper.readValue(jsonResponse, new TypeReference<List<PostModel>>() {
+//			});
+//			return listPost;
+//
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return null;
+//		}
+//
+//	}
 
 	static public List<PostModel> getListPostWithParams(Map<String, Object> params, HttpSession session)
 			throws JsonParseException, JsonMappingException, IOException {
@@ -88,10 +92,11 @@ public class PostService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetListPost", res.getMessage());
 			return null;
 		}
 
+		session.removeAttribute("errorGetListPost");
 		List<PostModel> listPost = objectMapper.convertValue(res.getData(), new TypeReference<List<PostModel>>() {
 		});
 		return listPost;
@@ -106,10 +111,10 @@ public class PostService {
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
-			session.setAttribute("errorMessage", res.getMessage());
+			session.setAttribute("errorGetPost", res.getMessage());
 			return null;
 		}
-
+		session.removeAttribute("errorGetPost");
 		PostModel model = objectMapper.convertValue(res.getData(), new TypeReference<PostModel>() {
 		});
 		return model;
