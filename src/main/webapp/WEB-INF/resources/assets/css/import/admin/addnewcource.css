@@ -1,0 +1,8 @@
+:root
+{
+	--error-color:#e74c3c;
+}
+
+.col.error small{
+	color: var(--error-color);
+}

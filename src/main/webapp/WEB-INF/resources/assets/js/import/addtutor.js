@@ -84,7 +84,6 @@ function checkOptionError(option, message){
 
 form.addEventListener('submit', function(e) {
 
-	e.preventDefault()
 	let isEmptyError = checkEmptyError([hoten, diachi, ngaysinh, email, dienthoai, truong, nganhhoc])
 	let isCheckBoxCategoryError = checkCheckBoxError(table_category, list_category, 'chưa chọn khu vực dạy')
 	let isCheckBoxMonHocError = checkCheckBoxError(table_monhoc, list_monhoc, 'chưa chọn môn học')
@@ -92,7 +91,7 @@ form.addEventListener('submit', function(e) {
 	let isSoBuoiDayError = checkOptionError(sobuoiday,'Vui lòng chọn số buổi dạy')
 	let isTrinhDoError = checkOptionError(trinhdo,'Vui lòng chọn trình độ hiện tại')
 		
-	/*if(isEmptyError || isCheckBoxCategoryError || isCheckBoxMonHocError || isCheckBoxLopHocError){
+	if(isEmptyError || isCheckBoxCategoryError || isCheckBoxMonHocError || isCheckBoxLopHocError){
 		e.preventDefault()
-	}*/
+	}
 })
