@@ -120,7 +120,12 @@ public class TutorController {
 					khuvucs, sobuoiday, gioitinh, ngaysinh, namtotnghiem, nghenghiep, uudiem, model.getId());
 			TutorService.createTutor(itemAdd, session);
 
-			return "redirect:/gia-su";
+			if (session.getAttribute("errorCreateTutor") == null) {
+				return "redirect:/gia-su";
+			}
+			else {
+				return "redirect:/them-gia-su";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 

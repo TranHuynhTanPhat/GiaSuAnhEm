@@ -82,7 +82,7 @@
 					<div class="row" style="margin-top: 10px">
 						<h2>
 							<a href="https://www.facebook.com/mch1en" target="_blank"><i
-								class="fa-brands fa-facebook"></i> Nguyên Minh Chiến</a>
+								class="fa-brands fa-facebook"></i> Nguyễn Minh Chiến</a>
 						</h2>
 					</div>
 					<div class="row" style="margin-top: 10px">

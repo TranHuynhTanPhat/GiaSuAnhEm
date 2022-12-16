@@ -20,7 +20,9 @@
 
 			<h1 class="form-title">ĐĂNG KÝ LÀM GIA SƯ</h1>
 			<form action="them-gia-su" method="post">
-
+				<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
+					<small class="text" style="color: red">${sessionScope.errorCreateTutor}</small>
+				</div>
 				<div class="main-newclass-info-input">
 					<div class="user-input-box">
 						<label for="diachi">Họ và tên <span style="color: #db1414">*</span></label>
