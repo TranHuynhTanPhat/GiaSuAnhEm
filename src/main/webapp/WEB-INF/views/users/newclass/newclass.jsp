@@ -137,7 +137,7 @@
 								<td align="right">${convert.convertCurrency(item.salary) }
 									VNĐ</td>
 								<td>${ item.require }</td>
-								<c:if test="${role==1 }">
+								<c:if test="${sessionScope.role=='tutor' }">
 									<c:choose>
 										<c:when test="${item.status==1}">
 											<td width="9%"><d style="color: white">Đã được

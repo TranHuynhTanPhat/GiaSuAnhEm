@@ -39,7 +39,7 @@ public class AuthorizationController {
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		try {
-			model=AccountService.modelAccount;
+			model = AccountService.modelAccount;
 			ModelAndView mav = new ModelAndView("users/authorization/loginUser");
 			return mav;
 		} catch (Exception e) {
@@ -55,16 +55,15 @@ public class AuthorizationController {
 		params.put("username", username);
 		params.put("password", password);
 		AccountService.checkLogin(params, session);
-
-		if (model != null) {
-			if (model.getState() == 2) {
-				return "redirect:/verify";
-			}
-		} else {
+		model = AccountService.modelAccount;
+		if (model == null) {
 			return "redirect:/dang-nhap";
 		}
-
-		return "redirect:/trang-chu";
+		if (model.getState() == 2) {
+			return "redirect:/verify";
+		} else {
+			return "redirect:/trang-chu";
+		}
 
 	}
 
@@ -105,11 +104,11 @@ public class AuthorizationController {
 	public ModelAndView verify(HttpServletResponse response) {
 		try {
 			if (AccountService.modelAccount != null) {
+				model = AccountService.modelAccount;
 				response.setIntHeader("Refresh", 60);
 
 				OTP = RandomOTP.randomOTP();
-				EmailService.sendEmail(String.valueOf(model.getEmail()), "verify",
-						EmailService.formOTP(OTP));
+				EmailService.sendEmail(String.valueOf(model.getEmail()), "verify", EmailService.formOTP(OTP));
 				return new ModelAndView("users/authorization/verifyForm");
 			} else {
 				return new ModelAndView("users/authorization/loginUser");
@@ -132,7 +131,7 @@ public class AuthorizationController {
 			params.put("username", model.getUsername());
 			params.put("password", model.getPassword());
 			AccountService.checkLogin(params, session);
-			model=AccountService.modelAccount;
+			model = AccountService.modelAccount;
 			return "redirect:/trang-chu";
 		}
 		return "redirect:/verify";
@@ -143,6 +142,8 @@ public class AuthorizationController {
 		try {
 			model = null;
 			session.removeAttribute("accessToken");
+			session.removeAttribute("role");
+			session.removeAttribute("state");
 			return "redirect:/trang-chu";
 		} catch (Exception e) {
 			return "redirect:/error";

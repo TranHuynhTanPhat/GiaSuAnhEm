@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.ProcessBuilder.Redirect;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,15 +39,22 @@ public class paymentController {
 	@Autowired
 	HttpSession session;
 
-	AccountModel model = AccountService.modelAccount;
-
 	@RequestMapping(value = "/invoice", method = RequestMethod.GET)
 	public ModelAndView invoicePage(HttpServletRequest request) {
 		try {
-//			model = AccountService.modelAccount;
-			if (model != null) {
 
-				if (model.getRole() == 1) {
+			if (session.getAttribute("role") != null) {
+
+				String tutorContent = "Đăng ký dạy lớp:";
+				byte[] bytes1 = tutorContent.getBytes(StandardCharsets.ISO_8859_1);
+				tutorContent = new String(bytes1, StandardCharsets.UTF_8);
+
+				String parentContent = "Đăng ký mở lớp:";
+				byte[] bytes2 = parentContent.getBytes(StandardCharsets.ISO_8859_1);
+				parentContent = new String(bytes2, StandardCharsets.UTF_8);
+				AccountModel modelA = AccountService.modelAccount;
+				if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
+
 					Map<String, Object> params = new HashMap<>();
 					params.put("id", request.getParameter("id"));
 					NewClassModel classModel = CourceService.getNewClass(params, session);
@@ -54,9 +62,9 @@ public class paymentController {
 					TransactionHistoryModel newModel = new TransactionHistoryModel();
 					newModel.setAmount((int) (classModel.getSalary() * 0.4));
 
-					newModel.setContent("Dang ky day lop: " + (String) request.getParameter("id"));
+					newModel.setContent(tutorContent + (String) request.getParameter("id"));
 
-					newModel.setId_account(model.getId());
+					newModel.setId_account(modelA.getId());
 					newModel.setStatus(1);
 					TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
 
@@ -65,12 +73,12 @@ public class paymentController {
 					paramStatus.put("status", 1);
 					CourceService.updateStatus(paramStatus, session);
 
-					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
+					EmailService.sendEmail(modelA.getEmail(), "Hóa đơn thanh toán",
 							EmailService.formInvoice(ConvertCurrency.convertCurrency(history.getAmount()),
-									String.valueOf(history.getId()), history.getCreated_at(), model.getUsername(),
+									String.valueOf(history.getId()), history.getCreated_at(), modelA.getUsername(),
 									"Thanh toán phí đăng ký nhận lớp.", String.valueOf(classModel.getId())));
 					ModelAndView mav = new ModelAndView("users/formInvoice");
-					mav.addObject("username", model.getUsername());
+					mav.addObject("username", modelA.getUsername());
 					mav.addObject("id", classModel.getId());
 					mav.addObject("salary", ConvertCurrency.convertCurrency((int) (classModel.getSalary() * 0.4)));
 					mav.addObject("idInvoice", history.getId());
@@ -83,22 +91,22 @@ public class paymentController {
 					TransactionHistoryModel newModel = new TransactionHistoryModel();
 					newModel.setAmount(500000);
 
-					newModel.setContent("Dang ky day lop: " + (String) request.getParameter("id"));
+					newModel.setContent(parentContent + (String) request.getParameter("id"));
 
-					newModel.setId_account(model.getId());
+					newModel.setId_account(modelA.getId());
 					newModel.setStatus(1);
 					TransactionHistoryModel history = TransactionService.createTransaction(newModel, session);
 
-					EmailService.sendEmail(model.getEmail(), "Hóa đơn thanh toán",
+					EmailService.sendEmail(modelA.getEmail(), "Hóa đơn thanh toán",
 							EmailService.formInvoice(ConvertCurrency.convertCurrency(history.getAmount()),
-									String.valueOf(history.getId()), history.getCreated_at(), model.getUsername(),
+									String.valueOf(history.getId()), history.getCreated_at(), modelA.getUsername(),
 									"Thanh toán phí đăng ký mở lớp.", String.valueOf(classModel.getId())));
 					ModelAndView mav = new ModelAndView("users/formInvoice");
-					mav.addObject("username", model.getUsername());
+					mav.addObject("username", modelA.getUsername());
 					mav.addObject("id", classModel.getId());
 					mav.addObject("salary", ConvertCurrency.convertCurrency(500000));
 					mav.addObject("idInvoice", history.getId());
-					mav.addObject("emailUser", model.getEmail());
+					mav.addObject("emailUser", modelA.getEmail());
 					return mav;
 				}
 
@@ -114,16 +122,13 @@ public class paymentController {
 
 	@RequestMapping(value = "/thanh-toan-dang-ky-day", method = RequestMethod.GET)
 	public ModelAndView registerForTutor(HttpServletRequest request, HttpServletResponse response) {
-//		model = AccountService.modelAccount;
-
-		if (model.getRole() == 1) {
+		if (String.valueOf(session.getAttribute("role")).equals("tutor")) {
 			String classID = String.valueOf(request.getParameter("id"));
 			int salary = Integer.parseInt(request.getParameter("salary"));
 
 			ModelAndView mav = new ModelAndView("users/payBill");
 			mav.addObject("id", classID);
 			mav.addObject("salary", ConvertCurrency.convertCurrency((int) (salary * 0.4)));
-			mav.addObject("role", model.getRole());
 			return mav;
 		} else {
 			return new ModelAndView("404page");
@@ -132,9 +137,8 @@ public class paymentController {
 
 	@RequestMapping(value = "/thanh-toan-mo-lop", method = RequestMethod.GET)
 	public ModelAndView registerForParent(HttpServletRequest request, HttpServletResponse response) {
-//		model = AccountService.modelAccount;
 
-		if (model.getRole() == 1) {
+		if (String.valueOf(session.getAttribute("role")).equals("parent")) {
 			// String classID = String.valueOf(request.getParameter("id"));
 			// String salary = String.valueOf(request.getParameter("salary"));
 			ModelAndView mav = new ModelAndView("users/payBill");

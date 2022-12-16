@@ -146,7 +146,6 @@ public class AccountService {
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		jsonResponse = CommonService.postWithParams(ApiConstant.CHECK_LOGIN, params, session);
-
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 
@@ -158,11 +157,13 @@ public class AccountService {
 		modelAccount = objectMapper.convertValue(res.getData(), new TypeReference<AccountModel>() {
 		});
 
+		session.setAttribute("state", modelAccount.getState());
 		session.setAttribute("accessToken", modelAccount.getToken());
 
 		if (modelAccount.getRole() == 0) {
+			session.removeAttribute("role");
 			session.setAttribute("admin", modelAccount.getUsername());
-			modelAccount=null;
+			modelAccount = null;
 		} else if (modelAccount.getRole() == 1) {
 
 			session.setAttribute("role", "tutor");
@@ -177,6 +178,7 @@ public class AccountService {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonReq = new Gson().toJson(model);
+		System.out.println(jsonReq);
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		String jsonResponse = CommonService.postWithJson(ApiConstant.REGISTER, jsonReq, session);

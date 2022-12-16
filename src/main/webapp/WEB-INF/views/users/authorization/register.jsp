@@ -30,9 +30,6 @@
 		<h2>Đăng ký</h2>
 		<form action="dang-ky" method="post">
 
-			<div class="user-box" style="margin-top: 5px; margin-bottom: 15px;">
-				<span class="text" style="color: red"><strong>${sessionScope.errorRegister}</strong></span>
-			</div>
 			<div class="user-box">
 				<input id="username" type="text" name="username" /> <small></small>
 				<span></span> <label>Tên tài khoản</label>

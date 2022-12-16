@@ -13,7 +13,7 @@
 					<ul class="dropdown-menu">
 						<c:choose>
 							<c:when
-								test="${(role==1 or role==2) and state==1}">
+								test="${(sessionScope.role=='tutor' or sessionScope.role=='parent') and sessionScope.state==1}">
 								<li class="dropdown-item"><a href="./thong-tin-ca-nhan">Thông
 										tin cá nhân</a></li>
 
@@ -41,8 +41,7 @@
 				<li class="navbar-item"><a href="./gioi-thieu" class="nav-link">Giới
 						thiệu</a></li>
 				<c:choose>
-					<c:when
-						test="${role==2 and state==1}">
+					<c:when test="${sessionScope.role=='parent' and sessionScope.state==1}">
 						<li class="nav-item dropdown" id="myDropdown"><a
 							class="nav-link dropdown-toggle" href="./lop-moi"
 							data-bs-toggle="dropdown">Lớp mới</a>
@@ -61,8 +60,7 @@
 						lương</a></li>
 
 				<c:choose>
-					<c:when
-						test="${role==1 and state==1}">
+					<c:when test="${sessionScope.role=='tutor' and sessionScope.state==1}">
 						<li class="nav-item dropdown" id="myDropdown"><a
 							class="nav-link dropdown-toggle" href="./gia-su"
 							data-bs-toggle="dropdown"> Gia sư </a>

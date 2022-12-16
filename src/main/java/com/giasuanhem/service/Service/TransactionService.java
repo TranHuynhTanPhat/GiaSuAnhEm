@@ -89,6 +89,7 @@ public class TransactionService {
 			throws JsonParseException, JsonMappingException, IOException {
 
 		String jsonResponse = CommonService.getWithParams(ApiConstant.TRANS_STATIS, params);
+		System.out.println(jsonResponse);
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {

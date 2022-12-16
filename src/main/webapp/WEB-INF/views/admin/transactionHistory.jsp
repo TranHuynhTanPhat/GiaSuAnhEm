@@ -47,6 +47,8 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+	<jsp:useBean id="convert"
+		class="com.giasuanhem.service.Currency.ConvertCurrency" />
 	<script type="text/javascript">
 		function confirmDelete() {
 			var result = confirm("Bạn chắc chưa?");
@@ -101,9 +103,9 @@
 						<table width="100%" class="table mb-0 bg-white">
 							<thead>
 								<tr>
-									<th scope="col">Mã giao dịch</th>
+									<th scope="col" width="8%">Mã giao dịch</th>
 									<th scope="col">Tên tài khoản</th>
-									<th scope="col">Tổng tiền</th>
+									<th scope="col" width="8%">Tổng tiền</th>
 									<th scope="col">Nội dung</th>
 									<th scope="col">Ngày tạo</th>
 
@@ -114,7 +116,8 @@
 									<tr style="background-color: #ffe3b3">
 										<td>${item.id }</td>
 										<td>${item.id_account }</td>
-										<td>${item.amount }</td>
+										<td style="float: center">${convert.convertCurrency(item.amount) }
+											VNĐ</td>
 										<td>${item.content }</td>
 										<td>${item.created_at }</td>
 

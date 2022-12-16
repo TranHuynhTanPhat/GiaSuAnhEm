@@ -52,7 +52,8 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-
+	<jsp:useBean id="convert"
+		class="com.giasuanhem.service.Currency.ConvertCurrency" />
 	<%@include file="/WEB-INF/views/admin/layout/sidebar.jsp"%>
 	<section class="home">
 		<div class="row">
@@ -76,7 +77,7 @@
 										<div
 											class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 											Doanh thu (Theo tháng)</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">${model.budget_month }
+										<div class="h5 mb-0 font-weight-bold text-gray-800">${convert.convertCurrency(model.budget_month) }
 											VNĐ</div>
 									</div>
 									<div class="col-auto">
@@ -96,7 +97,7 @@
 										<div
 											class="text-xs font-weight-bold text-success text-uppercase mb-1">
 											Doanh thu (Theo năm)</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">${model.budget_year }
+										<div class="h5 mb-0 font-weight-bold text-gray-800">${convert.convertCurrency(model.budget_year) }
 											VNĐ</div>
 									</div>
 									<div class="col-auto">

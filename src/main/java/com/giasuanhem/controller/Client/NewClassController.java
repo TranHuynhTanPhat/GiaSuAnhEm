@@ -36,7 +36,6 @@ public class NewClassController {
 	HttpSession session;
 	@Autowired
 	MapperModel commonModel;
-	AccountModel model = AccountService.modelAccount;
 
 	@RequestMapping(value = "/lop-moi", method = RequestMethod.GET)
 	public ModelAndView newClassPage(HttpServletRequest request)
@@ -83,7 +82,7 @@ public class NewClassController {
 	@RequestMapping(value = "/dang-ky-mo-lop", method = RequestMethod.GET)
 	public ModelAndView registerNewClassPage() throws JsonParseException, JsonMappingException, IOException {
 
-		if (model.getRole()==2) {
+		if (String.valueOf(session.getAttribute("role")).equals("parent")) {
 			Map<String, Object> paramsClass = new HashMap<>();
 			paramsClass.put("type", 1);
 			List<CategoryModel> listCategoryClass = CategoryService.getListCategory(paramsClass, session);
@@ -120,7 +119,7 @@ public class NewClassController {
 			NewClassModel newClass = CourceService.createNewCource(model, session);
 
 			session.setAttribute("id", newClass.getId());
-			session.setAttribute("salary", 500000	);
+			session.setAttribute("salary", 500000);
 
 			return "redirect:/thanh-toan-mo-lop";
 		} catch (Exception e) {
