@@ -10,6 +10,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trang thêm gia sư</title>
+
+<link rel="stylesheet"
+	href="./resources/assets/css/import/admin/addtutor.css">
+
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -80,7 +84,7 @@
 								<label class="control-label">Điện thoại: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline ">
-									<input type="text" name="dienthoai" class="form-control"
+									<input type="text" id="dienthoai" name="dienthoai" class="form-control"
 										value="" required>
 								</div>
 							</div>
@@ -91,7 +95,8 @@
 								<label class="control-label">Email: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="email" class="form-control" value="" required>
+									<input type="text" id="email" name="email" class="form-control" value=""
+										required>
 								</div>
 							</div>
 							<div class="col">
@@ -121,14 +126,15 @@
 								<label class="control-label">Ngày sinh: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<input type="date" class="form-control" name=ngaysinh value="" required>
+									<input type="date" id="ngaysinh" class="form-control" name=ngaysinh value=""
+										required>
 								</div>
 							</div>
 							<div class="col-md">
 								<label class="control-label">Hiện là: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="nghenghiep" id="nghenghiep" class="form-control"
+									<select name="nghenghiep" id="hienla" class="form-control"
 										style="width: 100%; float: left" required>
 										<option value="">-- Chọn nghề nghiệp --</option>
 										<option value="Giáo viên">Giáo viên</option>
@@ -161,7 +167,8 @@
 									trường: <span style="color: #FF0000">*</span>
 								</label>
 								<div class="form-outline">
-									<input type="text" name="truong" class="form-control" value="" required>
+									<input type="text" id="truong" name="truong" class="form-control" value=""
+										required>
 								</div>
 							</div>
 							<div class="col">
@@ -176,7 +183,7 @@
 								<label class="control-label">Tên tài khoản: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="accId" class="form-control" required>
+									<select id="taikhoan" name="accId" class="form-control" required>
 										<option value="0">-- Chọn tài khoản --</option>
 										<c:forEach var="item" items="${listAccount }">
 											<option value="${item.id }">${item.username }</option>
@@ -197,7 +204,8 @@
 							<label class="control-label">Địa chỉ: <span
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
-								<input type="text" name="diachi" class="form-control" value="" required>
+								<input type="text" name="diachi" class="form-control" value=""
+									required>
 							</div>
 						</div>
 						<div class="row">
@@ -209,9 +217,9 @@
 							</div>
 						</div>
 						<div class="row align-middle" style="padding-left: 15%">
-							<div class="col">
-								<label class="control-label"><strong>Môn dạy:</strong> <span
-									style="color: #FF0000">*</span></label>
+							<div class="col ">
+								<label class="control-label monhoc"><strong>Môn
+										dạy:</strong> <span style="color: #FF0000">*</span></label> <br> <small></small>
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
@@ -226,15 +234,15 @@
 								</div>
 							</div>
 							<div class="col">
-								<label class="control-label"><strong>Lớp dạy:</strong> <span
-									style="color: #FF0000">*</span></label>
+								<label class="control-label lophoc"><strong>Lớp
+										dạy:</strong> <span style="color: #FF0000">*</span></label> <br> <small></small>
 								<div class="col align-middle">
 									<table border="0" class="tablebox">
 										<tbody>
 											<c:forEach var="item" items="${ listClass }">
 												<tr>
 													<td><label><input type="checkbox"
-															name="lophoc" id="monhoc" value="${ item.id }">${item.name}</label></td>
+															name="lophoc" id="lophoc" value="${ item.id }">${item.name}</label></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -242,8 +250,8 @@
 								</div>
 							</div>
 							<div class="col">
-								<label class="control-label"><strong>Khu vực:</strong>
-									<span style="color: #FF0000">*</span></label>
+								<label class="control-label khuvuc"><strong>Khu
+										vực:</strong> <span style="color: #FF0000">*</span></label> <br> <small></small>
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
@@ -273,5 +281,7 @@
 		</div>
 		<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
 	</div>
+	<script src="resources/assets/js/import/admin/addtutor.js"></script>
+
 </body>
 </html>

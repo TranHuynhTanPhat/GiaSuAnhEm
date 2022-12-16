@@ -10,6 +10,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trang thêm khóa học</title>
+
+<link rel="stylesheet"
+	href="./resources/assets/css/import/admin/addnewcource.css">
+
 <!----===== Boxicons CSS ===== -->
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -70,7 +74,7 @@
 							<label class="control-label">Địa chỉ hiện tại: <span
 								style="color: #FF0000">*</span></label>
 							<div class="form-outline">
-								<input type="text" name="diachi" class="form-control" value="">
+								<input type="text" name="diachi" class="form-control" value="" required>
 							</div>
 						</div>
 						<div class="row">
@@ -78,29 +82,28 @@
 								<label class="control-label">Quận: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="quan" class="form-control" value="">
+									<input type="text" name="quan" class="form-control" value="" required>
 								</div>
 							</div>
 							<div class="col">
 								<label class="control-label">Số buổi: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="sobuoi" class="form-control" value="">
+									<input type="text" name="sobuoi" class="form-control" value="" required>
 								</div>
 							</div>
 							<div class="col">
 								<label class="control-label">Thời gian: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="time" class="form-control" value="">
+									<input type="text" name="time" class="form-control" value="" required>
 								</div>
 							</div>
 							<div class="col">
 								<label class="control-label">Lương: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline">
-									<input type="text" name="luong" class="form-control" value="">
-								</div>
+									<input type="text" name="luong" class="form-control" value="" required> 
 							</div>
 						</div>
 						<div class="row">
@@ -108,14 +111,14 @@
 								<label class="control-label">Liên hệ: <span
 									style="color: #FF0000">*</span></label>
 								<div class="form-outline w-75">
-									<input type="text" name="lienhe" class="form-control" value="">
+									<input type="text" name="lienhe" class="form-control" value="" required>
 								</div>
 							</div>
 							<div class="col">
 								<label class="control-label">Trạng thái: <span
 									style="color: #FF0000">*</span></label>
 								<div class="col">
-									<select name="trangthai" id="chonmon" class="form-select">
+									<select name="trangthai" id="chonmon" class="form-select" required>
 										<option value="0">-- Chọn trạng thái--</option>
 										<option value="1">Đã nhận</option>
 										<option value="0">Chưa nhận</option>
@@ -129,26 +132,24 @@
 									style="color: #FF0000">*</span></label>
 								<div class="col">
 									<input type="text" name="yeucaukhac" class="form-control"
-										value="">
+										value=""required>
 								</div>
 							</div>
 						</div>
 						<div class="row align-middle" style="padding-left: 15%">
 							<div class="col">
-								<label class="control-label"><strong>Phân
-										loại: </strong><span style="color: #FF0000">*</span></label>
+								<label class="control-label category"><strong>Phân
+										loại: </strong><span style="color: #FF0000">*</span></label><br><small></small>
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
-											<c:forEach var="item"
-												items="${listCategoryDistrict}">
+											<c:forEach var="item" items="${listCategoryDistrict}">
 												<tr>
 													<td><input type="checkbox" name="category"
 														id="category" value="${item.id }">${item.name }</td>
 												</tr>
 											</c:forEach>
-											<c:forEach var="item"
-												items="${listCategoryClass }">
+											<c:forEach var="item" items="${listCategoryClass }">
 												<tr>
 													<td><input type="checkbox" name="category"
 														id="category" value="${item.id }">${item.name }</td>
@@ -159,8 +160,8 @@
 								</div>
 							</div>
 							<div class="col">
-								<label class="control-label"><strong>Môn dạy: </strong><span
-									style="color: #FF0000">*</span></label>
+								<label class="control-label monhoc"><strong>Môn dạy: </strong><span
+									style="color: #FF0000">*</span></label><br><small></small>
 								<div class="col align-middle">
 									<table border="0" class="tablebox">
 										<tbody>
@@ -175,8 +176,8 @@
 								</div>
 							</div>
 							<div class="col">
-								<label class="control-label"><strong>Lớp dạy: </strong><span
-									style="color: #FF0000">*</span></label>
+								<label class="control-label lophoc"><strong>Lớp dạy: </strong><span
+									style="color: #FF0000">*</span></label><br><small></small>
 								<div class="col">
 									<table border="0" class="tablebox">
 										<tbody>
@@ -207,6 +208,7 @@
 	</div>
 
 	<%@include file="/WEB-INF/views/admin/layout/footer.jsp"%>
+	<script src="resources/assets/js/import/admin/addnewcource.js"></script>
 
 </body>
 </html>

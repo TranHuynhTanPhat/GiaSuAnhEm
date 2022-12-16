@@ -25,70 +25,67 @@
 					<div class="user-input-box">
 						<label for="diachi">Họ và tên <span style="color: #db1414">*</span></label>
 						<input type="text" id="hoten" name="hoten"
-							placeholder="Nhập Họ và tên" required>
+							placeholder="Nhập Họ và tên"><small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Địa chỉ <span style="color: #db1414">*</span></label>
 						<input type="text" id="diachi" name="diachi"
-							placeholder="Nhập địa chỉ" required>
+							placeholder="Nhập địa chỉ"><small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="ngaysinh">Ngày sinh <span
 							style="color: #db1414">*</span></label> <input type="date" id="ngaysinh"
-							name="ngaysinh" placeholder="Chọn ngày sinh" required>
+							name="ngaysinh" placeholder="Chọn ngày sinh"><small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="diachi">Giới tính <span style="color: #db1414">*</span></label>
 						<select name="gioitinh" id="gioitinh"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							required>
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="Nam">Nam</option>
 							<option value="Nữ">Nữ</option>
-						</select>
+						</select> <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="time">Email <span style="color: #db1414">*</span></label>
 						<input type="text" id="email" name="email"
-							placeholder="Nhập Email" required>
+							placeholder="Nhập Email"><small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="dienthoai">Điện thoại <span
 							style="color: #db1414">*</span></label> <input type="text" id="dienthoai"
-							name="dienthoai" placeholder="Nhập số điện thoại" required>
+							name="dienthoai" placeholder="Nhập số điện thoại"><small></small>
 					</div>
 					<div class="user-input-box">
-						<label for="truong">Sinh viên(giáo viên) trường</label> <input
-							type="text" id="truong" name="truong"
-							placeholder="VD: Đại học Sư Phạm Kĩ Thuật" required>
+						<label for="truong">Sinh viên(giáo viên) trường</label><span
+							style="color: #db1414">*</span> <input type="text" id="truong"
+							name="truong" placeholder="VD: Đại học Sư Phạm Kĩ Thuật"><small></small>
 					</div>
 
 					<div class="user-input-box">
 						<label for="chuyennganh">Ngành học <span
 							style="color: #db1414">*</span></label> <input type="text" id="nganhhoc"
-							name="chuyennganh" placeholder="Nhập ngành học" required>
+							name="chuyennganh" placeholder="Nhập ngành học"><small></small>
 					</div>
 
 					<div class="user-input-box">
 						<label for="namtotnghiep">Năm tốt nghiệp</label> <input
 							type="text" id="namtotnghiep" name="namtotnghiep"
-							placeholder="năm tốt nghiệp" required>
+							placeholder="năm tốt nghiệp"><small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="nghenghiep">Hiện là <span
 							style="color: #db1414">*</span></label> <select name="nghenghiep"
 							id="nghenghiep"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							required>
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="Giáo viên">Giáo viên</option>
 							<option value="Sinh viên">Sinh viên</option>
 							<option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
-						</select>
+						</select> <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="trinhdo">Trình độ <span style="color: #db1414">*</span></label>
 						<select name="trinhdo" id="trinhdo"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							required>
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="0">Trình độ</option>
 							<option value="1">Cao Đẳng</option>
 							<option value="2">Đại Học</option>
@@ -97,14 +94,13 @@
 							<option value="5">Tiến sỹ</option>
 							<option value="6">Kỹ sư</option>
 							<option value="7">Bằng cấp khác</option>
-						</select>
+						</select> <small></small>
 					</div>
 					<div class="user-input-box">
 						<label for="sobuoday">Số buổi dạy <span
 							style="color: #db1414">*</span></label> <select name="sobuoiday"
 							id="sobuoiday"
-							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;"
-							required>
+							style="font-size: 12px; margin-bottom: 5px; padding: 6px 6px !important;">
 							<option value="0">Chọn số buổi dạy</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -113,12 +109,12 @@
 							<option value="5">5</option>
 							<option value="6">6</option>
 							<option value="7">7</option>
-						</select>
+						</select> <small></small>
 					</div>
 
 					<div class="user-input-box">
 						<label for="uudiem">Ưu điểm</label> <input type="text" id="uudiem"
-							name="uudiem" placeholder="yêu cầu khác" required>
+							name="uudiem" placeholder="Nhập ưu điểm"><small></small>
 					</div>
 
 
@@ -126,7 +122,7 @@
 				<div class="main-newclass-info-checkbox">
 					<div class="user-checkbox-box">
 						<label for="luong">Khu vực dạy <span
-							style="color: #db1414">*</span></label>
+							style="color: #db1414">*</span></label><br> <small></small>
 						<table border="0" class="tablebox category">
 							<tbody class="category">
 								<c:forEach var="item" items="${listCategoryDistrict }">
@@ -140,8 +136,9 @@
 					</div>
 
 					<div class="user-checkbox-box">
-						<label for="luong">Môn dạy <span style="color: #db1414">*</span></label>
-						<table border="0" class="tablebox">
+						<label for="luong">Môn dạy <span style="color: #db1414">*</span></label><br>
+						<small></small>
+						<table border="0" class="tablebox monhoc">
 							<tbody>
 								<c:forEach var="item" items="${listSubject }">
 									<tr>
@@ -153,8 +150,9 @@
 						</table>
 					</div>
 					<div class="user-checkbox-box">
-						<label for="luong">Lớp dạy <span style="color: #db1414">*</span></label>
-						<table border="0" class="tablebox class">
+						<label for="luong">Lớp dạy <span style="color: #db1414">*</span></label><br>
+						<small></small>
+						<table border="0" class="tablebox lophoc">
 							<tbody>
 								<c:forEach var="item" items="${listClass }">
 									<tr>
@@ -172,5 +170,6 @@
 			</form>
 		</div>
 	</div>
+	<script src="resources/assets/js/import/addtutor.js"></script>
 </body>
 </html>
