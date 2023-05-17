@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @Transactional
 public class CommonService {
 
-	private static final String BASE_URL_API = "https://giasuae-api.up.railway.app/v1";
+	private static final String BASE_URL_API = "http://localhost:8100/v1";
 	static RestTemplate restTemplate = new RestTemplate();
 
 	static String takeApiURL(String path) {

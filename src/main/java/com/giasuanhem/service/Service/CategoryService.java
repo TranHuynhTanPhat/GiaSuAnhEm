@@ -121,7 +121,6 @@ public class CategoryService {
 		String jsonResponse = CommonService.getWithParams(ApiConstant.CATEGORY_FILTER, params);
 
 		ObjectMapper objectMapper = new ObjectMapper();
-
 		ResponseModel res = objectMapper.readValue(jsonResponse, new TypeReference<ResponseModel>() {
 		});
 		if (!res.getStatus()) {
