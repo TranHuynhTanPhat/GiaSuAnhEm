@@ -122,7 +122,7 @@ public class EmailService {
 	static public Boolean sendEmail(String email, String subject, String content) {
 		try {
 			final String username = "thcstrandainghiaphat8a2@gmail.com";
-			final String password = "vrhvmndpzrfvrdwy";
+			final String password = "lwvnaaxxntumcryy";
 
 			Properties prop = new Properties();
 			prop.put("mail.smtp.host", "smtp.gmail.com");
