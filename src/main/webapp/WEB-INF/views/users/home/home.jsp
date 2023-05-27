@@ -91,19 +91,17 @@
 	<%@include file="/WEB-INF/views/users/layout/footer.jsp"%>
 </body>
 <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
+<!--     <div id="fb-root"></div>
 
-    <!-- Your Plugin chat code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
 
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "108568898772191");
+      chatbox.setAttribute("page_id", "100088666753906");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
-    <!-- Your SDK code -->
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -119,5 +117,5 @@
         js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    </script>
+    </script> -->
 </html>

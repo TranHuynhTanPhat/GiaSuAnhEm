@@ -58,7 +58,14 @@ public class NewClassController {
 
 		if (category != null) {
 			Map<String, Object> params = new HashMap<>();
-			params.put("cateID", Integer.parseInt(category));
+			int id =0;
+			try {
+				id = Integer.parseInt(category);
+			}
+			catch(NumberFormatException e) {
+				System.out.print(e);
+			}
+			params.put("cateID", id);
 			listNewClass = CourceService.search(params, session);
 			mav.addObject("listNewClass", listNewClass);
 		} else {
